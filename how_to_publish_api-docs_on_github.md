@@ -22,8 +22,13 @@ Now you just need to replace the source files in the repository, copying and pas
 ##Update and publish content
 This step must be repeated every time we want to update the public API documentation.
 
-1. replace the files in the cloned source directory with the updated ones from the local source directory;
-2. run the following commands:
+1. If you don't have it already, clone the repo on your local machine by running the following command from the destination directory:
+2. ```
+#Clone the documentation repository
+git clone git@github.com:yonderlabs/PROJECT_NAME.git
+```
+3. replace the files in the cloned source directory with the updated ones from the local source directory;
+4. run the following commands:
 
 ```
 #Enter the project root
