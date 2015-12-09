@@ -68,7 +68,7 @@ PRIVACY - For preserving your privacy we delete the text of your document from o
           <h2 id="taxonomy-classification">Taxonomy Classification</h2>
 
 <blockquote>
-<p>Request example &ldquo;fromURL&rdquo;&hellip;</p>
+<p>Request example - <code class="prettyprint">POST fromURL</code>&hellip;</p>
 </blockquote>
 <pre class="highlight shell"><code>curl --ssl-reqd --request POST -u YOUR_USERNAME:YOUR_PASSWORD --data <span class="nv">url</span><span class="o">=</span>http%3A%2F%2Fwww.theatlantic.com%2Finternational%2Farchive%2F2015%2F11%2Frussia-doping-2016-olympics%2F416604%2F <span class="s2">"https://vm3.yonderlabs.com/1.0/text/taxonomyclassification/fromURL?limit=2&amp;taxonomy=news-en"</span>
 </code></pre>
@@ -98,7 +98,7 @@ PRIVACY - For preserving your privacy we delete the text of your document from o
 </span></code></pre>
 
 <blockquote>
-<p>Request example &ldquo;fromText&rdquo;&hellip;</p>
+<p>Request example - <code class="prettyprint">POST fromText</code>&hellip;</p>
 </blockquote>
 <pre class="highlight shell"><code>curl --ssl-reqd --request POST -u YOUR_USERNAME:YOUR_PASSWORD --data <span class="nv">text</span><span class="o">=</span><span class="s2">"With less than nine months to go for the 2016 Olympics in Rio de Janeiro, Russia is trying to break a world record in the 90-day sprint. A little more than a week after a commission of the world Anti-Doping Agency (WADA) issued a report that accused Russia of essentially hosting a state-sponsored doping program, Russia launched a task force to rid itself of its doping infection so it may compete in the Olympics [...]."</span> <span class="s2">"https://vm3.yonderlabs.com/1.0/text/taxonomyclassification/fromText?limit=2&amp;taxonomy=news-en"</span>
 </code></pre>
@@ -132,7 +132,7 @@ PRIVACY - For preserving your privacy we delete the text of your document from o
 <p>This service analyzes chunks of text (from single sentences to full documents) and classifies them into customizable hierarchical taxonomies (e.g. Reuters taxonomy for news, etc.). 
 Allowed input sources are: text content contained in an URL (&ldquo;from URL&rdquo;) or just simple text (&ldquo;from text&rdquo;).</p>
 
-<h3 id="from-url-https-request">From URL: HTTPS request</h3>
+<h3 id="taxonomy-classification-post-fromurl">Taxonomy Classification - <code class="prettyprint">POST fromURL</code></h3>
 
 <table><thead>
 <tr>
@@ -188,7 +188,7 @@ Allowed input sources are: text content contained in an URL (&ldquo;from URL&rdq
 
 <p>Examples of how-to-call the API and the related output are provided in the right panel.</p>
 
-<h3 id="from-text-https-request">From text: HTTPS request</h3>
+<h3 id="taxonomy-classification-post-fromtext">Taxonomy Classification - <code class="prettyprint">POST fromText</code></h3>
 
 <table><thead>
 <tr>
@@ -251,7 +251,7 @@ Remember — insert your credentials for authentication!
           <h2 id="sentiment-analysis">Sentiment Analysis</h2>
 
 <blockquote>
-<p>Request example &ldquo;fromURL&rdquo;&hellip;</p>
+<p>Request example - <code class="prettyprint">POST fromURL</code>&hellip;</p>
 </blockquote>
 <pre class="highlight shell"><code>curl --ssl-reqd --request POST -u YOUR_USERNAME:YOUR_PASSWORD --data <span class="nv">url</span><span class="o">=</span>http%3A%2F%2Fwww.theatlantic.com%2Finternational%2Farchive%2F2015%2F11%2Frussia-doping-2016-olympics%2F416604%2F <span class="s2">"https://vm3.yonderlabs.com/1.0/text/sentimentanalysis/fromURL"</span>
 </code></pre>
@@ -267,7 +267,7 @@ Remember — insert your credentials for authentication!
 </span></code></pre>
 
 <blockquote>
-<p>Request example &ldquo;fromText&rdquo;&hellip;</p>
+<p>Request example - <code class="prettyprint">POST fromText</code>&hellip;</p>
 </blockquote>
 <pre class="highlight shell"><code>curl --ssl-reqd --request POST -u YOUR_USERNAME:YOUR_PASSWORD --data <span class="nv">text</span><span class="o">=</span><span class="s2">"With less than nine months to go for the 2016 Olympics in Rio de Janeiro, Russia is trying to break a world record in the 90-day sprint. A little more than a week after a commission of the world Anti-Doping Agency (WADA) issued a report that accused Russia of essentially hosting a state-sponsored doping program, Russia launched a task force to rid itself of its doping infection so it may compete in the Olympics [...]."</span> <span class="s2">"https://vm3.yonderlabs.com/1.0/text/sentimentanalysis/fromText"</span>
 </code></pre>
@@ -287,7 +287,7 @@ Remember — insert your credentials for authentication!
 <p>This API classifies the polarity of a given text at sentence and document level, identifying whether the expressed opinion is positive, negative, or neutral. 
 Allowed input sources are: text content contained in an URL (&ldquo;from URL&rdquo;) or just simple text (&ldquo;from text&rdquo;).</p>
 
-<h3 id="from-url-https-request">From URL: HTTPS request</h3>
+<h3 id="sentiment-analysis-post-fromurl">Sentiment Analysis - <code class="prettyprint">POST fromURL</code></h3>
 
 <table><thead>
 <tr>
@@ -307,7 +307,7 @@ Allowed input sources are: text content contained in an URL (&ldquo;from URL&rdq
 
 <p>Examples of how-to-call the API and the related output are provided in the right panel.</p>
 
-<h3 id="from-text-https-request">From text: HTTPS request</h3>
+<h3 id="sentiment-analysis-post-fromtext">Sentiment Analysis - <code class="prettyprint">POST fromText</code></h3>
 
 <table><thead>
 <tr>
@@ -334,7 +334,7 @@ Remember — insert your credentials for authentication!
           <h2 id="entity-extraction">Entity Extraction</h2>
 
 <blockquote>
-<p>Request example &ldquo;fromURL&rdquo;&hellip;</p>
+<p>Request example - <code class="prettyprint">POST fromURL</code>&hellip;</p>
 </blockquote>
 <pre class="highlight shell"><code>curl --ssl-reqd --request POST -u YOUR_USERNAME:YOUR_PASSWORD --data <span class="nv">url</span><span class="o">=</span>http%3A%2F%2Fwww.theatlantic.com%2Finternational%2Farchive%2F2015%2F11%2Frussia-doping-2016-olympics%2F416604%2F <span class="s2">"https://vm3.yonderlabs.com/1.0/text/entityextraction/fromURL?limit=10"</span>
 </code></pre>
@@ -427,7 +427,7 @@ Remember — insert your credentials for authentication!
 </span></code></pre>
 
 <blockquote>
-<p>Request example &ldquo;fromText&rdquo;&hellip;</p>
+<p>Request example - <code class="prettyprint">POST fromText</code>&hellip;</p>
 </blockquote>
 <pre class="highlight shell"><code>curl --ssl-reqd --request POST -u YOUR_USERNAME:YOUR_PASSWORD --data <span class="nv">text</span><span class="o">=</span><span class="s2">"With less than nine months to go for the 2016 Olympics in Rio de Janeiro, Russia is trying to break a world record in the 90-day sprint. A little more than a week after a commission of the world Anti-Doping Agency (WADA) issued a report that accused Russia of essentially hosting a state-sponsored doping program, Russia launched a task force to rid itself of its doping infection so it may compete in the Olympics [...]."</span> <span class="s2">"https://vm3.yonderlabs.com/1.0/text/entityextraction/fromText?limit=10"</span>
 </code></pre>
@@ -524,7 +524,7 @@ Remember — insert your credentials for authentication!
 <p>This API detects and classifies named entities such as persons/companies and locations. The service also links them to knowledge base repositories (Wikipedia, DBpedia, etc.).
 Allowed input sources are: text content contained in an URL (&ldquo;from URL&rdquo;) or just simple text (&ldquo;from text&rdquo;).</p>
 
-<h3 id="from-url-https-request">From URL: HTTPS request</h3>
+<h3 id="entity-extraction-post-fromurl">Entity Extraction - <code class="prettyprint">POST fromURL</code></h3>
 
 <table><thead>
 <tr>
@@ -558,7 +558,7 @@ Allowed input sources are: text content contained in an URL (&ldquo;from URL&rdq
 
 <p>Examples of how-to-call the API and the related output are provided in the right panel.</p>
 
-<h3 id="from-text-https-request">From text: HTTPS request</h3>
+<h3 id="entity-extraction-post-fromtext">Entity Extraction - <code class="prettyprint">POST fromText</code></h3>
 
 <table><thead>
 <tr>
@@ -599,7 +599,7 @@ Remember — insert your credentials for authentication!
           <h2 id="keyword-extraction">Keyword Extraction</h2>
 
 <blockquote>
-<p>Request example &ldquo;fromURL&rdquo;&hellip;</p>
+<p>Request example - <code class="prettyprint">POST fromURL</code>&hellip;</p>
 </blockquote>
 <pre class="highlight shell"><code>curl --ssl-reqd --request POST -u YOUR_USERNAME:YOUR_PASSWORD --data <span class="nv">url</span><span class="o">=</span>http%3A%2F%2Fwww.theatlantic.com%2Finternational%2Farchive%2F2015%2F11%2Frussia-doping-2016-olympics%2F416604%2F <span class="s2">"https://vm3.yonderlabs.com/1.0/text/keywordextraction/fromURL?limit=12"</span>
 </code></pre>
@@ -665,7 +665,7 @@ Remember — insert your credentials for authentication!
 </span></code></pre>
 
 <blockquote>
-<p>Request example &ldquo;fromText&rdquo;&hellip;</p>
+<p>Request example - <code class="prettyprint">POST fromText</code>&hellip;</p>
 </blockquote>
 <pre class="highlight shell"><code>curl --ssl-reqd --request POST -u YOUR_USERNAME:YOUR_PASSWORD --data <span class="nv">text</span><span class="o">=</span><span class="s2">"With less than nine months to go for the 2016 Olympics in Rio de Janeiro, Russia is trying to break a world record in the 90-day sprint. A little more than a week after a commission of the world Anti-Doping Agency (WADA) issued a report that accused Russia of essentially hosting a state-sponsored doping program, Russia launched a task force to rid itself of its doping infection so it may compete in the Olympics [...]."</span> <span class="s2">"https://vm3.yonderlabs.com/1.0/text/keywordextraction/fromText?limit=12"</span>
 </code></pre>
@@ -735,7 +735,7 @@ Remember — insert your credentials for authentication!
 <p>This API analyzes your text content (news articles, blog posts, e-mail, etc.) identifying all meaningful keywords related to important facts, events and relations.
 Allowed input sources are: text content contained in an URL (&ldquo;from URL&rdquo;) or just simple text (&ldquo;from text&rdquo;).</p>
 
-<h3 id="from-url-https-request">From URL: HTTPS request</h3>
+<h3 id="keyword-extraction-post-fromurl">Keyword Extraction - <code class="prettyprint">POST fromURL</code></h3>
 
 <table><thead>
 <tr>
@@ -769,7 +769,7 @@ Allowed input sources are: text content contained in an URL (&ldquo;from URL&rdq
 
 <p>Examples of how-to-call the API and the related output are provided in the right panel.</p>
 
-<h3 id="from-text-https-request">From text: HTTPS request</h3>
+<h3 id="keyword-extraction-post-fromtext">Keyword Extraction - <code class="prettyprint">POST fromText</code></h3>
 
 <table><thead>
 <tr>
@@ -810,7 +810,7 @@ Remember — insert your credentials for authentication!
           <h2 id="concept-tagging">Concept Tagging</h2>
 
 <blockquote>
-<p>Request example &ldquo;fromURL&rdquo;&hellip;</p>
+<p>Request example - <code class="prettyprint">POST fromURL</code>&hellip;</p>
 </blockquote>
 <pre class="highlight shell"><code>curl --ssl-reqd --request POST -u YOUR_USERNAME:YOUR_PASSWORD --data <span class="nv">url</span><span class="o">=</span>http%3A%2F%2Fwww.theatlantic.com%2Finternational%2Farchive%2F2015%2F11%2Frussia-doping-2016-olympics%2F416604%2F <span class="s2">"https://vm3.yonderlabs.com/1.0/text/concepttagging/fromURL?limit=8"</span>
 </code></pre>
@@ -836,7 +836,7 @@ Remember — insert your credentials for authentication!
 </span></code></pre>
 
 <blockquote>
-<p>Request example &ldquo;fromText&rdquo;&hellip;</p>
+<p>Request example  - <code class="prettyprint">POST fromText</code>&hellip;</p>
 </blockquote>
 <pre class="highlight shell"><code>curl --ssl-reqd --request POST -u YOUR_USERNAME:YOUR_PASSWORD --data <span class="nv">text</span><span class="o">=</span><span class="s2">"With less than nine months to go for the 2016 Olympics in Rio de Janeiro, Russia is trying to break a world record in the 90-day sprint. A little more than a week after a commission of the world Anti-Doping Agency (WADA) issued a report that accused Russia of essentially hosting a state-sponsored doping program, Russia launched a task force to rid itself of its doping infection so it may compete in the Olympics [...]."</span> <span class="s2">"https://vm3.yonderlabs.com/1.0/text/concepttagging/fromText?limit=8"</span>
 </code></pre>
@@ -866,7 +866,7 @@ Remember — insert your credentials for authentication!
 <p>Concept tags are a limited and meaningful set of highly relevant named entities and important keywords related to facts, events, and relations found in your text.
 Allowed input sources are: text content contained in an URL (&ldquo;from URL&rdquo;) or just simple text (&ldquo;from text&rdquo;).</p>
 
-<h3 id="from-url-https-request">From URL: HTTPS request</h3>
+<h3 id="concept-tagging-post-fromurl">Concept Tagging - <code class="prettyprint">POST fromURL</code></h3>
 
 <table><thead>
 <tr>
@@ -902,7 +902,7 @@ Allowed input sources are: text content contained in an URL (&ldquo;from URL&rdq
 
 <p>Examples of how-to-call the API and the related output are provided in the right panel.</p>
 
-<h3 id="from-text-https-request">From text: HTTPS request</h3>
+<h3 id="concept-tagging-post-fromtext">Concept Tagging - <code class="prettyprint">POST fromText</code></h3>
 
 <table><thead>
 <tr>
@@ -945,7 +945,7 @@ Remember — insert your credentials for authentication!
           <h2 id="text-extraction">Text Extraction</h2>
 
 <blockquote>
-<p>Request example &hellip;</p>
+<p>Request example - <code class="prettyprint">POST</code>&hellip;</p>
 </blockquote>
 <pre class="highlight shell"><code>curl --ssl-reqd --request POST -u YOUR_USERNAME:YOUR_PASSWORD --data <span class="nv">url</span><span class="o">=</span>http%3A%2F%2Fwww.theatlantic.com%2Finternational%2Farchive%2F2015%2F11%2Frussia-doping-2016-olympics%2F416604%2F <span class="s2">"https://vm3.yonderlabs.com/1.0/text/textextraction"</span>
 </code></pre>
@@ -963,7 +963,7 @@ Remember — insert your credentials for authentication!
 
 <p>This service extracts the main text from a webpage, discarding navigation links, advertisements and other undesired content.</p>
 
-<h3 id="https-request">HTTPS request</h3>
+<h3 id="text-extraction-post">Text Extraction - <code class="prettyprint">POST</code></h3>
 
 <table><thead>
 <tr>
@@ -990,7 +990,7 @@ Remember — insert your credentials for authentication!
           <h2 id="language-detection">Language Detection</h2>
 
 <blockquote>
-<p>Request example &ldquo;fromURL&rdquo;&hellip;</p>
+<p>Request example - <code class="prettyprint">POST fromURL</code>&hellip;</p>
 </blockquote>
 <pre class="highlight shell"><code>curl --ssl-reqd --request POST -u YOUR_USERNAME:YOUR_PASSWORD --data <span class="nv">url</span><span class="o">=</span>http%3A%2F%2Fwww.theatlantic.com%2Finternational%2Farchive%2F2015%2F11%2Frussia-doping-2016-olympics%2F416604%2F <span class="s2">"https://vm3.yonderlabs.com/1.0/text/languagedetection/fromURL"</span>
 </code></pre>
@@ -1007,7 +1007,7 @@ Remember — insert your credentials for authentication!
 </span></code></pre>
 
 <blockquote>
-<p>Request example &ldquo;fromText&rdquo;&hellip;</p>
+<p>Request example - <code class="prettyprint">POST fromText</code>&hellip;</p>
 </blockquote>
 <pre class="highlight shell"><code>curl --ssl-reqd --request POST -u YOUR_USERNAME:YOUR_PASSWORD --data <span class="nv">text</span><span class="o">=</span><span class="s2">"With less than nine months to go for the 2016 Olympics in Rio de Janeiro, Russia is trying to break a world record in the 90-day sprint. A little more than a week after a commission of the world Anti-Doping Agency (WADA) issued a report that accused Russia of essentially hosting a state-sponsored doping program, Russia launched a task force to rid itself of its doping infection so it may compete in the Olympics [...]."</span> <span class="s2">"https://vm3.yonderlabs.com/1.0/text/languagedetection/fromText"</span>
 </code></pre>
@@ -1028,7 +1028,7 @@ Remember — insert your credentials for authentication!
 <p>This service recognizes the language a document were written in, including English, Italian, Spanish, French, German, and other main languages.
 Allowed input sources are: text content contained in an URL (&ldquo;from URL&rdquo;) or just simple text (&ldquo;from text&rdquo;).</p>
 
-<h3 id="from-url-https-request">From URL: HTTPS request</h3>
+<h3 id="language-extraction-post-fromurl">Language Extraction - <code class="prettyprint">POST fromURL</code></h3>
 
 <table><thead>
 <tr>
@@ -1048,7 +1048,7 @@ Allowed input sources are: text content contained in an URL (&ldquo;from URL&rdq
 
 <p>Examples of how-to-call the API and the related output are provided in the right panel.</p>
 
-<h3 id="from-text-https-request">From text: HTTPS request</h3>
+<h3 id="language-extraction-post-fromtext">Language Extraction - <code class="prettyprint">POST fromText</code></h3>
 
 <table><thead>
 <tr>
@@ -1067,6 +1067,584 @@ Allowed input sources are: text content contained in an URL (&ldquo;from URL&rdq
 </tbody></table>
 
 <p>Examples of how-to-call the API and the related output are provided in the right panel.</p>
+
+<aside class="success">
+Remember — insert your credentials for authentication!
+</aside>
+
+          <h1 id="api-on-text-collections">API on Text Collections</h1>
+
+<p>The following set of API allows for storing <strong>a set of text documents</strong> and extracting semantic information from them (e.g. comparing them, or searching for concepts across them). If you need to analyze just one document please refer to YonderAPI on Single Text provided above.</p>
+
+<aside class="notice">
+PRIVACY - All created collections are private, i.e. they are accessible only by the user who created them. Furthermore for preserving your privacy we delete the texts of your documents from our systems keeping only associated metadata.
+</aside>
+
+          <h2 id="text-collection">Text Collection</h2>
+
+<blockquote>
+<p>Request example to &ldquo;Create a Text Collection&rdquo; - <code class="prettyprint">POST</code>&hellip;</p>
+</blockquote>
+<pre class="highlight shell"><code>curl --ssl-reqd --request POST -u YOUR_USERNAME:YOUR_PASSWORD <span class="s2">"https://vm3.yonderlabs.com/1.0/textcollection/textcollection?collection_name=donald-duck&amp;description=this-is-my-first-collection"</span>
+</code></pre>
+
+<blockquote>
+<p>&hellip; and response body (200/JSON):</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"private"</span><span class="p">,</span><span class="w"> 
+  </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"this-is-my-first-collection"</span><span class="p">,</span><span class="w"> 
+  </span><span class="nt">"collection_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"donald-duck"</span><span class="p">,</span><span class="w"> 
+  </span><span class="nt">"created"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<blockquote>
+<p>Request example to &ldquo;Get info from a Text Collection&rdquo; - <code class="prettyprint">GET</code>&hellip;</p>
+</blockquote>
+<pre class="highlight shell"><code>curl --ssl-reqd --request GET -u YOUR_USERNAME:YOUR_PASSWORD <span class="s2">"https://vm3.yonderlabs.com/1.0/textcollection/textcollection?collection_name=donald-duck"</span>
+</code></pre>
+
+<blockquote>
+<p>&hellip; and response body (200/JSON):</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"count"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> 
+  </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"private"</span><span class="p">,</span><span class="w"> 
+  </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"this-is-my-first-collection"</span><span class="p">,</span><span class="w"> 
+  </span><span class="nt">"collection_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"donald-duck"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<blockquote>
+<p>Request example to &ldquo;Delete a Text Collection&rdquo; - <code class="prettyprint">DELETE</code>&hellip;</p>
+</blockquote>
+<pre class="highlight shell"><code>curl --ssl-reqd --request DELETE -u YOUR_USERNAME:YOUR_PASSWORD <span class="s2">"https://vm3.yonderlabs.com/1.0/textcollection/textcollection?collection_name=donald-duck"</span>
+</code></pre>
+
+<blockquote>
+<p>&hellip; and response body (200/JSON):</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"deleted"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"> 
+  </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"private"</span><span class="p">,</span><span class="w"> 
+  </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"this-is-my-first-collection"</span><span class="p">,</span><span class="w"> 
+  </span><span class="nt">"collection_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"donald-duck"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p><strong>Create, delete, and retrieve information from Text Collections</strong></p>
+
+<p>This API allows you to create, delete, and get information from a Text Collection.</p>
+
+<h3 id="create-a-text-collection-post">Create a Text Collection - <code class="prettyprint">POST</code></h3>
+
+<p>This API allows you to create a new Text Collection:</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>collection_name</td>
+<td>string, required</td>
+<td>the name of the Text Collection to be created</td>
+</tr>
+<tr>
+<td>description</td>
+<td>string, optional</td>
+<td>a textual description of the Text Collection</td>
+</tr>
+</tbody></table>
+
+<h3 id="get-info-from-a-text-collection-get">Get info from a Text Collection - <code class="prettyprint">GET</code></h3>
+
+<p>This API allows you to retrieve all information from a Text Collection:</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>collection_name</td>
+<td>string, required</td>
+<td>the name of the Text Collection from which to retrieve information</td>
+</tr>
+</tbody></table>
+
+<h3 id="delete-a-text-collection-delete">Delete a Text Collection - <code class="prettyprint">DELETE</code></h3>
+
+<p>This API allows you to delete a Text Collection:</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>collection_name</td>
+<td>string, required</td>
+<td>the name of the Text Collection to be deleted</td>
+</tr>
+</tbody></table>
+
+<aside class="success">
+Remember — insert your credentials for authentication!
+</aside>
+
+          <h2 id="text-item">Text Item</h2>
+
+<blockquote>
+<p>Request example to &ldquo;Create Text Item fromURL&rdquo; - <code class="prettyprint">POST fromURL</code>&hellip;</p>
+</blockquote>
+<pre class="highlight shell"><code>curl --ssl-reqd --request POST -u YOUR_USERNAME:YOUR_PASSWORD --data <span class="nv">url</span><span class="o">=</span>http%3A%2F%2Fwww.theatlantic.com%2Finternational%2Farchive%2F2015%2F11%2Frussia-doping-2016-olympics%2F416604%2F <span class="s2">"https://vm3.yonderlabs.com/1.0/textcollection/textitem/fromURL?collection_name=donald_duck"</span>
+</code></pre>
+
+<blockquote>
+<p>&hellip; and response body (200/JSON):</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://www.theatlantic.com/international/archive/2015/11/russia-doping-2016-olympics/416604/"</span><span class="p">,</span><span class="w"> 
+  </span><span class="nt">"collection_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"donald_duck"</span><span class="p">,</span><span class="w"> 
+  </span><span class="nt">"text"</span><span class="p">:</span><span class="w"> </span><span class="s2">"With less than nine months to go for the 2016 Olympics in Rio de Janeiro, Russia is trying to break a world record in the 90-day sprint. A little more than a week after a commission of the world Anti-Doping Agency (WADA) issued a report that accused Russia of essentially hosting a state-sponsored doping program, Russia launched a task force to rid itself of its doping infection so it may compete in the Olympics [...]."</span><span class="p">,</span><span class="w"> 
+  </span><span class="nt">"inserted_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5665a1e8b1f5391201471f86"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<blockquote>
+<p>Request example to &ldquo;Create Text Item fromText&rdquo;  - <code class="prettyprint">POST fromText</code>&hellip;</p>
+</blockquote>
+<pre class="highlight shell"><code>curl --ssl-reqd --request POST -u YOUR_USERNAME:YOUR_PASSWORD --data <span class="nv">text</span><span class="o">=</span><span class="s2">"With less than nine months to go for the 2016 Olympics in Rio de Janeiro, Russia is trying to break a world record in the 90-day sprint. A little more than a week after a commission of the world Anti-Doping Agency (WADA) issued a report that accused Russia of essentially hosting a state-sponsored doping program, Russia launched a task force to rid itself of its doping infection so it may compete in the Olympics [...]."</span> <span class="s2">"https://vm3.yonderlabs.com/1.0/textcollection/textitem/fromText?collection_name=donald_duck"</span>
+</code></pre>
+
+<blockquote>
+<p>&hellip; and response body (200/JSON):</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"url"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w"> 
+  </span><span class="nt">"collection_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"donald_duck"</span><span class="p">,</span><span class="w"> 
+  </span><span class="nt">"text"</span><span class="p">:</span><span class="w"> </span><span class="s2">"With less than nine months to go for the 2016 Olympics in Rio de Janeiro, Russia is trying to break a world record in the 90-day sprint. A little more than a week after a commission of the world Anti-Doping Agency (WADA) issued a report that accused Russia of essentially hosting a state-sponsored doping program, Russia launched a task force to rid itself of its doping infection so it may compete in the Olympics [...]."</span><span class="p">,</span><span class="w"> 
+  </span><span class="nt">"inserted_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5665a1e8b1f5391201471f86"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<blockquote>
+<p>Request example to &ldquo;Get info from Text Item&rdquo;  - <code class="prettyprint">GET</code>&hellip;</p>
+</blockquote>
+<pre class="highlight shell"><code>curl --ssl-reqd --request GET -u YOUR_USERNAME:YOUR_PASSWORD <span class="s2">"https://vm3.yonderlabs.com/1.0/textcollection/textitem?collection_name=donald_duck&amp;id=5665a1e8b1f5391201471f86"</span>
+</code></pre>
+
+<blockquote>
+<p>&hellip; and response body (200/JSON):</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"collection_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"donald_duck"</span><span class="p">,</span><span class="w"> 
+  </span><span class="nt">"document"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"keywords"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.0</span><span class="p">,</span><span class="w"> 
+        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"program"</span><span class="w">
+      </span><span class="p">},</span><span class="w"> 
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.0</span><span class="p">,</span><span class="w"> 
+        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"last week"</span><span class="w">
+      </span><span class="p">},</span><span class="w"> 
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.0</span><span class="p">,</span><span class="w"> 
+        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"field"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w"> 
+    </span><span class="nt">"entities"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"info"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nt">"wikipedia"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://en.wikipedia.org/wiki/Russia"</span><span class="p">,</span><span class="w"> 
+          </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Russia, also officially known as the Russian Federation, is a country in northern Eurasia. It is a federal semi-presidential republic [...]."</span><span class="w">
+        </span><span class="p">},</span><span class="w"> 
+        </span><span class="nt">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.0</span><span class="p">,</span><span class="w"> 
+        </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"WHERE"</span><span class="p">,</span><span class="w"> 
+        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Russia"</span><span class="w">
+      </span><span class="p">},</span><span class="w"> 
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"info"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w"> 
+        </span><span class="nt">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.0</span><span class="p">,</span><span class="w"> 
+        </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"WHO"</span><span class="p">,</span><span class="w"> 
+        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"WADA"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w"> 
+    </span><span class="nt">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-12-09 11:31:38.794000"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5665a1e8b1f5391201471f86"</span><span class="w">
+  </span><span class="p">},</span><span class="w"> 
+  </span><span class="nt">"fetched_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5665a1e8b1f5391201471f86"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<blockquote>
+<p>Request example to &ldquo;Modify Text Item fromURL&rdquo;  - <code class="prettyprint">PUT fromURL</code>&hellip;</p>
+</blockquote>
+<pre class="highlight shell"><code>curl --ssl-reqd --request PUT -u YOUR_USERNAME:YOUR_PASSWORD --data <span class="nv">url</span><span class="o">=</span>http%3A%2F%2Fwww.theguardian.com%2Fworld%2F2015%2Fnov%2F11%2Fgermany-spied-fbi-un-bodies-french-foreign-minister
+ <span class="s2">"https://vm3.yonderlabs.com/1.0/textcollection/textitem/fromText?collection_name=donald_duck&amp;id=5665a1e8b1f5391201471f86"</span>
+</code></pre>
+
+<blockquote>
+<p>&hellip; and response body (200/JSON):</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://www.theguardian.com/world/2015/nov/11/germany-spied-fbi-un-bodies-french-foreign-minister"</span><span class="p">,</span><span class="w"> 
+  </span><span class="nt">"collection_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"donald_duck"</span><span class="p">,</span><span class="w"> 
+  </span><span class="nt">"modified_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5665a1e8b1f5391201471f86"</span><span class="p">,</span><span class="w"> 
+  </span><span class="nt">"text"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Germany's foreign intelligence service spied on targets including the French foreign minister, Laurent Fabius, the FBI and the UN Children's Fund, a media report said on Wednesday. The latest news report on the BND spy service fuels a debate in Germany about state surveillance kicked off by the revelations of the US whistleblower Edward Snowden [...]."</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<blockquote>
+<p>Request example to &ldquo;Modify Text Item fromText&rdquo;  - <code class="prettyprint">PUT fromText</code>&hellip;</p>
+</blockquote>
+<pre class="highlight shell"><code>curl --ssl-reqd --request PUT -u YOUR_USERNAME:YOUR_PASSWORD --data <span class="nv">text</span><span class="o">=</span><span class="s2">"I want to change the text of the article about Russia and the 2016 Olympics in Rio de Janeiro."</span> <span class="s2">"https://vm3.yonderlabs.com/1.0/textcollection/textitem/fromText?collection_name=donald_duck&amp;id=5665a1e8b1f5391201471f86"</span>
+</code></pre>
+
+<blockquote>
+<p>&hellip; and response body (200/JSON):</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"url"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w"> 
+  </span><span class="nt">"collection_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"donald_duck"</span><span class="p">,</span><span class="w"> 
+  </span><span class="nt">"modified_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5665a1e8b1f5391201471f86"</span><span class="p">,</span><span class="w"> 
+  </span><span class="nt">"text"</span><span class="p">:</span><span class="w"> </span><span class="s2">"I want to change the text of the article about Russia and the 2016 Olympics in Rio de Janeiro."</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<blockquote>
+<p>Request example to &ldquo;Delete Text Item&rdquo; - <code class="prettyprint">DELETE</code>&hellip;</p>
+</blockquote>
+<pre class="highlight shell"><code>curl --ssl-reqd --request DELETE -u YOUR_USERNAME:YOUR_PASSWORD <span class="s2">"https://vm3.yonderlabs.com/1.0/textcollection/textitem?collection_name=donald_duck&amp;id=5665a1e8b1f5391201471f86"</span>
+</code></pre>
+
+<blockquote>
+<p>&hellip; and response body (200/JSON):</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"collection_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"donald_duck"</span><span class="p">,</span><span class="w"> 
+  </span><span class="nt">"deleted_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5665a1e8b1f5391201471f86"</span><span class="w"> 
+ </span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p><strong>Create, modify, delete, and retrieve info from Text Items in your Text Collections</strong></p>
+
+<p>This API allows you to manage Text Items in your Text Collections. </p>
+
+<h3 id="create-text-item-post-fromurl">Create Text Item - <code class="prettyprint">POST fromURL</code></h3>
+
+<p>This API allows you to create a new Text Item from the text contained in a URL:</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+<th>Values</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>collection_name</td>
+<td>string, required</td>
+<td>the name of the Text Collection where to insert the new Item</td>
+<td>-</td>
+</tr>
+<tr>
+<td>url</td>
+<td>string, required</td>
+<td>the url of the text to be inserted as a new Item of the Text Collection</td>
+<td>use <a href="http://www.url-encode-decode.com/">url-encoding</a></td>
+</tr>
+</tbody></table>
+
+<h3 id="create-text-item-post-fromtext">Create Text Item - <code class="prettyprint">POST fromText</code></h3>
+
+<p>This API allows you to create a new Text Item inserting simple text:</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+<th>Values</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>collection_name</td>
+<td>string, required</td>
+<td>the name of the Text Collection where to insert the new Item</td>
+<td>-</td>
+</tr>
+<tr>
+<td>text</td>
+<td>string, required</td>
+<td>the text to be inserted as a new Text Item</td>
+<td>pass the text between &ldquo;&rdquo; (e.g. &ldquo;This is an example&rdquo;) or use <a href="http://www.url-encode-decode.com/">url-encoded</a> text</td>
+</tr>
+</tbody></table>
+
+<h3 id="get-info-from-text-item-get">Get info from Text Item - <code class="prettyprint">GET</code></h3>
+
+<p>This API allows you to retrieve all information from a Text Item:</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>collection_name</td>
+<td>string, required</td>
+<td>the name of the Text Collection which contains the Text Item</td>
+</tr>
+<tr>
+<td>id</td>
+<td>string, required</td>
+<td>the ID of the text item</td>
+</tr>
+</tbody></table>
+
+<h3 id="change-text-item-fromurl-put-fromurl">Change Text Item fromURL - <code class="prettyprint">PUT fromURL</code></h3>
+
+<p>This API allows you to change the text contained in a Text Item of a Text Collection:</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+<th>Values</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>collection_name</td>
+<td>string, required</td>
+<td>the name of the Text Collection where to change the item</td>
+<td>-</td>
+</tr>
+<tr>
+<td>id</td>
+<td>string, required</td>
+<td>the ID of the text item</td>
+<td>-</td>
+</tr>
+<tr>
+<td>url</td>
+<td>string, required</td>
+<td>the url of the text to be inserted</td>
+<td>use <a href="http://www.url-encode-decode.com/">url-encoding</a></td>
+</tr>
+</tbody></table>
+
+<h3 id="change-text-item-fromtext-put-fromtext">Change Text Item fromText - <code class="prettyprint">PUT fromText</code></h3>
+
+<p>This API allows you to change the text contained in a Text Item of a Text Collection:</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+<th>Values</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>collection_name</td>
+<td>string, required</td>
+<td>the name of the Text Collection where to change the item</td>
+<td>-</td>
+</tr>
+<tr>
+<td>id</td>
+<td>string, required</td>
+<td>the ID of the text item</td>
+<td>-</td>
+</tr>
+<tr>
+<td>text</td>
+<td>string, required</td>
+<td>the new text</td>
+<td>pass the text between &ldquo;&rdquo; (e.g. &ldquo;This is an example&rdquo;) or use <a href="http://www.url-encode-decode.com/">url-encoded</a> text</td>
+</tr>
+</tbody></table>
+
+<h3 id="delete-a-text-item-delete">Delete a Text Item - <code class="prettyprint">DELETE</code></h3>
+
+<p>This API allows you to delete a Text Item from a Text Collection:</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>collection_name</td>
+<td>string, required</td>
+<td>the name of the Text Collection where to delete the Item</td>
+</tr>
+<tr>
+<td>id</td>
+<td>string, required</td>
+<td>the ID of the Text Item to be deleted</td>
+</tr>
+</tbody></table>
+
+<aside class="success">
+Remember — insert your credentials for authentication!
+</aside>
+
+          <h2 id="document-graph">Document Graph</h2>
+
+<blockquote>
+<p>Request example to &ldquo;Create a Document Graph&rdquo; - <code class="prettyprint">POST</code>&hellip;</p>
+</blockquote>
+<pre class="highlight shell"><code>curl --ssl-reqd --request POST -u YOUR_USERNAME:YOUR_PASSWORD <span class="s2">"https://vm3.yonderlabs.com/1.0/textcollection/documentgraph?collection_name=goofy"</span>
+</code></pre>
+
+<blockquote>
+<p>&hellip; and response body (202 &ldquo;ACCEPTED&rdquo;):</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"task_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DocumentGraphAPI"</span><span class="p">,</span><span class="w"> 
+  </span><span class="nt">"collection-name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"goofy"</span><span class="p">,</span><span class="w"> 
+  </span><span class="nt">"task_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"a4e31278-4432-43da-8fbf-1b21562d02f9"</span><span class="p">,</span><span class="w"> 
+  </span><span class="nt">"task_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PENDING"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<blockquote>
+<p>Request example to &ldquo;Get results from Document Graph&rdquo; - <code class="prettyprint">GET</code>&hellip;</p>
+</blockquote>
+<pre class="highlight shell"><code>curl --ssl-reqd --request GET -u YOUR_USERNAME:YOUR_PASSWORD <span class="s2">"https://vm3.yonderlabs.com/1.0/textcollection/documentgraph?task_id=e92dff8f-29ca-4286-9876-68d965f4a066"</span>
+</code></pre>
+
+<blockquote>
+<p>&hellip; and response body, case 1) SUCCESS, i.e. the task is over:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"task_error"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w"> 
+  </span><span class="nt">"task_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DocumentGraphAPI"</span><span class="p">,</span><span class="w"> 
+  </span><span class="nt">"task_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"a4e31278-4432-43da-8fbf-1b21562d02f9"</span><span class="p">,</span><span class="w"> 
+  </span><span class="nt">"task_result"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"graph_list"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5661ce38b1f53961fbb5ba8f"</span><span class="p">,</span><span class="w"> 
+        </span><span class="nt">"similar_documents"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+          </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5661ce38b1f53961fbb5ba90"</span><span class="p">,</span><span class="w"> 
+            </span><span class="nt">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.2182018253178482</span><span class="w">
+          </span><span class="p">},</span><span class="w"> 
+          </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5661ce38b1f53961fbb5bb43"</span><span class="p">,</span><span class="w"> 
+            </span><span class="nt">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.20725070321790517</span><span class="w">
+          </span><span class="p">}</span><span class="w">
+        </span><span class="p">]</span><span class="w">
+      </span><span class="p">},</span><span class="w"> 
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5661ce38b1f53961fbb5bac7"</span><span class="p">,</span><span class="w"> 
+        </span><span class="nt">"similar_documents"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+          </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5661ce38b1f53961fbb5bb78"</span><span class="p">,</span><span class="w"> 
+            </span><span class="nt">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.25007882768872314</span><span class="w">
+          </span><span class="p">},</span><span class="w"> 
+          </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5661ce38b1f53961fbb5ba2d"</span><span class="p">,</span><span class="w"> 
+            </span><span class="nt">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.20836793197293701</span><span class="w">
+          </span><span class="p">},</span><span class="w"> 
+          </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5661ce38b1f53961fbb5bb75"</span><span class="p">,</span><span class="w"> 
+            </span><span class="nt">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.1719251614907218</span><span class="w">
+          </span><span class="p">}</span><span class="w">
+        </span><span class="p">]</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+  </span><span class="p">},</span><span class="w"> 
+  </span><span class="nt">"collection_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"goofy"</span><span class="p">,</span><span class="w"> 
+  </span><span class="nt">"task_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SUCCESS"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<blockquote>
+<p>&hellip; and response body, case 2) STARTED (the task has started, but it is not over):</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"task_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DocumentGraphAPI"</span><span class="p">,</span><span class="w"> 
+  </span><span class="nt">"task_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"e92dff8f-29ca-4286-9876-68d965f4a066"</span><span class="p">,</span><span class="w"> 
+  </span><span class="nt">"collection_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"goofy"</span><span class="p">,</span><span class="w"> 
+  </span><span class="nt">"task_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"STARTED"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<blockquote>
+<p>&hellip; and response body, case 3) PENDING (the task is still pending):</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"task_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DocumentGraphAPI"</span><span class="p">,</span><span class="w"> 
+  </span><span class="nt">"task_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"e92dff8f-29ca-4286-9876-68d965f4a066"</span><span class="p">,</span><span class="w"> 
+  </span><span class="nt">"collection_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"goofy"</span><span class="p">,</span><span class="w"> 
+  </span><span class="nt">"task_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PENDING"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p><strong>Compute all document similarities in your Text Collection</strong></p>
+
+<p>This API analyzes a collection of texts and returns all document cross-similarities.</p>
+
+<aside class="notice">
+Depending on the size of the Text Collection, this service might take up to few minutes to provide a full answer. 
+</aside>
+
+<h3 id="create-a-document-graph-post">Create a Document Graph - <code class="prettyprint">POST</code></h3>
+
+<p>This API allows you to launch the task which computes document cross-similarities on all items contained in a Text Collection.
+As detailed in the right panel, as an immediate response to this API, you will get a <code class="prettyprint">202</code> answer (&ldquo;ACCEPTED&rdquo;) containing a task identifier <code class="prettyprint">task_id</code> to be used later in the <code class="prettyprint">GET</code> call. </p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>collection_name</td>
+<td>string, required</td>
+<td>the name of the Text Collection from which to build a Document Graph</td>
+</tr>
+</tbody></table>
+
+<h3 id="get-results-from-document-graph-get">Get results from Document Graph - <code class="prettyprint">GET</code></h3>
+
+<p>This API allows you to retrieve computed document cross-similarities on all items contained in a Text Collection.
+If results are ready (i.e. similarities have been computed) you will get a <code class="prettyprint">200</code> answer (&ldquo;SUCCESS&rdquo;) and the resulting ouput, as detailed in the right panel.
+Otherwise you will get an adequate status code answer (&ldquo;STARTED&rdquo; or &ldquo;PENDING&rdquo;) meaning that the process is still ongoing. </p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>task_id</td>
+<td>string, required</td>
+<td>the identifier of the created Document Graph task</td>
+</tr>
+</tbody></table>
 
 <aside class="success">
 Remember — insert your credentials for authentication!
@@ -1142,25 +1720,25 @@ Examples of some possible error responses are provided aside:</p>
 </span></code></pre>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
     </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nt">"language"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Text and taxonomy languages do not match"</span><span class="w">
+        </span><span class="nt">"language"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Text and taxonomy languages do not match."</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
     </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nt">"text"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Text too short"</span><span class="w">
+        </span><span class="nt">"text"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Text too short."</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
     </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nt">"text"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Missing required parameter in the post body"</span><span class="w">
+        </span><span class="nt">"text"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Missing required parameter in the post body."</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
     </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nt">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Missing required parameter in the post body"</span><span class="w">
+        </span><span class="nt">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Missing required parameter in the post body."</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
@@ -1172,13 +1750,13 @@ Examples of some possible error responses are provided aside:</p>
 </span></code></pre>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
     </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nt">"limit"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Value is too low: the minimum accepted is 3"</span><span class="w">
+        </span><span class="nt">"limit"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Value is too low: the minimum accepted is 3."</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
     </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nt">"ratelimit"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Limit of 1000000 requests/day reached for endpoint languagedetection"</span><span class="w">
+        </span><span class="nt">"ratelimit"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Limit of 1000000 requests/day reached for endpoint languagedetection."</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
@@ -1188,13 +1766,61 @@ Examples of some possible error responses are provided aside:</p>
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"collection"</span><span class="p">:</span><span class="w"> </span><span class="s2">"The collection you are trying to create already exists."</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"collection"</span><span class="p">:</span><span class="w"> </span><span class="s2">"The collection you are trying to access does not exist."</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"collection"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Error while processing your request."</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"collection"</span><span class="p">:</span><span class="w"> </span><span class="s2">"The document you are trying to access does not exist."</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"collection"</span><span class="p">:</span><span class="w"> </span><span class="s2">"The id is not a valid ObjectId."</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"collection"</span><span class="p">:</span><span class="w"> </span><span class="s2">"The collection name you choose is reserved."</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"collection"</span><span class="p">:</span><span class="w"> </span><span class="s2">"The collection you are trying to access is full (100,000 documents)."</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"collection"</span><span class="p">:</span><span class="w"> </span><span class="s2">"You reached the maximum allowed number of collections (1000)."</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
 
 <h2 id="server-side-errors">Server-side errors</h2>
 
 <p>When something goes wrong on the API side, YonderAPI returns HTTP error code <code class="prettyprint">500 INTERNAL SERVER ERROR</code> with a message body such as the ones provided aside:</p>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
     </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nt">"error"</span><span class="p">:</span><span class="w"> </span><span class="s2">"API processing error - Code 001"</span><span class="w"> 
+        </span><span class="nt">"error"</span><span class="p">:</span><span class="w"> </span><span class="s2">"API processing error - Code 001."</span><span class="w"> 
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
