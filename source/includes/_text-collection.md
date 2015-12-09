@@ -1,261 +1,101 @@
 ## Text Collection
-> This is the code to "Create a Text Collection"...
+> Request example to "Create a Text Collection" - `POST`...
 
-```python
-
-from urllib2 import Request, urlopen
-
-request = Request('https://api.yonderlabs.com/1.0/text/taxonomyclassification/fromURL?url=url&taxonomy=taxonomy&levels=2&limit=3')
-
-response_body = urlopen(request).read()
-print response_body
-```
 ```shell
-curl --include \
-     --request POST \
-'https://api.yonderlabs.com/1.0/text/taxonomyclassification/fromURL?url=url&taxonomy=taxonomy&levels=2&limit=3'
+curl --ssl-reqd --request POST -u YOUR_USERNAME:YOUR_PASSWORD "https://vm3.yonderlabs.com/1.0/textcollection/textcollection?collection_name=donald-duck&description=this-is-my-first-collection"
 ```
 
-
-
->... which returns a json structured like this (response 201):
+>... and response body (200/JSON):
 
 ```json
 {
-    "text": "A wonderful tennis match took place yesterday at Wimbledon between Djokovic and Federer"
-    "taxonomy": "iab"
-    "levels": 2
-    "limit": 3
-    "topic":
-        [
-            {
-                "level": 0
-                "category": "sports"
-                "score": 0.8
-                "sublevels":
-                    [
-                        {
-                            "level": 1
-                            "category": "tennis"
-                            "score": 1.0
-                        }
-                    ]
-            },
-            {
-                "level": 0
-                "category": "arts&entertainment"
-                "score": 0.2
-                "sublevels":
-                    [
-                        {
-                            "level": 1
-                            "category": "television"
-                            "score": 0.9
-                        },
-                        {
-                            "level": 1
-                            "category": "celebrity fun/gossip"
-                            "score": 0.1
-                        }
-                    ]
-            },
-        ]
+  "type": "private", 
+  "description": "this-is-my-first-collection", 
+  "collection_name": "donald-duck", 
+  "created": true
 }
 ```
 
 
 
-> This is the code to "List Text Collections"...
-
-```python
-
-from urllib2 import Request, urlopen
-
-request = Request('https://api.yonderlabs.com/1.0/text/taxonomyclassification/fromText?text=text&taxonomy=taxonomy&levels=2&limit=3')
-
-response_body = urlopen(request).read()
-print response_body
-```
+> Request example to "Get info from a Text Collection" - `GET`...
 
 
 ```shell
-curl --include \
-     --request POST \
-'https://api.yonderlabs.com/1.0/text/taxonomyclassification/fromText?text=text&taxonomy=taxonomy&levels=2&limit=3'
+curl --ssl-reqd --request GET -u YOUR_USERNAME:YOUR_PASSWORD "https://vm3.yonderlabs.com/1.0/textcollection/textcollection?collection_name=donald-duck"
 ```
 
->... which returns a json structured like this (response 200):
+>... and response body (200/JSON):
 
 ```json
 {
-  "levels": 2,
-  "limit": 1,
-  "taxonomy": "iab-it",
-  "text": "Contemporaneamente a Juncker, anche la Cancelliera Merkel parla di emergenza immigrazione, in un discorso al Bundestag. E lo fa, al solito, con i suoi toni pragmatici: « Coloro che cercano asilo e che vedono riconosciuto il diritto d’asilo hanno bisogno del nostro aiuto. E bisogna integrarli velocemente. E altrettanto velocemente devono imparare velocemente il tedesco e avere velocemente un lavoro. Diventeranno cittadini tedeschi», ha aggiunto. «Un Paese che dice “benvenuti” a tante persone deve anche dire quali sono le regole - ha aggiunto -. Anche questo fa parte di una società aperta. Non ci sarà nessuna tolleranza per la società parallela». Temi e concetti che si ritrovano anche nel discorso di Juncker.",
-  "topics": [
-    {
-      "category": "leggi_governo_e_politica",
-      "level": 0,
-      "score": 0.7233245447210793,
-      "sublevels": [
-        {
-          "category": "politica",
-          "level": 1,
-          "score": 0.5251832068430112
-        }
-      ]
-    }
-  ]
-}
-```
-
-> This is the code to "Retrieve text IDs from a Text Collection"...
-
-```python
-
-from urllib2 import Request, urlopen
-
-request = Request('https://api.yonderlabs.com/1.0/text/taxonomyclassification/fromText?text=text&taxonomy=taxonomy&levels=2&limit=3')
-
-response_body = urlopen(request).read()
-print response_body
-```
-
-
-```shell
-curl --include \
-     --request POST \
-'https://api.yonderlabs.com/1.0/text/taxonomyclassification/fromText?text=text&taxonomy=taxonomy&levels=2&limit=3'
-```
-
->... which returns a json structured like this (response 200):
-
-```json
-{
-  "levels": 2,
-  "limit": 1,
-  "taxonomy": "iab-it",
-  "text": "Contemporaneamente a Juncker, anche la Cancelliera Merkel parla di emergenza immigrazione, in un discorso al Bundestag. E lo fa, al solito, con i suoi toni pragmatici: « Coloro che cercano asilo e che vedono riconosciuto il diritto d’asilo hanno bisogno del nostro aiuto. E bisogna integrarli velocemente. E altrettanto velocemente devono imparare velocemente il tedesco e avere velocemente un lavoro. Diventeranno cittadini tedeschi», ha aggiunto. «Un Paese che dice “benvenuti” a tante persone deve anche dire quali sono le regole - ha aggiunto -. Anche questo fa parte di una società aperta. Non ci sarà nessuna tolleranza per la società parallela». Temi e concetti che si ritrovano anche nel discorso di Juncker.",
-  "topics": [
-    {
-      "category": "leggi_governo_e_politica",
-      "level": 0,
-      "score": 0.7233245447210793,
-      "sublevels": [
-        {
-          "category": "politica",
-          "level": 1,
-          "score": 0.5251832068430112
-        }
-      ]
-    }
-  ]
+  "count": 0, 
+  "type": "private", 
+  "description": "this-is-my-first-collection", 
+  "collection_name": "donald-duck"
 }
 ```
 
 
 
-> This is the code to "Delete a Text Collections"...
-
-```python
-
-from urllib2 import Request, urlopen
-
-request = Request('https://api.yonderlabs.com/1.0/text/taxonomyclassification/fromText?text=text&taxonomy=taxonomy&levels=2&limit=3')
-
-response_body = urlopen(request).read()
-print response_body
-```
+> Request example to "Delete a Text Collection" - `DELETE`...
 
 
 ```shell
-curl --include \
-     --request POST \
-'https://api.yonderlabs.com/1.0/text/taxonomyclassification/fromText?text=text&taxonomy=taxonomy&levels=2&limit=3'
+curl --ssl-reqd --request DELETE -u YOUR_USERNAME:YOUR_PASSWORD "https://vm3.yonderlabs.com/1.0/textcollection/textcollection?collection_name=donald-duck"
 ```
 
->... which returns No Content (response 204)
+>... and response body (200/JSON):
 
-
-
-> This is the code to "Delete all Text Collections"...
-
-```python
-
-from urllib2 import Request, urlopen
-
-request = Request('https://api.yonderlabs.com/1.0/text/taxonomyclassification/fromText?text=text&taxonomy=taxonomy&levels=2&limit=3')
-
-response_body = urlopen(request).read()
-print response_body
+```json
+{
+  "deleted": true, 
+  "type": "private", 
+  "description": "this-is-my-first-collection", 
+  "collection_name": "donald-duck"
+}
 ```
 
 
-```shell
-curl --include \
-     --request POST \
-'https://api.yonderlabs.com/1.0/text/taxonomyclassification/fromText?text=text&taxonomy=taxonomy&levels=2&limit=3'
-```
-
->... which returns No Content (response 204)
 
 
+**Create, delete, and retrieve information from Text Collections**
 
-**Create, retrieve, and remove Text Collections**
-
-This API allows you to create/remove a Text Collection, list existing Text Collections, and retrieve text IDs from a Text Collection.
+This API allows you to create, delete, and get information from a Text Collection.
 
 
-### Create a Text Collection 
+### Create a Text Collection - `POST`
 
 This API allows you to create a new Text Collection:
 
-`POST https://api.yonderlabs.com/1.0/textcollections/collection/?description=description`
 
 Parameter | Type | Description | 
 --------- | ------- | ----------- | 
-collection | string, required | the name of the Text Collection to be created | 
+collection_name | string, required | the name of the Text Collection to be created | 
 description | string, optional | a textual description of the Text Collection | 
 
 
 
-### List Text Collections 
 
-This API allows you to list the names of all your Text Collections, their size, and descriptions:
+### Get info from a Text Collection - `GET`
 
-`GET https://api.yonderlabs.com/1.0/textcollections/`
+This API allows you to retrieve all information from a Text Collection:
 
-
-### Retrieve text IDs from a Text Collection
-
-This API allows you to retrieve all the IDs of the documents contained in a Text Collection:
-
-`GET https://api.yonderlabs.com/1.0/textcollections/collection`
 
 Parameter | Type | Description | 
 --------- | ------- | ----------- | 
-collection | string, required | the name of the Text Collection from which to retrieve text IDs| 
+collection_name | string, required | the name of the Text Collection from which to retrieve information| 
 
 
-### Delete a Text Collection
+### Delete a Text Collection - `DELETE`
 
 This API allows you to delete a Text Collection:
 
 
-`DELETE https://api.yonderlabs.com/1.0/textcollections/collection`
 
 Parameter | Type | Description | 
 --------- | ------- | ----------- | 
-collection | string, required | the name of the Text Collection to be deleted| 
-
-
-### Delete all Text Collections
-
-This API allows you to delete all your Text Collections:
-
-`DELETE https://api.yonderlabs.com/1.0/textcollections`
-
-
+collection_name | string, required | the name of the Text Collection to be deleted| 
 
 
 

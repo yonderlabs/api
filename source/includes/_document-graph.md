@@ -1,65 +1,130 @@
 ## Document Graph 
 
-> This is the code to "Extract a graph of documents"...
 
-```python
-
-from urllib2 import Request, urlopen
-
-values = """
-url=http://www.gazzetta.it/Formula-1/20-09-2015/singapore-vettel-ferrari-f1-130196268810.shtml"""
-
-request = Request('https://api.yonderlabs.com/1.0/text/sentimentanalysis/fromURL', data=values)
-
-response_body = urlopen(request).read()
-print response_body
-```
+> Request example to "Create a Document Graph" - `POST`...
 
 ```shell
-curl --include \
-     --request POST \
-   --data-binary "url=http://www.gazzetta.it/Formula-1/20-09-2015/singapore-vettel-ferrari-f1-130196268810.shtml" \
-'https://api.yonderlabs.com/1.0/text/sentimentanalysis/fromURL'
+curl --ssl-reqd --request POST -u YOUR_USERNAME:YOUR_PASSWORD "https://vm3.yonderlabs.com/1.0/textcollection/documentgraph?collection_name=goofy"
 ```
-
-
-
->... which returs a json structured like this (response 200):
+>... and response body (202 "ACCEPTED"):
 
 ```json
 {
-  "sentiment": "positive",
-  "url": "http://www.gazzetta.it/Formula-1/20-09-2015/singapore-vettel-ferrari-f1-130196268810.shtml"
+  "task_type": "DocumentGraphAPI", 
+  "collection-name": "goofy", 
+  "task_id": "a4e31278-4432-43da-8fbf-1b21562d02f9", 
+  "task_status": "PENDING"
+}
+```
+
+> Request example to "Get results from Document Graph" - `GET`...
+
+```shell
+curl --ssl-reqd --request GET -u YOUR_USERNAME:YOUR_PASSWORD "https://vm3.yonderlabs.com/1.0/textcollection/documentgraph?task_id=e92dff8f-29ca-4286-9876-68d965f4a066"
+```
+
+
+>... and response body, case 1) SUCCESS, i.e. the task is over:
+
+```json
+{
+  "task_error": null, 
+  "task_type": "DocumentGraphAPI", 
+  "task_id": "a4e31278-4432-43da-8fbf-1b21562d02f9", 
+  "task_result": {
+    "graph_list": [
+      {
+        "id": "5661ce38b1f53961fbb5ba8f", 
+        "similar_documents": [
+          {
+            "id": "5661ce38b1f53961fbb5ba90", 
+            "score": 0.2182018253178482
+          }, 
+          {
+            "id": "5661ce38b1f53961fbb5bb43", 
+            "score": 0.20725070321790517
+          }
+        ]
+      }, 
+      {
+        "id": "5661ce38b1f53961fbb5bac7", 
+        "similar_documents": [
+          {
+            "id": "5661ce38b1f53961fbb5bb78", 
+            "score": 0.25007882768872314
+          }, 
+          {
+            "id": "5661ce38b1f53961fbb5ba2d", 
+            "score": 0.20836793197293701
+          }, 
+          {
+            "id": "5661ce38b1f53961fbb5bb75", 
+            "score": 0.1719251614907218
+          }
+        ]
+      }
+    ]
+  }, 
+  "collection_name": "goofy", 
+  "task_status": "SUCCESS"
+}
+```
+
+
+>... and response body, case 2) STARTED (the task has started, but it is not over):
+
+```json
+{
+  "task_type": "DocumentGraphAPI", 
+  "task_id": "e92dff8f-29ca-4286-9876-68d965f4a066", 
+  "collection_name": "goofy", 
+  "task_status": "STARTED"
+}
+```
+
+>... and response body, case 3) PENDING (the task is still pending):
+
+```json
+{
+  "task_type": "DocumentGraphAPI", 
+  "task_id": "e92dff8f-29ca-4286-9876-68d965f4a066", 
+  "collection_name": "goofy", 
+  "task_status": "PENDING"
 }
 ```
 
 
 
-
 **Compute all document similarities in your Text Collection**
 
-This API analyzes a collection of texts and returns all document cross-similarities (e.g. for clustering).
+This API analyzes a collection of texts and returns all document cross-similarities.
 
 
 <aside class="notice">
-Depending on the size of the Text Collection, this service might take up to several minutes to provide a full answer. As better detailed in the sidebar, you will get an immediate first answer containing a "ticketID" (and a "timetogo" estimation) to be used for calling again the service later on an get the full result. 
+Depending on the size of the Text Collection, this service might take up to few minutes to provide a full answer. 
 </aside>
 
-### Extract a graph of documents 
+### Create a Document Graph - `POST`
 
-`POST https://api.yonderlabs.com/1.0/textcollections/collection/documentgraph?limit=None&updateonly=On&matrix=Off`
-
-Parameter | Type | Description | Values |
---------- | ------- | ----------- | ----------- |
-collection | string, optional | the name of the Text Collection | "yonder" (default)
-limit | number, optional | the max # of relevant results to be returned | If not specified, all results are returned
-updateonly | string, optional | if "On" the list of related documents for an ID is returned only if it has changed from the last query | "Off", "On" (default)
-matrix | string, optional | if "On" the whole similarity matrix is returned | "On", "Off" (default)
+This API allows you to launch the task which computes document cross-similarities on all items contained in a Text Collection.
+As detailed in the right panel, as an immediate response to this API, you will get a `202` answer ("ACCEPTED") containing a task identifier `task_id` to be used later in the `GET` call. 
 
 
-Attribute | Type | Description | Values
---------- | ------- | ----------- | ----------- |
-rangeids | array of number intervals, optional | the interval of Item IDs to be used | Example: rangeids = (90,100), (150,180) means consider all Items whose ID is in the interval (90,100) AND all items whose ID is in (150,180). If not specified the entire Text Collection is used
+Parameter | Type | Description | 
+--------- | ------- | ----------- | 
+collection_name | string, required | the name of the Text Collection from which to build a Document Graph | 
+
+
+
+### Get results from Document Graph - `GET`
+
+This API allows you to retrieve computed document cross-similarities on all items contained in a Text Collection.
+If results are ready (i.e. similarities have been computed) you will get a `200` answer ("SUCCESS") and the resulting ouput, as detailed in the right panel.
+Otherwise you will get an adequate status code answer ("STARTED" or "PENDING") meaning that the process is still ongoing. 
+
+Parameter | Type | Description | 
+--------- | ------- | ----------- | 
+task_id | string, required | the identifier of the created Document Graph task| 
 
 
 

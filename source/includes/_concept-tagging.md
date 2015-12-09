@@ -1,6 +1,6 @@
 ## Concept Tagging
 
-> Request example "fromURL"...
+> Request example - `POST fromURL`...
 
 
 
@@ -29,7 +29,7 @@ curl --ssl-reqd --request POST -u YOUR_USERNAME:YOUR_PASSWORD --data url=http%3A
 }
 ```
 
-> Request example "fromText"...
+> Request example  - `POST fromText`...
 
 
 ```shell
@@ -69,7 +69,7 @@ Concept tags are a limited and meaningful set of highly relevant named entities 
 Allowed input sources are: text content contained in an URL ("from URL") or just simple text ("from text").
 
 
-### From URL: HTTPS request 
+### Concept Tagging - `POST fromURL`
 
 
 
@@ -85,7 +85,7 @@ limit | number, optional | max # of relevant tags to be returned, in decreasing 
 
 Examples of how-to-call the API and the related output are provided in the right panel.
 
-### From text: HTTPS request
+### Concept Tagging - `POST fromText`
 
 
 Attribute | Type | Description | Values |

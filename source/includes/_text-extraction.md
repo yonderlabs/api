@@ -1,6 +1,6 @@
 ## Text Extraction
 
-> Request example ...
+> Request example - `POST`...
 
 
 
@@ -21,7 +21,7 @@ curl --ssl-reqd --request POST -u YOUR_USERNAME:YOUR_PASSWORD --data url=http%3A
 
 This service extracts the main text from a webpage, discarding navigation links, advertisements and other undesired content.
 
-### HTTPS request
+### Text Extraction - `POST`
 
 Attribute | Type | Description | Values |
 --------- | ------- | ----------- | ------ |

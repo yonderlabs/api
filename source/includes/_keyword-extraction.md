@@ -1,7 +1,7 @@
 ## Keyword Extraction 
 
 
-> Request example "fromURL"...
+> Request example - `POST fromURL`...
 
 
 
@@ -69,7 +69,7 @@ curl --ssl-reqd --request POST -u YOUR_USERNAME:YOUR_PASSWORD --data url=http%3A
 }
 ```
 
-> Request example "fromText"...
+> Request example - `POST fromText`...
 
 
 ```shell
@@ -146,7 +146,8 @@ This API analyzes your text content (news articles, blog posts, e-mail, etc.) id
 Allowed input sources are: text content contained in an URL ("from URL") or just simple text ("from text").
 
 
-### From URL: HTTPS request 
+### Keyword Extraction - `POST fromURL`
+ 
 
 Attribute | Type | Description | Values |
 --------- | ------- | ----------- | ------ |
@@ -159,7 +160,7 @@ limit | number, optional | max # of relevant keywords to be returned, in decreas
 
 Examples of how-to-call the API and the related output are provided in the right panel.
 
-### From text: HTTPS request
+### Keyword Extraction - `POST fromText`
 
 
 Attribute | Type | Description | Values |

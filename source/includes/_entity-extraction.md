@@ -1,7 +1,7 @@
 ## Entity Extraction
 
 
-> Request example "fromURL"...
+> Request example - `POST fromURL`...
 
 ```shell
 curl --ssl-reqd --request POST -u YOUR_USERNAME:YOUR_PASSWORD --data url=http%3A%2F%2Fwww.theatlantic.com%2Finternational%2Farchive%2F2015%2F11%2Frussia-doping-2016-olympics%2F416604%2F "https://vm3.yonderlabs.com/1.0/text/entityextraction/fromURL?limit=10"
@@ -95,7 +95,7 @@ curl --ssl-reqd --request POST -u YOUR_USERNAME:YOUR_PASSWORD --data url=http%3A
 ```
 
 
-> Request example "fromText"...
+> Request example - `POST fromText`...
 
 
 
@@ -201,7 +201,7 @@ This API detects and classifies named entities such as persons/companies and loc
 Allowed input sources are: text content contained in an URL ("from URL") or just simple text ("from text").
 
 
-### From URL: HTTPS request 
+### Entity Extraction - `POST fromURL` 
 
 
 Attribute | Type | Description | Values |
@@ -215,8 +215,7 @@ limit | number, optional | max # of relevant entities to be returned, in decreas
 
 Examples of how-to-call the API and the related output are provided in the right panel.
 
-### From text: HTTPS request
-
+### Entity Extraction - `POST fromText` 
 
 Attribute | Type | Description | Values |
 --------- | ------- | ----------- | ------ |

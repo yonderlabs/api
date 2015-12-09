@@ -41,7 +41,7 @@ Examples of some possible error responses are provided aside:
 ```
 {
     "message": {
-        "language": "Text and taxonomy languages do not match"
+        "language": "Text and taxonomy languages do not match."
     }
 }
 ```
@@ -50,7 +50,7 @@ Examples of some possible error responses are provided aside:
 ```
 {
     "message": {
-        "text": "Text too short"
+        "text": "Text too short."
     }
 }
 ```
@@ -59,7 +59,7 @@ Examples of some possible error responses are provided aside:
 ```
 {
     "message": {
-        "text": "Missing required parameter in the post body"
+        "text": "Missing required parameter in the post body."
     }
 }
 ```
@@ -68,7 +68,7 @@ Examples of some possible error responses are provided aside:
 ```
 {
     "message": {
-        "url": "Missing required parameter in the post body"
+        "url": "Missing required parameter in the post body."
     }
 }
 ```
@@ -86,7 +86,7 @@ Examples of some possible error responses are provided aside:
 ```
 {
     "message": {
-        "limit": "Value is too low: the minimum accepted is 3"
+        "limit": "Value is too low: the minimum accepted is 3."
     }
 }
 ```
@@ -95,7 +95,7 @@ Examples of some possible error responses are provided aside:
 ```
 {
     "message": {
-        "ratelimit": "Limit of 1000000 requests/day reached for endpoint languagedetection"
+        "ratelimit": "Limit of 1000000 requests/day reached for endpoint languagedetection."
     }
 }
 ```
@@ -109,6 +109,77 @@ Examples of some possible error responses are provided aside:
 }
 ```
 
+```
+{
+  "message": {
+    "collection": "The collection you are trying to create already exists."
+  }
+}
+```
+
+
+```
+{
+  "message": {
+    "collection": "The collection you are trying to access does not exist."
+  }
+}
+```
+
+
+```
+{
+  "message": {
+    "collection": "Error while processing your request."
+  }
+}
+```
+
+
+```
+{
+  "message": {
+    "collection": "The document you are trying to access does not exist."
+  }
+}
+```
+
+
+```
+{
+  "message": {
+    "collection": "The id is not a valid ObjectId."
+  }
+}
+```
+
+
+
+```
+{
+  "message": {
+    "collection": "The collection name you choose is reserved."
+  }
+}
+```
+
+
+
+```
+{
+  "message": {
+    "collection": "The collection you are trying to access is full (100,000 documents)."
+  }
+}
+```
+
+```
+{
+  "message": {
+    "collection": "You reached the maximum allowed number of collections (1000)."
+  }
+}
+```
 
 
 
@@ -120,7 +191,7 @@ When something goes wrong on the API side, YonderAPI returns HTTP error code `50
 ```
 {
     "message": {
-        "error": "API processing error - Code 001" 
+        "error": "API processing error - Code 001." 
     }
 }
 ```
