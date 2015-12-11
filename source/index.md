@@ -1,5 +1,5 @@
 ---
-title: API Reference
+title: YonderAPI Reference
 
 language_tabs:
   - shell: cURL
