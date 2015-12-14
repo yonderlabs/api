@@ -77,7 +77,6 @@ curl --ssl-reqd --request GET -u YOUR_USERNAME:YOUR_PASSWORD "https://vm3.yonder
 {
   "task_type": "DocumentGraphAPI", 
   "task_id": "e92dff8f-29ca-4286-9876-68d965f4a066", 
-  "collection_name": "goofy", 
   "task_status": "STARTED"
 }
 ```
@@ -88,7 +87,6 @@ curl --ssl-reqd --request GET -u YOUR_USERNAME:YOUR_PASSWORD "https://vm3.yonder
 {
   "task_type": "DocumentGraphAPI", 
   "task_id": "e92dff8f-29ca-4286-9876-68d965f4a066", 
-  "collection_name": "goofy", 
   "task_status": "PENDING"
 }
 ```
