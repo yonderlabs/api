@@ -1648,6 +1648,188 @@ Otherwise you will get an adequate status code answer (&ldquo;STARTED&rdquo; or 
 Remember — insert your credentials for authentication!
 </aside>
 
+          <h2 id="document-discovery">Document Discovery</h2>
+
+<blockquote>
+<p>Request example to &ldquo;Discover related documents&rdquo; - <code class="prettyprint">POST fromURL</code>&hellip;</p>
+</blockquote>
+<pre class="highlight shell"><code>curl --ssl-reqd --request POST -u YOUR_USERNAME:YOUR_PASSWORD -data <span class="nv">url</span><span class="o">=</span>http%3A%2F%2Fwww.theatlantic.com%2Finternational%2Farchive%2F2015%2F11%2Frussia-doping-2016-olympics%2F416604%2F <span class="s2">"https://vm3.yonderlabs.com/1.0/textcollection/documentdiscovery/fromURL?collection_name=scrooge"</span>
+</code></pre>
+
+<blockquote>
+<p>&hellip; and response body (202 &ldquo;ACCEPTED&rdquo;):</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"task_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DocumentDiscoveryAPI"</span><span class="p">,</span><span class="w"> 
+  </span><span class="nt">"task_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"8292fd19-6c94-4570-90bf-c7d2f0afb9ed"</span><span class="p">,</span><span class="w"> 
+  </span><span class="nt">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://www.theatlantic.com/international/archive/2015/11/russia-doping-2016-olympics/416604/"</span><span class="p">,</span><span class="w"> 
+  </span><span class="nt">"collection_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"scrooge"</span><span class="p">,</span><span class="w"> 
+  </span><span class="nt">"text"</span><span class="p">:</span><span class="w"> </span><span class="s2">"With less than nine months to go for the 2016 Olympics in Rio de Janeiro, Russia is trying to break a world record in the 90-day sprint. A little more than a week after a commission of the world Anti-Doping Agency (WADA) issued a report that accused Russia of essentially hosting a state-sponsored doping program, Russia launched a task force to rid itself of its doping infection so it may compete in the Olympics [...]."</span><span class="p">,</span><span class="w"> 
+  </span><span class="nt">"task_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PENDING"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<blockquote>
+<p>Request example to &ldquo;Discover related documents&rdquo; - <code class="prettyprint">POST fromText</code>&hellip;</p>
+</blockquote>
+<pre class="highlight shell"><code>curl --ssl-reqd --request POST -u YOUR_USERNAME:YOUR_PASSWORD -data <span class="nv">text</span><span class="o">=</span><span class="s2">"With less than nine months to go for the 2016 Olympics in Rio de Janeiro, Russia is trying to break a world record in the 90-day sprint. A little more than a week after a commission of the world Anti-Doping Agency (WADA) issued a report that accused Russia of essentially hosting a state-sponsored doping program, Russia launched a task force to rid itself of its doping infection so it may compete in the Olympics [...]."</span> <span class="s2">"https://vm3.yonderlabs.com/1.0/textcollection/documentdiscovery/fromText?collection_name=scrooge"</span>
+</code></pre>
+
+<blockquote>
+<p>&hellip; and response body (202 &ldquo;ACCEPTED&rdquo;):</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"task_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DocumentDiscoveryAPI"</span><span class="p">,</span><span class="w"> 
+  </span><span class="nt">"task_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"8292fd19-6c94-4570-90bf-c7d2f0afb9ed"</span><span class="p">,</span><span class="w"> 
+  </span><span class="nt">"url"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w"> 
+  </span><span class="nt">"collection_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"scrooge"</span><span class="p">,</span><span class="w"> 
+  </span><span class="nt">"text"</span><span class="p">:</span><span class="w"> </span><span class="s2">"With less than nine months to go for the 2016 Olympics in Rio de Janeiro, Russia is trying to break a world record in the 90-day sprint. A little more than a week after a commission of the world Anti-Doping Agency (WADA) issued a report that accused Russia of essentially hosting a state-sponsored doping program, Russia launched a task force to rid itself of its doping infection so it may compete in the Olympics [...]."</span><span class="p">,</span><span class="w"> 
+  </span><span class="nt">"task_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PENDING"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<blockquote>
+<p>Request example to &ldquo;Get related documents&rdquo; - <code class="prettyprint">GET</code>&hellip;</p>
+</blockquote>
+<pre class="highlight shell"><code>curl --ssl-reqd --request GET -u YOUR_USERNAME:YOUR_PASSWORD <span class="s2">"https://vm3.yonderlabs.com/1.0/textcollection/documentdiscovery?task_id=8292fd19-6c94-4570-90bf-c7d2f0afb9ed"</span>
+</code></pre>
+
+<blockquote>
+<p>&hellip; and response body, case 1) SUCCESS, i.e. the task is over:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"task_error"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w"> 
+  </span><span class="nt">"task_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DocumentDiscoveryAPI"</span><span class="p">,</span><span class="w"> 
+  </span><span class="nt">"task_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"8292fd19-6c94-4570-90bf-c7d2f0afb9ed"</span><span class="p">,</span><span class="w"> 
+  </span><span class="nt">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://www.theatlantic.com/international/archive/2015/11/russia-doping-2016-olympics/416604/"</span><span class="p">,</span><span class="w"> 
+  </span><span class="nt">"collection_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"scrooge"</span><span class="p">,</span><span class="w"> 
+  </span><span class="nt">"task_result"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"discovery_list"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.24134128928939388</span><span class="p">,</span><span class="w"> 
+        </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5661ce38b1f53961fbb5bb25"</span><span class="w">
+      </span><span class="p">},</span><span class="w"> 
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.18162858119988462</span><span class="p">,</span><span class="w"> 
+        </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5661ce38b1f53961fbb5bb24"</span><span class="w">
+      </span><span class="p">},</span><span class="w"> 
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.15711326735569822</span><span class="p">,</span><span class="w"> 
+        </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5661ce38b1f53961fbb5bb29"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+  </span><span class="p">},</span><span class="w"> 
+  </span><span class="nt">"text"</span><span class="p">:</span><span class="w"> </span><span class="s2">"With less than nine months to go for the 2016 Olympics in Rio de Janeiro, Russia is trying to break a world record in the 90-day sprint. A little more than a week after a commission of the world Anti-Doping Agency (WADA) issued a report that accused Russia of essentially hosting a state-sponsored doping program, Russia launched a task force to rid itself of its doping infection so it may compete in the Olympics [...]."</span><span class="p">,</span><span class="w"> 
+  </span><span class="nt">"task_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SUCCESS"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<blockquote>
+<p>&hellip; and response body, case 2) STARTED (the task has started, but it is not over):</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"task_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DocumentDiscoveryAPI"</span><span class="p">,</span><span class="w"> 
+  </span><span class="nt">"task_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"8292fd19-6c94-4570-90bf-c7d2f0afb9ed"</span><span class="p">,</span><span class="w"> 
+  </span><span class="nt">"task_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"STARTED"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<blockquote>
+<p>&hellip; and response body, case 3) PENDING (the task is still pending):</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"task_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DocumentDiscoveryAPI"</span><span class="p">,</span><span class="w"> 
+  </span><span class="nt">"task_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"8292fd19-6c94-4570-90bf-c7d2f0afb9ed"</span><span class="p">,</span><span class="w"> 
+  </span><span class="nt">"task_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PENDING"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p><strong>Suggest other documents relevant to your text from a Text Collection</strong></p>
+
+<p>Based on the provided text, this API suggests other contextually relevant documents by retrieving them from a Text Collection.</p>
+
+<aside class="notice">
+Depending on the size of the Text Collection, this service might take up to few minutes to provide a full answer. 
+</aside>
+
+<h3 id="discover-related-documents-in-a-collection-post-fromurl">Discover related documents in a Collection - <code class="prettyprint">POST fromURL</code></h3>
+
+<p>Given an URL, this API allows you to discover other contextually relevant documents by retrieving them from a Text Collection.
+As detailed in the right panel, as an immediate response to this API, you will get a <code class="prettyprint">202</code> answer (&ldquo;ACCEPTED&rdquo;) containing a task identifier <code class="prettyprint">task_id</code> to be used later in the <code class="prettyprint">GET</code> call. </p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+<th>Values</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>collection_name</td>
+<td>string, required</td>
+<td>the name of the Text Collection</td>
+<td>-</td>
+</tr>
+<tr>
+<td>url</td>
+<td>string, required</td>
+<td>the url of the text</td>
+<td>use <a href="http://www.url-encode-decode.com/">url-encoding</a></td>
+</tr>
+</tbody></table>
+
+<h3 id="discover-related-documents-in-a-collection-post-fromtext">Discover related documents in a Collection - <code class="prettyprint">POST fromText</code></h3>
+
+<p>Given a text, this API allows you to discover other contextually relevant documents by retrieving them from a Text Collection.
+As detailed in the right panel, as an immediate response to this API, you will get a <code class="prettyprint">202</code> answer (&ldquo;ACCEPTED&rdquo;) containing a task identifier <code class="prettyprint">task_id</code> to be used later in the <code class="prettyprint">GET</code> call.</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+<th>Values</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>collection_name</td>
+<td>string, required</td>
+<td>the name of the Text Collection</td>
+<td>-</td>
+</tr>
+<tr>
+<td>text</td>
+<td>string, required</td>
+<td>the text document</td>
+<td>pass the text between &ldquo;&rdquo; (e.g. &ldquo;This is an example&rdquo;) or use <a href="http://www.url-encode-decode.com/">url-encoded</a> text</td>
+</tr>
+</tbody></table>
+
+<h3 id="get-results-from-document-discovery-get">Get results from Document Discovery - <code class="prettyprint">GET</code></h3>
+
+<p>This API allows you to retrieve all correlated documents contained in a Text Collection.
+If results are ready (i.e. correlations have been computed) you will get a <code class="prettyprint">200</code> answer (&ldquo;SUCCESS&rdquo;) and the resulting ouput, as detailed in the right panel.
+Otherwise you will get an adequate status code answer (&ldquo;STARTED&rdquo; or &ldquo;PENDING&rdquo;) meaning that the process is still ongoing. </p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>task_id</td>
+<td>string, required</td>
+<td>the identifier of the created Document Discovery task</td>
+</tr>
+</tbody></table>
+
+<aside class="success">
+Remember — insert your credentials for authentication!
+</aside>
+
           <h1 id="return-codes-amp-errors">Return Codes &amp; Errors</h1>
 
 <p>YonderAPI returns codes that follow the HTTP standard.</p>
