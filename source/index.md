@@ -23,6 +23,7 @@ includes:
   - text-collection
   - text-item
   - document-graph
+  - document-discovery
   - errors
 
 

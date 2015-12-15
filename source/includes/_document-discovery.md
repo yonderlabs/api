@@ -1,117 +1,101 @@
 ## Document Discovery 
 
-> This is the code "from url"...
 
-```python
+> Request example to "Discover related documents" - `POST fromURL`...
 
-from urllib2 import Request, urlopen
-
-request = Request('https://api.yonderlabs.com/1.0/text/taxonomyclassification/fromURL?url=url&taxonomy=taxonomy&levels=2&limit=3')
-
-response_body = urlopen(request).read()
-print response_body
-```
 ```shell
-curl --include \
-     --request POST \
-'https://api.yonderlabs.com/1.0/text/taxonomyclassification/fromURL?url=url&taxonomy=taxonomy&levels=2&limit=3'
+curl --ssl-reqd --request POST -u YOUR_USERNAME:YOUR_PASSWORD -data url=http%3A%2F%2Fwww.theatlantic.com%2Finternational%2Farchive%2F2015%2F11%2Frussia-doping-2016-olympics%2F416604%2F "https://vm3.yonderlabs.com/1.0/textcollection/documentdiscovery/fromURL?collection_name=scrooge"
 ```
 
-
-
->... which returs a json structured like this (response 200):
+>... and response body (202 "ACCEPTED"):
 
 ```json
 {
-    "text": "A wonderful tennis match took place yesterday at Wimbledon between Djokovic and Federer"
-    "taxonomy": "iab"
-    "levels": 2
-    "limit": 3
-    "topic":
-        [
-            {
-                "level": 0
-                "category": "sports"
-                "score": 0.8
-                "sublevels":
-                    [
-                        {
-                            "level": 1
-                            "category": "tennis"
-                            "score": 1.0
-                        }
-                    ]
-            },
-            {
-                "level": 0
-                "category": "arts&entertainment"
-                "score": 0.2
-                "sublevels":
-                    [
-                        {
-                            "level": 1
-                            "category": "television"
-                            "score": 0.9
-                        },
-                        {
-                            "level": 1
-                            "category": "celebrity fun/gossip"
-                            "score": 0.1
-                        }
-                    ]
-            },
-        ]
+  "task_type": "DocumentDiscoveryAPI", 
+  "task_id": "8292fd19-6c94-4570-90bf-c7d2f0afb9ed", 
+  "url": "http://www.theatlantic.com/international/archive/2015/11/russia-doping-2016-olympics/416604/", 
+  "collection_name": "scrooge", 
+  "text": "With less than nine months to go for the 2016 Olympics in Rio de Janeiro, Russia is trying to break a world record in the 90-day sprint. A little more than a week after a commission of the world Anti-Doping Agency (WADA) issued a report that accused Russia of essentially hosting a state-sponsored doping program, Russia launched a task force to rid itself of its doping infection so it may compete in the Olympics [...].", 
+  "task_status": "PENDING"
 }
 ```
 
 
-
-> This is the code "from text"...
-
-```python
-
-from urllib2 import Request, urlopen
-
-request = Request('https://api.yonderlabs.com/1.0/text/taxonomyclassification/fromText?text=text&taxonomy=taxonomy&levels=2&limit=3')
-
-response_body = urlopen(request).read()
-print response_body
-```
-
+> Request example to "Discover related documents" - `POST fromText`...
 
 ```shell
-curl --include \
-     --request POST \
-'https://api.yonderlabs.com/1.0/text/taxonomyclassification/fromText?text=text&taxonomy=taxonomy&levels=2&limit=3'
+curl --ssl-reqd --request POST -u YOUR_USERNAME:YOUR_PASSWORD -data text="With less than nine months to go for the 2016 Olympics in Rio de Janeiro, Russia is trying to break a world record in the 90-day sprint. A little more than a week after a commission of the world Anti-Doping Agency (WADA) issued a report that accused Russia of essentially hosting a state-sponsored doping program, Russia launched a task force to rid itself of its doping infection so it may compete in the Olympics [...]." "https://vm3.yonderlabs.com/1.0/textcollection/documentdiscovery/fromText?collection_name=scrooge"
 ```
 
->... which returs a json structured like this (response 200):
+>... and response body (202 "ACCEPTED"):
 
 ```json
 {
-  "levels": 2,
-  "limit": 1,
-  "taxonomy": "iab-it",
-  "text": "Contemporaneamente a Juncker, anche la Cancelliera Merkel parla di emergenza immigrazione, in un discorso al Bundestag. E lo fa, al solito, con i suoi toni pragmatici: « Coloro che cercano asilo e che vedono riconosciuto il diritto d’asilo hanno bisogno del nostro aiuto. E bisogna integrarli velocemente. E altrettanto velocemente devono imparare velocemente il tedesco e avere velocemente un lavoro. Diventeranno cittadini tedeschi», ha aggiunto. «Un Paese che dice “benvenuti” a tante persone deve anche dire quali sono le regole - ha aggiunto -. Anche questo fa parte di una società aperta. Non ci sarà nessuna tolleranza per la società parallela». Temi e concetti che si ritrovano anche nel discorso di Juncker.",
-  "topics": [
-    {
-      "category": "leggi_governo_e_politica",
-      "level": 0,
-      "score": 0.7233245447210793,
-      "sublevels": [
-        {
-          "category": "politica",
-          "level": 1,
-          "score": 0.5251832068430112
-        }
-      ]
-    }
-  ]
+  "task_type": "DocumentDiscoveryAPI", 
+  "task_id": "8292fd19-6c94-4570-90bf-c7d2f0afb9ed", 
+  "url": null, 
+  "collection_name": "scrooge", 
+  "text": "With less than nine months to go for the 2016 Olympics in Rio de Janeiro, Russia is trying to break a world record in the 90-day sprint. A little more than a week after a commission of the world Anti-Doping Agency (WADA) issued a report that accused Russia of essentially hosting a state-sponsored doping program, Russia launched a task force to rid itself of its doping infection so it may compete in the Olympics [...].", 
+  "task_status": "PENDING"
 }
 ```
 
 
+> Request example to "Get related documents" - `GET`...
 
+```shell
+curl --ssl-reqd --request GET -u YOUR_USERNAME:YOUR_PASSWORD "https://vm3.yonderlabs.com/1.0/textcollection/documentdiscovery?task_id=8292fd19-6c94-4570-90bf-c7d2f0afb9ed"
+```
+
+>... and response body, case 1) SUCCESS, i.e. the task is over:
+
+```json
+{
+  "task_error": null, 
+  "task_type": "DocumentDiscoveryAPI", 
+  "task_id": "8292fd19-6c94-4570-90bf-c7d2f0afb9ed", 
+  "url": "http://www.theatlantic.com/international/archive/2015/11/russia-doping-2016-olympics/416604/", 
+  "collection_name": "scrooge", 
+  "task_result": {
+    "discovery_list": [
+      {
+        "score": 0.24134128928939388, 
+        "id": "5661ce38b1f53961fbb5bb25"
+      }, 
+      {
+        "score": 0.18162858119988462, 
+        "id": "5661ce38b1f53961fbb5bb24"
+      }, 
+      {
+        "score": 0.15711326735569822, 
+        "id": "5661ce38b1f53961fbb5bb29"
+      }
+    ]
+  }, 
+  "text": "With less than nine months to go for the 2016 Olympics in Rio de Janeiro, Russia is trying to break a world record in the 90-day sprint. A little more than a week after a commission of the world Anti-Doping Agency (WADA) issued a report that accused Russia of essentially hosting a state-sponsored doping program, Russia launched a task force to rid itself of its doping infection so it may compete in the Olympics [...].", 
+  "task_status": "SUCCESS"
+}
+```
+
+>... and response body, case 2) STARTED (the task has started, but it is not over):
+
+```json
+{
+  "task_type": "DocumentDiscoveryAPI", 
+  "task_id": "8292fd19-6c94-4570-90bf-c7d2f0afb9ed", 
+  "task_status": "STARTED"
+}
+```
+
+>... and response body, case 3) PENDING (the task is still pending):
+
+```json
+{
+  "task_type": "DocumentDiscoveryAPI", 
+  "task_id": "8292fd19-6c94-4570-90bf-c7d2f0afb9ed", 
+  "task_status": "PENDING"
+}
+```
 
 
 **Suggest other documents relevant to your text from a Text Collection**
@@ -119,37 +103,41 @@ curl --include \
 Based on the provided text, this API suggests other contextually relevant documents by retrieving them from a Text Collection.
 
 <aside class="notice">
-Depending on the size of the Text Collection, this service might take up to several minutes to provide a full answer. As better detailed in the sidebar, you will get an immediate first answer containing a "ticketID" (and a "timetogo" estimation) to be used for calling again the service later on an get the full result. 
+Depending on the size of the Text Collection, this service might take up to few minutes to provide a full answer. 
 </aside>
 
-### From URL: HTTPS Request 
 
-`POST https://api.yonderlabs.com/1.0/textcollections/collection/documentdiscovery/fromURL?url=url&limit=None`
+### Discover related documents in a Collection - `POST fromURL` 
 
-Parameter | Type | Description | Values |
---------- | ------- | ----------- | ----------- |
-collection | string, optional | the name of the Text Collection | "yonder" (default)
-url | string, required | the URL of the text document | --- |
-limit | number, optional | the max # of relevant results to be returned | If not specified, all results are returned
-
-Attribute | Type | Description | Values
---------- | ------- | ----------- | ----------- |
-rangeids | array of number intervals, optional | the interval of Item IDs to be used | Example: rangeids = (90,100), (150,180) means consider all Items whose ID is in the interval (90,100) AND all items whose ID is in (150,180). If not specified the entire Text Collection is used
-
-
-### From text: HTTPS Request 
-
-`POST https://api.yonderlabs.com/1.0/textcollections/collection/documentdiscovery/fromText?text=text&limit=None`
+Given an URL, this API allows you to discover other contextually relevant documents by retrieving them from a Text Collection.
+As detailed in the right panel, as an immediate response to this API, you will get a `202` answer ("ACCEPTED") containing a task identifier `task_id` to be used later in the `GET` call. 
 
 Parameter | Type | Description | Values |
---------- | ------- | ----------- | ----------- |
-collection | string, optional | the name of the Text Collection | "yonder" (default)
-text | string, required | the URL of the text document | --- |
-limit | number, optional | the max # of relevant results to be returned | If not specified, all results are returned
+--------- | ------- | ----------- | ------ |
+collection_name | string, required | the name of the Text Collection  | - |
+url | string, required |the url of the text | use [url-encoding](http://www.url-encode-decode.com/)|
 
-Attribute | Type | Description | Values
---------- | ------- | ----------- | ----------- |
-rangeids | array of number intervals, optional | the interval of Item IDs to be used | Example: rangeids = (90,100), (150,180) means consider all Items whose ID is in the interval (90,100) AND all items whose ID is in (150,180). If not specified the entire Text Collection is used
+
+### Discover related documents in a Collection - `POST fromText` 
+
+Given a text, this API allows you to discover other contextually relevant documents by retrieving them from a Text Collection.
+As detailed in the right panel, as an immediate response to this API, you will get a `202` answer ("ACCEPTED") containing a task identifier `task_id` to be used later in the `GET` call.
+
+Parameter | Type | Description | Values |
+--------- | ------- | ----------- | ------ |
+collection_name | string, required | the name of the Text Collection | - |
+text | string, required |the text document | pass the text between "" (e.g. "This is an example") or use [url-encoded](http://www.url-encode-decode.com/) text|
+
+### Get results from Document Discovery - `GET` 
+
+This API allows you to retrieve all correlated documents contained in a Text Collection.
+If results are ready (i.e. correlations have been computed) you will get a `200` answer ("SUCCESS") and the resulting ouput, as detailed in the right panel.
+Otherwise you will get an adequate status code answer ("STARTED" or "PENDING") meaning that the process is still ongoing. 
+
+Parameter | Type | Description | 
+--------- | ------- | ----------- | 
+task_id | string, required | the identifier of the created Document Discovery task| 
+
 
 <aside class="success">
 Remember — insert your credentials for authentication!
