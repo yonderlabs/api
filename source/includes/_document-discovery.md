@@ -57,6 +57,7 @@ curl --ssl-reqd --request GET -u YOUR_USERNAME:YOUR_PASSWORD "https://vm3.yonder
   "url": "http://www.theatlantic.com/international/archive/2015/11/russia-doping-2016-olympics/416604/", 
   "collection_name": "scrooge", 
   "task_result": {
+    "timestamp": "2015-12-29 16:28:06.517297", 
     "discovery_list": [
       {
         "score": 0.24134128928939388, 
@@ -131,14 +132,18 @@ text | string, required |the text document | pass the text between "" (e.g. "Thi
 ### Get results from Document Discovery - `GET` 
 
 This API allows you to retrieve all correlated documents contained in a Text Collection.
-If results are ready (i.e. correlations have been computed) you will get a `200` answer ("SUCCESS") and the resulting ouput, as detailed in the right panel.
-Otherwise you will get an adequate status code answer ("STARTED" or "PENDING") meaning that the process is still ongoing. 
+
 
 Parameter | Type | Description | 
 --------- | ------- | ----------- | 
 task_id | string, required | the identifier of the created Document Discovery task| 
 
+If results are ready (i.e. document similarities have been computed) you will get a `200` answer ("SUCCESS") and the resulting ouput, as detailed in the right panel.
+If the process is still ongoing you will get an adequate status code answer ("STARTED" or "PENDING") meaning that you have to try again a bit later with another `GET` call. 
 
+<aside class="notice">
+In case of SUCCESS, results are promptly deleted afterwards, i.e. performing another GET on the same task_id will return no results.
+</aside>
 <aside class="success">
 Remember — insert your credentials for authentication!
 </aside>

@@ -32,6 +32,7 @@ curl --ssl-reqd --request GET -u YOUR_USERNAME:YOUR_PASSWORD "https://vm3.yonder
   "task_type": "DocumentGraphAPI", 
   "task_id": "a4e31278-4432-43da-8fbf-1b21562d02f9", 
   "task_result": {
+    "timestamp": "2015-12-29 16:28:06.517297", 
     "graph_list": [
       {
         "id": "5661ce38b1f53961fbb5ba8f", 
@@ -117,14 +118,18 @@ collection_name | string, required | the name of the Text Collection from which 
 ### Get results from Document Graph - `GET`
 
 This API allows you to retrieve computed document cross-similarities on all items contained in a Text Collection.
-If results are ready (i.e. similarities have been computed) you will get a `200` answer ("SUCCESS") and the resulting ouput, as detailed in the right panel.
-Otherwise you will get an adequate status code answer ("STARTED" or "PENDING") meaning that the process is still ongoing. 
+
 
 Parameter | Type | Description | 
 --------- | ------- | ----------- | 
 task_id | string, required | the identifier of the created Document Graph task| 
 
+If results are ready (i.e. document similarities have been computed) you will get a `200` answer ("SUCCESS") and the resulting ouput, as detailed in the right panel (notice that only documents whose list of similar ones is not empty are reported).
+If the process is still ongoing you will get an adequate status code answer ("STARTED" or "PENDING") meaning that you have to try again a bit later with another `GET` call. 
 
+<aside class="notice">
+In case of SUCCESS, results are promptly deleted afterwards, i.e. performing another GET on the same task_id will return no results.
+</aside>
 
 <aside class="success">
 Remember — insert your credentials for authentication!

@@ -14,6 +14,7 @@ curl --ssl-reqd --request POST -u YOUR_USERNAME:YOUR_PASSWORD --data url=http%3A
   "url": "http://www.theatlantic.com/international/archive/2015/11/russia-doping-2016-olympics/416604/", 
   "collection_name": "donald_duck", 
   "text": "With less than nine months to go for the 2016 Olympics in Rio de Janeiro, Russia is trying to break a world record in the 90-day sprint. A little more than a week after a commission of the world Anti-Doping Agency (WADA) issued a report that accused Russia of essentially hosting a state-sponsored doping program, Russia launched a task force to rid itself of its doping infection so it may compete in the Olympics [...].", 
+  "timestamp": "2015-12-29 16:28:06.517297", 
   "inserted_id": "5665a1e8b1f5391201471f86"
 }
 ```
@@ -31,6 +32,7 @@ curl --ssl-reqd --request POST -u YOUR_USERNAME:YOUR_PASSWORD --data text="With 
   "url": null, 
   "collection_name": "donald_duck", 
   "text": "With less than nine months to go for the 2016 Olympics in Rio de Janeiro, Russia is trying to break a world record in the 90-day sprint. A little more than a week after a commission of the world Anti-Doping Agency (WADA) issued a report that accused Russia of essentially hosting a state-sponsored doping program, Russia launched a task force to rid itself of its doping infection so it may compete in the Olympics [...].", 
+  "timestamp": "2015-12-29 16:28:06.517297", 
   "inserted_id": "5665a1e8b1f5391201471f86"
 }
 ```
@@ -78,7 +80,7 @@ curl --ssl-reqd --request GET -u YOUR_USERNAME:YOUR_PASSWORD "https://vm3.yonder
         "name": "WADA"
       }
     ], 
-    "timestamp": "2015-12-09 11:31:38.794000",
+    "timestamp": "2015-12-29 16:28:06.517297", 
     "_id": "5665a1e8b1f5391201471f86"
   }, 
   "fetched_id": "5665a1e8b1f5391201471f86"
@@ -101,6 +103,7 @@ curl --ssl-reqd --request PUT -u YOUR_USERNAME:YOUR_PASSWORD --data url=http%3A%
   "url": "http://www.theguardian.com/world/2015/nov/11/germany-spied-fbi-un-bodies-french-foreign-minister", 
   "collection_name": "donald_duck", 
   "modified_id": "5665a1e8b1f5391201471f86", 
+  "timestamp": "2015-12-29 16:28:06.517297", 
   "text": "Germany's foreign intelligence service spied on targets including the French foreign minister, Laurent Fabius, the FBI and the UN Children's Fund, a media report said on Wednesday. The latest news report on the BND spy service fuels a debate in Germany about state surveillance kicked off by the revelations of the US whistleblower Edward Snowden [...]."
 }
 ```
@@ -117,7 +120,8 @@ curl --ssl-reqd --request PUT -u YOUR_USERNAME:YOUR_PASSWORD --data text="I want
 {
   "url": null, 
   "collection_name": "donald_duck", 
-  "modified_id": "5665a1e8b1f5391201471f86", 
+  "modified_id": "5665a1e8b1f5391201471f86",
+  "timestamp": "2015-12-29 16:28:06.517297",  
   "text": "I want to change the text of the article about Russia and the 2016 Olympics in Rio de Janeiro."
 }
 ```
