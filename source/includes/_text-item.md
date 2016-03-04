@@ -5,7 +5,7 @@
 > Request example to "Create Text Item fromURL" - `POST fromURL`...
 
 ```shell
-curl --ssl-reqd --request POST -u YOUR_USERNAME:YOUR_PASSWORD --data url=http%3A%2F%2Fwww.theatlantic.com%2Finternational%2Farchive%2F2015%2F11%2Frussia-doping-2016-olympics%2F416604%2F "https://vm3.yonderlabs.com/1.0/textcollection/textitem/fromURL?collection_name=donald_duck"
+curl --ssl-reqd --request POST --data url=http%3A%2F%2Fwww.theatlantic.com%2Finternational%2Farchive%2F2015%2F11%2Frussia-doping-2016-olympics%2F416604%2F "https://vm3.yonderlabs.com/1.0/textcollection/textitem/fromURL?collection_name=donald_duck&access_token=YOUR_ACCESS_TOKEN"
 ```
 >... and response body (200/JSON):
 
@@ -23,7 +23,7 @@ curl --ssl-reqd --request POST -u YOUR_USERNAME:YOUR_PASSWORD --data url=http%3A
 > Request example to "Create Text Item fromText"  - `POST fromText`...
 
 ```shell
-curl --ssl-reqd --request POST -u YOUR_USERNAME:YOUR_PASSWORD --data text="With less than nine months to go for the 2016 Olympics in Rio de Janeiro, Russia is trying to break a world record in the 90-day sprint. A little more than a week after a commission of the world Anti-Doping Agency (WADA) issued a report that accused Russia of essentially hosting a state-sponsored doping program, Russia launched a task force to rid itself of its doping infection so it may compete in the Olympics [...]." "https://vm3.yonderlabs.com/1.0/textcollection/textitem/fromText?collection_name=donald_duck"
+curl --ssl-reqd --request POST --data text="With less than nine months to go for the 2016 Olympics in Rio de Janeiro, Russia is trying to break a world record in the 90-day sprint. A little more than a week after a commission of the world Anti-Doping Agency (WADA) issued a report that accused Russia of essentially hosting a state-sponsored doping program, Russia launched a task force to rid itself of its doping infection so it may compete in the Olympics [...]." "https://vm3.yonderlabs.com/1.0/textcollection/textitem/fromText?collection_name=donald_duck&access_token=YOUR_ACCESS_TOKEN"
 ```
 >... and response body (200/JSON):
 
@@ -41,7 +41,7 @@ curl --ssl-reqd --request POST -u YOUR_USERNAME:YOUR_PASSWORD --data text="With 
 > Request example to "Get info from Text Item"  - `GET`...
 
 ```shell
-curl --ssl-reqd --request GET -u YOUR_USERNAME:YOUR_PASSWORD "https://vm3.yonderlabs.com/1.0/textcollection/textitem?collection_name=donald_duck&id=5665a1e8b1f5391201471f86"
+curl --ssl-reqd --request GET "https://vm3.yonderlabs.com/1.0/textcollection/textitem?collection_name=donald_duck&id=5665a1e8b1f5391201471f86&access_token=YOUR_ACCESS_TOKEN"
 ```
 >... and response body (200/JSON):
 
@@ -93,8 +93,8 @@ curl --ssl-reqd --request GET -u YOUR_USERNAME:YOUR_PASSWORD "https://vm3.yonder
 > Request example to "Modify Text Item fromURL"  - `PUT fromURL`...
 
 ```shell
-curl --ssl-reqd --request PUT -u YOUR_USERNAME:YOUR_PASSWORD --data url=http%3A%2F%2Fwww.theguardian.com%2Fworld%2F2015%2Fnov%2F11%2Fgermany-spied-fbi-un-bodies-french-foreign-minister
- "https://vm3.yonderlabs.com/1.0/textcollection/textitem/fromText?collection_name=donald_duck&id=5665a1e8b1f5391201471f86"
+curl --ssl-reqd --request PUT --data url=http%3A%2F%2Fwww.theguardian.com%2Fworld%2F2015%2Fnov%2F11%2Fgermany-spied-fbi-un-bodies-french-foreign-minister
+ "https://vm3.yonderlabs.com/1.0/textcollection/textitem/fromText?collection_name=donald_duck&id=5665a1e8b1f5391201471f86&access_token=YOUR_ACCESS_TOKEN"
 ```
 >... and response body (200/JSON):
 
@@ -112,7 +112,7 @@ curl --ssl-reqd --request PUT -u YOUR_USERNAME:YOUR_PASSWORD --data url=http%3A%
 > Request example to "Modify Text Item fromText"  - `PUT fromText`...
 
 ```shell
-curl --ssl-reqd --request PUT -u YOUR_USERNAME:YOUR_PASSWORD --data text="I want to change the text of the article about Russia and the 2016 Olympics in Rio de Janeiro." "https://vm3.yonderlabs.com/1.0/textcollection/textitem/fromText?collection_name=donald_duck&id=5665a1e8b1f5391201471f86"
+curl --ssl-reqd --request PUT --data text="I want to change the text of the article about Russia and the 2016 Olympics in Rio de Janeiro." "https://vm3.yonderlabs.com/1.0/textcollection/textitem/fromText?collection_name=donald_duck&id=5665a1e8b1f5391201471f86&access_token=YOUR_ACCESS_TOKEN"
 ```
 >... and response body (200/JSON):
 
@@ -129,7 +129,7 @@ curl --ssl-reqd --request PUT -u YOUR_USERNAME:YOUR_PASSWORD --data text="I want
 > Request example to "Delete Text Item" - `DELETE`...
 
 ```shell
-curl --ssl-reqd --request DELETE -u YOUR_USERNAME:YOUR_PASSWORD "https://vm3.yonderlabs.com/1.0/textcollection/textitem?collection_name=donald_duck&id=5665a1e8b1f5391201471f86"
+curl --ssl-reqd --request DELETE "https://vm3.yonderlabs.com/1.0/textcollection/textitem?collection_name=donald_duck&id=5665a1e8b1f5391201471f86&access_token=YOUR_ACCESS_TOKEN"
 ```
 >... and response body (200/JSON):
 
@@ -158,6 +158,7 @@ Parameter | Type | Description | Values |
 --------- | ------- | ----------- | ------ |
 collection_name | string, required | the name of the Text Collection where to insert the new Item | - |
 url | string, required |the url of the text to be inserted as a new Item of the Text Collection | use [url-encoding](http://www.url-encode-decode.com/)|
+access_token | string, required | your access token (40 digits) | - |
 
 
 ### Create Text Item - `POST fromText` 
@@ -169,7 +170,7 @@ Parameter | Type | Description | Values |
 --------- | ------- | ----------- | ------ |
 collection_name | string, required | the name of the Text Collection where to insert the new Item | - |
 text | string, required |the text to be inserted as a new Text Item | pass the text between "" (e.g. "This is an example") or use [url-encoded](http://www.url-encode-decode.com/) text|
-
+access_token | string, required | your access token (40 digits) | - |
 
 
 ### Get info from Text Item - `GET`
@@ -181,7 +182,7 @@ Parameter | Type | Description |
 --------- | ------- | ----------- | 
 collection_name | string, required | the name of the Text Collection which contains the Text Item| 
 id | string, required |the ID of the text item|
-
+access_token | string, required | your access token (40 digits) | 
 
 
 ### Change Text Item fromURL - `PUT fromURL`
@@ -193,7 +194,7 @@ Parameter | Type | Description |  Values |
 collection_name | string, required | the name of the Text Collection where to change the item| - |
 id | string, required |the ID of the text item| - |
 url | string, required |the url of the text to be inserted | use [url-encoding](http://www.url-encode-decode.com/)|
-
+access_token | string, required | your access token (40 digits) | - |
 
 
 
@@ -207,7 +208,7 @@ Parameter | Type | Description | Values |
 collection_name | string, required | the name of the Text Collection where to change the item| - |
 id | string, required |the ID of the text item| - |
 text | string, required |the new text | pass the text between "" (e.g. "This is an example") or use [url-encoded](http://www.url-encode-decode.com/) text|
-
+access_token | string, required | your access token (40 digits) | - |
 
 ### Delete a Text Item - `DELETE`
 
@@ -218,7 +219,7 @@ Parameter | Type | Description
 --------- | ------- | ----------- | 
 collection_name | string, required | the name of the Text Collection where to delete the Item| 
 id | string, required |the ID of the Text Item to be deleted|
-
+access_token | string, required | your access token (40 digits) | 
 
 
 

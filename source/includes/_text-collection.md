@@ -2,7 +2,7 @@
 > Request example to "Create a Text Collection" - `POST`...
 
 ```shell
-curl --ssl-reqd --request POST -u YOUR_USERNAME:YOUR_PASSWORD "https://vm3.yonderlabs.com/1.0/textcollection/textcollection?collection_name=donald-duck&description=this-is-my-first-collection"
+curl --ssl-reqd --request POST "https://vm3.yonderlabs.com/1.0/textcollection/textcollection?collection_name=donald-duck&description=this-is-my-first-collection&access_token=YOUR_ACCESS_TOKEN"
 ```
 
 >... and response body (200/JSON):
@@ -22,7 +22,7 @@ curl --ssl-reqd --request POST -u YOUR_USERNAME:YOUR_PASSWORD "https://vm3.yonde
 
 
 ```shell
-curl --ssl-reqd --request GET -u YOUR_USERNAME:YOUR_PASSWORD "https://vm3.yonderlabs.com/1.0/textcollection/textcollection?collection_name=donald-duck"
+curl --ssl-reqd --request GET "https://vm3.yonderlabs.com/1.0/textcollection/textcollection?collection_name=donald-duck&access_token=YOUR_ACCESS_TOKEN"
 ```
 
 >... and response body (200/JSON):
@@ -42,7 +42,7 @@ curl --ssl-reqd --request GET -u YOUR_USERNAME:YOUR_PASSWORD "https://vm3.yonder
 
 
 ```shell
-curl --ssl-reqd --request DELETE -u YOUR_USERNAME:YOUR_PASSWORD "https://vm3.yonderlabs.com/1.0/textcollection/textcollection?collection_name=donald-duck"
+curl --ssl-reqd --request DELETE "https://vm3.yonderlabs.com/1.0/textcollection/textcollection?collection_name=donald-duck&access_token=YOUR_ACCESS_TOKEN"
 ```
 
 >... and response body (200/JSON):
@@ -73,7 +73,7 @@ Parameter | Type | Description |
 --------- | ------- | ----------- | 
 collection_name | string, required | the name of the Text Collection to be created | 
 description | string, optional | a textual description of the Text Collection | 
-
+access_token | string, required | your access token (40 digits) |
 
 
 
@@ -85,7 +85,7 @@ This API allows you to retrieve all information from a Text Collection:
 Parameter | Type | Description | 
 --------- | ------- | ----------- | 
 collection_name | string, required | the name of the Text Collection from which to retrieve information| 
-
+access_token | string, required | your access token (40 digits) |
 
 ### Delete a Text Collection - `DELETE`
 
@@ -96,7 +96,7 @@ This API allows you to delete a Text Collection:
 Parameter | Type | Description | 
 --------- | ------- | ----------- | 
 collection_name | string, required | the name of the Text Collection to be deleted| 
-
+access_token | string, required | your access token (40 digits) |
 
 
 <aside class="success">

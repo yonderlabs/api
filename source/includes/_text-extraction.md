@@ -5,7 +5,7 @@
 
 
 ```shell
-curl --ssl-reqd --request POST -u YOUR_USERNAME:YOUR_PASSWORD --data url=http%3A%2F%2Fwww.theatlantic.com%2Finternational%2Farchive%2F2015%2F11%2Frussia-doping-2016-olympics%2F416604%2F "https://vm3.yonderlabs.com/1.0/text/textextraction"
+curl --ssl-reqd --request POST --data url=http%3A%2F%2Fwww.theatlantic.com%2Finternational%2Farchive%2F2015%2F11%2Frussia-doping-2016-olympics%2F416604%2F "https://vm3.yonderlabs.com/1.0/text/textextraction?access_token=YOUR_ACCESS_TOKEN"
 ```
 
 > ... and response body (200/JSON):
@@ -26,6 +26,10 @@ This service extracts the main text from a webpage, discarding navigation links,
 Attribute | Type | Description | Values |
 --------- | ------- | ----------- | ------ |
 url | string, required | the URL of the text document | use [url-encoding](http://www.url-encode-decode.com/)|
+
+Parameter | Type | Description | 
+--------- | ------- | ----------- | 
+access_token | string, required | your access token (40 digits) |
 
 Examples of how-to-call the API and the related output are provided in the right panel.
 

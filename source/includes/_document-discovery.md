@@ -4,7 +4,7 @@
 > Request example to "Discover related documents" - `POST fromURL`...
 
 ```shell
-curl --ssl-reqd --request POST -u YOUR_USERNAME:YOUR_PASSWORD -data url=http%3A%2F%2Fwww.theatlantic.com%2Finternational%2Farchive%2F2015%2F11%2Frussia-doping-2016-olympics%2F416604%2F "https://vm3.yonderlabs.com/1.0/textcollection/documentdiscovery/fromURL?collection_name=scrooge"
+curl --ssl-reqd --request POST -data url=http%3A%2F%2Fwww.theatlantic.com%2Finternational%2Farchive%2F2015%2F11%2Frussia-doping-2016-olympics%2F416604%2F "https://vm3.yonderlabs.com/1.0/textcollection/documentdiscovery/fromURL?collection_name=scrooge&access_token=YOUR_ACCESS_TOKEN"
 ```
 
 >... and response body (202 "ACCEPTED"):
@@ -24,7 +24,7 @@ curl --ssl-reqd --request POST -u YOUR_USERNAME:YOUR_PASSWORD -data url=http%3A%
 > Request example to "Discover related documents" - `POST fromText`...
 
 ```shell
-curl --ssl-reqd --request POST -u YOUR_USERNAME:YOUR_PASSWORD -data text="With less than nine months to go for the 2016 Olympics in Rio de Janeiro, Russia is trying to break a world record in the 90-day sprint. A little more than a week after a commission of the world Anti-Doping Agency (WADA) issued a report that accused Russia of essentially hosting a state-sponsored doping program, Russia launched a task force to rid itself of its doping infection so it may compete in the Olympics [...]." "https://vm3.yonderlabs.com/1.0/textcollection/documentdiscovery/fromText?collection_name=scrooge"
+curl --ssl-reqd --request POST -data text="With less than nine months to go for the 2016 Olympics in Rio de Janeiro, Russia is trying to break a world record in the 90-day sprint. A little more than a week after a commission of the world Anti-Doping Agency (WADA) issued a report that accused Russia of essentially hosting a state-sponsored doping program, Russia launched a task force to rid itself of its doping infection so it may compete in the Olympics [...]." "https://vm3.yonderlabs.com/1.0/textcollection/documentdiscovery/fromText?collection_name=scrooge&access_token=YOUR_ACCESS_TOKEN"
 ```
 
 >... and response body (202 "ACCEPTED"):
@@ -44,7 +44,7 @@ curl --ssl-reqd --request POST -u YOUR_USERNAME:YOUR_PASSWORD -data text="With l
 > Request example to "Get related documents" - `GET`...
 
 ```shell
-curl --ssl-reqd --request GET -u YOUR_USERNAME:YOUR_PASSWORD "https://vm3.yonderlabs.com/1.0/textcollection/documentdiscovery?task_id=8292fd19-6c94-4570-90bf-c7d2f0afb9ed"
+curl --ssl-reqd --request GET "https://vm3.yonderlabs.com/1.0/textcollection/documentdiscovery?task_id=8292fd19-6c94-4570-90bf-c7d2f0afb9ed&access_token=YOUR_ACCESS_TOKEN"
 ```
 
 >... and response body, case 1) SUCCESS, i.e. the task is over:
@@ -117,7 +117,7 @@ Parameter | Type | Description | Values |
 --------- | ------- | ----------- | ------ |
 collection_name | string, required | the name of the Text Collection  | - |
 url | string, required |the url of the text | use [url-encoding](http://www.url-encode-decode.com/)|
-
+access_token | string, required | your access token (40 digits) | - |
 
 ### Discover related documents in a Collection - `POST fromText` 
 
@@ -128,6 +128,7 @@ Parameter | Type | Description | Values |
 --------- | ------- | ----------- | ------ |
 collection_name | string, required | the name of the Text Collection | - |
 text | string, required |the text document | pass the text between "" (e.g. "This is an example") or use [url-encoded](http://www.url-encode-decode.com/) text|
+access_token | string, required | your access token (40 digits) | - |
 
 ### Get results from Document Discovery - `GET` 
 
@@ -137,6 +138,7 @@ This API allows you to retrieve all correlated documents contained in a Text Col
 Parameter | Type | Description | 
 --------- | ------- | ----------- | 
 task_id | string, required | the identifier of the created Document Discovery task| 
+access_token | string, required | your access token (40 digits) | 
 
 If results are ready (i.e. document similarities have been computed) you will get a `200` answer ("SUCCESS") and the resulting ouput, as detailed in the right panel.
 If the process is still ongoing you will get an adequate status code answer ("STARTED" or "PENDING") meaning that you have to try again a bit later with another `GET` call. 

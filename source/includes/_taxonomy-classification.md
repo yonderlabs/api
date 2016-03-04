@@ -4,7 +4,7 @@
 
 
 ```shell
-curl --ssl-reqd --request POST -u YOUR_USERNAME:YOUR_PASSWORD --data url=http%3A%2F%2Fwww.theatlantic.com%2Finternational%2Farchive%2F2015%2F11%2Frussia-doping-2016-olympics%2F416604%2F "https://vm3.yonderlabs.com/1.0/text/taxonomyclassification/fromURL?limit=2&taxonomy=news-en"
+curl --ssl-reqd --request POST --data url=http%3A%2F%2Fwww.theatlantic.com%2Finternational%2Farchive%2F2015%2F11%2Frussia-doping-2016-olympics%2F416604%2F "https://vm3.yonderlabs.com/1.0/text/taxonomyclassification/fromURL?limit=2&taxonomy=news-en&access_token=YOUR_ACCESS_TOKEN"
 ```
 
 > ... and response body (200/JSON):
@@ -36,7 +36,7 @@ curl --ssl-reqd --request POST -u YOUR_USERNAME:YOUR_PASSWORD --data url=http%3A
 > Request example - `POST fromText`...
 
 ```shell
-curl --ssl-reqd --request POST -u YOUR_USERNAME:YOUR_PASSWORD --data text="With less than nine months to go for the 2016 Olympics in Rio de Janeiro, Russia is trying to break a world record in the 90-day sprint. A little more than a week after a commission of the world Anti-Doping Agency (WADA) issued a report that accused Russia of essentially hosting a state-sponsored doping program, Russia launched a task force to rid itself of its doping infection so it may compete in the Olympics [...]." "https://vm3.yonderlabs.com/1.0/text/taxonomyclassification/fromText?limit=2&taxonomy=news-en"
+curl --ssl-reqd --request POST --data text="With less than nine months to go for the 2016 Olympics in Rio de Janeiro, Russia is trying to break a world record in the 90-day sprint. A little more than a week after a commission of the world Anti-Doping Agency (WADA) issued a report that accused Russia of essentially hosting a state-sponsored doping program, Russia launched a task force to rid itself of its doping infection so it may compete in the Olympics [...]." "https://vm3.yonderlabs.com/1.0/text/taxonomyclassification/fromText?limit=2&taxonomy=news-en&access_token=YOUR_ACCESS_TOKEN"
 ```
 
 > ... and response body (200/JSON):
@@ -87,6 +87,7 @@ Parameter | Type | Description | Values |
 taxonomy | string, required |which taxonomy to use | "news-en", "news-it", "iab-it" |
 levels | number, optional | # of hierarchical levels considered for classification | 1, 2 (default)|
 limit | number, optional | max # of relevant categories returned per each level of the taxonomy | 1, 2, 3 (default) |
+access_token | string, required | your access token (40 digits) | - |
 
 
 where:
@@ -112,6 +113,7 @@ Parameter | Type | Description | Values |
 taxonomy | string, required |which taxonomy to use | "news-en", "news-it", "iab-it" |
 levels | number, optional | # of hierarchical levels considered for classification | 1, 2 (default)|
 limit | number, optional | max # of relevant categories returned per each level of the taxonomy | 1, 2, 3 (default) |
+access_token | string, required | your access token (40 digits) | - |
 
 
 where:
