@@ -1420,8 +1420,7 @@ Remember — insert your credentials for authentication!
 <blockquote>
 <p>Request example to &ldquo;Modify Text Item fromURL&rdquo;  - <code class="prettyprint">PUT fromURL</code>&hellip;</p>
 </blockquote>
-<pre class="highlight shell"><code>curl --ssl-reqd --request PUT --data <span class="nv">url</span><span class="o">=</span>http%3A%2F%2Fwww.theguardian.com%2Fworld%2F2015%2Fnov%2F11%2Fgermany-spied-fbi-un-bodies-french-foreign-minister
- <span class="s2">"https://vm3.yonderlabs.com/1.0/textcollection/textitem/fromText?collection_name=donald_duck&amp;id=5665a1e8b1f5391201471f86&amp;access_token=YOUR_ACCESS_TOKEN"</span>
+<pre class="highlight shell"><code>curl --ssl-reqd --request PUT --data <span class="nv">url</span><span class="o">=</span>http%3A%2F%2Fwww.theguardian.com%2Fworld%2F2015%2Fnov%2F11%2Fgermany-spied-fbi-un-bodies-french-foreign-minister <span class="s2">"https://vm3.yonderlabs.com/1.0/textcollection/textitem/fromText?collection_name=donald_duck&amp;id=5665a1e8b1f5391201471f86&amp;access_token=YOUR_ACCESS_TOKEN"</span>
 </code></pre>
 
 <blockquote>
@@ -1836,7 +1835,7 @@ Remember — insert your credentials for authentication!
 <blockquote>
 <p>Request example to &ldquo;Discover related documents&rdquo; - <code class="prettyprint">POST fromURL</code>&hellip;</p>
 </blockquote>
-<pre class="highlight shell"><code>curl --ssl-reqd --request POST -data <span class="nv">url</span><span class="o">=</span>http%3A%2F%2Fwww.theatlantic.com%2Finternational%2Farchive%2F2015%2F11%2Frussia-doping-2016-olympics%2F416604%2F <span class="s2">"https://vm3.yonderlabs.com/1.0/textcollection/documentdiscovery/fromURL?collection_name=scrooge&amp;access_token=YOUR_ACCESS_TOKEN"</span>
+<pre class="highlight shell"><code>curl --ssl-reqd --request POST --data <span class="nv">url</span><span class="o">=</span>http%3A%2F%2Fwww.theatlantic.com%2Finternational%2Farchive%2F2015%2F11%2Frussia-doping-2016-olympics%2F416604%2F <span class="s2">"https://vm3.yonderlabs.com/1.0/textcollection/documentdiscovery/fromURL?collection_name=scrooge&amp;access_token=YOUR_ACCESS_TOKEN"</span>
 </code></pre>
 
 <blockquote>
@@ -1855,7 +1854,7 @@ Remember — insert your credentials for authentication!
 <blockquote>
 <p>Request example to &ldquo;Discover related documents&rdquo; - <code class="prettyprint">POST fromText</code>&hellip;</p>
 </blockquote>
-<pre class="highlight shell"><code>curl --ssl-reqd --request POST -data <span class="nv">text</span><span class="o">=</span><span class="s2">"With less than nine months to go for the 2016 Olympics in Rio de Janeiro, Russia is trying to break a world record in the 90-day sprint. A little more than a week after a commission of the world Anti-Doping Agency (WADA) issued a report that accused Russia of essentially hosting a state-sponsored doping program, Russia launched a task force to rid itself of its doping infection so it may compete in the Olympics [...]."</span> <span class="s2">"https://vm3.yonderlabs.com/1.0/textcollection/documentdiscovery/fromText?collection_name=scrooge&amp;access_token=YOUR_ACCESS_TOKEN"</span>
+<pre class="highlight shell"><code>curl --ssl-reqd --request POST --data <span class="nv">text</span><span class="o">=</span><span class="s2">"With less than nine months to go for the 2016 Olympics in Rio de Janeiro, Russia is trying to break a world record in the 90-day sprint. A little more than a week after a commission of the world Anti-Doping Agency (WADA) issued a report that accused Russia of essentially hosting a state-sponsored doping program, Russia launched a task force to rid itself of its doping infection so it may compete in the Olympics [...]."</span> <span class="s2">"https://vm3.yonderlabs.com/1.0/textcollection/documentdiscovery/fromText?collection_name=scrooge&amp;access_token=YOUR_ACCESS_TOKEN"</span>
 </code></pre>
 
 <blockquote>
