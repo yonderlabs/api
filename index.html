@@ -51,7 +51,7 @@
 
           <h1 id="authentication">Authentication</h1>
 
-<p>To use YonderAPI you need to first register at our <a href="http://yonderlabs.com/api/#try">website</a> and get your credentials, i.e. <code class="prettyprint">YOUR_USERNAME</code> and <code class="prettyprint">YOUR_PASSWORD</code>.
+<p>To use YonderAPI you need to first register at our <a href="http://yonderlabs.com/api/#try">website</a> and get your credentials, i.e. <code class="prettyprint">YOUR_ACCESS_TOKEN</code>.
 YonderAPI expects for the credentials assigned in the registration process to be included in all API requests to the server.</p>
 
 <aside class="notice">
@@ -70,7 +70,7 @@ PRIVACY - For preserving your privacy we delete the text of your document from o
 <blockquote>
 <p>Request example - <code class="prettyprint">POST fromURL</code>&hellip;</p>
 </blockquote>
-<pre class="highlight shell"><code>curl --ssl-reqd --request POST -u YOUR_USERNAME:YOUR_PASSWORD --data <span class="nv">url</span><span class="o">=</span>http%3A%2F%2Fwww.theatlantic.com%2Finternational%2Farchive%2F2015%2F11%2Frussia-doping-2016-olympics%2F416604%2F <span class="s2">"https://vm3.yonderlabs.com/1.0/text/taxonomyclassification/fromURL?limit=2&amp;taxonomy=news-en"</span>
+<pre class="highlight shell"><code>curl --ssl-reqd --request POST --data <span class="nv">url</span><span class="o">=</span>http%3A%2F%2Fwww.theatlantic.com%2Finternational%2Farchive%2F2015%2F11%2Frussia-doping-2016-olympics%2F416604%2F <span class="s2">"https://vm3.yonderlabs.com/1.0/text/taxonomyclassification/fromURL?limit=2&amp;taxonomy=news-en&amp;access_token=YOUR_ACCESS_TOKEN"</span>
 </code></pre>
 
 <blockquote>
@@ -100,7 +100,7 @@ PRIVACY - For preserving your privacy we delete the text of your document from o
 <blockquote>
 <p>Request example - <code class="prettyprint">POST fromText</code>&hellip;</p>
 </blockquote>
-<pre class="highlight shell"><code>curl --ssl-reqd --request POST -u YOUR_USERNAME:YOUR_PASSWORD --data <span class="nv">text</span><span class="o">=</span><span class="s2">"With less than nine months to go for the 2016 Olympics in Rio de Janeiro, Russia is trying to break a world record in the 90-day sprint. A little more than a week after a commission of the world Anti-Doping Agency (WADA) issued a report that accused Russia of essentially hosting a state-sponsored doping program, Russia launched a task force to rid itself of its doping infection so it may compete in the Olympics [...]."</span> <span class="s2">"https://vm3.yonderlabs.com/1.0/text/taxonomyclassification/fromText?limit=2&amp;taxonomy=news-en"</span>
+<pre class="highlight shell"><code>curl --ssl-reqd --request POST --data <span class="nv">text</span><span class="o">=</span><span class="s2">"With less than nine months to go for the 2016 Olympics in Rio de Janeiro, Russia is trying to break a world record in the 90-day sprint. A little more than a week after a commission of the world Anti-Doping Agency (WADA) issued a report that accused Russia of essentially hosting a state-sponsored doping program, Russia launched a task force to rid itself of its doping infection so it may compete in the Olympics [...]."</span> <span class="s2">"https://vm3.yonderlabs.com/1.0/text/taxonomyclassification/fromText?limit=2&amp;taxonomy=news-en&amp;access_token=YOUR_ACCESS_TOKEN"</span>
 </code></pre>
 
 <blockquote>
@@ -176,6 +176,12 @@ Allowed input sources are: text content contained in an URL (&ldquo;from URL&rdq
 <td>max # of relevant categories returned per each level of the taxonomy</td>
 <td>1, 2, 3 (default)</td>
 </tr>
+<tr>
+<td>access_token</td>
+<td>string, required</td>
+<td>your access token (40 digits)</td>
+<td>-</td>
+</tr>
 </tbody></table>
 
 <p>where:</p>
@@ -232,6 +238,12 @@ Allowed input sources are: text content contained in an URL (&ldquo;from URL&rdq
 <td>max # of relevant categories returned per each level of the taxonomy</td>
 <td>1, 2, 3 (default)</td>
 </tr>
+<tr>
+<td>access_token</td>
+<td>string, required</td>
+<td>your access token (40 digits)</td>
+<td>-</td>
+</tr>
 </tbody></table>
 
 <p>where:</p>
@@ -253,7 +265,7 @@ Remember — insert your credentials for authentication!
 <blockquote>
 <p>Request example - <code class="prettyprint">POST fromURL</code>&hellip;</p>
 </blockquote>
-<pre class="highlight shell"><code>curl --ssl-reqd --request POST -u YOUR_USERNAME:YOUR_PASSWORD --data <span class="nv">url</span><span class="o">=</span>http%3A%2F%2Fwww.theatlantic.com%2Finternational%2Farchive%2F2015%2F11%2Frussia-doping-2016-olympics%2F416604%2F <span class="s2">"https://vm3.yonderlabs.com/1.0/text/sentimentanalysis/fromURL"</span>
+<pre class="highlight shell"><code>curl --ssl-reqd --request POST --data <span class="nv">url</span><span class="o">=</span>http%3A%2F%2Fwww.theatlantic.com%2Finternational%2Farchive%2F2015%2F11%2Frussia-doping-2016-olympics%2F416604%2F <span class="s2">"https://vm3.yonderlabs.com/1.0/text/sentimentanalysis/fromURL?access_token=YOUR_ACCESS_TOKEN"</span>
 </code></pre>
 
 <blockquote>
@@ -269,7 +281,7 @@ Remember — insert your credentials for authentication!
 <blockquote>
 <p>Request example - <code class="prettyprint">POST fromText</code>&hellip;</p>
 </blockquote>
-<pre class="highlight shell"><code>curl --ssl-reqd --request POST -u YOUR_USERNAME:YOUR_PASSWORD --data <span class="nv">text</span><span class="o">=</span><span class="s2">"With less than nine months to go for the 2016 Olympics in Rio de Janeiro, Russia is trying to break a world record in the 90-day sprint. A little more than a week after a commission of the world Anti-Doping Agency (WADA) issued a report that accused Russia of essentially hosting a state-sponsored doping program, Russia launched a task force to rid itself of its doping infection so it may compete in the Olympics [...]."</span> <span class="s2">"https://vm3.yonderlabs.com/1.0/text/sentimentanalysis/fromText"</span>
+<pre class="highlight shell"><code>curl --ssl-reqd --request POST --data <span class="nv">text</span><span class="o">=</span><span class="s2">"With less than nine months to go for the 2016 Olympics in Rio de Janeiro, Russia is trying to break a world record in the 90-day sprint. A little more than a week after a commission of the world Anti-Doping Agency (WADA) issued a report that accused Russia of essentially hosting a state-sponsored doping program, Russia launched a task force to rid itself of its doping infection so it may compete in the Olympics [...]."</span> <span class="s2">"https://vm3.yonderlabs.com/1.0/text/sentimentanalysis/fromText?access_token=YOUR_ACCESS_TOKEN"</span>
 </code></pre>
 
 <blockquote>
@@ -305,6 +317,20 @@ Allowed input sources are: text content contained in an URL (&ldquo;from URL&rdq
 </tr>
 </tbody></table>
 
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>access_token</td>
+<td>string, required</td>
+<td>your access token (40 digits)</td>
+</tr>
+</tbody></table>
+
 <p>Examples of how-to-call the API and the related output are provided in the right panel.</p>
 
 <h3 id="sentiment-analysis-post-fromtext">Sentiment Analysis - <code class="prettyprint">POST fromText</code></h3>
@@ -325,6 +351,20 @@ Allowed input sources are: text content contained in an URL (&ldquo;from URL&rdq
 </tr>
 </tbody></table>
 
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>access_token</td>
+<td>string, required</td>
+<td>your access token (40 digits)</td>
+</tr>
+</tbody></table>
+
 <p>Examples of how-to-call the API and the related output are provided in the right panel.</p>
 
 <aside class="success">
@@ -336,7 +376,7 @@ Remember — insert your credentials for authentication!
 <blockquote>
 <p>Request example - <code class="prettyprint">POST fromURL</code>&hellip;</p>
 </blockquote>
-<pre class="highlight shell"><code>curl --ssl-reqd --request POST -u YOUR_USERNAME:YOUR_PASSWORD --data <span class="nv">url</span><span class="o">=</span>http%3A%2F%2Fwww.theatlantic.com%2Finternational%2Farchive%2F2015%2F11%2Frussia-doping-2016-olympics%2F416604%2F <span class="s2">"https://vm3.yonderlabs.com/1.0/text/entityextraction/fromURL?limit=10"</span>
+<pre class="highlight shell"><code>curl --ssl-reqd --request POST --data <span class="nv">url</span><span class="o">=</span>http%3A%2F%2Fwww.theatlantic.com%2Finternational%2Farchive%2F2015%2F11%2Frussia-doping-2016-olympics%2F416604%2F <span class="s2">"https://vm3.yonderlabs.com/1.0/text/entityextraction/fromURL?limit=10&amp;access_token=YOUR_ACCESS_TOKEN"</span>
 </code></pre>
 
 <blockquote>
@@ -429,7 +469,7 @@ Remember — insert your credentials for authentication!
 <blockquote>
 <p>Request example - <code class="prettyprint">POST fromText</code>&hellip;</p>
 </blockquote>
-<pre class="highlight shell"><code>curl --ssl-reqd --request POST -u YOUR_USERNAME:YOUR_PASSWORD --data <span class="nv">text</span><span class="o">=</span><span class="s2">"With less than nine months to go for the 2016 Olympics in Rio de Janeiro, Russia is trying to break a world record in the 90-day sprint. A little more than a week after a commission of the world Anti-Doping Agency (WADA) issued a report that accused Russia of essentially hosting a state-sponsored doping program, Russia launched a task force to rid itself of its doping infection so it may compete in the Olympics [...]."</span> <span class="s2">"https://vm3.yonderlabs.com/1.0/text/entityextraction/fromText?limit=10"</span>
+<pre class="highlight shell"><code>curl --ssl-reqd --request POST --data <span class="nv">text</span><span class="o">=</span><span class="s2">"With less than nine months to go for the 2016 Olympics in Rio de Janeiro, Russia is trying to break a world record in the 90-day sprint. A little more than a week after a commission of the world Anti-Doping Agency (WADA) issued a report that accused Russia of essentially hosting a state-sponsored doping program, Russia launched a task force to rid itself of its doping infection so it may compete in the Olympics [...]."</span> <span class="s2">"https://vm3.yonderlabs.com/1.0/text/entityextraction/fromText?limit=10&amp;access_token=YOUR_ACCESS_TOKEN"</span>
 </code></pre>
 
 <blockquote>
@@ -554,6 +594,11 @@ Allowed input sources are: text content contained in an URL (&ldquo;from URL&rdq
 <td>number, optional</td>
 <td>max # of relevant entities to be returned, in decreasing order of confidence (if not specified, all results are returned)</td>
 </tr>
+<tr>
+<td>access_token</td>
+<td>string, required</td>
+<td>your access token (40 digits)</td>
+</tr>
 </tbody></table>
 
 <p>Examples of how-to-call the API and the related output are provided in the right panel.</p>
@@ -588,6 +633,11 @@ Allowed input sources are: text content contained in an URL (&ldquo;from URL&rdq
 <td>number, optional</td>
 <td>max # of relevant entities to be returned, in decreasing order of confidence (if not specified, all results are returned)</td>
 </tr>
+<tr>
+<td>access_token</td>
+<td>string, required</td>
+<td>your access token (40 digits)</td>
+</tr>
 </tbody></table>
 
 <p>Examples of how-to-call the API and the related output are provided in the right panel.</p>
@@ -601,7 +651,7 @@ Remember — insert your credentials for authentication!
 <blockquote>
 <p>Request example - <code class="prettyprint">POST fromURL</code>&hellip;</p>
 </blockquote>
-<pre class="highlight shell"><code>curl --ssl-reqd --request POST -u YOUR_USERNAME:YOUR_PASSWORD --data <span class="nv">url</span><span class="o">=</span>http%3A%2F%2Fwww.theatlantic.com%2Finternational%2Farchive%2F2015%2F11%2Frussia-doping-2016-olympics%2F416604%2F <span class="s2">"https://vm3.yonderlabs.com/1.0/text/keywordextraction/fromURL?limit=12"</span>
+<pre class="highlight shell"><code>curl --ssl-reqd --request POST --data <span class="nv">url</span><span class="o">=</span>http%3A%2F%2Fwww.theatlantic.com%2Finternational%2Farchive%2F2015%2F11%2Frussia-doping-2016-olympics%2F416604%2F <span class="s2">"https://vm3.yonderlabs.com/1.0/text/keywordextraction/fromURL?limit=12&amp;access_token=YOUR_ACCESS_TOKEN"</span>
 </code></pre>
 
 <blockquote>
@@ -667,7 +717,7 @@ Remember — insert your credentials for authentication!
 <blockquote>
 <p>Request example - <code class="prettyprint">POST fromText</code>&hellip;</p>
 </blockquote>
-<pre class="highlight shell"><code>curl --ssl-reqd --request POST -u YOUR_USERNAME:YOUR_PASSWORD --data <span class="nv">text</span><span class="o">=</span><span class="s2">"With less than nine months to go for the 2016 Olympics in Rio de Janeiro, Russia is trying to break a world record in the 90-day sprint. A little more than a week after a commission of the world Anti-Doping Agency (WADA) issued a report that accused Russia of essentially hosting a state-sponsored doping program, Russia launched a task force to rid itself of its doping infection so it may compete in the Olympics [...]."</span> <span class="s2">"https://vm3.yonderlabs.com/1.0/text/keywordextraction/fromText?limit=12"</span>
+<pre class="highlight shell"><code>curl --ssl-reqd --request POST --data <span class="nv">text</span><span class="o">=</span><span class="s2">"With less than nine months to go for the 2016 Olympics in Rio de Janeiro, Russia is trying to break a world record in the 90-day sprint. A little more than a week after a commission of the world Anti-Doping Agency (WADA) issued a report that accused Russia of essentially hosting a state-sponsored doping program, Russia launched a task force to rid itself of its doping infection so it may compete in the Olympics [...]."</span> <span class="s2">"https://vm3.yonderlabs.com/1.0/text/keywordextraction/fromText?limit=12&amp;access_token=YOUR_ACCESS_TOKEN"</span>
 </code></pre>
 
 <blockquote>
@@ -765,6 +815,11 @@ Allowed input sources are: text content contained in an URL (&ldquo;from URL&rdq
 <td>number, optional</td>
 <td>max # of relevant keywords to be returned, in decreasing order of relevance (if not specified, all results are returned)</td>
 </tr>
+<tr>
+<td>access_token</td>
+<td>string, required</td>
+<td>your access token (40 digits)</td>
+</tr>
 </tbody></table>
 
 <p>Examples of how-to-call the API and the related output are provided in the right panel.</p>
@@ -799,6 +854,11 @@ Allowed input sources are: text content contained in an URL (&ldquo;from URL&rdq
 <td>number, optional</td>
 <td>max # of relevant keywords to be returned, in decreasing order of relevance (if not specified, all results are returned)</td>
 </tr>
+<tr>
+<td>access_token</td>
+<td>string, required</td>
+<td>your access token (40 digits)</td>
+</tr>
 </tbody></table>
 
 <p>Examples of how-to-call the API and the related output are provided in the right panel.</p>
@@ -812,7 +872,7 @@ Remember — insert your credentials for authentication!
 <blockquote>
 <p>Request example - <code class="prettyprint">POST fromURL</code>&hellip;</p>
 </blockquote>
-<pre class="highlight shell"><code>curl --ssl-reqd --request POST -u YOUR_USERNAME:YOUR_PASSWORD --data <span class="nv">url</span><span class="o">=</span>http%3A%2F%2Fwww.theatlantic.com%2Finternational%2Farchive%2F2015%2F11%2Frussia-doping-2016-olympics%2F416604%2F <span class="s2">"https://vm3.yonderlabs.com/1.0/text/concepttagging/fromURL?limit=8"</span>
+<pre class="highlight shell"><code>curl --ssl-reqd --request POST --data <span class="nv">url</span><span class="o">=</span>http%3A%2F%2Fwww.theatlantic.com%2Finternational%2Farchive%2F2015%2F11%2Frussia-doping-2016-olympics%2F416604%2F <span class="s2">"https://vm3.yonderlabs.com/1.0/text/concepttagging/fromURL?limit=8&amp;access_token=YOUR_ACCESS_TOKEN"</span>
 </code></pre>
 
 <blockquote>
@@ -838,7 +898,7 @@ Remember — insert your credentials for authentication!
 <blockquote>
 <p>Request example  - <code class="prettyprint">POST fromText</code>&hellip;</p>
 </blockquote>
-<pre class="highlight shell"><code>curl --ssl-reqd --request POST -u YOUR_USERNAME:YOUR_PASSWORD --data <span class="nv">text</span><span class="o">=</span><span class="s2">"With less than nine months to go for the 2016 Olympics in Rio de Janeiro, Russia is trying to break a world record in the 90-day sprint. A little more than a week after a commission of the world Anti-Doping Agency (WADA) issued a report that accused Russia of essentially hosting a state-sponsored doping program, Russia launched a task force to rid itself of its doping infection so it may compete in the Olympics [...]."</span> <span class="s2">"https://vm3.yonderlabs.com/1.0/text/concepttagging/fromText?limit=8"</span>
+<pre class="highlight shell"><code>curl --ssl-reqd --request POST --data <span class="nv">text</span><span class="o">=</span><span class="s2">"With less than nine months to go for the 2016 Olympics in Rio de Janeiro, Russia is trying to break a world record in the 90-day sprint. A little more than a week after a commission of the world Anti-Doping Agency (WADA) issued a report that accused Russia of essentially hosting a state-sponsored doping program, Russia launched a task force to rid itself of its doping infection so it may compete in the Olympics [...]."</span> <span class="s2">"https://vm3.yonderlabs.com/1.0/text/concepttagging/fromText?limit=8&amp;access_token=YOUR_ACCESS_TOKEN"</span>
 </code></pre>
 
 <blockquote>
@@ -898,6 +958,12 @@ Allowed input sources are: text content contained in an URL (&ldquo;from URL&rdq
 <td>max # of relevant tags to be returned, in decreasing order of relevance</td>
 <td>1, 2, &hellip;, 10 (default), etc.</td>
 </tr>
+<tr>
+<td>access_token</td>
+<td>string, required</td>
+<td>your access token (40 digits)</td>
+<td></td>
+</tr>
 </tbody></table>
 
 <p>Examples of how-to-call the API and the related output are provided in the right panel.</p>
@@ -934,6 +1000,12 @@ Allowed input sources are: text content contained in an URL (&ldquo;from URL&rdq
 <td>max # of relevant tags to be returned, in decreasing order of relevance</td>
 <td>1, 2, &hellip;, 10 (default), etc.</td>
 </tr>
+<tr>
+<td>access_token</td>
+<td>string, required</td>
+<td>your access token (40 digits)</td>
+<td></td>
+</tr>
 </tbody></table>
 
 <p>Examples of how-to-call the API and the related output are provided in the right panel.</p>
@@ -947,7 +1019,7 @@ Remember — insert your credentials for authentication!
 <blockquote>
 <p>Request example - <code class="prettyprint">POST</code>&hellip;</p>
 </blockquote>
-<pre class="highlight shell"><code>curl --ssl-reqd --request POST -u YOUR_USERNAME:YOUR_PASSWORD --data <span class="nv">url</span><span class="o">=</span>http%3A%2F%2Fwww.theatlantic.com%2Finternational%2Farchive%2F2015%2F11%2Frussia-doping-2016-olympics%2F416604%2F <span class="s2">"https://vm3.yonderlabs.com/1.0/text/textextraction"</span>
+<pre class="highlight shell"><code>curl --ssl-reqd --request POST --data <span class="nv">url</span><span class="o">=</span>http%3A%2F%2Fwww.theatlantic.com%2Finternational%2Farchive%2F2015%2F11%2Frussia-doping-2016-olympics%2F416604%2F <span class="s2">"https://vm3.yonderlabs.com/1.0/text/textextraction?access_token=YOUR_ACCESS_TOKEN"</span>
 </code></pre>
 
 <blockquote>
@@ -981,6 +1053,20 @@ Remember — insert your credentials for authentication!
 </tr>
 </tbody></table>
 
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>access_token</td>
+<td>string, required</td>
+<td>your access token (40 digits)</td>
+</tr>
+</tbody></table>
+
 <p>Examples of how-to-call the API and the related output are provided in the right panel.</p>
 
 <aside class="success">
@@ -992,7 +1078,7 @@ Remember — insert your credentials for authentication!
 <blockquote>
 <p>Request example - <code class="prettyprint">POST fromURL</code>&hellip;</p>
 </blockquote>
-<pre class="highlight shell"><code>curl --ssl-reqd --request POST -u YOUR_USERNAME:YOUR_PASSWORD --data <span class="nv">url</span><span class="o">=</span>http%3A%2F%2Fwww.theatlantic.com%2Finternational%2Farchive%2F2015%2F11%2Frussia-doping-2016-olympics%2F416604%2F <span class="s2">"https://vm3.yonderlabs.com/1.0/text/languagedetection/fromURL"</span>
+<pre class="highlight shell"><code>curl --ssl-reqd --request POST --data <span class="nv">url</span><span class="o">=</span>http%3A%2F%2Fwww.theatlantic.com%2Finternational%2Farchive%2F2015%2F11%2Frussia-doping-2016-olympics%2F416604%2F <span class="s2">"https://vm3.yonderlabs.com/1.0/text/languagedetection/fromURL?access_token=YOUR_ACCESS_TOKEN"</span>
 </code></pre>
 
 <blockquote>
@@ -1009,7 +1095,7 @@ Remember — insert your credentials for authentication!
 <blockquote>
 <p>Request example - <code class="prettyprint">POST fromText</code>&hellip;</p>
 </blockquote>
-<pre class="highlight shell"><code>curl --ssl-reqd --request POST -u YOUR_USERNAME:YOUR_PASSWORD --data <span class="nv">text</span><span class="o">=</span><span class="s2">"With less than nine months to go for the 2016 Olympics in Rio de Janeiro, Russia is trying to break a world record in the 90-day sprint. A little more than a week after a commission of the world Anti-Doping Agency (WADA) issued a report that accused Russia of essentially hosting a state-sponsored doping program, Russia launched a task force to rid itself of its doping infection so it may compete in the Olympics [...]."</span> <span class="s2">"https://vm3.yonderlabs.com/1.0/text/languagedetection/fromText"</span>
+<pre class="highlight shell"><code>curl --ssl-reqd --request POST --data <span class="nv">text</span><span class="o">=</span><span class="s2">"With less than nine months to go for the 2016 Olympics in Rio de Janeiro, Russia is trying to break a world record in the 90-day sprint. A little more than a week after a commission of the world Anti-Doping Agency (WADA) issued a report that accused Russia of essentially hosting a state-sponsored doping program, Russia launched a task force to rid itself of its doping infection so it may compete in the Olympics [...]."</span> <span class="s2">"https://vm3.yonderlabs.com/1.0/text/languagedetection/fromText?access_token=YOUR_ACCESS_TOKEN"</span>
 </code></pre>
 
 <blockquote>
@@ -1046,6 +1132,20 @@ Allowed input sources are: text content contained in an URL (&ldquo;from URL&rdq
 </tr>
 </tbody></table>
 
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>access_token</td>
+<td>string, required</td>
+<td>your access token (40 digits)</td>
+</tr>
+</tbody></table>
+
 <p>Examples of how-to-call the API and the related output are provided in the right panel.</p>
 
 <h3 id="language-extraction-post-fromtext">Language Extraction - <code class="prettyprint">POST fromText</code></h3>
@@ -1063,6 +1163,20 @@ Allowed input sources are: text content contained in an URL (&ldquo;from URL&rdq
 <td>string, required</td>
 <td>the text to be classified</td>
 <td>pass the text between &ldquo;&rdquo; (e.g. &ldquo;This is an example&rdquo;) or use <a href="http://www.url-encode-decode.com/">url-encoded</a> text</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>access_token</td>
+<td>string, required</td>
+<td>your access token (40 digits)</td>
 </tr>
 </tbody></table>
 
@@ -1085,7 +1199,7 @@ PRIVACY - All created collections are private, i.e. they are accessible only by 
 <blockquote>
 <p>Request example to &ldquo;Create a Text Collection&rdquo; - <code class="prettyprint">POST</code>&hellip;</p>
 </blockquote>
-<pre class="highlight shell"><code>curl --ssl-reqd --request POST -u YOUR_USERNAME:YOUR_PASSWORD <span class="s2">"https://vm3.yonderlabs.com/1.0/textcollection/textcollection?collection_name=donald-duck&amp;description=this-is-my-first-collection"</span>
+<pre class="highlight shell"><code>curl --ssl-reqd --request POST <span class="s2">"https://vm3.yonderlabs.com/1.0/textcollection/textcollection?collection_name=donald-duck&amp;description=this-is-my-first-collection&amp;access_token=YOUR_ACCESS_TOKEN"</span>
 </code></pre>
 
 <blockquote>
@@ -1102,7 +1216,7 @@ PRIVACY - All created collections are private, i.e. they are accessible only by 
 <blockquote>
 <p>Request example to &ldquo;Get info from a Text Collection&rdquo; - <code class="prettyprint">GET</code>&hellip;</p>
 </blockquote>
-<pre class="highlight shell"><code>curl --ssl-reqd --request GET -u YOUR_USERNAME:YOUR_PASSWORD <span class="s2">"https://vm3.yonderlabs.com/1.0/textcollection/textcollection?collection_name=donald-duck"</span>
+<pre class="highlight shell"><code>curl --ssl-reqd --request GET <span class="s2">"https://vm3.yonderlabs.com/1.0/textcollection/textcollection?collection_name=donald-duck&amp;access_token=YOUR_ACCESS_TOKEN"</span>
 </code></pre>
 
 <blockquote>
@@ -1119,7 +1233,7 @@ PRIVACY - All created collections are private, i.e. they are accessible only by 
 <blockquote>
 <p>Request example to &ldquo;Delete a Text Collection&rdquo; - <code class="prettyprint">DELETE</code>&hellip;</p>
 </blockquote>
-<pre class="highlight shell"><code>curl --ssl-reqd --request DELETE -u YOUR_USERNAME:YOUR_PASSWORD <span class="s2">"https://vm3.yonderlabs.com/1.0/textcollection/textcollection?collection_name=donald-duck"</span>
+<pre class="highlight shell"><code>curl --ssl-reqd --request DELETE <span class="s2">"https://vm3.yonderlabs.com/1.0/textcollection/textcollection?collection_name=donald-duck&amp;access_token=YOUR_ACCESS_TOKEN"</span>
 </code></pre>
 
 <blockquote>
@@ -1158,6 +1272,11 @@ PRIVACY - All created collections are private, i.e. they are accessible only by 
 <td>string, optional</td>
 <td>a textual description of the Text Collection</td>
 </tr>
+<tr>
+<td>access_token</td>
+<td>string, required</td>
+<td>your access token (40 digits)</td>
+</tr>
 </tbody></table>
 
 <h3 id="get-info-from-a-text-collection-get">Get info from a Text Collection - <code class="prettyprint">GET</code></h3>
@@ -1175,6 +1294,11 @@ PRIVACY - All created collections are private, i.e. they are accessible only by 
 <td>collection_name</td>
 <td>string, required</td>
 <td>the name of the Text Collection from which to retrieve information</td>
+</tr>
+<tr>
+<td>access_token</td>
+<td>string, required</td>
+<td>your access token (40 digits)</td>
 </tr>
 </tbody></table>
 
@@ -1194,6 +1318,11 @@ PRIVACY - All created collections are private, i.e. they are accessible only by 
 <td>string, required</td>
 <td>the name of the Text Collection to be deleted</td>
 </tr>
+<tr>
+<td>access_token</td>
+<td>string, required</td>
+<td>your access token (40 digits)</td>
+</tr>
 </tbody></table>
 
 <aside class="success">
@@ -1205,7 +1334,7 @@ Remember — insert your credentials for authentication!
 <blockquote>
 <p>Request example to &ldquo;Create Text Item fromURL&rdquo; - <code class="prettyprint">POST fromURL</code>&hellip;</p>
 </blockquote>
-<pre class="highlight shell"><code>curl --ssl-reqd --request POST -u YOUR_USERNAME:YOUR_PASSWORD --data <span class="nv">url</span><span class="o">=</span>http%3A%2F%2Fwww.theatlantic.com%2Finternational%2Farchive%2F2015%2F11%2Frussia-doping-2016-olympics%2F416604%2F <span class="s2">"https://vm3.yonderlabs.com/1.0/textcollection/textitem/fromURL?collection_name=donald_duck"</span>
+<pre class="highlight shell"><code>curl --ssl-reqd --request POST --data <span class="nv">url</span><span class="o">=</span>http%3A%2F%2Fwww.theatlantic.com%2Finternational%2Farchive%2F2015%2F11%2Frussia-doping-2016-olympics%2F416604%2F <span class="s2">"https://vm3.yonderlabs.com/1.0/textcollection/textitem/fromURL?collection_name=donald_duck&amp;access_token=YOUR_ACCESS_TOKEN"</span>
 </code></pre>
 
 <blockquote>
@@ -1223,7 +1352,7 @@ Remember — insert your credentials for authentication!
 <blockquote>
 <p>Request example to &ldquo;Create Text Item fromText&rdquo;  - <code class="prettyprint">POST fromText</code>&hellip;</p>
 </blockquote>
-<pre class="highlight shell"><code>curl --ssl-reqd --request POST -u YOUR_USERNAME:YOUR_PASSWORD --data <span class="nv">text</span><span class="o">=</span><span class="s2">"With less than nine months to go for the 2016 Olympics in Rio de Janeiro, Russia is trying to break a world record in the 90-day sprint. A little more than a week after a commission of the world Anti-Doping Agency (WADA) issued a report that accused Russia of essentially hosting a state-sponsored doping program, Russia launched a task force to rid itself of its doping infection so it may compete in the Olympics [...]."</span> <span class="s2">"https://vm3.yonderlabs.com/1.0/textcollection/textitem/fromText?collection_name=donald_duck"</span>
+<pre class="highlight shell"><code>curl --ssl-reqd --request POST --data <span class="nv">text</span><span class="o">=</span><span class="s2">"With less than nine months to go for the 2016 Olympics in Rio de Janeiro, Russia is trying to break a world record in the 90-day sprint. A little more than a week after a commission of the world Anti-Doping Agency (WADA) issued a report that accused Russia of essentially hosting a state-sponsored doping program, Russia launched a task force to rid itself of its doping infection so it may compete in the Olympics [...]."</span> <span class="s2">"https://vm3.yonderlabs.com/1.0/textcollection/textitem/fromText?collection_name=donald_duck&amp;access_token=YOUR_ACCESS_TOKEN"</span>
 </code></pre>
 
 <blockquote>
@@ -1241,7 +1370,7 @@ Remember — insert your credentials for authentication!
 <blockquote>
 <p>Request example to &ldquo;Get info from Text Item&rdquo;  - <code class="prettyprint">GET</code>&hellip;</p>
 </blockquote>
-<pre class="highlight shell"><code>curl --ssl-reqd --request GET -u YOUR_USERNAME:YOUR_PASSWORD <span class="s2">"https://vm3.yonderlabs.com/1.0/textcollection/textitem?collection_name=donald_duck&amp;id=5665a1e8b1f5391201471f86"</span>
+<pre class="highlight shell"><code>curl --ssl-reqd --request GET <span class="s2">"https://vm3.yonderlabs.com/1.0/textcollection/textitem?collection_name=donald_duck&amp;id=5665a1e8b1f5391201471f86&amp;access_token=YOUR_ACCESS_TOKEN"</span>
 </code></pre>
 
 <blockquote>
@@ -1291,8 +1420,8 @@ Remember — insert your credentials for authentication!
 <blockquote>
 <p>Request example to &ldquo;Modify Text Item fromURL&rdquo;  - <code class="prettyprint">PUT fromURL</code>&hellip;</p>
 </blockquote>
-<pre class="highlight shell"><code>curl --ssl-reqd --request PUT -u YOUR_USERNAME:YOUR_PASSWORD --data <span class="nv">url</span><span class="o">=</span>http%3A%2F%2Fwww.theguardian.com%2Fworld%2F2015%2Fnov%2F11%2Fgermany-spied-fbi-un-bodies-french-foreign-minister
- <span class="s2">"https://vm3.yonderlabs.com/1.0/textcollection/textitem/fromText?collection_name=donald_duck&amp;id=5665a1e8b1f5391201471f86"</span>
+<pre class="highlight shell"><code>curl --ssl-reqd --request PUT --data <span class="nv">url</span><span class="o">=</span>http%3A%2F%2Fwww.theguardian.com%2Fworld%2F2015%2Fnov%2F11%2Fgermany-spied-fbi-un-bodies-french-foreign-minister
+ <span class="s2">"https://vm3.yonderlabs.com/1.0/textcollection/textitem/fromText?collection_name=donald_duck&amp;id=5665a1e8b1f5391201471f86&amp;access_token=YOUR_ACCESS_TOKEN"</span>
 </code></pre>
 
 <blockquote>
@@ -1310,7 +1439,7 @@ Remember — insert your credentials for authentication!
 <blockquote>
 <p>Request example to &ldquo;Modify Text Item fromText&rdquo;  - <code class="prettyprint">PUT fromText</code>&hellip;</p>
 </blockquote>
-<pre class="highlight shell"><code>curl --ssl-reqd --request PUT -u YOUR_USERNAME:YOUR_PASSWORD --data <span class="nv">text</span><span class="o">=</span><span class="s2">"I want to change the text of the article about Russia and the 2016 Olympics in Rio de Janeiro."</span> <span class="s2">"https://vm3.yonderlabs.com/1.0/textcollection/textitem/fromText?collection_name=donald_duck&amp;id=5665a1e8b1f5391201471f86"</span>
+<pre class="highlight shell"><code>curl --ssl-reqd --request PUT --data <span class="nv">text</span><span class="o">=</span><span class="s2">"I want to change the text of the article about Russia and the 2016 Olympics in Rio de Janeiro."</span> <span class="s2">"https://vm3.yonderlabs.com/1.0/textcollection/textitem/fromText?collection_name=donald_duck&amp;id=5665a1e8b1f5391201471f86&amp;access_token=YOUR_ACCESS_TOKEN"</span>
 </code></pre>
 
 <blockquote>
@@ -1328,7 +1457,7 @@ Remember — insert your credentials for authentication!
 <blockquote>
 <p>Request example to &ldquo;Delete Text Item&rdquo; - <code class="prettyprint">DELETE</code>&hellip;</p>
 </blockquote>
-<pre class="highlight shell"><code>curl --ssl-reqd --request DELETE -u YOUR_USERNAME:YOUR_PASSWORD <span class="s2">"https://vm3.yonderlabs.com/1.0/textcollection/textitem?collection_name=donald_duck&amp;id=5665a1e8b1f5391201471f86"</span>
+<pre class="highlight shell"><code>curl --ssl-reqd --request DELETE <span class="s2">"https://vm3.yonderlabs.com/1.0/textcollection/textitem?collection_name=donald_duck&amp;id=5665a1e8b1f5391201471f86&amp;access_token=YOUR_ACCESS_TOKEN"</span>
 </code></pre>
 
 <blockquote>
@@ -1368,6 +1497,12 @@ Remember — insert your credentials for authentication!
 <td>the url of the text to be inserted as a new Item of the Text Collection</td>
 <td>use <a href="http://www.url-encode-decode.com/">url-encoding</a></td>
 </tr>
+<tr>
+<td>access_token</td>
+<td>string, required</td>
+<td>your access token (40 digits)</td>
+<td>-</td>
+</tr>
 </tbody></table>
 
 <h3 id="create-text-item-post-fromtext">Create Text Item - <code class="prettyprint">POST fromText</code></h3>
@@ -1394,6 +1529,12 @@ Remember — insert your credentials for authentication!
 <td>the text to be inserted as a new Text Item</td>
 <td>pass the text between &ldquo;&rdquo; (e.g. &ldquo;This is an example&rdquo;) or use <a href="http://www.url-encode-decode.com/">url-encoded</a> text</td>
 </tr>
+<tr>
+<td>access_token</td>
+<td>string, required</td>
+<td>your access token (40 digits)</td>
+<td>-</td>
+</tr>
 </tbody></table>
 
 <h3 id="get-info-from-text-item-get">Get info from Text Item - <code class="prettyprint">GET</code></h3>
@@ -1416,6 +1557,11 @@ Remember — insert your credentials for authentication!
 <td>id</td>
 <td>string, required</td>
 <td>the ID of the text item</td>
+</tr>
+<tr>
+<td>access_token</td>
+<td>string, required</td>
+<td>your access token (40 digits)</td>
 </tr>
 </tbody></table>
 
@@ -1449,6 +1595,12 @@ Remember — insert your credentials for authentication!
 <td>the url of the text to be inserted</td>
 <td>use <a href="http://www.url-encode-decode.com/">url-encoding</a></td>
 </tr>
+<tr>
+<td>access_token</td>
+<td>string, required</td>
+<td>your access token (40 digits)</td>
+<td>-</td>
+</tr>
 </tbody></table>
 
 <h3 id="change-text-item-fromtext-put-fromtext">Change Text Item fromText - <code class="prettyprint">PUT fromText</code></h3>
@@ -1481,6 +1633,12 @@ Remember — insert your credentials for authentication!
 <td>the new text</td>
 <td>pass the text between &ldquo;&rdquo; (e.g. &ldquo;This is an example&rdquo;) or use <a href="http://www.url-encode-decode.com/">url-encoded</a> text</td>
 </tr>
+<tr>
+<td>access_token</td>
+<td>string, required</td>
+<td>your access token (40 digits)</td>
+<td>-</td>
+</tr>
 </tbody></table>
 
 <h3 id="delete-a-text-item-delete">Delete a Text Item - <code class="prettyprint">DELETE</code></h3>
@@ -1504,6 +1662,11 @@ Remember — insert your credentials for authentication!
 <td>string, required</td>
 <td>the ID of the Text Item to be deleted</td>
 </tr>
+<tr>
+<td>access_token</td>
+<td>string, required</td>
+<td>your access token (40 digits)</td>
+</tr>
 </tbody></table>
 
 <aside class="success">
@@ -1515,7 +1678,7 @@ Remember — insert your credentials for authentication!
 <blockquote>
 <p>Request example to &ldquo;Create a Document Graph&rdquo; - <code class="prettyprint">POST</code>&hellip;</p>
 </blockquote>
-<pre class="highlight shell"><code>curl --ssl-reqd --request POST -u YOUR_USERNAME:YOUR_PASSWORD <span class="s2">"https://vm3.yonderlabs.com/1.0/textcollection/documentgraph?collection_name=goofy"</span>
+<pre class="highlight shell"><code>curl --ssl-reqd --request POST <span class="s2">"https://vm3.yonderlabs.com/1.0/textcollection/documentgraph?collection_name=goofy&amp;access_token=YOUR_ACCESS_TOKEN"</span>
 </code></pre>
 
 <blockquote>
@@ -1532,7 +1695,7 @@ Remember — insert your credentials for authentication!
 <blockquote>
 <p>Request example to &ldquo;Get results from Document Graph&rdquo; - <code class="prettyprint">GET</code>&hellip;</p>
 </blockquote>
-<pre class="highlight shell"><code>curl --ssl-reqd --request GET -u YOUR_USERNAME:YOUR_PASSWORD <span class="s2">"https://vm3.yonderlabs.com/1.0/textcollection/documentgraph?task_id=e92dff8f-29ca-4286-9876-68d965f4a066"</span>
+<pre class="highlight shell"><code>curl --ssl-reqd --request GET <span class="s2">"https://vm3.yonderlabs.com/1.0/textcollection/documentgraph?task_id=e92dff8f-29ca-4286-9876-68d965f4a066&amp;access_token=YOUR_ACCESS_TOKEN"</span>
 </code></pre>
 
 <blockquote>
@@ -1627,6 +1790,11 @@ As detailed in the right panel, as an immediate response to this API, you will g
 <td>string, required</td>
 <td>the name of the Text Collection from which to build a Document Graph</td>
 </tr>
+<tr>
+<td>access_token</td>
+<td>string, required</td>
+<td>your access token (40 digits)</td>
+</tr>
 </tbody></table>
 
 <h3 id="get-results-from-document-graph-get">Get results from Document Graph - <code class="prettyprint">GET</code></h3>
@@ -1644,6 +1812,11 @@ As detailed in the right panel, as an immediate response to this API, you will g
 <td>task_id</td>
 <td>string, required</td>
 <td>the identifier of the created Document Graph task</td>
+</tr>
+<tr>
+<td>access_token</td>
+<td>string, required</td>
+<td>your access token (40 digits)</td>
 </tr>
 </tbody></table>
 
@@ -1663,7 +1836,7 @@ Remember — insert your credentials for authentication!
 <blockquote>
 <p>Request example to &ldquo;Discover related documents&rdquo; - <code class="prettyprint">POST fromURL</code>&hellip;</p>
 </blockquote>
-<pre class="highlight shell"><code>curl --ssl-reqd --request POST -u YOUR_USERNAME:YOUR_PASSWORD -data <span class="nv">url</span><span class="o">=</span>http%3A%2F%2Fwww.theatlantic.com%2Finternational%2Farchive%2F2015%2F11%2Frussia-doping-2016-olympics%2F416604%2F <span class="s2">"https://vm3.yonderlabs.com/1.0/textcollection/documentdiscovery/fromURL?collection_name=scrooge"</span>
+<pre class="highlight shell"><code>curl --ssl-reqd --request POST -data <span class="nv">url</span><span class="o">=</span>http%3A%2F%2Fwww.theatlantic.com%2Finternational%2Farchive%2F2015%2F11%2Frussia-doping-2016-olympics%2F416604%2F <span class="s2">"https://vm3.yonderlabs.com/1.0/textcollection/documentdiscovery/fromURL?collection_name=scrooge&amp;access_token=YOUR_ACCESS_TOKEN"</span>
 </code></pre>
 
 <blockquote>
@@ -1682,7 +1855,7 @@ Remember — insert your credentials for authentication!
 <blockquote>
 <p>Request example to &ldquo;Discover related documents&rdquo; - <code class="prettyprint">POST fromText</code>&hellip;</p>
 </blockquote>
-<pre class="highlight shell"><code>curl --ssl-reqd --request POST -u YOUR_USERNAME:YOUR_PASSWORD -data <span class="nv">text</span><span class="o">=</span><span class="s2">"With less than nine months to go for the 2016 Olympics in Rio de Janeiro, Russia is trying to break a world record in the 90-day sprint. A little more than a week after a commission of the world Anti-Doping Agency (WADA) issued a report that accused Russia of essentially hosting a state-sponsored doping program, Russia launched a task force to rid itself of its doping infection so it may compete in the Olympics [...]."</span> <span class="s2">"https://vm3.yonderlabs.com/1.0/textcollection/documentdiscovery/fromText?collection_name=scrooge"</span>
+<pre class="highlight shell"><code>curl --ssl-reqd --request POST -data <span class="nv">text</span><span class="o">=</span><span class="s2">"With less than nine months to go for the 2016 Olympics in Rio de Janeiro, Russia is trying to break a world record in the 90-day sprint. A little more than a week after a commission of the world Anti-Doping Agency (WADA) issued a report that accused Russia of essentially hosting a state-sponsored doping program, Russia launched a task force to rid itself of its doping infection so it may compete in the Olympics [...]."</span> <span class="s2">"https://vm3.yonderlabs.com/1.0/textcollection/documentdiscovery/fromText?collection_name=scrooge&amp;access_token=YOUR_ACCESS_TOKEN"</span>
 </code></pre>
 
 <blockquote>
@@ -1701,7 +1874,7 @@ Remember — insert your credentials for authentication!
 <blockquote>
 <p>Request example to &ldquo;Get related documents&rdquo; - <code class="prettyprint">GET</code>&hellip;</p>
 </blockquote>
-<pre class="highlight shell"><code>curl --ssl-reqd --request GET -u YOUR_USERNAME:YOUR_PASSWORD <span class="s2">"https://vm3.yonderlabs.com/1.0/textcollection/documentdiscovery?task_id=8292fd19-6c94-4570-90bf-c7d2f0afb9ed"</span>
+<pre class="highlight shell"><code>curl --ssl-reqd --request GET <span class="s2">"https://vm3.yonderlabs.com/1.0/textcollection/documentdiscovery?task_id=8292fd19-6c94-4570-90bf-c7d2f0afb9ed&amp;access_token=YOUR_ACCESS_TOKEN"</span>
 </code></pre>
 
 <blockquote>
@@ -1788,6 +1961,12 @@ As detailed in the right panel, as an immediate response to this API, you will g
 <td>the url of the text</td>
 <td>use <a href="http://www.url-encode-decode.com/">url-encoding</a></td>
 </tr>
+<tr>
+<td>access_token</td>
+<td>string, required</td>
+<td>your access token (40 digits)</td>
+<td>-</td>
+</tr>
 </tbody></table>
 
 <h3 id="discover-related-documents-in-a-collection-post-fromtext">Discover related documents in a Collection - <code class="prettyprint">POST fromText</code></h3>
@@ -1815,6 +1994,12 @@ As detailed in the right panel, as an immediate response to this API, you will g
 <td>the text document</td>
 <td>pass the text between &ldquo;&rdquo; (e.g. &ldquo;This is an example&rdquo;) or use <a href="http://www.url-encode-decode.com/">url-encoded</a> text</td>
 </tr>
+<tr>
+<td>access_token</td>
+<td>string, required</td>
+<td>your access token (40 digits)</td>
+<td>-</td>
+</tr>
 </tbody></table>
 
 <h3 id="get-results-from-document-discovery-get">Get results from Document Discovery - <code class="prettyprint">GET</code></h3>
@@ -1832,6 +2017,11 @@ As detailed in the right panel, as an immediate response to this API, you will g
 <td>task_id</td>
 <td>string, required</td>
 <td>the identifier of the created Document Discovery task</td>
+</tr>
+<tr>
+<td>access_token</td>
+<td>string, required</td>
+<td>your access token (40 digits)</td>
 </tr>
 </tbody></table>
 
