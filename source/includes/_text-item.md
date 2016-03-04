@@ -93,8 +93,7 @@ curl --ssl-reqd --request GET "https://vm3.yonderlabs.com/1.0/textcollection/tex
 > Request example to "Modify Text Item fromURL"  - `PUT fromURL`...
 
 ```shell
-curl --ssl-reqd --request PUT --data url=http%3A%2F%2Fwww.theguardian.com%2Fworld%2F2015%2Fnov%2F11%2Fgermany-spied-fbi-un-bodies-french-foreign-minister
- "https://vm3.yonderlabs.com/1.0/textcollection/textitem/fromText?collection_name=donald_duck&id=5665a1e8b1f5391201471f86&access_token=YOUR_ACCESS_TOKEN"
+curl --ssl-reqd --request PUT --data url=http%3A%2F%2Fwww.theguardian.com%2Fworld%2F2015%2Fnov%2F11%2Fgermany-spied-fbi-un-bodies-french-foreign-minister "https://vm3.yonderlabs.com/1.0/textcollection/textitem/fromText?collection_name=donald_duck&id=5665a1e8b1f5391201471f86&access_token=YOUR_ACCESS_TOKEN"
 ```
 >... and response body (200/JSON):
 
