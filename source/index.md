@@ -5,7 +5,7 @@ language_tabs:
   - shell: cURL
 
 toc_footers:
-  - <a href='yonderlabs.com'>Register for YonderAPI here</a>
+  - <a href='http://yonderlabs.com'>Register for YonderAPI here</a>
   - <a href='http://github.com/tripit/slate'>Documentation Powered by Slate</a>
 
 includes:
