@@ -132,7 +132,7 @@ access_token | string, required | your access token (40 digits) | - |
 
 ### Get results from Document Discovery - `GET` 
 
-This API allows you to retrieve all correlated documents contained in a Text Collection.
+This API allows you to retrieve most related documents contained in a Text Collection.
 
 
 Parameter | Type | Description | 

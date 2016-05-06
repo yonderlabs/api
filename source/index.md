@@ -24,6 +24,8 @@ includes:
   - text-item
   - document-graph
   - document-discovery
+  - entity-graph
+  - entity-discovery
   - errors
 
 
