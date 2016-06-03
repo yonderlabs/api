@@ -70,13 +70,13 @@ curl --ssl-reqd --request GET "https://vm3.yonderlabs.com/1.0/textcollection/tex
           "description": "Russia, also officially known as the Russian Federation, is a country in northern Eurasia. It is a federal semi-presidential republic [...]."
         }, 
         "score": 1.0, 
-        "type": "WHERE", 
+        "type": "Place", 
         "name": "Russia"
       }, 
       {
         "info": null, 
         "score": 1.0, 
-        "type": "WHO", 
+        "type": "Organization", 
         "name": "WADA"
       }
     ], 

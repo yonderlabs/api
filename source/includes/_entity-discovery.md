@@ -64,7 +64,7 @@ curl --ssl-reqd --request GET "https://vm3.yonderlabs.com/1.0/textcollection/ent
       {
         "count": 1,
         "info": "Russia also officially known as the Russian Federation is a sovereign state in northern Eurasia [...]",
-        "type": "WHERE",
+        "type": "Place",
         "name": "Russia",
         "graph": {
           "is_in_graph": true,
@@ -107,7 +107,7 @@ curl --ssl-reqd --request GET "https://vm3.yonderlabs.com/1.0/textcollection/ent
           "info": "Moscow is the capital and the largest city of Russia, with 12.2 million [...]",
           "name": "Moscow",
           "weight": 0.012578616352201259,
-          "type": "WHERE",
+          "type": "Place",
           "id": 0
         },
         {
@@ -115,7 +115,7 @@ curl --ssl-reqd --request GET "https://vm3.yonderlabs.com/1.0/textcollection/ent
           "info": "Vladimir Vladimirovich Putin has been the President of Russia since [...]",
           "name": "Vladimir Putin",
           "weight": 0.09433962264150944,
-          "type": "WHO",
+          "type": "Person",
           "id": 2
         },
         {
@@ -123,7 +123,7 @@ curl --ssl-reqd --request GET "https://vm3.yonderlabs.com/1.0/textcollection/ent
           "info": "The Moscow Kremlin, usually referred to as the Kremlin, is a fortified complex at the heart of [...]",
           "name": "Kremlin",
           "weight": 0.006289308176100629,
-          "type": "WHERE",
+          "type": "Place",
           "id": 3
         },
         {
@@ -131,7 +131,7 @@ curl --ssl-reqd --request GET "https://vm3.yonderlabs.com/1.0/textcollection/ent
           "info": "Turkey is a parliamentary republic in Eurasia, largely located in [...]",
           "name": "Turkey",
           "weight": 0.006289308176100629,
-          "type": "WHERE",
+          "type": "Place",
           "id": 4
         },
         {
@@ -139,7 +139,7 @@ curl --ssl-reqd --request GET "https://vm3.yonderlabs.com/1.0/textcollection/ent
           "info": "Ukraine is a sovereign country in Eastern Europe, bordered by Russia to the east and [...]",
           "name": "Ukraine",
           "weight": 0.006289308176100629,
-          "type": "WHERE",
+          "type": "Place",
           "id": 5
         }
       ],

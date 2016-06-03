@@ -21,25 +21,25 @@ curl --ssl-reqd --request POST --data url=http%3A%2F%2Fwww.theatlantic.com%2Fint
         "description": "Russia, also officially known as the Russian Federation, is a country in northern Eurasia. It is a federal semi-presidential republic [...]."
       }, 
       "score": 1.0, 
-      "type": "WHERE", 
+      "type": "Place", 
       "name": "Russia"
     }, 
     {
       "info": null, 
       "score": 1.0, 
-      "type": "WHO", 
+      "type": "Organization", 
       "name": "WADA"
     }, 
     {
       "info": null, 
       "score": 1.0, 
-      "type": "WHO", 
+      "type": "Misc", 
       "name": "Russian"
     }, 
     {
       "info": null, 
       "score": 0.9, 
-      "type": "WHO", 
+      "type": "Organization", 
       "name": "Olympics"
     }, 
     {
@@ -48,7 +48,7 @@ curl --ssl-reqd --request POST --data url=http%3A%2F%2Fwww.theatlantic.com%2Fint
         "description": "Vitaly Leontiyevich Mutko is a Russian politician. Since May 2008, he has been Minister of Sport, Tourism and Youth policy [...]."
       }, 
       "score": 0.8, 
-      "type": "WHO", 
+      "type": "Person", 
       "name": "Vitaly Mutko"
     }, 
     {
@@ -57,7 +57,7 @@ curl --ssl-reqd --request POST --data url=http%3A%2F%2Fwww.theatlantic.com%2Fint
         "description": "Rio de Janeiro is the second-largest city in Brazil, the sixth-largest city in the Americas, and the world's thirty-ninth largest city by population [...]."
       }, 
       "score": 0.4, 
-      "type": "WHERE", 
+      "type": "Place", 
       "name": "Rio de Janeiro"
     }, 
     {
@@ -66,19 +66,19 @@ curl --ssl-reqd --request POST --data url=http%3A%2F%2Fwww.theatlantic.com%2Fint
         "description": "Colorado is a U.S. state encompassing most of the Southern Rocky Mountains as well as the northeastern portion of the Colorado Plateau and the western edge of the Great Plains [...]."
       }, 
       "score": 0.4, 
-      "type": "WHERE", 
+      "type": "Place", 
       "name": "Colorado"
     }, 
     {
       "info": null, 
       "score": 0.4, 
-      "type": "WHO", 
+      "type": "Organization", 
       "name": "World Anti-Doping Agency"
     }, 
     {
       "info": null, 
       "score": 0.4, 
-      "type": "WHO", 
+      "type": "Organization", 
       "name": "International Olympic Committee"
     }, 
     {
@@ -87,7 +87,7 @@ curl --ssl-reqd --request POST --data url=http%3A%2F%2Fwww.theatlantic.com%2Fint
         "description": "Switzerland is a country in Europe. While still named the Swiss Confederation for historical reasons, modern Switzerland is a federal directorial republic [...]."
     },  
       "score": 0.4, 
-      "type": "WHERE", 
+      "type": "Place", 
       "name": "Switzerland"
     }
   ]
@@ -117,25 +117,25 @@ curl --ssl-reqd --request POST --data text="With less than nine months to go for
         "description": "Russia, also officially known as the Russian Federation, is a country in northern Eurasia. It is a federal semi-presidential republic [...]."
       }, 
       "score": 1.0, 
-      "type": "WHERE", 
+      "type": "Place", 
       "name": "Russia"
     }, 
     {
       "info": null, 
       "score": 1.0, 
-      "type": "WHO", 
+      "type": "Organization", 
       "name": "WADA"
     }, 
     {
       "info": null, 
       "score": 1.0, 
-      "type": "WHO", 
+      "type": "Misc", 
       "name": "Russian"
     }, 
     {
       "info": null, 
       "score": 0.9, 
-      "type": "WHO", 
+      "type": "Organization", 
       "name": "Olympics"
     }, 
     {
@@ -144,7 +144,7 @@ curl --ssl-reqd --request POST --data text="With less than nine months to go for
         "description": "Vitaly Leontiyevich Mutko is a Russian politician. Since May 2008, he has been Minister of Sport, Tourism and Youth policy [...]."
       }, 
       "score": 0.8, 
-      "type": "WHO", 
+      "type": "Person", 
       "name": "Vitaly Mutko"
     }, 
     {
@@ -153,7 +153,7 @@ curl --ssl-reqd --request POST --data text="With less than nine months to go for
         "description": "Rio de Janeiro is the second-largest city in Brazil, the sixth-largest city in the Americas, and the world's thirty-ninth largest city by population [...]."
       }, 
       "score": 0.4, 
-      "type": "WHERE", 
+      "type": "Place", 
       "name": "Rio de Janeiro"
     }, 
     {
@@ -162,19 +162,19 @@ curl --ssl-reqd --request POST --data text="With less than nine months to go for
         "description": "Colorado is a U.S. state encompassing most of the Southern Rocky Mountains as well as the northeastern portion of the Colorado Plateau and the western edge of the Great Plains [...]."
       }, 
       "score": 0.4, 
-      "type": "WHERE", 
+      "type": "Place", 
       "name": "Colorado"
     }, 
     {
       "info": null, 
       "score": 0.4, 
-      "type": "WHO", 
+      "type": "Organization", 
       "name": "World Anti-Doping Agency"
     }, 
     {
       "info": null, 
       "score": 0.4, 
-      "type": "WHO", 
+      "type": "Organization", 
       "name": "International Olympic Committee"
     }, 
     {
@@ -183,7 +183,7 @@ curl --ssl-reqd --request POST --data text="With less than nine months to go for
         "description": "Switzerland is a country in Europe. While still named the Swiss Confederation for historical reasons, modern Switzerland is a federal directorial republic [...]."
     }, 
       "score": 0.4, 
-      "type": "WHERE", 
+      "type": "Place", 
       "name": "Switzerland"
     }
   ]
@@ -197,7 +197,7 @@ curl --ssl-reqd --request POST --data text="With less than nine months to go for
 
 **Identify people, places, and organizations in your text**
 
-This API detects and classifies named entities such as persons/companies and locations. The service also links them to knowledge base repositories (Wikipedia, DBpedia, etc.).
+This API detects named entities and classify them as `Person`, `Place`, `Organization` or `Misc`. The service also links them to knowledge base repositories (Wikipedia, DBpedia, etc.).
 Allowed input sources are: text content contained in an URL ("from URL") or just simple text ("from text").
 
 

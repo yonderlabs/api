@@ -70,7 +70,7 @@ curl --ssl-reqd --request GET "https://vm3.yonderlabs.com/1.0/textcollection/ent
           }
         ],
         "weight": 0.012578616352201259,
-        "type": "WHERE",
+        "type": "Place",
         "id": 0
       },
       {
@@ -105,7 +105,7 @@ curl --ssl-reqd --request GET "https://vm3.yonderlabs.com/1.0/textcollection/ent
           }
         ],
         "weight": 0.012578616352201259,
-        "type": "WHERE",
+        "type": "Place",
         "id": 1
       }
     ],
