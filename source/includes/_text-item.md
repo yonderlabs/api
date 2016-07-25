@@ -5,15 +5,15 @@
 > Request example to "Create Text Item fromURL" - `POST fromURL`...
 
 ```shell
-curl --ssl-reqd --request POST --data url=http%3A%2F%2Fwww.theatlantic.com%2Finternational%2Farchive%2F2015%2F11%2Frussia-doping-2016-olympics%2F416604%2F "https://vm3.yonderlabs.com/1.0/textcollection/textitem/fromURL?collection_name=donald_duck&access_token=YOUR_ACCESS_TOKEN"
+curl --ssl-reqd --request POST --data url=https%3A%2F%2Fwww.theguardian.com%2Fworld%2F2016%2Fjul%2F22%2Fmissing-flight-mh370-hunt-for-debris-will-not-be-extended "https://vm3.yonderlabs.com/1.0/textcollection/textitem/fromURL?collection_name=donald_duck&access_token=YOUR_ACCESS_TOKEN"
 ```
 >... and response body (200/JSON):
 
 ```json
 {
-  "url": "http://www.theatlantic.com/international/archive/2015/11/russia-doping-2016-olympics/416604/", 
+  "url": "https://www.theguardian.com/world/2016/jul/22/missing-flight-mh370-hunt-for-debris-will-not-be-extended", 
   "collection_name": "donald_duck", 
-  "text": "With less than nine months to go for the 2016 Olympics in Rio de Janeiro, Russia is trying to break a world record in the 90-day sprint. A little more than a week after a commission of the world Anti-Doping Agency (WADA) issued a report that accused Russia of essentially hosting a state-sponsored doping program, Russia launched a task force to rid itself of its doping infection so it may compete in the Olympics [...].", 
+  "text": "The hunt for Malaysia Airlines flight MH370 is to be suspended if evidence of the missing jet is not found in the current search area. The transport ministers of Australia, Malaysia and China, representing the country leading the search, the airline and the home of the majority of its passengers, met to discuss the future of the search in the Malaysian federal administrative centre of Putrajaya on Friday. They announced that [...]", 
   "timestamp": "2015-12-29 16:28:06.517297", 
   "inserted_id": "5665a1e8b1f5391201471f86"
 }
@@ -23,7 +23,7 @@ curl --ssl-reqd --request POST --data url=http%3A%2F%2Fwww.theatlantic.com%2Fint
 > Request example to "Create Text Item fromText"  - `POST fromText`...
 
 ```shell
-curl --ssl-reqd --request POST --data text="With less than nine months to go for the 2016 Olympics in Rio de Janeiro, Russia is trying to break a world record in the 90-day sprint. A little more than a week after a commission of the world Anti-Doping Agency (WADA) issued a report that accused Russia of essentially hosting a state-sponsored doping program, Russia launched a task force to rid itself of its doping infection so it may compete in the Olympics [...]." "https://vm3.yonderlabs.com/1.0/textcollection/textitem/fromText?collection_name=donald_duck&access_token=YOUR_ACCESS_TOKEN"
+curl --ssl-reqd --request POST --data text="The hunt for Malaysia Airlines flight MH370 is to be suspended if evidence of the missing jet is not found in the current search area. The transport ministers of Australia, Malaysia and China, representing the country leading the search, the airline and the home of the majority of its passengers, met to discuss the future of the search in the Malaysian federal administrative centre of Putrajaya on Friday. They announced that [...]" "https://vm3.yonderlabs.com/1.0/textcollection/textitem/fromText?collection_name=donald_duck&access_token=YOUR_ACCESS_TOKEN"
 ```
 >... and response body (200/JSON):
 
@@ -31,7 +31,7 @@ curl --ssl-reqd --request POST --data text="With less than nine months to go for
 {
   "url": null, 
   "collection_name": "donald_duck", 
-  "text": "With less than nine months to go for the 2016 Olympics in Rio de Janeiro, Russia is trying to break a world record in the 90-day sprint. A little more than a week after a commission of the world Anti-Doping Agency (WADA) issued a report that accused Russia of essentially hosting a state-sponsored doping program, Russia launched a task force to rid itself of its doping infection so it may compete in the Olympics [...].", 
+  "text": "The hunt for Malaysia Airlines flight MH370 is to be suspended if evidence of the missing jet is not found in the current search area. The transport ministers of Australia, Malaysia and China, representing the country leading the search, the airline and the home of the majority of its passengers, met to discuss the future of the search in the Malaysian federal administrative centre of Putrajaya on Friday. They announced that [...]", 
   "timestamp": "2015-12-29 16:28:06.517297", 
   "inserted_id": "5665a1e8b1f5391201471f86"
 }
@@ -50,35 +50,41 @@ curl --ssl-reqd --request GET "https://vm3.yonderlabs.com/1.0/textcollection/tex
   "collection_name": "donald_duck", 
   "document": {
     "keywords": [
-      {
-        "score": 1.0, 
-        "name": "program"
-      }, 
-      {
-        "score": 1.0, 
-        "name": "last week"
-      }, 
-      {
-        "score": 1.0, 
-        "name": "field"
-      }
+     {
+      "score": 1,
+      "name": "search"
+     },
+     {
+      "score": 1,
+      "name": "area"
+     },
+     {
+      "score": 1,
+      "name": "sq km"
+     }
     ], 
-    "entities": [
-      {
-        "info": {
-          "wikipedia": "https://en.wikipedia.org/wiki/Russia", 
-          "description": "Russia, also officially known as the Russian Federation, is a country in northern Eurasia. It is a federal semi-presidential republic [...]."
-        }, 
-        "score": 1.0, 
-        "type": "Place", 
-        "name": "Russia"
-      }, 
-      {
-        "info": null, 
-        "score": 1.0, 
-        "type": "Organization", 
-        "name": "WADA"
-      }
+   "entities": [
+     {
+      "info": null,
+      "score": 1,
+      "type": "Organization",
+      "name": "MH370"
+     },
+     {
+      "info": null,
+      "score": 1,
+      "type": "Organization",
+      "name": "ATSB"
+     },
+     {
+      "info": {
+        "wikipedia": "http://en.wikipedia.org/wiki/Chester",
+        "description": "Chester (/ˈtʃɛstər/ CHESS-tər), is a city in Cheshire, England. Lying on the [...]"
+      },
+      "score": 0.6,
+      "type": "Place",
+      "name": "Chester"
+     }
     ], 
     "timestamp": "2015-12-29 16:28:06.517297", 
     "_id": "5665a1e8b1f5391201471f86"
@@ -103,7 +109,7 @@ curl --ssl-reqd --request PUT --data url=http%3A%2F%2Fwww.theguardian.com%2Fworl
   "collection_name": "donald_duck", 
   "modified_id": "5665a1e8b1f5391201471f86", 
   "timestamp": "2015-12-29 16:28:06.517297", 
-  "text": "Germany's foreign intelligence service spied on targets including the French foreign minister, Laurent Fabius, the FBI and the UN Children's Fund, a media report said on Wednesday. The latest news report on the BND spy service fuels a debate in Germany about state surveillance kicked off by the revelations of the US whistleblower Edward Snowden [...]."
+  "text": "Germany's foreign intelligence service spied on targets including the French foreign minister, Laurent Fabius, the FBI and the UN Children's Fund, a media report said on Wednesday. The latest news report on the BND spy service fuels a debate in Germany about state surveillance kicked off by the revelations of the US whistleblower Edward Snowden [...]"
 }
 ```
 
@@ -111,7 +117,7 @@ curl --ssl-reqd --request PUT --data url=http%3A%2F%2Fwww.theguardian.com%2Fworl
 > Request example to "Modify Text Item fromText"  - `PUT fromText`...
 
 ```shell
-curl --ssl-reqd --request PUT --data text="I want to change the text of the article about Russia and the 2016 Olympics in Rio de Janeiro." "https://vm3.yonderlabs.com/1.0/textcollection/textitem/fromText?collection_name=donald_duck&id=5665a1e8b1f5391201471f86&access_token=YOUR_ACCESS_TOKEN"
+curl --ssl-reqd --request PUT --data text="Germany's foreign intelligence service spied on targets including the French foreign minister, Laurent Fabius, the FBI and the UN Children's Fund, a media report said on Wednesday. The latest news report on the BND spy service fuels a debate in Germany about state surveillance kicked off by the revelations of the US whistleblower Edward Snowden [...]" "https://vm3.yonderlabs.com/1.0/textcollection/textitem/fromText?collection_name=donald_duck&id=5665a1e8b1f5391201471f86&access_token=YOUR_ACCESS_TOKEN"
 ```
 >... and response body (200/JSON):
 
@@ -121,7 +127,7 @@ curl --ssl-reqd --request PUT --data text="I want to change the text of the arti
   "collection_name": "donald_duck", 
   "modified_id": "5665a1e8b1f5391201471f86",
   "timestamp": "2015-12-29 16:28:06.517297",  
-  "text": "I want to change the text of the article about Russia and the 2016 Olympics in Rio de Janeiro."
+  "text": "Germany's foreign intelligence service spied on targets including the French foreign minister, Laurent Fabius, the FBI and the UN Children's Fund, a media report said on Wednesday. The latest news report on the BND spy service fuels a debate in Germany about state surveillance kicked off by the revelations of the US whistleblower Edward Snowden [...]"
 }
 ```
 

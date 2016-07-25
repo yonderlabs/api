@@ -4,7 +4,7 @@
 
 
 ```shell
-curl --ssl-reqd --request POST --data url=http%3A%2F%2Fwww.theatlantic.com%2Finternational%2Farchive%2F2015%2F11%2Frussia-doping-2016-olympics%2F416604%2F "https://vm3.yonderlabs.com/1.0/text/taxonomyclassification/fromURL?limit=2&taxonomy=news-en&access_token=YOUR_ACCESS_TOKEN"
+curl --ssl-reqd --request POST --data url=https%3A%2F%2Fwww.theguardian.com%2Fworld%2F2016%2Fjul%2F22%2Fmissing-flight-mh370-hunt-for-debris-will-not-be-extended "https://vm3.yonderlabs.com/1.0/text/taxonomyclassification/fromURL?limit=3&taxonomy=news-en&access_token=YOUR_ACCESS_TOKEN"
 ```
 
 > ... and response body (200/JSON):
@@ -12,22 +12,44 @@ curl --ssl-reqd --request POST --data url=http%3A%2F%2Fwww.theatlantic.com%2Fint
 
 ```json
 {
-  "url": "http://www.theatlantic.com/international/archive/2015/11/russia-doping-2016-olympics/416604/", 
-  "text": "With less than nine months to go for the 2016 Olympics in Rio de Janeiro, Russia is trying to break a world record in the 90-day sprint. A little more than a week after a commission of the world Anti-Doping Agency (WADA) issued a report that accused Russia of essentially hosting a state-sponsored doping program, Russia launched a task force to rid itself of its doping infection so it may compete in the Olympics [...].", 
-  "topics": [
+  "url": "https://www.theguardian.com/world/2016/jul/22/missing-flight-mh370-hunt-for-debris-will-not-be-extended", 
+  "text": "The hunt for Malaysia Airlines flight MH370 is to be suspended if evidence of the missing jet is not found in the current search area. The transport ministers of Australia, Malaysia and China, representing the country leading the search, the airline and the home of the majority of its passengers, met to discuss the future of the search in the Malaysian federal administrative centre of Putrajaya on Friday. They announced that [...]", 
+ "topics": [
     {
-      "category": "sports", 
-      "score": 0.5645578680456448, 
+      "category": "disasters and accidents",
+      "score": 0.43174993460965,
       "level": 0
-    }, 
+    },
     {
-      "category": "domestic politics", 
-      "score": 0.35036578139913005, 
+      "category": "corporate/industrial",
+      "sublevels": [
+        {
+          "category": "regulation/policy",
+          "score": 0.4917200176977,
+          "level": 1
+        },
+        {
+          "category": "capacity/facilities",
+          "score": 0.34327137126374,
+          "level": 1
+        },
+        {
+          "category": "production/services",
+          "score": 0.16500861103856,
+          "level": 1
+        }
+      ],
+      "score": 0.31752167325834,
+      "level": 0
+    },
+    {
+      "category": "crime, law enforcement",
+      "score": 0.25072839213201,
       "level": 0
     }
-  ], 
-  "levels": 2, 
-  "limit": 2, 
+  ],
+  "levels": 2,
+  "limit": 3,
   "taxonomy": "news-en"
 }
 ```
@@ -36,7 +58,7 @@ curl --ssl-reqd --request POST --data url=http%3A%2F%2Fwww.theatlantic.com%2Fint
 > Request example - `POST fromText`...
 
 ```shell
-curl --ssl-reqd --request POST --data text="With less than nine months to go for the 2016 Olympics in Rio de Janeiro, Russia is trying to break a world record in the 90-day sprint. A little more than a week after a commission of the world Anti-Doping Agency (WADA) issued a report that accused Russia of essentially hosting a state-sponsored doping program, Russia launched a task force to rid itself of its doping infection so it may compete in the Olympics [...]." "https://vm3.yonderlabs.com/1.0/text/taxonomyclassification/fromText?limit=2&taxonomy=news-en&access_token=YOUR_ACCESS_TOKEN"
+curl --ssl-reqd --request POST --data text="The hunt for Malaysia Airlines flight MH370 is to be suspended if evidence of the missing jet is not found in the current search area. The transport ministers of Australia, Malaysia and China, representing the country leading the search, the airline and the home of the majority of its passengers, met to discuss the future of the search in the Malaysian federal administrative centre of Putrajaya on Friday. They announced that [...]" "https://vm3.yonderlabs.com/1.0/text/taxonomyclassification/fromText?limit=3&taxonomy=news-en&access_token=YOUR_ACCESS_TOKEN"
 ```
 
 > ... and response body (200/JSON):
@@ -45,21 +67,43 @@ curl --ssl-reqd --request POST --data text="With less than nine months to go for
 ```json
 {
   "url": null, 
-  "text": "With less than nine months to go for the 2016 Olympics in Rio de Janeiro, Russia is trying to break a world record in the 90-day sprint. A little more than a week after a commission of the world Anti-Doping Agency (WADA) issued a report that accused Russia of essentially hosting a state-sponsored doping program, Russia launched a task force to rid itself of its doping infection so it may compete in the Olympics [...].", 
+  "text": "The hunt for Malaysia Airlines flight MH370 is to be suspended if evidence of the missing jet is not found in the current search area. The transport ministers of Australia, Malaysia and China, representing the country leading the search, the airline and the home of the majority of its passengers, met to discuss the future of the search in the Malaysian federal administrative centre of Putrajaya on Friday. They announced that [...]", 
   "topics": [
     {
-      "category": "sports", 
-      "score": 0.5645578680456448, 
+      "category": "disasters and accidents",
+      "score": 0.43174993460965,
       "level": 0
-    }, 
+    },
     {
-      "category": "domestic politics", 
-      "score": 0.35036578139913005, 
+      "category": "corporate/industrial",
+      "sublevels": [
+        {
+          "category": "regulation/policy",
+          "score": 0.4917200176977,
+          "level": 1
+        },
+        {
+          "category": "capacity/facilities",
+          "score": 0.34327137126374,
+          "level": 1
+        },
+        {
+          "category": "production/services",
+          "score": 0.16500861103856,
+          "level": 1
+        }
+      ],
+      "score": 0.31752167325834,
+      "level": 0
+    },
+    {
+      "category": "crime, law enforcement",
+      "score": 0.25072839213201,
       "level": 0
     }
-  ], 
-  "levels": 2, 
-  "limit": 2, 
+  ],
+  "levels": 2,
+  "limit": 3,
   "taxonomy": "news-en"
 }
 ```

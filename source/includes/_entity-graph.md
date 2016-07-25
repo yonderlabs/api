@@ -40,8 +40,8 @@ curl --ssl-reqd --request GET "https://vm3.yonderlabs.com/1.0/textcollection/ent
     "nodes": [
       {
         "count": 2,
-        "info": "Russia also officially known as the Russian Federation is a sovereign state in northern Eurasia [...]",
-        "name": "Russia",
+        "info": "Malaysia (/məˈleɪʒə/ mə-LAY-zhə or /məˈleɪsiə/ mə-LAY-see-ə) (Malaysian pronunciation: [məlejsiə]) is a federal constitutional monarchy located in [...]",
+        "name": "Malaysia",
         "neighbors": [
           {
             "edge_weight": 0.02197802197802198,
@@ -75,8 +75,8 @@ curl --ssl-reqd --request GET "https://vm3.yonderlabs.com/1.0/textcollection/ent
       },
       {
         "count": 2,
-        "info": "Ukraine is a sovereign country in Eastern Europe, bordered by Russia to the east and [...]",
-        "name": "Ukraine",
+        "info": "Kuala Lumpur is the federal capital and most populous city in Malaysia [...]",
+        "name": "Kuala Lumpur",
         "neighbors": [
           {
             "edge_weight": 0.02197802197802198,

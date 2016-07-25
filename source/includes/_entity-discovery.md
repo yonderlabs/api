@@ -4,7 +4,7 @@
 
 
 ```shell
-curl --ssl-reqd --request POST --data url=http%3A%2F%2Fwww.theatlantic.com%2Finternational%2Farchive%2F2015%2F11%2Frussia-doping-2016-olympics%2F416604%2F "https://vm3.yonderlabs.com/1.0/textcollection/entitydiscovery/fromURL?collection_name=scrooge&limit=5&access_token=YOUR_ACCESS_TOKEN"
+curl --ssl-reqd --request POST --data url=https%3A%2F%2Fwww.theguardian.com%2Fworld%2F2016%2Fjul%2F22%2Fmissing-flight-mh370-hunt-for-debris-will-not-be-extended "https://vm3.yonderlabs.com/1.0/textcollection/entitydiscovery/fromURL?collection_name=scrooge&limit=5&access_token=YOUR_ACCESS_TOKEN"
 ```
 
 >... and response body (202 "ACCEPTED"):
@@ -13,9 +13,9 @@ curl --ssl-reqd --request POST --data url=http%3A%2F%2Fwww.theatlantic.com%2Fint
 {
   "task_type": "EntityDiscoveryAPI", 
   "task_id": "8292fd19-6c94-4570-90bf-c7d2f0afb9ed", 
-  "url": "http://www.theatlantic.com/international/archive/2015/11/russia-doping-2016-olympics/416604/", 
+  "url": "https://www.theguardian.com/world/2016/jul/22/missing-flight-mh370-hunt-for-debris-will-not-be-extended", 
   "collection_name": "scrooge", 
-  "text": "With less than nine months to go for the 2016 Olympics in Rio de Janeiro, Russia is trying to break a world record in the 90-day sprint. A little more than a week after a commission of the world Anti-Doping Agency (WADA) issued a report that accused Russia of essentially hosting a state-sponsored doping program, Russia launched a task force to rid itself of its doping infection so it may compete in the Olympics [...].", 
+  "text": "The hunt for Malaysia Airlines flight MH370 is to be suspended if evidence of the missing jet is not found in the current search area. The transport ministers of Australia, Malaysia and China, representing the country leading the search, the airline and the home of the majority of its passengers, met to discuss the future of the search in the Malaysian federal administrative centre of Putrajaya on Friday. They announced that [...]", 
   "task_status": "PENDING"
 }
 ```
@@ -24,7 +24,7 @@ curl --ssl-reqd --request POST --data url=http%3A%2F%2Fwww.theatlantic.com%2Fint
 > Request example to "Discover related entities" - `POST fromText`...
 
 ```shell
-curl --ssl-reqd --request POST --data text="With less than nine months to go for the 2016 Olympics in Rio de Janeiro, Russia is trying to break a world record in the 90-day sprint. A little more than a week after a commission of the world Anti-Doping Agency (WADA) issued a report that accused Russia of essentially hosting a state-sponsored doping program, Russia launched a task force to rid itself of its doping infection so it may compete in the Olympics [...]." "https://vm3.yonderlabs.com/1.0/textcollection/entitydiscovery/fromText?collection_name=scrooge&limit=5&access_token=YOUR_ACCESS_TOKEN"
+curl --ssl-reqd --request POST --data text="The hunt for Malaysia Airlines flight MH370 is to be suspended if evidence of the missing jet is not found in the current search area. The transport ministers of Australia, Malaysia and China, representing the country leading the search, the airline and the home of the majority of its passengers, met to discuss the future of the search in the Malaysian federal administrative centre of Putrajaya on Friday. They announced that [...]" "https://vm3.yonderlabs.com/1.0/textcollection/entitydiscovery/fromText?collection_name=scrooge&limit=5&access_token=YOUR_ACCESS_TOKEN"
 ```
 
 
@@ -36,7 +36,7 @@ curl --ssl-reqd --request POST --data text="With less than nine months to go for
   "task_id": "8292fd19-6c94-4570-90bf-c7d2f0afb9ed", 
   "url": null, 
   "collection_name": "scrooge", 
-  "text": "With less than nine months to go for the 2016 Olympics in Rio de Janeiro, Russia is trying to break a world record in the 90-day sprint. A little more than a week after a commission of the world Anti-Doping Agency (WADA) issued a report that accused Russia of essentially hosting a state-sponsored doping program, Russia launched a task force to rid itself of its doping infection so it may compete in the Olympics [...].", 
+  "text": "The hunt for Malaysia Airlines flight MH370 is to be suspended if evidence of the missing jet is not found in the current search area. The transport ministers of Australia, Malaysia and China, representing the country leading the search, the airline and the home of the majority of its passengers, met to discuss the future of the search in the Malaysian federal administrative centre of Putrajaya on Friday. They announced that [...]", 
   "task_status": "PENDING"
 }
 ```
@@ -55,7 +55,7 @@ curl --ssl-reqd --request GET "https://vm3.yonderlabs.com/1.0/textcollection/ent
   "task_error": null,
   "task_type": "EntityDiscoveryAPI",
   "task_id": "8292fd19-6c94-4570-90bf-c7d2f0afb9ed",
-  "url": "http://www.theatlantic.com/international/archive/2015/11/russia-doping-2016-olympics/416604/",
+  "url": "https://www.theguardian.com/world/2016/jul/22/missing-flight-mh370-hunt-for-debris-will-not-be-extended",
   "collection_name": "scrooge",
   "task_result": {
     "timestamp": "2016-05-06 09:58:00.787070",
@@ -63,9 +63,9 @@ curl --ssl-reqd --request GET "https://vm3.yonderlabs.com/1.0/textcollection/ent
     "entities": [
       {
         "count": 1,
-        "info": "Russia also officially known as the Russian Federation is a sovereign state in northern Eurasia [...]",
+        "info": "Malaysia is a federal constitutional monarchy located in Southeast Asia. It consists of [...]",
         "type": "Place",
-        "name": "Russia",
+        "name": "Malaysia",
         "graph": {
           "is_in_graph": true,
           "neighbors": [
@@ -104,40 +104,40 @@ curl --ssl-reqd --request GET "https://vm3.yonderlabs.com/1.0/textcollection/ent
       "discovered_neighbors": [
         {
           "count": 2,
-          "info": "Moscow is the capital and the largest city of Russia, with 12.2 million [...]",
-          "name": "Moscow",
+          "info": "The South China Sea is a marginal sea that is part of the Pacific Ocean [...]",
+          "name": "South China Sea",
           "weight": 0.012578616352201259,
           "type": "Place",
           "id": 0
         },
         {
           "count": 15,
-          "info": "Vladimir Vladimirovich Putin has been the President of Russia since [...]",
-          "name": "Vladimir Putin",
+          "info": "The Yang di-Pertuan Agong is the monarch and head of state of Malaysia [...]",
+          "name": "Yang di-Pertuan Agong",
           "weight": 0.09433962264150944,
           "type": "Person",
           "id": 2
         },
         {
           "count": 1,
-          "info": "The Moscow Kremlin, usually referred to as the Kremlin, is a fortified complex at the heart of [...]",
-          "name": "Kremlin",
+          "info": "Indonesia, officially the Republic of Indonesia, is a country in Southeast Asia [...]",
+          "name": "Indonesia",
           "weight": 0.006289308176100629,
           "type": "Place",
           "id": 3
         },
         {
           "count": 1,
-          "info": "Turkey is a parliamentary republic in Eurasia, largely located in [...]",
-          "name": "Turkey",
+          "info": "Singapore officially the Republic of Singapore, and often referred to as the Lion City, the Garden City, and the Red Dot, is a global city [...]",
+          "name": "Singapore",
           "weight": 0.006289308176100629,
           "type": "Place",
           "id": 4
         },
         {
           "count": 1,
-          "info": "Ukraine is a sovereign country in Eastern Europe, bordered by Russia to the east and [...]",
-          "name": "Ukraine",
+          "info": "Vietnam, officially the Socialist Republic of Vietnam, is the easternmost country on the Indochina Peninsula in Southeast Asia [...]",
+          "name": "Vietnam",
           "weight": 0.006289308176100629,
           "type": "Place",
           "id": 5
@@ -151,7 +151,7 @@ curl --ssl-reqd --request GET "https://vm3.yonderlabs.com/1.0/textcollection/ent
       }
     }
   },
-  "text": "With less than nine months to go for the 2016 Olympics in Rio de Janeiro, Russia is trying to break a world record in the 90-day sprint. A little more than a week after a commission of the world Anti-Doping Agency (WADA) issued a report that accused Russia of essentially hosting a state-sponsored doping program, Russia launched a task force to rid itself of its doping infection so it may compete in the Olympics [...].",
+  "text": "The hunt for Malaysia Airlines flight MH370 is to be suspended if evidence of the missing jet is not found in the current search area. The transport ministers of Australia, Malaysia and China, representing the country leading the search, the airline and the home of the majority of its passengers, met to discuss the future of the search in the Malaysian federal administrative centre of Putrajaya on Friday. They announced that [...]",
   "task_status": "SUCCESS"
 }
 ```

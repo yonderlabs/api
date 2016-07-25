@@ -4,91 +4,100 @@
 > Request example - `POST fromURL`...
 
 ```shell
-curl --ssl-reqd --request POST --data url=http%3A%2F%2Fwww.theatlantic.com%2Finternational%2Farchive%2F2015%2F11%2Frussia-doping-2016-olympics%2F416604%2F "https://vm3.yonderlabs.com/1.0/text/entityextraction/fromURL?limit=10&access_token=YOUR_ACCESS_TOKEN"
+curl --ssl-reqd --request POST --data url=https%3A%2F%2Fwww.theguardian.com%2Fworld%2F2016%2Fjul%2F22%2Fmissing-flight-mh370-hunt-for-debris-will-not-be-extended "https://vm3.yonderlabs.com/1.0/text/entityextraction/fromURL?limit=10&access_token=YOUR_ACCESS_TOKEN"
 ```
 
 > ... and response body (200/JSON):
 
 ```json
 {
-  "url": "http://www.theatlantic.com/international/archive/2015/11/russia-doping-2016-olympics/416604/", 
-  "text": "With less than nine months to go for the 2016 Olympics in Rio de Janeiro, Russia is trying to break a world record in the 90-day sprint. A little more than a week after a commission of the World Anti-Doping Agency (WADA) issued a report that accused Russia of essentially hosting a state-sponsored doping program, Russia launched a task force to rid itself of its doping infection so it may compete in the Olympics [...].", 
+  "url": "https://www.theguardian.com/world/2016/jul/22/missing-flight-mh370-hunt-for-debris-will-not-be-extended", 
+  "text": "The hunt for Malaysia Airlines flight MH370 is to be suspended if evidence of the missing jet is not found in the current search area. The transport ministers of Australia, Malaysia and China, representing the country leading the search, the airline and the home of the majority of its passengers, met to discuss the future of the search in the Malaysian federal administrative centre of Putrajaya on Friday. They announced that [...]", 
   "limit": 10, 
   "entities": [
     {
-      "info": {
-        "wikipedia": "https://en.wikipedia.org/wiki/Russia", 
-        "description": "Russia, also officially known as the Russian Federation, is a country in northern Eurasia. It is a federal semi-presidential republic [...]."
-      }, 
-      "score": 1.0, 
-      "type": "Place", 
-      "name": "Russia"
-    }, 
+      "info": null,
+      "score": 1,
+      "type": "Organization",
+      "name": "MH370"
+    },
     {
-      "info": null, 
-      "score": 1.0, 
-      "type": "Organization", 
-      "name": "WADA"
-    }, 
-    {
-      "info": null, 
-      "score": 1.0, 
-      "type": "Misc", 
-      "name": "Russian"
-    }, 
-    {
-      "info": null, 
-      "score": 0.9, 
-      "type": "Organization", 
-      "name": "Olympics"
-    }, 
+      "info": null,
+      "score": 1,
+      "type": "Organization",
+      "name": "ATSB"
+    },
     {
       "info": {
-        "wikipedia": "https://en.wikipedia.org/wiki/Vitaly_Mutko", 
-        "description": "Vitaly Leontiyevich Mutko is a Russian politician. Since May 2008, he has been Minister of Sport, Tourism and Youth policy [...]."
-      }, 
-      "score": 0.8, 
-      "type": "Person", 
-      "name": "Vitaly Mutko"
-    }, 
+        "wikipedia": "http://en.wikipedia.org/wiki/Chester",
+        "description": "Chester (/ˈtʃɛstər/ CHESS-tər), is a city in Cheshire, England [...]"
+      },
+      "score": 0.6,
+      "type": "Place",
+      "name": "Chester"
+    },
     {
       "info": {
-        "wikipedia": "https://en.wikipedia.org/wiki/Rio_de_Janeiro", 
-        "description": "Rio de Janeiro is the second-largest city in Brazil, the sixth-largest city in the Americas, and the world's thirty-ninth largest city by population [...]."
-      }, 
-      "score": 0.4, 
-      "type": "Place", 
-      "name": "Rio de Janeiro"
-    }, 
+        "wikipedia": "http://en.wikipedia.org/wiki/Australia",
+        "description": "Australia /ɒˈstreɪliə/, /ə-/, or colloquially /-jə/, officially the Commonwealth of Australia, is an Oceanian country [...]"
+      },
+      "score": 0.6,
+      "type": "Place",
+      "name": "Australia"
+    },
     {
       "info": {
-        "wikipedia": "https://en.wikipedia.org/wiki/Colorado", 
-        "description": "Colorado is a U.S. state encompassing most of the Southern Rocky Mountains as well as the northeastern portion of the Colorado Plateau and the western edge of the Great Plains [...]."
-      }, 
-      "score": 0.4, 
-      "type": "Place", 
-      "name": "Colorado"
-    }, 
+        "wikipedia": "http://en.wikipedia.org/wiki/Malaysia",
+        "description": "Malaysia (/məˈleɪʒə/ mə-LAY-zhə or /məˈleɪsiə/ mə-LAY-see-ə) (Malaysian pronunciation: [məlejsiə]) is a federal constitutional monarchy located in [...]"
+      },
+      "score": 0.6,
+      "type": "Place",
+      "name": "Malaysia"
+    },
     {
-      "info": null, 
-      "score": 0.4, 
-      "type": "Organization", 
-      "name": "World Anti-Doping Agency"
-    }, 
+      "info": {
+        "wikipedia": "http://en.wikipedia.org/wiki/Kuala_Lumpur",
+        "description": "Kuala Lumpur (/ˈkwɑːləˈlʊmpʊər/ or /-pər/; Malaysian pronunciation: [ˈkwalə ˈlumpʊr]), is the federal capital and most populous city in Malaysia [...]"
+      },
+      "score": 0.2,
+      "type": "Place",
+      "name": "Kuala Lumpur"
+    },
     {
-      "info": null, 
-      "score": 0.4, 
-      "type": "Organization", 
-      "name": "International Olympic Committee"
-    }, 
+      "info": {
+        "wikipedia": "http://en.wikipedia.org/wiki/China",
+        "description": "China (/ˈtʃaɪnə/; simplified Chinese: 中国; traditional Chinese: 中國; pinyin: Zhōngguó), officially the People's Republic of China (PRC), is a sovereign state [...]"
+      },
+      "score": 0.2,
+      "type": "Place",
+      "name": "China"
+    },
     {
-       "info": {
-        "wikipedia": "https://en.wikipedia.org/wiki/Switzerland", 
-        "description": "Switzerland is a country in Europe. While still named the Swiss Confederation for historical reasons, modern Switzerland is a federal directorial republic [...]."
-    },  
-      "score": 0.4, 
-      "type": "Place", 
-      "name": "Switzerland"
+      "info": {
+        "wikipedia": "http://en.wikipedia.org/wiki/Tanzania",
+        "description": "Tanzania /ˌtænzəˈniːə/, officially the United Republic of Tanzania (Swahili: Jamhuri ya Muungano wa Tanzania), is a country in East Africa [...]"
+      },
+      "score": 0.2,
+      "type": "Place",
+      "name": "Tanzania"
+    },
+    {
+      "info": {
+        "wikipedia": "http://en.wikipedia.org/wiki/Beijing",
+        "description": "Beijing, sometimes romanized as Peking, is the capital of the People's Republic of China and [...]"
+      },
+      "score": 0.2,
+      "type": "Place",
+      "name": "Beijing"
+    },
+    {
+      "info": {
+        "wikipedia": "http://en.wikipedia.org/wiki/Greece",
+        "description": "Greece  (Greek: Ελλάδα, Elláda, pronounced [eˈlaða]), officially the Hellenic Republic (Ελληνική Δημοκρατία [eliniˈci ðimokraˈti.a] Ellīnikī́ Dīmokratía) and known since ancient times as Hellas [...]"
+      },
+      "score": 0.2,
+      "type": "Place",
+      "name": "Greece"
     }
   ]
 }
@@ -100,7 +109,7 @@ curl --ssl-reqd --request POST --data url=http%3A%2F%2Fwww.theatlantic.com%2Fint
 
 
 ```shell
-curl --ssl-reqd --request POST --data text="With less than nine months to go for the 2016 Olympics in Rio de Janeiro, Russia is trying to break a world record in the 90-day sprint. A little more than a week after a commission of the world Anti-Doping Agency (WADA) issued a report that accused Russia of essentially hosting a state-sponsored doping program, Russia launched a task force to rid itself of its doping infection so it may compete in the Olympics [...]." "https://vm3.yonderlabs.com/1.0/text/entityextraction/fromText?limit=10&access_token=YOUR_ACCESS_TOKEN"
+curl --ssl-reqd --request POST --data text="The hunt for Malaysia Airlines flight MH370 is to be suspended if evidence of the missing jet is not found in the current search area. The transport ministers of Australia, Malaysia and China, representing the country leading the search, the airline and the home of the majority of its passengers, met to discuss the future of the search in the Malaysian federal administrative centre of Putrajaya on Friday. They announced that [...]." "https://vm3.yonderlabs.com/1.0/text/entityextraction/fromText?limit=10&access_token=YOUR_ACCESS_TOKEN"
 ```
 
 > ... and response body (200/JSON):
@@ -108,83 +117,92 @@ curl --ssl-reqd --request POST --data text="With less than nine months to go for
 ```json
 {
   "url": null, 
-  "text": "With less than nine months to go for the 2016 Olympics in Rio de Janeiro, Russia is trying to break a world record in the 90-day sprint. A little more than a week after a commission of the world Anti-Doping Agency (WADA) issued a report that accused Russia of essentially hosting a state-sponsored doping program, Russia launched a task force to rid itself of its doping infection so it may compete in the Olympics [...].", 
+  "text": "The hunt for Malaysia Airlines flight MH370 is to be suspended if evidence of the missing jet is not found in the current search area. The transport ministers of Australia, Malaysia and China, representing the country leading the search, the airline and the home of the majority of its passengers, met to discuss the future of the search in the Malaysian federal administrative centre of Putrajaya on Friday. They announced that [...].", 
   "limit": 10, 
-  "entities": [
+    "entities": [
+    {
+      "info": null,
+      "score": 1,
+      "type": "Organization",
+      "name": "MH370"
+    },
+    {
+      "info": null,
+      "score": 1,
+      "type": "Organization",
+      "name": "ATSB"
+    },
     {
       "info": {
-        "wikipedia": "https://en.wikipedia.org/wiki/Russia", 
-        "description": "Russia, also officially known as the Russian Federation, is a country in northern Eurasia. It is a federal semi-presidential republic [...]."
-      }, 
-      "score": 1.0, 
-      "type": "Place", 
-      "name": "Russia"
-    }, 
-    {
-      "info": null, 
-      "score": 1.0, 
-      "type": "Organization", 
-      "name": "WADA"
-    }, 
-    {
-      "info": null, 
-      "score": 1.0, 
-      "type": "Misc", 
-      "name": "Russian"
-    }, 
-    {
-      "info": null, 
-      "score": 0.9, 
-      "type": "Organization", 
-      "name": "Olympics"
-    }, 
+        "wikipedia": "http://en.wikipedia.org/wiki/Chester",
+        "description": "Chester (/ˈtʃɛstər/ CHESS-tər), is a city in Cheshire, England [...]"
+      },
+      "score": 0.6,
+      "type": "Place",
+      "name": "Chester"
+    },
     {
       "info": {
-        "wikipedia": "https://en.wikipedia.org/wiki/Vitaly_Mutko", 
-        "description": "Vitaly Leontiyevich Mutko is a Russian politician. Since May 2008, he has been Minister of Sport, Tourism and Youth policy [...]."
-      }, 
-      "score": 0.8, 
-      "type": "Person", 
-      "name": "Vitaly Mutko"
-    }, 
+        "wikipedia": "http://en.wikipedia.org/wiki/Australia",
+        "description": "Australia /ɒˈstreɪliə/, /ə-/, or colloquially /-jə/, officially the Commonwealth of Australia, is an Oceanian country [...]"
+      },
+      "score": 0.6,
+      "type": "Place",
+      "name": "Australia"
+    },
     {
       "info": {
-        "wikipedia": "https://en.wikipedia.org/wiki/Rio_de_Janeiro", 
-        "description": "Rio de Janeiro is the second-largest city in Brazil, the sixth-largest city in the Americas, and the world's thirty-ninth largest city by population [...]."
-      }, 
-      "score": 0.4, 
-      "type": "Place", 
-      "name": "Rio de Janeiro"
-    }, 
+        "wikipedia": "http://en.wikipedia.org/wiki/Malaysia",
+        "description": "Malaysia (/məˈleɪʒə/ mə-LAY-zhə or /məˈleɪsiə/ mə-LAY-see-ə) (Malaysian pronunciation: [məlejsiə]) is a federal constitutional monarchy located in [...]"
+      },
+      "score": 0.6,
+      "type": "Place",
+      "name": "Malaysia"
+    },
     {
       "info": {
-        "wikipedia": "https://en.wikipedia.org/wiki/Colorado", 
-        "description": "Colorado is a U.S. state encompassing most of the Southern Rocky Mountains as well as the northeastern portion of the Colorado Plateau and the western edge of the Great Plains [...]."
-      }, 
-      "score": 0.4, 
-      "type": "Place", 
-      "name": "Colorado"
-    }, 
-    {
-      "info": null, 
-      "score": 0.4, 
-      "type": "Organization", 
-      "name": "World Anti-Doping Agency"
-    }, 
-    {
-      "info": null, 
-      "score": 0.4, 
-      "type": "Organization", 
-      "name": "International Olympic Committee"
-    }, 
+        "wikipedia": "http://en.wikipedia.org/wiki/Kuala_Lumpur",
+        "description": "Kuala Lumpur (/ˈkwɑːləˈlʊmpʊər/ or /-pər/; Malaysian pronunciation: [ˈkwalə ˈlumpʊr]), is the federal capital and most populous city in Malaysia [...]"
+      },
+      "score": 0.2,
+      "type": "Place",
+      "name": "Kuala Lumpur"
+    },
     {
       "info": {
-        "wikipedia": "https://en.wikipedia.org/wiki/Switzerland", 
-        "description": "Switzerland is a country in Europe. While still named the Swiss Confederation for historical reasons, modern Switzerland is a federal directorial republic [...]."
-    }, 
-      "score": 0.4, 
-      "type": "Place", 
-      "name": "Switzerland"
+        "wikipedia": "http://en.wikipedia.org/wiki/China",
+        "description": "China (/ˈtʃaɪnə/; simplified Chinese: 中国; traditional Chinese: 中國; pinyin: Zhōngguó), officially the People's Republic of China (PRC), is a sovereign state [...]"
+      },
+      "score": 0.2,
+      "type": "Place",
+      "name": "China"
+    },
+    {
+      "info": {
+        "wikipedia": "http://en.wikipedia.org/wiki/Tanzania",
+        "description": "Tanzania /ˌtænzəˈniːə/, officially the United Republic of Tanzania (Swahili: Jamhuri ya Muungano wa Tanzania), is a country in East Africa [...]"
+      },
+      "score": 0.2,
+      "type": "Place",
+      "name": "Tanzania"
+    },
+    {
+      "info": {
+        "wikipedia": "http://en.wikipedia.org/wiki/Beijing",
+        "description": "Beijing, sometimes romanized as Peking, is the capital of the People's Republic of China and [...]"
+      },
+      "score": 0.2,
+      "type": "Place",
+      "name": "Beijing"
+    },
+    {
+      "info": {
+        "wikipedia": "http://en.wikipedia.org/wiki/Greece",
+        "description": "Greece  (Greek: Ελλάδα, Elláda, pronounced [eˈlaða]), officially the Hellenic Republic (Ελληνική Δημοκρατία [eliniˈci ðimokraˈti.a] Ellīnikī́ Dīmokratía) and known since ancient times as Hellas [...]"
+      },
+      "score": 0.2,
+      "type": "Place",
+      "name": "Greece"
     }
   ]
 }
