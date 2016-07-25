@@ -1248,6 +1248,561 @@ Allowed input sources are: text content contained in an URL (&ldquo;from URL&rdq
 Remember — insert your credentials for authentication!
 </aside>
 
+          <h2 id="all-single-text">All Single Text</h2>
+
+<blockquote>
+<p>Request example - <code class="prettyprint">POST fromURL</code>&hellip;</p>
+</blockquote>
+<pre class="highlight shell"><code>curl --ssl-reqd --request POST --data <span class="nv">url</span><span class="o">=</span>https%3A%2F%2Fwww.theguardian.com%2Fworld%2F2016%2Fjul%2F22%2Fmissing-flight-mh370-hunt-for-debris-will-not-be-extended <span class="s2">"https://vm3.yonderlabs.com/1.0/text/allsingletext/fromURL?access_token=YOUR_ACCESS_TOKEN"</span>
+</code></pre>
+
+<blockquote>
+<p>&hellip; and response body (200/JSON):</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"lang"</span><span class="p">:</span><span class="w"> </span><span class="s2">"en"</span><span class="p">,</span><span class="w"> 
+  </span><span class="nt">"lang-ext"</span><span class="p">:</span><span class="w"> </span><span class="s2">"English"</span><span class="p">,</span><span class="w"> 
+  </span><span class="nt">"sentiment"</span><span class="p">:</span><span class="w"> </span><span class="s2">"neutral"</span><span class="p">,</span><span class="w"> 
+  </span><span class="nt">"tags"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="s2">"disasters and accidents"</span><span class="p">,</span><span class="w"> 
+    </span><span class="s2">"mh370"</span><span class="p">,</span><span class="w"> 
+    </span><span class="s2">"atsb"</span><span class="p">,</span><span class="w"> 
+    </span><span class="s2">"sumisha naidu"</span><span class="p">,</span><span class="w"> 
+    </span><span class="s2">"martin dolan"</span><span class="p">,</span><span class="w"> 
+    </span><span class="s2">"malaysia"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"search"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"area"</span><span class="w">
+  </span><span class="p">],</span><span class="w"> 
+  </span><span class="nt">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://www.theguardian.com/world/2016/jul/22/missing-flight-mh370-hunt-for-debris-will-not-be-extended"</span><span class="p">,</span><span class="w"> 
+  </span><span class="nt">"text"</span><span class="p">:</span><span class="w"> </span><span class="s2">"The hunt for Malaysia Airlines flight MH370 is to be suspended if evidence of the missing jet is not found in the current search area. The transport ministers of Australia, Malaysia and China, representing the country leading the search, the airline and the home of the majority of its passengers, met to discuss the future of the search in the Malaysian federal administrative centre of Putrajaya on Friday. They announced that [...]"</span><span class="p">,</span><span class="w"> 
+  </span><span class="nt">"topics"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"category"</span><span class="p">:</span><span class="w"> </span><span class="s2">"disasters and accidents"</span><span class="p">,</span><span class="w"> 
+      </span><span class="nt">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.43648842879859323</span><span class="p">,</span><span class="w"> 
+      </span><span class="nt">"level"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+    </span><span class="p">},</span><span class="w"> 
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"category"</span><span class="p">:</span><span class="w"> </span><span class="s2">"corporate/industrial"</span><span class="p">,</span><span class="w"> 
+      </span><span class="nt">"sublevels"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="nt">"category"</span><span class="p">:</span><span class="w"> </span><span class="s2">"regulation/policy"</span><span class="p">,</span><span class="w"> 
+          </span><span class="nt">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.48749040688621503</span><span class="p">,</span><span class="w"> 
+          </span><span class="nt">"level"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+        </span><span class="p">},</span><span class="w"> 
+        </span><span class="p">{</span><span class="w">
+          </span><span class="nt">"category"</span><span class="p">:</span><span class="w"> </span><span class="s2">"capacity/facilities"</span><span class="p">,</span><span class="w"> 
+          </span><span class="nt">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.3472713949921758</span><span class="p">,</span><span class="w"> 
+          </span><span class="nt">"level"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+        </span><span class="p">},</span><span class="w"> 
+        </span><span class="p">{</span><span class="w">
+          </span><span class="nt">"category"</span><span class="p">:</span><span class="w"> </span><span class="s2">"production/services"</span><span class="p">,</span><span class="w"> 
+          </span><span class="nt">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.1652381981216092</span><span class="p">,</span><span class="w"> 
+          </span><span class="nt">"level"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">],</span><span class="w"> 
+      </span><span class="nt">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.29542684300638344</span><span class="p">,</span><span class="w"> 
+      </span><span class="nt">"level"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+    </span><span class="p">},</span><span class="w"> 
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"category"</span><span class="p">:</span><span class="w"> </span><span class="s2">"crime, law enforcement"</span><span class="p">,</span><span class="w"> 
+      </span><span class="nt">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.2680847281950233</span><span class="p">,</span><span class="w"> 
+      </span><span class="nt">"level"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">],</span><span class="w"> 
+  </span><span class="nt">"entities"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"info"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w"> 
+      </span><span class="nt">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.0</span><span class="p">,</span><span class="w"> 
+      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Organization"</span><span class="p">,</span><span class="w"> 
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MH370"</span><span class="w">
+    </span><span class="p">},</span><span class="w"> 
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"info"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w"> 
+      </span><span class="nt">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.0</span><span class="p">,</span><span class="w"> 
+      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Organization"</span><span class="p">,</span><span class="w"> 
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ATSB"</span><span class="w">
+    </span><span class="p">},</span><span class="w"> 
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"info"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"wikipedia"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://en.wikipedia.org/wiki/Malaysia"</span><span class="p">,</span><span class="w"> 
+        </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Malaysia (/m\u0259\u02c8le\u026a\u0292\u0259/ m\u0259-LAY-zh\u0259 or /m\u0259\u02c8le\u026asi\u0259/ m\u0259-LAY-see-\u0259) (Malaysian pronunciation: [m\u0259lejsi\u0259]) is a federal constitutional monarchy [...]"</span><span class="w">
+      </span><span class="p">},</span><span class="w"> 
+      </span><span class="nt">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.6</span><span class="p">,</span><span class="w"> 
+      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Place"</span><span class="p">,</span><span class="w"> 
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Malaysia"</span><span class="w">
+    </span><span class="p">},</span><span class="w"> 
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"info"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"wikipedia"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://en.wikipedia.org/wiki/Australia"</span><span class="p">,</span><span class="w"> 
+        </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Australia /\u0252\u02c8stre\u026ali\u0259/, /\u0259-/, or colloquially /-j\u0259/, officially the Commonwealth of Australia, is an Oceanian country [...]"</span><span class="w">
+      </span><span class="p">},</span><span class="w"> 
+      </span><span class="nt">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.6</span><span class="p">,</span><span class="w"> 
+      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Place"</span><span class="p">,</span><span class="w"> 
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Australia"</span><span class="w">
+    </span><span class="p">},</span><span class="w"> 
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"info"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"wikipedia"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://en.wikipedia.org/wiki/Chester"</span><span class="p">,</span><span class="w"> 
+        </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Chester (/\u02c8t\u0283\u025bst\u0259r/ CHESS-t\u0259r), is a city in Cheshire, England. Lying on [...]"</span><span class="w">
+      </span><span class="p">},</span><span class="w"> 
+      </span><span class="nt">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.6</span><span class="p">,</span><span class="w"> 
+      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Place"</span><span class="p">,</span><span class="w"> 
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Chester"</span><span class="w">
+    </span><span class="p">},</span><span class="w"> 
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"info"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"wikipedia"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://en.wikipedia.org/wiki/China"</span><span class="p">,</span><span class="w"> 
+        </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"China (/\u02c8t\u0283a\u026an\u0259/; simplified Chinese: \u4e2d\u56fd; traditional Chinese: \u4e2d\u570b; pinyin: Zh\u014dnggu\u00f3), officially the People's Republic of China (PRC), is a sovereign state [...]"</span><span class="w">
+      </span><span class="p">},</span><span class="w"> 
+      </span><span class="nt">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.2</span><span class="p">,</span><span class="w"> 
+      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Place"</span><span class="p">,</span><span class="w"> 
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"China"</span><span class="w">
+    </span><span class="p">},</span><span class="w"> 
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"info"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"wikipedia"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://en.wikipedia.org/wiki/Sumisha_Naidu"</span><span class="p">,</span><span class="w"> 
+        </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sumisha Naidu is a former Australian Broadcasting Corporation and KiniTV journalist and presenter [...]"</span><span class="w">
+      </span><span class="p">},</span><span class="w"> 
+      </span><span class="nt">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.2</span><span class="p">,</span><span class="w"> 
+      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Person"</span><span class="p">,</span><span class="w"> 
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sumisha Naidu"</span><span class="w">
+    </span><span class="p">},</span><span class="w"> 
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"info"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"wikipedia"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://en.wikipedia.org/wiki/Kuala_Lumpur"</span><span class="p">,</span><span class="w"> 
+        </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Kuala Lumpur (/\u02c8kw\u0251\u02d0l\u0259\u02c8l\u028amp\u028a\u0259r/ or /-p\u0259r/; Malaysian pronunciation: [\u02c8kwal\u0259 \u02c8lump\u028ar]), is the federal capital and [...]"</span><span class="w">
+      </span><span class="p">},</span><span class="w"> 
+      </span><span class="nt">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.2</span><span class="p">,</span><span class="w"> 
+      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Place"</span><span class="p">,</span><span class="w"> 
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Kuala Lumpur"</span><span class="w">
+    </span><span class="p">},</span><span class="w"> 
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"info"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"wikipedia"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://en.wikipedia.org/wiki/Beijing"</span><span class="p">,</span><span class="w"> 
+        </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Beijing, sometimes romanized as Peking, is the capital of the People's Republic of China and [...]"</span><span class="w">
+      </span><span class="p">},</span><span class="w"> 
+      </span><span class="nt">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.2</span><span class="p">,</span><span class="w"> 
+      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Place"</span><span class="p">,</span><span class="w"> 
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Beijing"</span><span class="w">
+    </span><span class="p">},</span><span class="w"> 
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"info"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"wikipedia"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://en.wikipedia.org/wiki/Tanzania"</span><span class="p">,</span><span class="w"> 
+        </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Tanzania /\u02cct\u00e6nz\u0259\u02c8ni\u02d0\u0259/, officially the United Republic of Tanzania (Swahili: Jamhuri ya Muungano wa Tanzania), is a country in East Africa [...]"</span><span class="w">
+      </span><span class="p">},</span><span class="w"> 
+      </span><span class="nt">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.2</span><span class="p">,</span><span class="w"> 
+      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Place"</span><span class="p">,</span><span class="w"> 
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Tanzania"</span><span class="w">
+    </span><span class="p">},</span><span class="w"> 
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"info"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"wikipedia"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://en.wikipedia.org/wiki/Putrajaya"</span><span class="p">,</span><span class="w"> 
+        </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Putrajaya is a planned city, 25 km south of Kuala Lumpur [...]"</span><span class="w">
+      </span><span class="p">},</span><span class="w"> 
+      </span><span class="nt">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.2</span><span class="p">,</span><span class="w"> 
+      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Place"</span><span class="p">,</span><span class="w"> 
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Putrajaya"</span><span class="w">
+    </span><span class="p">},</span><span class="w"> 
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"info"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"wikipedia"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://en.wikipedia.org/wiki/Greece"</span><span class="p">,</span><span class="w"> 
+        </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Greece  (Greek: \u0395\u03bb\u03bb\u03ac\u03b4\u03b1, Ell\u00e1da, pronounced [e\u02c8la\u00f0a] (13px )), officially the Hellenic Republic (\u0395\u03bb\u03bb\u03b7\u03bd\u03b9\u03ba\u03ae \u0394\u03b7\u03bc\u03bf\u03ba\u03c1\u03b1\u03c4\u03af\u03b1 [elini\u02c8ci \u00f0imokra\u02c8ti.a] Ell\u012bnik\u012b\u0301 D\u012bmokrat\u00eda) and known since ancient times as Hellas [...]"</span><span class="w">
+      </span><span class="p">},</span><span class="w"> 
+      </span><span class="nt">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.2</span><span class="p">,</span><span class="w"> 
+      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Place"</span><span class="p">,</span><span class="w"> 
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Greece"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">],</span><span class="w"> 
+  </span><span class="nt">"keywords"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.0</span><span class="p">,</span><span class="w"> 
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"search"</span><span class="w">
+    </span><span class="p">},</span><span class="w"> 
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.0</span><span class="p">,</span><span class="w"> 
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"area"</span><span class="w">
+    </span><span class="p">},</span><span class="w"> 
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.0</span><span class="p">,</span><span class="w"> 
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sq km"</span><span class="w">
+    </span><span class="p">},</span><span class="w"> 
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.0</span><span class="p">,</span><span class="w"> 
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"aircraft"</span><span class="w">
+    </span><span class="p">},</span><span class="w"> 
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.9</span><span class="p">,</span><span class="w"> 
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ministers"</span><span class="w">
+    </span><span class="p">},</span><span class="w"> 
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.9</span><span class="p">,</span><span class="w"> 
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"completion"</span><span class="w">
+    </span><span class="p">},</span><span class="w"> 
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.9</span><span class="p">,</span><span class="w"> 
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"remain"</span><span class="w">
+    </span><span class="p">},</span><span class="w"> 
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.4</span><span class="p">,</span><span class="w"> 
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"transport"</span><span class="w">
+    </span><span class="p">},</span><span class="w"> 
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.4</span><span class="p">,</span><span class="w"> 
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"country"</span><span class="w">
+    </span><span class="p">},</span><span class="w"> 
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.4</span><span class="p">,</span><span class="w"> 
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"end"</span><span class="w">
+    </span><span class="p">},</span><span class="w"> 
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.4</span><span class="p">,</span><span class="w"> 
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"poor weather"</span><span class="w">
+    </span><span class="p">},</span><span class="w"> 
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.4</span><span class="p">,</span><span class="w"> 
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"absence"</span><span class="w">
+    </span><span class="p">},</span><span class="w"> 
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.4</span><span class="p">,</span><span class="w"> 
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"specific location"</span><span class="w">
+    </span><span class="p">},</span><span class="w"> 
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.4</span><span class="p">,</span><span class="w"> 
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"wreckage"</span><span class="w">
+    </span><span class="p">},</span><span class="w"> 
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.4</span><span class="p">,</span><span class="w"> 
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"plane"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<blockquote>
+<p>Request example - <code class="prettyprint">POST fromText</code>&hellip;</p>
+</blockquote>
+<pre class="highlight shell"><code>curl --ssl-reqd --request POST --data <span class="nv">text</span><span class="o">=</span><span class="s2">"The hunt for Malaysia Airlines flight MH370 is to be suspended if evidence of the missing jet is not found in the current search area. The transport ministers of Australia, Malaysia and China, representing the country leading the search, the airline and the home of the majority of its passengers, met to discuss the future of the search in the Malaysian federal administrative centre of Putrajaya on Friday. They announced that [...]"</span> <span class="s2">"https://vm3.yonderlabs.com/1.0/text/allsingletext/fromText?access_token=YOUR_ACCESS_TOKEN"</span>
+</code></pre>
+
+<blockquote>
+<p>&hellip; and response body (200/JSON):</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"lang"</span><span class="p">:</span><span class="w"> </span><span class="s2">"en"</span><span class="p">,</span><span class="w"> 
+  </span><span class="nt">"lang-ext"</span><span class="p">:</span><span class="w"> </span><span class="s2">"English"</span><span class="p">,</span><span class="w"> 
+  </span><span class="nt">"sentiment"</span><span class="p">:</span><span class="w"> </span><span class="s2">"neutral"</span><span class="p">,</span><span class="w"> 
+  </span><span class="nt">"tags"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+     </span><span class="s2">"disasters and accidents"</span><span class="p">,</span><span class="w"> 
+    </span><span class="s2">"mh370"</span><span class="p">,</span><span class="w"> 
+    </span><span class="s2">"atsb"</span><span class="p">,</span><span class="w"> 
+    </span><span class="s2">"sumisha naidu"</span><span class="p">,</span><span class="w"> 
+    </span><span class="s2">"martin dolan"</span><span class="p">,</span><span class="w"> 
+    </span><span class="s2">"malaysia"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"search"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"area"</span><span class="w">
+  </span><span class="p">],</span><span class="w"> 
+  </span><span class="nt">"url"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w"> 
+  </span><span class="nt">"text"</span><span class="p">:</span><span class="w"> </span><span class="s2">"The hunt for Malaysia Airlines flight MH370 is to be suspended if evidence of the missing jet is not found in the current search area. The transport ministers of Australia, Malaysia and China, representing the country leading the search, the airline and the home of the majority of its passengers, met to discuss the future of the search in the Malaysian federal administrative centre of Putrajaya on Friday. They announced that [...]"</span><span class="p">,</span><span class="w"> 
+  </span><span class="nt">"topics"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"category"</span><span class="p">:</span><span class="w"> </span><span class="s2">"disasters and accidents"</span><span class="p">,</span><span class="w"> 
+      </span><span class="nt">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.43648842879859323</span><span class="p">,</span><span class="w"> 
+      </span><span class="nt">"level"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+    </span><span class="p">},</span><span class="w"> 
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"category"</span><span class="p">:</span><span class="w"> </span><span class="s2">"corporate/industrial"</span><span class="p">,</span><span class="w"> 
+      </span><span class="nt">"sublevels"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="nt">"category"</span><span class="p">:</span><span class="w"> </span><span class="s2">"regulation/policy"</span><span class="p">,</span><span class="w"> 
+          </span><span class="nt">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.48749040688621503</span><span class="p">,</span><span class="w"> 
+          </span><span class="nt">"level"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+        </span><span class="p">},</span><span class="w"> 
+        </span><span class="p">{</span><span class="w">
+          </span><span class="nt">"category"</span><span class="p">:</span><span class="w"> </span><span class="s2">"capacity/facilities"</span><span class="p">,</span><span class="w"> 
+          </span><span class="nt">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.3472713949921758</span><span class="p">,</span><span class="w"> 
+          </span><span class="nt">"level"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+        </span><span class="p">},</span><span class="w"> 
+        </span><span class="p">{</span><span class="w">
+          </span><span class="nt">"category"</span><span class="p">:</span><span class="w"> </span><span class="s2">"production/services"</span><span class="p">,</span><span class="w"> 
+          </span><span class="nt">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.1652381981216092</span><span class="p">,</span><span class="w"> 
+          </span><span class="nt">"level"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">],</span><span class="w"> 
+      </span><span class="nt">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.29542684300638344</span><span class="p">,</span><span class="w"> 
+      </span><span class="nt">"level"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+    </span><span class="p">},</span><span class="w"> 
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"category"</span><span class="p">:</span><span class="w"> </span><span class="s2">"crime, law enforcement"</span><span class="p">,</span><span class="w"> 
+      </span><span class="nt">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.2680847281950233</span><span class="p">,</span><span class="w"> 
+      </span><span class="nt">"level"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">],</span><span class="w"> 
+  </span><span class="nt">"entities"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"info"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w"> 
+      </span><span class="nt">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.0</span><span class="p">,</span><span class="w"> 
+      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Organization"</span><span class="p">,</span><span class="w"> 
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MH370"</span><span class="w">
+    </span><span class="p">},</span><span class="w"> 
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"info"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w"> 
+      </span><span class="nt">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.0</span><span class="p">,</span><span class="w"> 
+      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Organization"</span><span class="p">,</span><span class="w"> 
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ATSB"</span><span class="w">
+    </span><span class="p">},</span><span class="w"> 
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"info"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"wikipedia"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://en.wikipedia.org/wiki/Malaysia"</span><span class="p">,</span><span class="w"> 
+        </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Malaysia (/m\u0259\u02c8le\u026a\u0292\u0259/ m\u0259-LAY-zh\u0259 or /m\u0259\u02c8le\u026asi\u0259/ m\u0259-LAY-see-\u0259) (Malaysian pronunciation: [m\u0259lejsi\u0259]) is a federal constitutional monarchy [...]"</span><span class="w">
+      </span><span class="p">},</span><span class="w"> 
+      </span><span class="nt">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.6</span><span class="p">,</span><span class="w"> 
+      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Place"</span><span class="p">,</span><span class="w"> 
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Malaysia"</span><span class="w">
+    </span><span class="p">},</span><span class="w"> 
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"info"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"wikipedia"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://en.wikipedia.org/wiki/Australia"</span><span class="p">,</span><span class="w"> 
+        </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Australia /\u0252\u02c8stre\u026ali\u0259/, /\u0259-/, or colloquially /-j\u0259/, officially the Commonwealth of Australia, is an Oceanian country [...]"</span><span class="w">
+      </span><span class="p">},</span><span class="w"> 
+      </span><span class="nt">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.6</span><span class="p">,</span><span class="w"> 
+      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Place"</span><span class="p">,</span><span class="w"> 
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Australia"</span><span class="w">
+    </span><span class="p">},</span><span class="w"> 
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"info"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"wikipedia"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://en.wikipedia.org/wiki/Chester"</span><span class="p">,</span><span class="w"> 
+        </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Chester (/\u02c8t\u0283\u025bst\u0259r/ CHESS-t\u0259r), is a city in Cheshire, England. Lying on [...]"</span><span class="w">
+      </span><span class="p">},</span><span class="w"> 
+      </span><span class="nt">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.6</span><span class="p">,</span><span class="w"> 
+      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Place"</span><span class="p">,</span><span class="w"> 
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Chester"</span><span class="w">
+    </span><span class="p">},</span><span class="w"> 
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"info"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"wikipedia"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://en.wikipedia.org/wiki/China"</span><span class="p">,</span><span class="w"> 
+        </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"China (/\u02c8t\u0283a\u026an\u0259/; simplified Chinese: \u4e2d\u56fd; traditional Chinese: \u4e2d\u570b; pinyin: Zh\u014dnggu\u00f3), officially the People's Republic of China (PRC), is a sovereign state [...]"</span><span class="w">
+      </span><span class="p">},</span><span class="w"> 
+      </span><span class="nt">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.2</span><span class="p">,</span><span class="w"> 
+      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Place"</span><span class="p">,</span><span class="w"> 
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"China"</span><span class="w">
+    </span><span class="p">},</span><span class="w"> 
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"info"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"wikipedia"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://en.wikipedia.org/wiki/Sumisha_Naidu"</span><span class="p">,</span><span class="w"> 
+        </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sumisha Naidu is a former Australian Broadcasting Corporation and KiniTV journalist and presenter [...]"</span><span class="w">
+      </span><span class="p">},</span><span class="w"> 
+      </span><span class="nt">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.2</span><span class="p">,</span><span class="w"> 
+      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Person"</span><span class="p">,</span><span class="w"> 
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sumisha Naidu"</span><span class="w">
+    </span><span class="p">},</span><span class="w"> 
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"info"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"wikipedia"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://en.wikipedia.org/wiki/Kuala_Lumpur"</span><span class="p">,</span><span class="w"> 
+        </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Kuala Lumpur (/\u02c8kw\u0251\u02d0l\u0259\u02c8l\u028amp\u028a\u0259r/ or /-p\u0259r/; Malaysian pronunciation: [\u02c8kwal\u0259 \u02c8lump\u028ar]), is the federal capital and [...]"</span><span class="w">
+      </span><span class="p">},</span><span class="w"> 
+      </span><span class="nt">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.2</span><span class="p">,</span><span class="w"> 
+      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Place"</span><span class="p">,</span><span class="w"> 
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Kuala Lumpur"</span><span class="w">
+    </span><span class="p">},</span><span class="w"> 
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"info"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"wikipedia"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://en.wikipedia.org/wiki/Beijing"</span><span class="p">,</span><span class="w"> 
+        </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Beijing, sometimes romanized as Peking, is the capital of the People's Republic of China and [...]"</span><span class="w">
+      </span><span class="p">},</span><span class="w"> 
+      </span><span class="nt">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.2</span><span class="p">,</span><span class="w"> 
+      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Place"</span><span class="p">,</span><span class="w"> 
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Beijing"</span><span class="w">
+    </span><span class="p">},</span><span class="w"> 
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"info"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"wikipedia"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://en.wikipedia.org/wiki/Tanzania"</span><span class="p">,</span><span class="w"> 
+        </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Tanzania /\u02cct\u00e6nz\u0259\u02c8ni\u02d0\u0259/, officially the United Republic of Tanzania (Swahili: Jamhuri ya Muungano wa Tanzania), is a country in East Africa [...]"</span><span class="w">
+      </span><span class="p">},</span><span class="w"> 
+      </span><span class="nt">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.2</span><span class="p">,</span><span class="w"> 
+      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Place"</span><span class="p">,</span><span class="w"> 
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Tanzania"</span><span class="w">
+    </span><span class="p">},</span><span class="w"> 
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"info"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"wikipedia"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://en.wikipedia.org/wiki/Putrajaya"</span><span class="p">,</span><span class="w"> 
+        </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Putrajaya is a planned city, 25 km south of Kuala Lumpur [...]"</span><span class="w">
+      </span><span class="p">},</span><span class="w"> 
+      </span><span class="nt">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.2</span><span class="p">,</span><span class="w"> 
+      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Place"</span><span class="p">,</span><span class="w"> 
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Putrajaya"</span><span class="w">
+    </span><span class="p">},</span><span class="w"> 
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"info"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"wikipedia"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://en.wikipedia.org/wiki/Greece"</span><span class="p">,</span><span class="w"> 
+        </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Greece  (Greek: \u0395\u03bb\u03bb\u03ac\u03b4\u03b1, Ell\u00e1da, pronounced [e\u02c8la\u00f0a] (13px )), officially the Hellenic Republic (\u0395\u03bb\u03bb\u03b7\u03bd\u03b9\u03ba\u03ae \u0394\u03b7\u03bc\u03bf\u03ba\u03c1\u03b1\u03c4\u03af\u03b1 [elini\u02c8ci \u00f0imokra\u02c8ti.a] Ell\u012bnik\u012b\u0301 D\u012bmokrat\u00eda) and known since ancient times as Hellas [...]"</span><span class="w">
+      </span><span class="p">},</span><span class="w"> 
+      </span><span class="nt">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.2</span><span class="p">,</span><span class="w"> 
+      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Place"</span><span class="p">,</span><span class="w"> 
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Greece"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">],</span><span class="w"> 
+  </span><span class="nt">"keywords"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.0</span><span class="p">,</span><span class="w"> 
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"search"</span><span class="w">
+    </span><span class="p">},</span><span class="w"> 
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.0</span><span class="p">,</span><span class="w"> 
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"area"</span><span class="w">
+    </span><span class="p">},</span><span class="w"> 
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.0</span><span class="p">,</span><span class="w"> 
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sq km"</span><span class="w">
+    </span><span class="p">},</span><span class="w"> 
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.0</span><span class="p">,</span><span class="w"> 
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"aircraft"</span><span class="w">
+    </span><span class="p">},</span><span class="w"> 
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.9</span><span class="p">,</span><span class="w"> 
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ministers"</span><span class="w">
+    </span><span class="p">},</span><span class="w"> 
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.9</span><span class="p">,</span><span class="w"> 
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"completion"</span><span class="w">
+    </span><span class="p">},</span><span class="w"> 
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.9</span><span class="p">,</span><span class="w"> 
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"remain"</span><span class="w">
+    </span><span class="p">},</span><span class="w"> 
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.4</span><span class="p">,</span><span class="w"> 
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"transport"</span><span class="w">
+    </span><span class="p">},</span><span class="w"> 
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.4</span><span class="p">,</span><span class="w"> 
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"country"</span><span class="w">
+    </span><span class="p">},</span><span class="w"> 
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.4</span><span class="p">,</span><span class="w"> 
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"end"</span><span class="w">
+    </span><span class="p">},</span><span class="w"> 
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.4</span><span class="p">,</span><span class="w"> 
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"poor weather"</span><span class="w">
+    </span><span class="p">},</span><span class="w"> 
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.4</span><span class="p">,</span><span class="w"> 
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"absence"</span><span class="w">
+    </span><span class="p">},</span><span class="w"> 
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.4</span><span class="p">,</span><span class="w"> 
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"specific location"</span><span class="w">
+    </span><span class="p">},</span><span class="w"> 
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.4</span><span class="p">,</span><span class="w"> 
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"wreckage"</span><span class="w">
+    </span><span class="p">},</span><span class="w"> 
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.4</span><span class="p">,</span><span class="w"> 
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"plane"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p><strong>Analyze your text with all API on single text</strong></p>
+
+<p>This service analyzes your text content at once by applying all available API on single text, that are:</p>
+
+<ul>
+<li>Text Extraction (fromURL only)</li>
+<li>Language Detection</li>
+<li>Taxonomy Classification</li>
+<li>Sentiment Analysis</li>
+<li>Entity Extraction</li>
+<li>Concept Tagging</li>
+</ul>
+
+<p>Allowed input sources are: text content contained in an URL (&ldquo;from URL&rdquo;) or just simple text (&ldquo;from text&rdquo;).
+Employed taxonomies, depending on the text language, are:</p>
+
+<ul>
+<li>&ldquo;news-en&rdquo; is the <a href="http://www.ai.mit.edu/projects/jmlr/papers/volume5/lewis04a/a16-rbb-topic/topics.rbb">Reuters taxonomy</a> for news in English language;</li>
+<li>&ldquo;news-it&rdquo; is one news taxonomy specific for Italian language.</li>
+</ul>
+
+<h3 id="all-single-text-post-fromurl">All Single Text - <code class="prettyprint">POST fromURL</code></h3>
+
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Type</th>
+<th>Description</th>
+<th>Values</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>url</td>
+<td>string, required</td>
+<td>the URL of the text document</td>
+<td>use <a href="http://www.url-encode-decode.com/">url-encoding</a></td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+<th>Values</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>access_token</td>
+<td>string, required</td>
+<td>your access token (40 digits)</td>
+<td>-</td>
+</tr>
+</tbody></table>
+
+<p>Examples of how-to-call the API and the related output are provided in the right panel.</p>
+
+<h3 id="all-single-text-post-fromtext">All Single Text - <code class="prettyprint">POST fromText</code></h3>
+
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Type</th>
+<th>Description</th>
+<th>Values</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>text</td>
+<td>string, required</td>
+<td>the text to be classified</td>
+<td>pass the text between &ldquo;&rdquo; (e.g. &ldquo;This is an example&rdquo;) or use <a href="http://www.url-encode-decode.com/">url-encoded</a> text</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+<th>Values</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>access_token</td>
+<td>string, required</td>
+<td>your access token (40 digits)</td>
+<td>-</td>
+</tr>
+</tbody></table>
+
+<p>Examples of how-to-call the API and the related output are provided in the right panel.</p>
+
+<aside class="success">
+Remember — insert your credentials for authentication! 
+</aside>
+
           <h1 id="api-on-text-collections">API on Text Collections</h1>
 
 <p>The following set of API allows for storing <strong>a set of text documents</strong> and extracting semantic information from them (e.g. comparing them, or searching for concepts across them). If you need to analyze just one document please refer to YonderAPI on Single Text provided above.</p>
