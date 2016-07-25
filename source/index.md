@@ -19,6 +19,7 @@ includes:
   - concept-tagging
   - text-extraction
   - language-detection
+  - all-single-text
   - yonderapi-text-collections
   - text-collection
   - text-item
