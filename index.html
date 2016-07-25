@@ -70,29 +70,51 @@ PRIVACY - For preserving your privacy we delete the text of your document from o
 <blockquote>
 <p>Request example - <code class="prettyprint">POST fromURL</code>&hellip;</p>
 </blockquote>
-<pre class="highlight shell"><code>curl --ssl-reqd --request POST --data <span class="nv">url</span><span class="o">=</span>http%3A%2F%2Fwww.theatlantic.com%2Finternational%2Farchive%2F2015%2F11%2Frussia-doping-2016-olympics%2F416604%2F <span class="s2">"https://vm3.yonderlabs.com/1.0/text/taxonomyclassification/fromURL?limit=2&amp;taxonomy=news-en&amp;access_token=YOUR_ACCESS_TOKEN"</span>
+<pre class="highlight shell"><code>curl --ssl-reqd --request POST --data <span class="nv">url</span><span class="o">=</span>https%3A%2F%2Fwww.theguardian.com%2Fworld%2F2016%2Fjul%2F22%2Fmissing-flight-mh370-hunt-for-debris-will-not-be-extended <span class="s2">"https://vm3.yonderlabs.com/1.0/text/taxonomyclassification/fromURL?limit=3&amp;taxonomy=news-en&amp;access_token=YOUR_ACCESS_TOKEN"</span>
 </code></pre>
 
 <blockquote>
 <p>&hellip; and response body (200/JSON):</p>
 </blockquote>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
-  </span><span class="nt">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://www.theatlantic.com/international/archive/2015/11/russia-doping-2016-olympics/416604/"</span><span class="p">,</span><span class="w"> 
-  </span><span class="nt">"text"</span><span class="p">:</span><span class="w"> </span><span class="s2">"With less than nine months to go for the 2016 Olympics in Rio de Janeiro, Russia is trying to break a world record in the 90-day sprint. A little more than a week after a commission of the world Anti-Doping Agency (WADA) issued a report that accused Russia of essentially hosting a state-sponsored doping program, Russia launched a task force to rid itself of its doping infection so it may compete in the Olympics [...]."</span><span class="p">,</span><span class="w"> 
-  </span><span class="nt">"topics"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+  </span><span class="nt">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://www.theguardian.com/world/2016/jul/22/missing-flight-mh370-hunt-for-debris-will-not-be-extended"</span><span class="p">,</span><span class="w"> 
+  </span><span class="nt">"text"</span><span class="p">:</span><span class="w"> </span><span class="s2">"The hunt for Malaysia Airlines flight MH370 is to be suspended if evidence of the missing jet is not found in the current search area. The transport ministers of Australia, Malaysia and China, representing the country leading the search, the airline and the home of the majority of its passengers, met to discuss the future of the search in the Malaysian federal administrative centre of Putrajaya on Friday. They announced that [...]"</span><span class="p">,</span><span class="w"> 
+ </span><span class="nt">"topics"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
     </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"category"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sports"</span><span class="p">,</span><span class="w"> 
-      </span><span class="nt">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.5645578680456448</span><span class="p">,</span><span class="w"> 
+      </span><span class="nt">"category"</span><span class="p">:</span><span class="w"> </span><span class="s2">"disasters and accidents"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.43174993460965</span><span class="p">,</span><span class="w">
       </span><span class="nt">"level"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
-    </span><span class="p">},</span><span class="w"> 
+    </span><span class="p">},</span><span class="w">
     </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"category"</span><span class="p">:</span><span class="w"> </span><span class="s2">"domestic politics"</span><span class="p">,</span><span class="w"> 
-      </span><span class="nt">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.35036578139913005</span><span class="p">,</span><span class="w"> 
+      </span><span class="nt">"category"</span><span class="p">:</span><span class="w"> </span><span class="s2">"corporate/industrial"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"sublevels"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="nt">"category"</span><span class="p">:</span><span class="w"> </span><span class="s2">"regulation/policy"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.4917200176977</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"level"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="nt">"category"</span><span class="p">:</span><span class="w"> </span><span class="s2">"capacity/facilities"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.34327137126374</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"level"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="nt">"category"</span><span class="p">:</span><span class="w"> </span><span class="s2">"production/services"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.16500861103856</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"level"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">],</span><span class="w">
+      </span><span class="nt">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.31752167325834</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"level"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"category"</span><span class="p">:</span><span class="w"> </span><span class="s2">"crime, law enforcement"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.25072839213201</span><span class="p">,</span><span class="w">
       </span><span class="nt">"level"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
     </span><span class="p">}</span><span class="w">
-  </span><span class="p">],</span><span class="w"> 
-  </span><span class="nt">"levels"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> 
-  </span><span class="nt">"limit"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> 
+  </span><span class="p">],</span><span class="w">
+  </span><span class="nt">"levels"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"limit"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
   </span><span class="nt">"taxonomy"</span><span class="p">:</span><span class="w"> </span><span class="s2">"news-en"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
@@ -100,7 +122,7 @@ PRIVACY - For preserving your privacy we delete the text of your document from o
 <blockquote>
 <p>Request example - <code class="prettyprint">POST fromText</code>&hellip;</p>
 </blockquote>
-<pre class="highlight shell"><code>curl --ssl-reqd --request POST --data <span class="nv">text</span><span class="o">=</span><span class="s2">"With less than nine months to go for the 2016 Olympics in Rio de Janeiro, Russia is trying to break a world record in the 90-day sprint. A little more than a week after a commission of the world Anti-Doping Agency (WADA) issued a report that accused Russia of essentially hosting a state-sponsored doping program, Russia launched a task force to rid itself of its doping infection so it may compete in the Olympics [...]."</span> <span class="s2">"https://vm3.yonderlabs.com/1.0/text/taxonomyclassification/fromText?limit=2&amp;taxonomy=news-en&amp;access_token=YOUR_ACCESS_TOKEN"</span>
+<pre class="highlight shell"><code>curl --ssl-reqd --request POST --data <span class="nv">text</span><span class="o">=</span><span class="s2">"The hunt for Malaysia Airlines flight MH370 is to be suspended if evidence of the missing jet is not found in the current search area. The transport ministers of Australia, Malaysia and China, representing the country leading the search, the airline and the home of the majority of its passengers, met to discuss the future of the search in the Malaysian federal administrative centre of Putrajaya on Friday. They announced that [...]"</span> <span class="s2">"https://vm3.yonderlabs.com/1.0/text/taxonomyclassification/fromText?limit=3&amp;taxonomy=news-en&amp;access_token=YOUR_ACCESS_TOKEN"</span>
 </code></pre>
 
 <blockquote>
@@ -108,21 +130,43 @@ PRIVACY - For preserving your privacy we delete the text of your document from o
 </blockquote>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"url"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w"> 
-  </span><span class="nt">"text"</span><span class="p">:</span><span class="w"> </span><span class="s2">"With less than nine months to go for the 2016 Olympics in Rio de Janeiro, Russia is trying to break a world record in the 90-day sprint. A little more than a week after a commission of the world Anti-Doping Agency (WADA) issued a report that accused Russia of essentially hosting a state-sponsored doping program, Russia launched a task force to rid itself of its doping infection so it may compete in the Olympics [...]."</span><span class="p">,</span><span class="w"> 
+  </span><span class="nt">"text"</span><span class="p">:</span><span class="w"> </span><span class="s2">"The hunt for Malaysia Airlines flight MH370 is to be suspended if evidence of the missing jet is not found in the current search area. The transport ministers of Australia, Malaysia and China, representing the country leading the search, the airline and the home of the majority of its passengers, met to discuss the future of the search in the Malaysian federal administrative centre of Putrajaya on Friday. They announced that [...]"</span><span class="p">,</span><span class="w"> 
   </span><span class="nt">"topics"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
     </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"category"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sports"</span><span class="p">,</span><span class="w"> 
-      </span><span class="nt">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.5645578680456448</span><span class="p">,</span><span class="w"> 
+      </span><span class="nt">"category"</span><span class="p">:</span><span class="w"> </span><span class="s2">"disasters and accidents"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.43174993460965</span><span class="p">,</span><span class="w">
       </span><span class="nt">"level"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
-    </span><span class="p">},</span><span class="w"> 
+    </span><span class="p">},</span><span class="w">
     </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"category"</span><span class="p">:</span><span class="w"> </span><span class="s2">"domestic politics"</span><span class="p">,</span><span class="w"> 
-      </span><span class="nt">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.35036578139913005</span><span class="p">,</span><span class="w"> 
+      </span><span class="nt">"category"</span><span class="p">:</span><span class="w"> </span><span class="s2">"corporate/industrial"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"sublevels"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="nt">"category"</span><span class="p">:</span><span class="w"> </span><span class="s2">"regulation/policy"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.4917200176977</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"level"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="nt">"category"</span><span class="p">:</span><span class="w"> </span><span class="s2">"capacity/facilities"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.34327137126374</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"level"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="nt">"category"</span><span class="p">:</span><span class="w"> </span><span class="s2">"production/services"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.16500861103856</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"level"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">],</span><span class="w">
+      </span><span class="nt">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.31752167325834</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"level"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"category"</span><span class="p">:</span><span class="w"> </span><span class="s2">"crime, law enforcement"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.25072839213201</span><span class="p">,</span><span class="w">
       </span><span class="nt">"level"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
     </span><span class="p">}</span><span class="w">
-  </span><span class="p">],</span><span class="w"> 
-  </span><span class="nt">"levels"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> 
-  </span><span class="nt">"limit"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> 
+  </span><span class="p">],</span><span class="w">
+  </span><span class="nt">"levels"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"limit"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
   </span><span class="nt">"taxonomy"</span><span class="p">:</span><span class="w"> </span><span class="s2">"news-en"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
@@ -265,23 +309,23 @@ Remember — insert your credentials for authentication!
 <blockquote>
 <p>Request example - <code class="prettyprint">POST fromURL</code>&hellip;</p>
 </blockquote>
-<pre class="highlight shell"><code>curl --ssl-reqd --request POST --data <span class="nv">url</span><span class="o">=</span>http%3A%2F%2Fwww.theatlantic.com%2Finternational%2Farchive%2F2015%2F11%2Frussia-doping-2016-olympics%2F416604%2F <span class="s2">"https://vm3.yonderlabs.com/1.0/text/sentimentanalysis/fromURL?access_token=YOUR_ACCESS_TOKEN"</span>
+<pre class="highlight shell"><code>curl --ssl-reqd --request POST --data <span class="nv">url</span><span class="o">=</span>https%3A%2F%2Fwww.theguardian.com%2Fworld%2F2016%2Fjul%2F22%2Fmissing-flight-mh370-hunt-for-debris-will-not-be-extended <span class="s2">"https://vm3.yonderlabs.com/1.0/text/sentimentanalysis/fromURL?access_token=YOUR_ACCESS_TOKEN"</span>
 </code></pre>
 
 <blockquote>
 <p>&hellip; and response body (200/JSON):</p>
 </blockquote>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
-  </span><span class="nt">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://www.theatlantic.com/international/archive/2015/11/russia-doping-2016-olympics/416604/"</span><span class="p">,</span><span class="w"> 
-  </span><span class="nt">"text"</span><span class="p">:</span><span class="w"> </span><span class="s2">"With less than nine months to go for the 2016 Olympics in Rio de Janeiro, Russia is trying to break a world record in the 90-day sprint. A little more than a week after a commission of the World Anti-Doping Agency (WADA) issued a report that accused Russia of essentially hosting a state-sponsored doping program, Russia launched a task force to rid itself of its doping infection so it may compete in the Olympics [...]."</span><span class="p">,</span><span class="w"> 
-  </span><span class="nt">"sentiment"</span><span class="p">:</span><span class="w"> </span><span class="s2">"negative"</span><span class="w">
+  </span><span class="nt">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://www.theguardian.com/world/2016/jul/22/missing-flight-mh370-hunt-for-debris-will-not-be-extended"</span><span class="p">,</span><span class="w"> 
+  </span><span class="nt">"text"</span><span class="p">:</span><span class="w"> </span><span class="s2">"The hunt for Malaysia Airlines flight MH370 is to be suspended if evidence of the missing jet is not found in the current search area. The transport ministers of Australia, Malaysia and China, representing the country leading the search, the airline and the home of the majority of its passengers, met to discuss the future of the search in the Malaysian federal administrative centre of Putrajaya on Friday. They announced that [...]"</span><span class="p">,</span><span class="w"> 
+  </span><span class="nt">"sentiment"</span><span class="p">:</span><span class="w"> </span><span class="s2">"neutral"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
 <blockquote>
 <p>Request example - <code class="prettyprint">POST fromText</code>&hellip;</p>
 </blockquote>
-<pre class="highlight shell"><code>curl --ssl-reqd --request POST --data <span class="nv">text</span><span class="o">=</span><span class="s2">"With less than nine months to go for the 2016 Olympics in Rio de Janeiro, Russia is trying to break a world record in the 90-day sprint. A little more than a week after a commission of the world Anti-Doping Agency (WADA) issued a report that accused Russia of essentially hosting a state-sponsored doping program, Russia launched a task force to rid itself of its doping infection so it may compete in the Olympics [...]."</span> <span class="s2">"https://vm3.yonderlabs.com/1.0/text/sentimentanalysis/fromText?access_token=YOUR_ACCESS_TOKEN"</span>
+<pre class="highlight shell"><code>curl --ssl-reqd --request POST --data <span class="nv">text</span><span class="o">=</span><span class="s2">"The hunt for Malaysia Airlines flight MH370 is to be suspended if evidence of the missing jet is not found in the current search area. The transport ministers of Australia, Malaysia and China, representing the country leading the search, the airline and the home of the majority of its passengers, met to discuss the future of the search in the Malaysian federal administrative centre of Putrajaya on Friday. They announced that [...]"</span> <span class="s2">"https://vm3.yonderlabs.com/1.0/text/sentimentanalysis/fromText?access_token=YOUR_ACCESS_TOKEN"</span>
 </code></pre>
 
 <blockquote>
@@ -289,8 +333,8 @@ Remember — insert your credentials for authentication!
 </blockquote>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"url"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w"> 
-  </span><span class="nt">"text"</span><span class="p">:</span><span class="w"> </span><span class="s2">"With less than nine months to go for the 2016 Olympics in Rio de Janeiro, Russia is trying to break a world record in the 90-day sprint. A little more than a week after a commission of the world Anti-Doping Agency (WADA) issued a report that accused Russia of essentially hosting a state-sponsored doping program, Russia launched a task force to rid itself of its doping infection so it may compete in the Olympics [...]."</span><span class="p">,</span><span class="w"> 
-  </span><span class="nt">"sentiment"</span><span class="p">:</span><span class="w"> </span><span class="s2">"negative"</span><span class="w">
+  </span><span class="nt">"text"</span><span class="p">:</span><span class="w"> </span><span class="s2">"The hunt for Malaysia Airlines flight MH370 is to be suspended if evidence of the missing jet is not found in the current search area. The transport ministers of Australia, Malaysia and China, representing the country leading the search, the airline and the home of the majority of its passengers, met to discuss the future of the search in the Malaysian federal administrative centre of Putrajaya on Friday. They announced that [...]"</span><span class="p">,</span><span class="w"> 
+  </span><span class="nt">"sentiment"</span><span class="p">:</span><span class="w"> </span><span class="s2">"neutral"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
@@ -376,91 +420,100 @@ Remember — insert your credentials for authentication!
 <blockquote>
 <p>Request example - <code class="prettyprint">POST fromURL</code>&hellip;</p>
 </blockquote>
-<pre class="highlight shell"><code>curl --ssl-reqd --request POST --data <span class="nv">url</span><span class="o">=</span>http%3A%2F%2Fwww.theatlantic.com%2Finternational%2Farchive%2F2015%2F11%2Frussia-doping-2016-olympics%2F416604%2F <span class="s2">"https://vm3.yonderlabs.com/1.0/text/entityextraction/fromURL?limit=10&amp;access_token=YOUR_ACCESS_TOKEN"</span>
+<pre class="highlight shell"><code>curl --ssl-reqd --request POST --data <span class="nv">url</span><span class="o">=</span>https%3A%2F%2Fwww.theguardian.com%2Fworld%2F2016%2Fjul%2F22%2Fmissing-flight-mh370-hunt-for-debris-will-not-be-extended <span class="s2">"https://vm3.yonderlabs.com/1.0/text/entityextraction/fromURL?limit=10&amp;access_token=YOUR_ACCESS_TOKEN"</span>
 </code></pre>
 
 <blockquote>
 <p>&hellip; and response body (200/JSON):</p>
 </blockquote>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
-  </span><span class="nt">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://www.theatlantic.com/international/archive/2015/11/russia-doping-2016-olympics/416604/"</span><span class="p">,</span><span class="w"> 
-  </span><span class="nt">"text"</span><span class="p">:</span><span class="w"> </span><span class="s2">"With less than nine months to go for the 2016 Olympics in Rio de Janeiro, Russia is trying to break a world record in the 90-day sprint. A little more than a week after a commission of the World Anti-Doping Agency (WADA) issued a report that accused Russia of essentially hosting a state-sponsored doping program, Russia launched a task force to rid itself of its doping infection so it may compete in the Olympics [...]."</span><span class="p">,</span><span class="w"> 
+  </span><span class="nt">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://www.theguardian.com/world/2016/jul/22/missing-flight-mh370-hunt-for-debris-will-not-be-extended"</span><span class="p">,</span><span class="w"> 
+  </span><span class="nt">"text"</span><span class="p">:</span><span class="w"> </span><span class="s2">"The hunt for Malaysia Airlines flight MH370 is to be suspended if evidence of the missing jet is not found in the current search area. The transport ministers of Australia, Malaysia and China, representing the country leading the search, the airline and the home of the majority of its passengers, met to discuss the future of the search in the Malaysian federal administrative centre of Putrajaya on Friday. They announced that [...]"</span><span class="p">,</span><span class="w"> 
   </span><span class="nt">"limit"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w"> 
   </span><span class="nt">"entities"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
     </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"info"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nt">"wikipedia"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://en.wikipedia.org/wiki/Russia"</span><span class="p">,</span><span class="w"> 
-        </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Russia, also officially known as the Russian Federation, is a country in northern Eurasia. It is a federal semi-presidential republic [...]."</span><span class="w">
-      </span><span class="p">},</span><span class="w"> 
-      </span><span class="nt">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.0</span><span class="p">,</span><span class="w"> 
-      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Place"</span><span class="p">,</span><span class="w"> 
-      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Russia"</span><span class="w">
-    </span><span class="p">},</span><span class="w"> 
+      </span><span class="nt">"info"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"score"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Organization"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MH370"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
     </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"info"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w"> 
-      </span><span class="nt">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.0</span><span class="p">,</span><span class="w"> 
-      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Organization"</span><span class="p">,</span><span class="w"> 
-      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"WADA"</span><span class="w">
-    </span><span class="p">},</span><span class="w"> 
-    </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"info"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w"> 
-      </span><span class="nt">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.0</span><span class="p">,</span><span class="w"> 
-      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Misc"</span><span class="p">,</span><span class="w"> 
-      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Russian"</span><span class="w">
-    </span><span class="p">},</span><span class="w"> 
-    </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"info"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w"> 
-      </span><span class="nt">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.9</span><span class="p">,</span><span class="w"> 
-      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Organization"</span><span class="p">,</span><span class="w"> 
-      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Olympics"</span><span class="w">
-    </span><span class="p">},</span><span class="w"> 
+      </span><span class="nt">"info"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"score"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Organization"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ATSB"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
     </span><span class="p">{</span><span class="w">
       </span><span class="nt">"info"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nt">"wikipedia"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://en.wikipedia.org/wiki/Vitaly_Mutko"</span><span class="p">,</span><span class="w"> 
-        </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Vitaly Leontiyevich Mutko is a Russian politician. Since May 2008, he has been Minister of Sport, Tourism and Youth policy [...]."</span><span class="w">
-      </span><span class="p">},</span><span class="w"> 
-      </span><span class="nt">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.8</span><span class="p">,</span><span class="w"> 
-      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Person"</span><span class="p">,</span><span class="w"> 
-      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Vitaly Mutko"</span><span class="w">
-    </span><span class="p">},</span><span class="w"> 
+        </span><span class="nt">"wikipedia"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://en.wikipedia.org/wiki/Chester"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Chester (/ˈtʃɛstər/ CHESS-tər), is a city in Cheshire, England [...]"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nt">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.6</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Place"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Chester"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
     </span><span class="p">{</span><span class="w">
       </span><span class="nt">"info"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nt">"wikipedia"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://en.wikipedia.org/wiki/Rio_de_Janeiro"</span><span class="p">,</span><span class="w"> 
-        </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Rio de Janeiro is the second-largest city in Brazil, the sixth-largest city in the Americas, and the world's thirty-ninth largest city by population [...]."</span><span class="w">
-      </span><span class="p">},</span><span class="w"> 
-      </span><span class="nt">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.4</span><span class="p">,</span><span class="w"> 
-      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Place"</span><span class="p">,</span><span class="w"> 
-      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Rio de Janeiro"</span><span class="w">
-    </span><span class="p">},</span><span class="w"> 
+        </span><span class="nt">"wikipedia"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://en.wikipedia.org/wiki/Australia"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Australia /ɒˈstreɪliə/, /ə-/, or colloquially /-jə/, officially the Commonwealth of Australia, is an Oceanian country [...]"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nt">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.6</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Place"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Australia"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
     </span><span class="p">{</span><span class="w">
       </span><span class="nt">"info"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nt">"wikipedia"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://en.wikipedia.org/wiki/Colorado"</span><span class="p">,</span><span class="w"> 
-        </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Colorado is a U.S. state encompassing most of the Southern Rocky Mountains as well as the northeastern portion of the Colorado Plateau and the western edge of the Great Plains [...]."</span><span class="w">
-      </span><span class="p">},</span><span class="w"> 
-      </span><span class="nt">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.4</span><span class="p">,</span><span class="w"> 
-      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Place"</span><span class="p">,</span><span class="w"> 
-      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Colorado"</span><span class="w">
-    </span><span class="p">},</span><span class="w"> 
+        </span><span class="nt">"wikipedia"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://en.wikipedia.org/wiki/Malaysia"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Malaysia (/məˈleɪʒə/ mə-LAY-zhə or /məˈleɪsiə/ mə-LAY-see-ə) (Malaysian pronunciation: [məlejsiə]) is a federal constitutional monarchy located in [...]"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nt">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.6</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Place"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Malaysia"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
     </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"info"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w"> 
-      </span><span class="nt">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.4</span><span class="p">,</span><span class="w"> 
-      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Organization"</span><span class="p">,</span><span class="w"> 
-      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"World Anti-Doping Agency"</span><span class="w">
-    </span><span class="p">},</span><span class="w"> 
+      </span><span class="nt">"info"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"wikipedia"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://en.wikipedia.org/wiki/Kuala_Lumpur"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Kuala Lumpur (/ˈkwɑːləˈlʊmpʊər/ or /-pər/; Malaysian pronunciation: [ˈkwalə ˈlumpʊr]), is the federal capital and most populous city in Malaysia [...]"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nt">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.2</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Place"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Kuala Lumpur"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
     </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"info"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w"> 
-      </span><span class="nt">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.4</span><span class="p">,</span><span class="w"> 
-      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Organization"</span><span class="p">,</span><span class="w"> 
-      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"International Olympic Committee"</span><span class="w">
-    </span><span class="p">},</span><span class="w"> 
+      </span><span class="nt">"info"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"wikipedia"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://en.wikipedia.org/wiki/China"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"China (/ˈtʃaɪnə/; simplified Chinese: 中国; traditional Chinese: 中國; pinyin: Zhōngguó), officially the People's Republic of China (PRC), is a sovereign state [...]"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nt">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.2</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Place"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"China"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
     </span><span class="p">{</span><span class="w">
-       </span><span class="nt">"info"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nt">"wikipedia"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://en.wikipedia.org/wiki/Switzerland"</span><span class="p">,</span><span class="w"> 
-        </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Switzerland is a country in Europe. While still named the Swiss Confederation for historical reasons, modern Switzerland is a federal directorial republic [...]."</span><span class="w">
-    </span><span class="p">},</span><span class="w">  
-      </span><span class="nt">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.4</span><span class="p">,</span><span class="w"> 
-      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Place"</span><span class="p">,</span><span class="w"> 
-      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Switzerland"</span><span class="w">
+      </span><span class="nt">"info"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"wikipedia"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://en.wikipedia.org/wiki/Tanzania"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Tanzania /ˌtænzəˈniːə/, officially the United Republic of Tanzania (Swahili: Jamhuri ya Muungano wa Tanzania), is a country in East Africa [...]"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nt">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.2</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Place"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Tanzania"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"info"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"wikipedia"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://en.wikipedia.org/wiki/Beijing"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Beijing, sometimes romanized as Peking, is the capital of the People's Republic of China and [...]"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nt">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.2</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Place"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Beijing"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"info"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"wikipedia"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://en.wikipedia.org/wiki/Greece"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Greece  (Greek: Ελλάδα, Elláda, pronounced [eˈlaða]), officially the Hellenic Republic (Ελληνική Δημοκρατία [eliniˈci ðimokraˈti.a] Ellīnikī́ Dīmokratía) and known since ancient times as Hellas [...]"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nt">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.2</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Place"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Greece"</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -469,7 +522,7 @@ Remember — insert your credentials for authentication!
 <blockquote>
 <p>Request example - <code class="prettyprint">POST fromText</code>&hellip;</p>
 </blockquote>
-<pre class="highlight shell"><code>curl --ssl-reqd --request POST --data <span class="nv">text</span><span class="o">=</span><span class="s2">"With less than nine months to go for the 2016 Olympics in Rio de Janeiro, Russia is trying to break a world record in the 90-day sprint. A little more than a week after a commission of the world Anti-Doping Agency (WADA) issued a report that accused Russia of essentially hosting a state-sponsored doping program, Russia launched a task force to rid itself of its doping infection so it may compete in the Olympics [...]."</span> <span class="s2">"https://vm3.yonderlabs.com/1.0/text/entityextraction/fromText?limit=10&amp;access_token=YOUR_ACCESS_TOKEN"</span>
+<pre class="highlight shell"><code>curl --ssl-reqd --request POST --data <span class="nv">text</span><span class="o">=</span><span class="s2">"The hunt for Malaysia Airlines flight MH370 is to be suspended if evidence of the missing jet is not found in the current search area. The transport ministers of Australia, Malaysia and China, representing the country leading the search, the airline and the home of the majority of its passengers, met to discuss the future of the search in the Malaysian federal administrative centre of Putrajaya on Friday. They announced that [...]."</span> <span class="s2">"https://vm3.yonderlabs.com/1.0/text/entityextraction/fromText?limit=10&amp;access_token=YOUR_ACCESS_TOKEN"</span>
 </code></pre>
 
 <blockquote>
@@ -477,83 +530,92 @@ Remember — insert your credentials for authentication!
 </blockquote>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"url"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w"> 
-  </span><span class="nt">"text"</span><span class="p">:</span><span class="w"> </span><span class="s2">"With less than nine months to go for the 2016 Olympics in Rio de Janeiro, Russia is trying to break a world record in the 90-day sprint. A little more than a week after a commission of the world Anti-Doping Agency (WADA) issued a report that accused Russia of essentially hosting a state-sponsored doping program, Russia launched a task force to rid itself of its doping infection so it may compete in the Olympics [...]."</span><span class="p">,</span><span class="w"> 
+  </span><span class="nt">"text"</span><span class="p">:</span><span class="w"> </span><span class="s2">"The hunt for Malaysia Airlines flight MH370 is to be suspended if evidence of the missing jet is not found in the current search area. The transport ministers of Australia, Malaysia and China, representing the country leading the search, the airline and the home of the majority of its passengers, met to discuss the future of the search in the Malaysian federal administrative centre of Putrajaya on Friday. They announced that [...]."</span><span class="p">,</span><span class="w"> 
   </span><span class="nt">"limit"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w"> 
-  </span><span class="nt">"entities"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="nt">"entities"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"info"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"score"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Organization"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MH370"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"info"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"score"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Organization"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ATSB"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
     </span><span class="p">{</span><span class="w">
       </span><span class="nt">"info"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nt">"wikipedia"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://en.wikipedia.org/wiki/Russia"</span><span class="p">,</span><span class="w"> 
-        </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Russia, also officially known as the Russian Federation, is a country in northern Eurasia. It is a federal semi-presidential republic [...]."</span><span class="w">
-      </span><span class="p">},</span><span class="w"> 
-      </span><span class="nt">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.0</span><span class="p">,</span><span class="w"> 
-      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Place"</span><span class="p">,</span><span class="w"> 
-      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Russia"</span><span class="w">
-    </span><span class="p">},</span><span class="w"> 
-    </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"info"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w"> 
-      </span><span class="nt">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.0</span><span class="p">,</span><span class="w"> 
-      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Organization"</span><span class="p">,</span><span class="w"> 
-      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"WADA"</span><span class="w">
-    </span><span class="p">},</span><span class="w"> 
-    </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"info"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w"> 
-      </span><span class="nt">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.0</span><span class="p">,</span><span class="w"> 
-      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Misc"</span><span class="p">,</span><span class="w"> 
-      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Russian"</span><span class="w">
-    </span><span class="p">},</span><span class="w"> 
-    </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"info"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w"> 
-      </span><span class="nt">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.9</span><span class="p">,</span><span class="w"> 
-      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Organization"</span><span class="p">,</span><span class="w"> 
-      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Olympics"</span><span class="w">
-    </span><span class="p">},</span><span class="w"> 
+        </span><span class="nt">"wikipedia"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://en.wikipedia.org/wiki/Chester"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Chester (/ˈtʃɛstər/ CHESS-tər), is a city in Cheshire, England [...]"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nt">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.6</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Place"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Chester"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
     </span><span class="p">{</span><span class="w">
       </span><span class="nt">"info"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nt">"wikipedia"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://en.wikipedia.org/wiki/Vitaly_Mutko"</span><span class="p">,</span><span class="w"> 
-        </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Vitaly Leontiyevich Mutko is a Russian politician. Since May 2008, he has been Minister of Sport, Tourism and Youth policy [...]."</span><span class="w">
-      </span><span class="p">},</span><span class="w"> 
-      </span><span class="nt">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.8</span><span class="p">,</span><span class="w"> 
-      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Person"</span><span class="p">,</span><span class="w"> 
-      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Vitaly Mutko"</span><span class="w">
-    </span><span class="p">},</span><span class="w"> 
+        </span><span class="nt">"wikipedia"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://en.wikipedia.org/wiki/Australia"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Australia /ɒˈstreɪliə/, /ə-/, or colloquially /-jə/, officially the Commonwealth of Australia, is an Oceanian country [...]"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nt">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.6</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Place"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Australia"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
     </span><span class="p">{</span><span class="w">
       </span><span class="nt">"info"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nt">"wikipedia"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://en.wikipedia.org/wiki/Rio_de_Janeiro"</span><span class="p">,</span><span class="w"> 
-        </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Rio de Janeiro is the second-largest city in Brazil, the sixth-largest city in the Americas, and the world's thirty-ninth largest city by population [...]."</span><span class="w">
-      </span><span class="p">},</span><span class="w"> 
-      </span><span class="nt">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.4</span><span class="p">,</span><span class="w"> 
-      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Place"</span><span class="p">,</span><span class="w"> 
-      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Rio de Janeiro"</span><span class="w">
-    </span><span class="p">},</span><span class="w"> 
+        </span><span class="nt">"wikipedia"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://en.wikipedia.org/wiki/Malaysia"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Malaysia (/məˈleɪʒə/ mə-LAY-zhə or /məˈleɪsiə/ mə-LAY-see-ə) (Malaysian pronunciation: [məlejsiə]) is a federal constitutional monarchy located in [...]"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nt">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.6</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Place"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Malaysia"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
     </span><span class="p">{</span><span class="w">
       </span><span class="nt">"info"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nt">"wikipedia"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://en.wikipedia.org/wiki/Colorado"</span><span class="p">,</span><span class="w"> 
-        </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Colorado is a U.S. state encompassing most of the Southern Rocky Mountains as well as the northeastern portion of the Colorado Plateau and the western edge of the Great Plains [...]."</span><span class="w">
-      </span><span class="p">},</span><span class="w"> 
-      </span><span class="nt">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.4</span><span class="p">,</span><span class="w"> 
-      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Place"</span><span class="p">,</span><span class="w"> 
-      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Colorado"</span><span class="w">
-    </span><span class="p">},</span><span class="w"> 
-    </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"info"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w"> 
-      </span><span class="nt">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.4</span><span class="p">,</span><span class="w"> 
-      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Organization"</span><span class="p">,</span><span class="w"> 
-      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"World Anti-Doping Agency"</span><span class="w">
-    </span><span class="p">},</span><span class="w"> 
-    </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"info"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w"> 
-      </span><span class="nt">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.4</span><span class="p">,</span><span class="w"> 
-      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Organization"</span><span class="p">,</span><span class="w"> 
-      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"International Olympic Committee"</span><span class="w">
-    </span><span class="p">},</span><span class="w"> 
+        </span><span class="nt">"wikipedia"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://en.wikipedia.org/wiki/Kuala_Lumpur"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Kuala Lumpur (/ˈkwɑːləˈlʊmpʊər/ or /-pər/; Malaysian pronunciation: [ˈkwalə ˈlumpʊr]), is the federal capital and most populous city in Malaysia [...]"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nt">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.2</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Place"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Kuala Lumpur"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
     </span><span class="p">{</span><span class="w">
       </span><span class="nt">"info"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nt">"wikipedia"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://en.wikipedia.org/wiki/Switzerland"</span><span class="p">,</span><span class="w"> 
-        </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Switzerland is a country in Europe. While still named the Swiss Confederation for historical reasons, modern Switzerland is a federal directorial republic [...]."</span><span class="w">
-    </span><span class="p">},</span><span class="w"> 
-      </span><span class="nt">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.4</span><span class="p">,</span><span class="w"> 
-      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Place"</span><span class="p">,</span><span class="w"> 
-      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Switzerland"</span><span class="w">
+        </span><span class="nt">"wikipedia"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://en.wikipedia.org/wiki/China"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"China (/ˈtʃaɪnə/; simplified Chinese: 中国; traditional Chinese: 中國; pinyin: Zhōngguó), officially the People's Republic of China (PRC), is a sovereign state [...]"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nt">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.2</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Place"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"China"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"info"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"wikipedia"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://en.wikipedia.org/wiki/Tanzania"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Tanzania /ˌtænzəˈniːə/, officially the United Republic of Tanzania (Swahili: Jamhuri ya Muungano wa Tanzania), is a country in East Africa [...]"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nt">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.2</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Place"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Tanzania"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"info"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"wikipedia"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://en.wikipedia.org/wiki/Beijing"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Beijing, sometimes romanized as Peking, is the capital of the People's Republic of China and [...]"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nt">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.2</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Place"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Beijing"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"info"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"wikipedia"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://en.wikipedia.org/wiki/Greece"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Greece  (Greek: Ελλάδα, Elláda, pronounced [eˈlaða]), officially the Hellenic Republic (Ελληνική Δημοκρατία [eliniˈci ðimokraˈti.a] Ellīnikī́ Dīmokratía) and known since ancient times as Hellas [...]"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nt">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.2</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Place"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Greece"</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -651,64 +713,64 @@ Remember — insert your credentials for authentication!
 <blockquote>
 <p>Request example - <code class="prettyprint">POST fromURL</code>&hellip;</p>
 </blockquote>
-<pre class="highlight shell"><code>curl --ssl-reqd --request POST --data <span class="nv">url</span><span class="o">=</span>http%3A%2F%2Fwww.theatlantic.com%2Finternational%2Farchive%2F2015%2F11%2Frussia-doping-2016-olympics%2F416604%2F <span class="s2">"https://vm3.yonderlabs.com/1.0/text/keywordextraction/fromURL?limit=12&amp;access_token=YOUR_ACCESS_TOKEN"</span>
+<pre class="highlight shell"><code>curl --ssl-reqd --request POST --data <span class="nv">url</span><span class="o">=</span>https%3A%2F%2Fwww.theguardian.com%2Fworld%2F2016%2Fjul%2F22%2Fmissing-flight-mh370-hunt-for-debris-will-not-be-extended <span class="s2">"https://vm3.yonderlabs.com/1.0/text/keywordextraction/fromURL?limit=12&amp;access_token=YOUR_ACCESS_TOKEN"</span>
 </code></pre>
 
 <blockquote>
 <p>&hellip; and response body (200/JSON):</p>
 </blockquote>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
-  </span><span class="nt">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://www.theatlantic.com/international/archive/2015/11/russia-doping-2016-olympics/416604/"</span><span class="p">,</span><span class="w"> 
-  </span><span class="nt">"text"</span><span class="p">:</span><span class="w"> </span><span class="s2">"With less than nine months to go for the 2016 Olympics in Rio de Janeiro, Russia is trying to break a world record in the 90-day sprint. A little more than a week after a commission of the World Anti-Doping Agency (WADA) issued a report that accused Russia of essentially hosting a state-sponsored doping program, Russia launched a task force to rid itself of its doping infection so it may compete in the Olympics [...]."</span><span class="p">,</span><span class="w"> 
+  </span><span class="nt">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://www.theguardian.com/world/2016/jul/22/missing-flight-mh370-hunt-for-debris-will-not-be-extended"</span><span class="p">,</span><span class="w"> 
+  </span><span class="nt">"text"</span><span class="p">:</span><span class="w"> </span><span class="s2">"The hunt for Malaysia Airlines flight MH370 is to be suspended if evidence of the missing jet is not found in the current search area. The transport ministers of Australia, Malaysia and China, representing the country leading the search, the airline and the home of the majority of its passengers, met to discuss the future of the search in the Malaysian federal administrative centre of Putrajaya on Friday. They announced that [...]"</span><span class="p">,</span><span class="w"> 
   </span><span class="nt">"limit"</span><span class="p">:</span><span class="w"> </span><span class="mi">12</span><span class="p">,</span><span class="w"> 
   </span><span class="nt">"keywords"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
     </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.0</span><span class="p">,</span><span class="w"> 
-      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"program"</span><span class="w">
-    </span><span class="p">},</span><span class="w"> 
+      </span><span class="nt">"score"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"search"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
     </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.0</span><span class="p">,</span><span class="w"> 
-      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"last week"</span><span class="w">
-    </span><span class="p">},</span><span class="w"> 
+      </span><span class="nt">"score"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"area"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
     </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.0</span><span class="p">,</span><span class="w"> 
-      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"field"</span><span class="w">
-    </span><span class="p">},</span><span class="w"> 
+      </span><span class="nt">"score"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sq km"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
     </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.8</span><span class="p">,</span><span class="w"> 
-      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"months"</span><span class="w">
-    </span><span class="p">},</span><span class="w"> 
+      </span><span class="nt">"score"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"aircraft"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
     </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.8</span><span class="p">,</span><span class="w"> 
-      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"report"</span><span class="w">
-    </span><span class="p">},</span><span class="w"> 
+      </span><span class="nt">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.9</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ministers"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
     </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.8</span><span class="p">,</span><span class="w"> 
-      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"team"</span><span class="w">
-    </span><span class="p">},</span><span class="w"> 
+      </span><span class="nt">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.9</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"completion"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
     </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.8</span><span class="p">,</span><span class="w"> 
-      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"athletes"</span><span class="w">
-    </span><span class="p">},</span><span class="w"> 
+      </span><span class="nt">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.9</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"remain"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
     </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.8</span><span class="p">,</span><span class="w"> 
+      </span><span class="nt">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.5</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"transport"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.5</span><span class="p">,</span><span class="w">
       </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"country"</span><span class="w">
-    </span><span class="p">},</span><span class="w"> 
+    </span><span class="p">},</span><span class="w">
     </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.8</span><span class="p">,</span><span class="w"> 
-      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"issues"</span><span class="w">
-    </span><span class="p">},</span><span class="w"> 
+      </span><span class="nt">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.5</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"end"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
     </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.2</span><span class="p">,</span><span class="w"> 
-      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"world"</span><span class="w">
-    </span><span class="p">},</span><span class="w"> 
+      </span><span class="nt">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.5</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"poor weather"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
     </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.2</span><span class="p">,</span><span class="w"> 
-      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"record"</span><span class="w">
-    </span><span class="p">},</span><span class="w"> 
-    </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.2</span><span class="p">,</span><span class="w"> 
-      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"90-day sprint"</span><span class="w">
+      </span><span class="nt">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.5</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"absence"</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -717,7 +779,7 @@ Remember — insert your credentials for authentication!
 <blockquote>
 <p>Request example - <code class="prettyprint">POST fromText</code>&hellip;</p>
 </blockquote>
-<pre class="highlight shell"><code>curl --ssl-reqd --request POST --data <span class="nv">text</span><span class="o">=</span><span class="s2">"With less than nine months to go for the 2016 Olympics in Rio de Janeiro, Russia is trying to break a world record in the 90-day sprint. A little more than a week after a commission of the world Anti-Doping Agency (WADA) issued a report that accused Russia of essentially hosting a state-sponsored doping program, Russia launched a task force to rid itself of its doping infection so it may compete in the Olympics [...]."</span> <span class="s2">"https://vm3.yonderlabs.com/1.0/text/keywordextraction/fromText?limit=12&amp;access_token=YOUR_ACCESS_TOKEN"</span>
+<pre class="highlight shell"><code>curl --ssl-reqd --request POST --data <span class="nv">text</span><span class="o">=</span><span class="s2">"The hunt for Malaysia Airlines flight MH370 is to be suspended if evidence of the missing jet is not found in the current search area. The transport ministers of Australia, Malaysia and China, representing the country leading the search, the airline and the home of the majority of its passengers, met to discuss the future of the search in the Malaysian federal administrative centre of Putrajaya on Friday. They announced that [...]"</span> <span class="s2">"https://vm3.yonderlabs.com/1.0/text/keywordextraction/fromText?limit=12&amp;access_token=YOUR_ACCESS_TOKEN"</span>
 </code></pre>
 
 <blockquote>
@@ -725,56 +787,56 @@ Remember — insert your credentials for authentication!
 </blockquote>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"url"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w"> 
-  </span><span class="nt">"text"</span><span class="p">:</span><span class="w"> </span><span class="s2">"With less than nine months to go for the 2016 Olympics in Rio de Janeiro, Russia is trying to break a world record in the 90-day sprint. A little more than a week after a commission of the world Anti-Doping Agency (WADA) issued a report that accused Russia of essentially hosting a state-sponsored doping program, Russia launched a task force to rid itself of its doping infection so it may compete in the Olympics [...]."</span><span class="p">,</span><span class="w"> 
+  </span><span class="nt">"text"</span><span class="p">:</span><span class="w"> </span><span class="s2">"The hunt for Malaysia Airlines flight MH370 is to be suspended if evidence of the missing jet is not found in the current search area. The transport ministers of Australia, Malaysia and China, representing the country leading the search, the airline and the home of the majority of its passengers, met to discuss the future of the search in the Malaysian federal administrative centre of Putrajaya on Friday. They announced that [...]"</span><span class="p">,</span><span class="w"> 
 </span><span class="nt">"limit"</span><span class="p">:</span><span class="w"> </span><span class="mi">12</span><span class="p">,</span><span class="w"> 
-  </span><span class="nt">"keywords"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+   </span><span class="nt">"keywords"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
     </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.0</span><span class="p">,</span><span class="w"> 
-      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"program"</span><span class="w">
-    </span><span class="p">},</span><span class="w"> 
+      </span><span class="nt">"score"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"search"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
     </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.0</span><span class="p">,</span><span class="w"> 
-      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"last week"</span><span class="w">
-    </span><span class="p">},</span><span class="w"> 
+      </span><span class="nt">"score"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"area"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
     </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.0</span><span class="p">,</span><span class="w"> 
-      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"field"</span><span class="w">
-    </span><span class="p">},</span><span class="w"> 
+      </span><span class="nt">"score"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sq km"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
     </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.8</span><span class="p">,</span><span class="w"> 
-      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"months"</span><span class="w">
-    </span><span class="p">},</span><span class="w"> 
+      </span><span class="nt">"score"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"aircraft"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
     </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.8</span><span class="p">,</span><span class="w"> 
-      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"report"</span><span class="w">
-    </span><span class="p">},</span><span class="w"> 
+      </span><span class="nt">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.9</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ministers"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
     </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.8</span><span class="p">,</span><span class="w"> 
-      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"team"</span><span class="w">
-    </span><span class="p">},</span><span class="w"> 
+      </span><span class="nt">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.9</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"completion"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
     </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.8</span><span class="p">,</span><span class="w"> 
-      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"athletes"</span><span class="w">
-    </span><span class="p">},</span><span class="w"> 
+      </span><span class="nt">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.9</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"remain"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
     </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.8</span><span class="p">,</span><span class="w"> 
+      </span><span class="nt">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.5</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"transport"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.5</span><span class="p">,</span><span class="w">
       </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"country"</span><span class="w">
-    </span><span class="p">},</span><span class="w"> 
+    </span><span class="p">},</span><span class="w">
     </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.8</span><span class="p">,</span><span class="w"> 
-      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"issues"</span><span class="w">
-    </span><span class="p">},</span><span class="w"> 
+      </span><span class="nt">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.5</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"end"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
     </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.2</span><span class="p">,</span><span class="w"> 
-      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"world"</span><span class="w">
-    </span><span class="p">},</span><span class="w"> 
+      </span><span class="nt">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.5</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"poor weather"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
     </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.2</span><span class="p">,</span><span class="w"> 
-      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"record"</span><span class="w">
-    </span><span class="p">},</span><span class="w"> 
-    </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.2</span><span class="p">,</span><span class="w"> 
-      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"90-day sprint"</span><span class="w">
+      </span><span class="nt">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.5</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"absence"</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -872,25 +934,25 @@ Remember — insert your credentials for authentication!
 <blockquote>
 <p>Request example - <code class="prettyprint">POST fromURL</code>&hellip;</p>
 </blockquote>
-<pre class="highlight shell"><code>curl --ssl-reqd --request POST --data <span class="nv">url</span><span class="o">=</span>http%3A%2F%2Fwww.theatlantic.com%2Finternational%2Farchive%2F2015%2F11%2Frussia-doping-2016-olympics%2F416604%2F <span class="s2">"https://vm3.yonderlabs.com/1.0/text/concepttagging/fromURL?limit=8&amp;access_token=YOUR_ACCESS_TOKEN"</span>
+<pre class="highlight shell"><code>curl --ssl-reqd --request POST --data <span class="nv">url</span><span class="o">=</span>https%3A%2F%2Fwww.theguardian.com%2Fworld%2F2016%2Fjul%2F22%2Fmissing-flight-mh370-hunt-for-debris-will-not-be-extended <span class="s2">"https://vm3.yonderlabs.com/1.0/text/concepttagging/fromURL?limit=8&amp;access_token=YOUR_ACCESS_TOKEN"</span>
 </code></pre>
 
 <blockquote>
 <p>&hellip; and response body (200/JSON):</p>
 </blockquote>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
-  </span><span class="nt">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://www.theatlantic.com/international/archive/2015/11/russia-doping-2016-olympics/416604/"</span><span class="p">,</span><span class="w"> 
-  </span><span class="nt">"text"</span><span class="p">:</span><span class="w"> </span><span class="s2">"With less than nine months to go for the 2016 Olympics in Rio de Janeiro, Russia is trying to break a world record in the 90-day sprint. A little more than a week after a commission of the World Anti-Doping Agency (WADA) issued a report that accused Russia of essentially hosting a state-sponsored doping program, Russia launched a task force to rid itself of its doping infection so it may compete in the Olympics [...]."</span><span class="p">,</span><span class="w"> 
+  </span><span class="nt">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://www.theguardian.com/world/2016/jul/22/missing-flight-mh370-hunt-for-debris-will-not-be-extended"</span><span class="p">,</span><span class="w"> 
+  </span><span class="nt">"text"</span><span class="p">:</span><span class="w"> </span><span class="s2">"The hunt for Malaysia Airlines flight MH370 is to be suspended if evidence of the missing jet is not found in the current search area. The transport ministers of Australia, Malaysia and China, representing the country leading the search, the airline and the home of the majority of its passengers, met to discuss the future of the search in the Malaysian federal administrative centre of Putrajaya on Friday. They announced that [...]"</span><span class="p">,</span><span class="w"> 
   </span><span class="nt">"limit"</span><span class="p">:</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w"> 
   </span><span class="nt">"tags"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-    </span><span class="s2">"sports"</span><span class="p">,</span><span class="w"> 
-    </span><span class="s2">"wada"</span><span class="p">,</span><span class="w"> 
-    </span><span class="s2">"russian"</span><span class="p">,</span><span class="w"> 
-    </span><span class="s2">"olympics"</span><span class="p">,</span><span class="w"> 
-    </span><span class="s2">"vitaly mutko"</span><span class="p">,</span><span class="w"> 
-    </span><span class="s2">"world anti doping agency"</span><span class="p">,</span><span class="w"> 
-    </span><span class="s2">"russia"</span><span class="p">,</span><span class="w"> 
-    </span><span class="s2">"program"</span><span class="w">
+    </span><span class="s2">"disasters and accidents"</span><span class="p">,</span><span class="w"> 
+    </span><span class="s2">"mh370"</span><span class="p">,</span><span class="w"> 
+    </span><span class="s2">"atsb"</span><span class="p">,</span><span class="w"> 
+    </span><span class="s2">"sumisha naidu"</span><span class="p">,</span><span class="w"> 
+    </span><span class="s2">"martin dolan"</span><span class="p">,</span><span class="w"> 
+    </span><span class="s2">"malaysia"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"search"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"area"</span><span class="w">
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
@@ -898,7 +960,7 @@ Remember — insert your credentials for authentication!
 <blockquote>
 <p>Request example  - <code class="prettyprint">POST fromText</code>&hellip;</p>
 </blockquote>
-<pre class="highlight shell"><code>curl --ssl-reqd --request POST --data <span class="nv">text</span><span class="o">=</span><span class="s2">"With less than nine months to go for the 2016 Olympics in Rio de Janeiro, Russia is trying to break a world record in the 90-day sprint. A little more than a week after a commission of the world Anti-Doping Agency (WADA) issued a report that accused Russia of essentially hosting a state-sponsored doping program, Russia launched a task force to rid itself of its doping infection so it may compete in the Olympics [...]."</span> <span class="s2">"https://vm3.yonderlabs.com/1.0/text/concepttagging/fromText?limit=8&amp;access_token=YOUR_ACCESS_TOKEN"</span>
+<pre class="highlight shell"><code>curl --ssl-reqd --request POST --data <span class="nv">text</span><span class="o">=</span><span class="s2">"The hunt for Malaysia Airlines flight MH370 is to be suspended if evidence of the missing jet is not found in the current search area. The transport ministers of Australia, Malaysia and China, representing the country leading the search, the airline and the home of the majority of its passengers, met to discuss the future of the search in the Malaysian federal administrative centre of Putrajaya on Friday. They announced that [...]."</span> <span class="s2">"https://vm3.yonderlabs.com/1.0/text/concepttagging/fromText?limit=8&amp;access_token=YOUR_ACCESS_TOKEN"</span>
 </code></pre>
 
 <blockquote>
@@ -906,17 +968,17 @@ Remember — insert your credentials for authentication!
 </blockquote>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"url"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w"> 
-  </span><span class="nt">"text"</span><span class="p">:</span><span class="w"> </span><span class="s2">"With less than nine months to go for the 2016 Olympics in Rio de Janeiro, Russia is trying to break a world record in the 90-day sprint. A little more than a week after a commission of the world Anti-Doping Agency (WADA) issued a report that accused Russia of essentially hosting a state-sponsored doping program, Russia launched a task force to rid itself of its doping infection so it may compete in the Olympics [...]."</span><span class="p">,</span><span class="w"> 
+  </span><span class="nt">"text"</span><span class="p">:</span><span class="w"> </span><span class="s2">"The hunt for Malaysia Airlines flight MH370 is to be suspended if evidence of the missing jet is not found in the current search area. The transport ministers of Australia, Malaysia and China, representing the country leading the search, the airline and the home of the majority of its passengers, met to discuss the future of the search in the Malaysian federal administrative centre of Putrajaya on Friday. They announced that [...]"</span><span class="p">,</span><span class="w"> 
  </span><span class="nt">"limit"</span><span class="p">:</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w"> 
   </span><span class="nt">"tags"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-    </span><span class="s2">"sports"</span><span class="p">,</span><span class="w"> 
-    </span><span class="s2">"wada"</span><span class="p">,</span><span class="w"> 
-    </span><span class="s2">"russian"</span><span class="p">,</span><span class="w"> 
-    </span><span class="s2">"olympics"</span><span class="p">,</span><span class="w"> 
-    </span><span class="s2">"vitaly mutko"</span><span class="p">,</span><span class="w"> 
-    </span><span class="s2">"world anti doping agency"</span><span class="p">,</span><span class="w"> 
-    </span><span class="s2">"russia"</span><span class="p">,</span><span class="w"> 
-    </span><span class="s2">"program"</span><span class="w">
+    </span><span class="s2">"disasters and accidents"</span><span class="p">,</span><span class="w"> 
+    </span><span class="s2">"mh370"</span><span class="p">,</span><span class="w"> 
+    </span><span class="s2">"atsb"</span><span class="p">,</span><span class="w"> 
+    </span><span class="s2">"sumisha naidu"</span><span class="p">,</span><span class="w"> 
+    </span><span class="s2">"martin dolan"</span><span class="p">,</span><span class="w"> 
+    </span><span class="s2">"malaysia"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"search"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"area"</span><span class="w">
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
@@ -1019,15 +1081,15 @@ Remember — insert your credentials for authentication!
 <blockquote>
 <p>Request example - <code class="prettyprint">POST</code>&hellip;</p>
 </blockquote>
-<pre class="highlight shell"><code>curl --ssl-reqd --request POST --data <span class="nv">url</span><span class="o">=</span>http%3A%2F%2Fwww.theatlantic.com%2Finternational%2Farchive%2F2015%2F11%2Frussia-doping-2016-olympics%2F416604%2F <span class="s2">"https://vm3.yonderlabs.com/1.0/text/textextraction?access_token=YOUR_ACCESS_TOKEN"</span>
+<pre class="highlight shell"><code>curl --ssl-reqd --request POST --data <span class="nv">url</span><span class="o">=</span>https%3A%2F%2Fwww.theguardian.com%2Fworld%2F2016%2Fjul%2F22%2Fmissing-flight-mh370-hunt-for-debris-will-not-be-extended <span class="s2">"https://vm3.yonderlabs.com/1.0/text/textextraction?access_token=YOUR_ACCESS_TOKEN"</span>
 </code></pre>
 
 <blockquote>
 <p>&hellip; and response body (200/JSON):</p>
 </blockquote>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
-  </span><span class="nt">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://www.theatlantic.com/international/archive/2015/11/russia-doping-2016-olympics/416604/"</span><span class="p">,</span><span class="w"> 
-  </span><span class="nt">"text"</span><span class="p">:</span><span class="w"> </span><span class="s2">"With less than nine months to go for the 2016 Olympics in Rio de Janeiro, Russia is trying to break a world record in the 90-day sprint. A little more than a week after a commission of the World Anti-Doping Agency (WADA) issued a report that accused Russia of essentially hosting a state-sponsored doping program, Russia launched a task force to rid itself of its doping infection so it may compete in the Olympics. In three months, we will once again go to the international federation to present ourselves as compliant with its standards, Vitaly Mutko, the Russian sports minister, said on Russian television. We hope our team will be reinstated. You may recall that Mutko was one of the many Russian officials to denounce the WADA report last week, calling it baseless and really fictional. But that changed Friday after Russia was provisionally banned from all international track and field competitions. But in an eyebrow-raising deal with the International Olympic Committee in Switzerland last week, Russia could compete in the Olympics if it agrees to punish past offenders, including coaches, officials, and athletes, fixes its program, and fields a clean team. There is skepticism about Russia's ability to clean up its program either by itself or in time for 2016. There have been calls for the investigation into the country's track and field program to expand. A full investigation should be carried out into the failed testing of Russian athletes from ALL sports, one athlete from the most recent Olympics in Sochi, Russia, wrote in a letter to WADA. Those issues as well as the question of whether more countries should be investigated\u2014which was one recommendation of last week's report\u2014are on the docket as WADA meets on Wednesday in Colorado."</span><span class="w">
+  </span><span class="nt">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://www.theguardian.com/world/2016/jul/22/missing-flight-mh370-hunt-for-debris-will-not-be-extended"</span><span class="p">,</span><span class="w"> 
+  </span><span class="nt">"text"</span><span class="p">:</span><span class="w"> </span><span class="s2">"The hunt for Malaysia Airlines flight MH370 is to be suspended if evidence of the missing jet is not found in the current search area. The transport ministers of Australia, Malaysia and China, representing the country leading the search, the airline and the home of the majority of its passengers, met to discuss the future of the search in the Malaysian federal administrative centre of Putrajaya on Friday. They announced that it would \u201cnot end, but be suspended\u201d if the completion of the two-year search of a 120,000 sq km arc of the southern Indian ocean west of Australia fails to yield any new evidence. Less than 10,000 sq km of that area remain, though progress is slow due to poor weather conditions. In a joint statement, the ministers acknowledged that \u201cdespite the best efforts of all involved, the likelihood of finding the aircraft is fading. \u201cIn the absence of credible new evidence leading to an identification of a specific location of the aircraft, the search would not end, but be suspended upon completion of the 120,000 sq km area.\u201d Liow Tiong Lai, the Malaysian transport minister, told reporters that cost was not a factor in the decision. It was stressed that this did not mean the termination of the search, and that the aspiration to locate MH370 remained. But any next steps would be dependant on new information that could be used to identify the specific location of the aircraft. \u201cWe remain hopeful that the aircraft will be located,\u201d said Darren Chester, the Australian minister for transport and infrastructure. The families of the 239 victims were informed before the press conference on Friday afternoon. \u2014 Sumisha Naidu (@SumishaCNA) July 22, 2016  This does not mean we have given up on the search for #MH370   - @liowtionglai pic.twitter.com/QrAi4ewYvF That the search would not be extended in the absence of any significant discovery has been consistently signalled by the Australian body in charge for more than a year. The Australian Transport Safety Bureau has led the underwater operation for the wreckage of the missing aircraft, which disappeared en route from Kuala Lumpur to Beijing in March 2014. Chester said in a statement on Thursday that the search had been \u201cunprecedented in both size and scale, conducted in some of the world\u2019s most isolated waters and at times in extremely challenging weather\u201d. Progress on the final 10,000 or so sq km of the total search area \u2013 about the size of Greece \u2013 has been delayed by poor weather, meaning the search could extend into spring. In March, on the two-year anniversary of the plane\u2019s disappearance, Martin Dolan, the head of the ATSB, said it was \u201cvery likely\u201d the wreckage would be found within that area. But with that possibility dwindling with every square kilometre completed, experts have been forced to consider alternatives. The three countries agreed in April last year not to extend the search area beyond that 120,000 sq km. Paul Kennedy, the project director of Fugro \u2013 the Dutch company leading the search \u2013 acknowledged on Thursday that, if the plane was not found there, \u201cit means it\u2019s somewhere else\u201d. The company later clarified that it believed the search area was the most probable place and as such the right place to search. But Richard Godfrey, a member of the so-called Independent Group of professionals conducting their own work to locate MH370, argued in a paper published earlier in July that the ATSB were looking in the wrong place. He identified a range of latitudes consistent with known data, ocean drift analyses and floating debris that was not captured in the priority search area. \u201cThe failure to find sunken wreckage ... is not surprising,\u201d he wrote. \u201cThe underwater search has produced no results so far and the assumptions made in determining the ATSB priority search area should be re-examined.\u201d To date, four pieces have been identified as almost certainly being from MH370, in addition to a wing flaperon found on La R\u00e9union in July last year. A large piece of aircraft debris found on an island off the coast of Tanzania in June arrived in Canberra for examination earlier this week. It is thought to be a wing flap, but technical specialists from the ATSB are working with Malaysian investigators to determine whether it is from MH370."</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
@@ -1078,15 +1140,15 @@ Remember — insert your credentials for authentication!
 <blockquote>
 <p>Request example - <code class="prettyprint">POST fromURL</code>&hellip;</p>
 </blockquote>
-<pre class="highlight shell"><code>curl --ssl-reqd --request POST --data <span class="nv">url</span><span class="o">=</span>http%3A%2F%2Fwww.theatlantic.com%2Finternational%2Farchive%2F2015%2F11%2Frussia-doping-2016-olympics%2F416604%2F <span class="s2">"https://vm3.yonderlabs.com/1.0/text/languagedetection/fromURL?access_token=YOUR_ACCESS_TOKEN"</span>
+<pre class="highlight shell"><code>curl --ssl-reqd --request POST --data <span class="nv">url</span><span class="o">=</span>https%3A%2F%2Fwww.theguardian.com%2Fworld%2F2016%2Fjul%2F22%2Fmissing-flight-mh370-hunt-for-debris-will-not-be-extended <span class="s2">"https://vm3.yonderlabs.com/1.0/text/languagedetection/fromURL?access_token=YOUR_ACCESS_TOKEN"</span>
 </code></pre>
 
 <blockquote>
 <p>&hellip; and response body (200/JSON):</p>
 </blockquote>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
-  </span><span class="nt">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://www.theatlantic.com/international/archive/2015/11/russia-doping-2016-olympics/416604/"</span><span class="p">,</span><span class="w"> 
-  </span><span class="nt">"text"</span><span class="p">:</span><span class="w"> </span><span class="s2">"With less than nine months to go for the 2016 Olympics in Rio de Janeiro, Russia is trying to break a world record in the 90-day sprint. A little more than a week after a commission of the World Anti-Doping Agency (WADA) issued a report that accused Russia of essentially hosting a state-sponsored doping program, Russia launched a task force to rid itself of its doping infection so it may compete in the Olympics [...]."</span><span class="p">,</span><span class="w"> 
+  </span><span class="nt">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://www.theguardian.com/world/2016/jul/22/missing-flight-mh370-hunt-for-debris-will-not-be-extended"</span><span class="p">,</span><span class="w"> 
+  </span><span class="nt">"text"</span><span class="p">:</span><span class="w"> </span><span class="s2">"The hunt for Malaysia Airlines flight MH370 is to be suspended if evidence of the missing jet is not found in the current search area. The transport ministers of Australia, Malaysia and China, representing the country leading the search, the airline and the home of the majority of its passengers, met to discuss the future of the search in the Malaysian federal administrative centre of Putrajaya on Friday. They announced that [...]"</span><span class="p">,</span><span class="w"> 
   </span><span class="nt">"lang-ext"</span><span class="p">:</span><span class="w"> </span><span class="s2">"English"</span><span class="p">,</span><span class="w"> 
   </span><span class="nt">"lang"</span><span class="p">:</span><span class="w"> </span><span class="s2">"en"</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -1095,7 +1157,7 @@ Remember — insert your credentials for authentication!
 <blockquote>
 <p>Request example - <code class="prettyprint">POST fromText</code>&hellip;</p>
 </blockquote>
-<pre class="highlight shell"><code>curl --ssl-reqd --request POST --data <span class="nv">text</span><span class="o">=</span><span class="s2">"With less than nine months to go for the 2016 Olympics in Rio de Janeiro, Russia is trying to break a world record in the 90-day sprint. A little more than a week after a commission of the world Anti-Doping Agency (WADA) issued a report that accused Russia of essentially hosting a state-sponsored doping program, Russia launched a task force to rid itself of its doping infection so it may compete in the Olympics [...]."</span> <span class="s2">"https://vm3.yonderlabs.com/1.0/text/languagedetection/fromText?access_token=YOUR_ACCESS_TOKEN"</span>
+<pre class="highlight shell"><code>curl --ssl-reqd --request POST --data <span class="nv">text</span><span class="o">=</span><span class="s2">"The hunt for Malaysia Airlines flight MH370 is to be suspended if evidence of the missing jet is not found in the current search area. The transport ministers of Australia, Malaysia and China, representing the country leading the search, the airline and the home of the majority of its passengers, met to discuss the future of the search in the Malaysian federal administrative centre of Putrajaya on Friday. They announced that [...]"</span> <span class="s2">"https://vm3.yonderlabs.com/1.0/text/languagedetection/fromText?access_token=YOUR_ACCESS_TOKEN"</span>
 </code></pre>
 
 <blockquote>
@@ -1103,7 +1165,7 @@ Remember — insert your credentials for authentication!
 </blockquote>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"url"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w"> 
-  </span><span class="nt">"text"</span><span class="p">:</span><span class="w"> </span><span class="s2">"With less than nine months to go for the 2016 Olympics in Rio de Janeiro, Russia is trying to break a world record in the 90-day sprint. A little more than a week after a commission of the world Anti-Doping Agency (WADA) issued a report that accused Russia of essentially hosting a state-sponsored doping program, Russia launched a task force to rid itself of its doping infection so it may compete in the Olympics [...]."</span><span class="p">,</span><span class="w"> 
+  </span><span class="nt">"text"</span><span class="p">:</span><span class="w"> </span><span class="s2">"The hunt for Malaysia Airlines flight MH370 is to be suspended if evidence of the missing jet is not found in the current search area. The transport ministers of Australia, Malaysia and China, representing the country leading the search, the airline and the home of the majority of its passengers, met to discuss the future of the search in the Malaysian federal administrative centre of Putrajaya on Friday. They announced that [...]"</span><span class="p">,</span><span class="w"> 
   </span><span class="nt">"lang-ext"</span><span class="p">:</span><span class="w"> </span><span class="s2">"English"</span><span class="p">,</span><span class="w"> 
   </span><span class="nt">"lang"</span><span class="p">:</span><span class="w"> </span><span class="s2">"en"</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -1334,16 +1396,16 @@ Remember — insert your credentials for authentication!
 <blockquote>
 <p>Request example to &ldquo;Create Text Item fromURL&rdquo; - <code class="prettyprint">POST fromURL</code>&hellip;</p>
 </blockquote>
-<pre class="highlight shell"><code>curl --ssl-reqd --request POST --data <span class="nv">url</span><span class="o">=</span>http%3A%2F%2Fwww.theatlantic.com%2Finternational%2Farchive%2F2015%2F11%2Frussia-doping-2016-olympics%2F416604%2F <span class="s2">"https://vm3.yonderlabs.com/1.0/textcollection/textitem/fromURL?collection_name=donald_duck&amp;access_token=YOUR_ACCESS_TOKEN"</span>
+<pre class="highlight shell"><code>curl --ssl-reqd --request POST --data <span class="nv">url</span><span class="o">=</span>https%3A%2F%2Fwww.theguardian.com%2Fworld%2F2016%2Fjul%2F22%2Fmissing-flight-mh370-hunt-for-debris-will-not-be-extended <span class="s2">"https://vm3.yonderlabs.com/1.0/textcollection/textitem/fromURL?collection_name=donald_duck&amp;access_token=YOUR_ACCESS_TOKEN"</span>
 </code></pre>
 
 <blockquote>
 <p>&hellip; and response body (200/JSON):</p>
 </blockquote>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
-  </span><span class="nt">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://www.theatlantic.com/international/archive/2015/11/russia-doping-2016-olympics/416604/"</span><span class="p">,</span><span class="w"> 
+  </span><span class="nt">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://www.theguardian.com/world/2016/jul/22/missing-flight-mh370-hunt-for-debris-will-not-be-extended"</span><span class="p">,</span><span class="w"> 
   </span><span class="nt">"collection_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"donald_duck"</span><span class="p">,</span><span class="w"> 
-  </span><span class="nt">"text"</span><span class="p">:</span><span class="w"> </span><span class="s2">"With less than nine months to go for the 2016 Olympics in Rio de Janeiro, Russia is trying to break a world record in the 90-day sprint. A little more than a week after a commission of the world Anti-Doping Agency (WADA) issued a report that accused Russia of essentially hosting a state-sponsored doping program, Russia launched a task force to rid itself of its doping infection so it may compete in the Olympics [...]."</span><span class="p">,</span><span class="w"> 
+  </span><span class="nt">"text"</span><span class="p">:</span><span class="w"> </span><span class="s2">"The hunt for Malaysia Airlines flight MH370 is to be suspended if evidence of the missing jet is not found in the current search area. The transport ministers of Australia, Malaysia and China, representing the country leading the search, the airline and the home of the majority of its passengers, met to discuss the future of the search in the Malaysian federal administrative centre of Putrajaya on Friday. They announced that [...]"</span><span class="p">,</span><span class="w"> 
   </span><span class="nt">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-12-29 16:28:06.517297"</span><span class="p">,</span><span class="w"> 
   </span><span class="nt">"inserted_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5665a1e8b1f5391201471f86"</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -1352,7 +1414,7 @@ Remember — insert your credentials for authentication!
 <blockquote>
 <p>Request example to &ldquo;Create Text Item fromText&rdquo;  - <code class="prettyprint">POST fromText</code>&hellip;</p>
 </blockquote>
-<pre class="highlight shell"><code>curl --ssl-reqd --request POST --data <span class="nv">text</span><span class="o">=</span><span class="s2">"With less than nine months to go for the 2016 Olympics in Rio de Janeiro, Russia is trying to break a world record in the 90-day sprint. A little more than a week after a commission of the world Anti-Doping Agency (WADA) issued a report that accused Russia of essentially hosting a state-sponsored doping program, Russia launched a task force to rid itself of its doping infection so it may compete in the Olympics [...]."</span> <span class="s2">"https://vm3.yonderlabs.com/1.0/textcollection/textitem/fromText?collection_name=donald_duck&amp;access_token=YOUR_ACCESS_TOKEN"</span>
+<pre class="highlight shell"><code>curl --ssl-reqd --request POST --data <span class="nv">text</span><span class="o">=</span><span class="s2">"The hunt for Malaysia Airlines flight MH370 is to be suspended if evidence of the missing jet is not found in the current search area. The transport ministers of Australia, Malaysia and China, representing the country leading the search, the airline and the home of the majority of its passengers, met to discuss the future of the search in the Malaysian federal administrative centre of Putrajaya on Friday. They announced that [...]"</span> <span class="s2">"https://vm3.yonderlabs.com/1.0/textcollection/textitem/fromText?collection_name=donald_duck&amp;access_token=YOUR_ACCESS_TOKEN"</span>
 </code></pre>
 
 <blockquote>
@@ -1361,7 +1423,7 @@ Remember — insert your credentials for authentication!
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"url"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w"> 
   </span><span class="nt">"collection_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"donald_duck"</span><span class="p">,</span><span class="w"> 
-  </span><span class="nt">"text"</span><span class="p">:</span><span class="w"> </span><span class="s2">"With less than nine months to go for the 2016 Olympics in Rio de Janeiro, Russia is trying to break a world record in the 90-day sprint. A little more than a week after a commission of the world Anti-Doping Agency (WADA) issued a report that accused Russia of essentially hosting a state-sponsored doping program, Russia launched a task force to rid itself of its doping infection so it may compete in the Olympics [...]."</span><span class="p">,</span><span class="w"> 
+  </span><span class="nt">"text"</span><span class="p">:</span><span class="w"> </span><span class="s2">"The hunt for Malaysia Airlines flight MH370 is to be suspended if evidence of the missing jet is not found in the current search area. The transport ministers of Australia, Malaysia and China, representing the country leading the search, the airline and the home of the majority of its passengers, met to discuss the future of the search in the Malaysian federal administrative centre of Putrajaya on Friday. They announced that [...]"</span><span class="p">,</span><span class="w"> 
   </span><span class="nt">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-12-29 16:28:06.517297"</span><span class="p">,</span><span class="w"> 
   </span><span class="nt">"inserted_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5665a1e8b1f5391201471f86"</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -1380,35 +1442,41 @@ Remember — insert your credentials for authentication!
   </span><span class="nt">"collection_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"donald_duck"</span><span class="p">,</span><span class="w"> 
   </span><span class="nt">"document"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="nt">"keywords"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-      </span><span class="p">{</span><span class="w">
-        </span><span class="nt">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.0</span><span class="p">,</span><span class="w"> 
-        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"program"</span><span class="w">
-      </span><span class="p">},</span><span class="w"> 
-      </span><span class="p">{</span><span class="w">
-        </span><span class="nt">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.0</span><span class="p">,</span><span class="w"> 
-        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"last week"</span><span class="w">
-      </span><span class="p">},</span><span class="w"> 
-      </span><span class="p">{</span><span class="w">
-        </span><span class="nt">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.0</span><span class="p">,</span><span class="w"> 
-        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"field"</span><span class="w">
-      </span><span class="p">}</span><span class="w">
+     </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"score"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"search"</span><span class="w">
+     </span><span class="p">},</span><span class="w">
+     </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"score"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"area"</span><span class="w">
+     </span><span class="p">},</span><span class="w">
+     </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"score"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sq km"</span><span class="w">
+     </span><span class="p">}</span><span class="w">
     </span><span class="p">],</span><span class="w"> 
-    </span><span class="nt">"entities"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-      </span><span class="p">{</span><span class="w">
-        </span><span class="nt">"info"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-          </span><span class="nt">"wikipedia"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://en.wikipedia.org/wiki/Russia"</span><span class="p">,</span><span class="w"> 
-          </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Russia, also officially known as the Russian Federation, is a country in northern Eurasia. It is a federal semi-presidential republic [...]."</span><span class="w">
-        </span><span class="p">},</span><span class="w"> 
-        </span><span class="nt">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.0</span><span class="p">,</span><span class="w"> 
-        </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Place"</span><span class="p">,</span><span class="w"> 
-        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Russia"</span><span class="w">
-      </span><span class="p">},</span><span class="w"> 
-      </span><span class="p">{</span><span class="w">
-        </span><span class="nt">"info"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w"> 
-        </span><span class="nt">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.0</span><span class="p">,</span><span class="w"> 
-        </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Organization"</span><span class="p">,</span><span class="w"> 
-        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"WADA"</span><span class="w">
-      </span><span class="p">}</span><span class="w">
+   </span><span class="nt">"entities"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+     </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"info"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"score"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Organization"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MH370"</span><span class="w">
+     </span><span class="p">},</span><span class="w">
+     </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"info"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"score"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Organization"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ATSB"</span><span class="w">
+     </span><span class="p">},</span><span class="w">
+     </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"info"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"wikipedia"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://en.wikipedia.org/wiki/Chester"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Chester (/ˈtʃɛstər/ CHESS-tər), is a city in Cheshire, England. Lying on the [...]"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nt">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.6</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Place"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Chester"</span><span class="w">
+     </span><span class="p">}</span><span class="w">
     </span><span class="p">],</span><span class="w"> 
     </span><span class="nt">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-12-29 16:28:06.517297"</span><span class="p">,</span><span class="w"> 
     </span><span class="nt">"_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5665a1e8b1f5391201471f86"</span><span class="w">
@@ -1431,14 +1499,14 @@ Remember — insert your credentials for authentication!
   </span><span class="nt">"collection_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"donald_duck"</span><span class="p">,</span><span class="w"> 
   </span><span class="nt">"modified_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5665a1e8b1f5391201471f86"</span><span class="p">,</span><span class="w"> 
   </span><span class="nt">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-12-29 16:28:06.517297"</span><span class="p">,</span><span class="w"> 
-  </span><span class="nt">"text"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Germany's foreign intelligence service spied on targets including the French foreign minister, Laurent Fabius, the FBI and the UN Children's Fund, a media report said on Wednesday. The latest news report on the BND spy service fuels a debate in Germany about state surveillance kicked off by the revelations of the US whistleblower Edward Snowden [...]."</span><span class="w">
+  </span><span class="nt">"text"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Germany's foreign intelligence service spied on targets including the French foreign minister, Laurent Fabius, the FBI and the UN Children's Fund, a media report said on Wednesday. The latest news report on the BND spy service fuels a debate in Germany about state surveillance kicked off by the revelations of the US whistleblower Edward Snowden [...]"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
 <blockquote>
 <p>Request example to &ldquo;Modify Text Item fromText&rdquo;  - <code class="prettyprint">PUT fromText</code>&hellip;</p>
 </blockquote>
-<pre class="highlight shell"><code>curl --ssl-reqd --request PUT --data <span class="nv">text</span><span class="o">=</span><span class="s2">"I want to change the text of the article about Russia and the 2016 Olympics in Rio de Janeiro."</span> <span class="s2">"https://vm3.yonderlabs.com/1.0/textcollection/textitem/fromText?collection_name=donald_duck&amp;id=5665a1e8b1f5391201471f86&amp;access_token=YOUR_ACCESS_TOKEN"</span>
+<pre class="highlight shell"><code>curl --ssl-reqd --request PUT --data <span class="nv">text</span><span class="o">=</span><span class="s2">"Germany's foreign intelligence service spied on targets including the French foreign minister, Laurent Fabius, the FBI and the UN Children's Fund, a media report said on Wednesday. The latest news report on the BND spy service fuels a debate in Germany about state surveillance kicked off by the revelations of the US whistleblower Edward Snowden [...]"</span> <span class="s2">"https://vm3.yonderlabs.com/1.0/textcollection/textitem/fromText?collection_name=donald_duck&amp;id=5665a1e8b1f5391201471f86&amp;access_token=YOUR_ACCESS_TOKEN"</span>
 </code></pre>
 
 <blockquote>
@@ -1449,7 +1517,7 @@ Remember — insert your credentials for authentication!
   </span><span class="nt">"collection_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"donald_duck"</span><span class="p">,</span><span class="w"> 
   </span><span class="nt">"modified_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5665a1e8b1f5391201471f86"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-12-29 16:28:06.517297"</span><span class="p">,</span><span class="w">  
-  </span><span class="nt">"text"</span><span class="p">:</span><span class="w"> </span><span class="s2">"I want to change the text of the article about Russia and the 2016 Olympics in Rio de Janeiro."</span><span class="w">
+  </span><span class="nt">"text"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Germany's foreign intelligence service spied on targets including the French foreign minister, Laurent Fabius, the FBI and the UN Children's Fund, a media report said on Wednesday. The latest news report on the BND spy service fuels a debate in Germany about state surveillance kicked off by the revelations of the US whistleblower Edward Snowden [...]"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
@@ -1835,7 +1903,7 @@ Remember — insert your credentials for authentication!
 <blockquote>
 <p>Request example to &ldquo;Discover related documents&rdquo; - <code class="prettyprint">POST fromURL</code>&hellip;</p>
 </blockquote>
-<pre class="highlight shell"><code>curl --ssl-reqd --request POST --data <span class="nv">url</span><span class="o">=</span>http%3A%2F%2Fwww.theatlantic.com%2Finternational%2Farchive%2F2015%2F11%2Frussia-doping-2016-olympics%2F416604%2F <span class="s2">"https://vm3.yonderlabs.com/1.0/textcollection/documentdiscovery/fromURL?collection_name=scrooge&amp;access_token=YOUR_ACCESS_TOKEN"</span>
+<pre class="highlight shell"><code>curl --ssl-reqd --request POST --data <span class="nv">url</span><span class="o">=</span>https%3A%2F%2Fwww.theguardian.com%2Fworld%2F2016%2Fjul%2F22%2Fmissing-flight-mh370-hunt-for-debris-will-not-be-extended <span class="s2">"https://vm3.yonderlabs.com/1.0/textcollection/documentdiscovery/fromURL?collection_name=scrooge&amp;access_token=YOUR_ACCESS_TOKEN"</span>
 </code></pre>
 
 <blockquote>
@@ -1844,9 +1912,9 @@ Remember — insert your credentials for authentication!
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"task_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DocumentDiscoveryAPI"</span><span class="p">,</span><span class="w"> 
   </span><span class="nt">"task_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"8292fd19-6c94-4570-90bf-c7d2f0afb9ed"</span><span class="p">,</span><span class="w"> 
-  </span><span class="nt">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://www.theatlantic.com/international/archive/2015/11/russia-doping-2016-olympics/416604/"</span><span class="p">,</span><span class="w"> 
+  </span><span class="nt">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://www.theguardian.com/world/2016/jul/22/missing-flight-mh370-hunt-for-debris-will-not-be-extended"</span><span class="p">,</span><span class="w"> 
   </span><span class="nt">"collection_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"scrooge"</span><span class="p">,</span><span class="w"> 
-  </span><span class="nt">"text"</span><span class="p">:</span><span class="w"> </span><span class="s2">"With less than nine months to go for the 2016 Olympics in Rio de Janeiro, Russia is trying to break a world record in the 90-day sprint. A little more than a week after a commission of the world Anti-Doping Agency (WADA) issued a report that accused Russia of essentially hosting a state-sponsored doping program, Russia launched a task force to rid itself of its doping infection so it may compete in the Olympics [...]."</span><span class="p">,</span><span class="w"> 
+  </span><span class="nt">"text"</span><span class="p">:</span><span class="w"> </span><span class="s2">"The hunt for Malaysia Airlines flight MH370 is to be suspended if evidence of the missing jet is not found in the current search area. The transport ministers of Australia, Malaysia and China, representing the country leading the search, the airline and the home of the majority of its passengers, met to discuss the future of the search in the Malaysian federal administrative centre of Putrajaya on Friday. They announced that [...]"</span><span class="p">,</span><span class="w"> 
   </span><span class="nt">"task_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PENDING"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
@@ -1854,7 +1922,7 @@ Remember — insert your credentials for authentication!
 <blockquote>
 <p>Request example to &ldquo;Discover related documents&rdquo; - <code class="prettyprint">POST fromText</code>&hellip;</p>
 </blockquote>
-<pre class="highlight shell"><code>curl --ssl-reqd --request POST --data <span class="nv">text</span><span class="o">=</span><span class="s2">"With less than nine months to go for the 2016 Olympics in Rio de Janeiro, Russia is trying to break a world record in the 90-day sprint. A little more than a week after a commission of the world Anti-Doping Agency (WADA) issued a report that accused Russia of essentially hosting a state-sponsored doping program, Russia launched a task force to rid itself of its doping infection so it may compete in the Olympics [...]."</span> <span class="s2">"https://vm3.yonderlabs.com/1.0/textcollection/documentdiscovery/fromText?collection_name=scrooge&amp;access_token=YOUR_ACCESS_TOKEN"</span>
+<pre class="highlight shell"><code>curl --ssl-reqd --request POST --data <span class="nv">text</span><span class="o">=</span><span class="s2">"The hunt for Malaysia Airlines flight MH370 is to be suspended if evidence of the missing jet is not found in the current search area. The transport ministers of Australia, Malaysia and China, representing the country leading the search, the airline and the home of the majority of its passengers, met to discuss the future of the search in the Malaysian federal administrative centre of Putrajaya on Friday. They announced that [...]"</span> <span class="s2">"https://vm3.yonderlabs.com/1.0/textcollection/documentdiscovery/fromText?collection_name=scrooge&amp;access_token=YOUR_ACCESS_TOKEN"</span>
 </code></pre>
 
 <blockquote>
@@ -1865,7 +1933,7 @@ Remember — insert your credentials for authentication!
   </span><span class="nt">"task_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"8292fd19-6c94-4570-90bf-c7d2f0afb9ed"</span><span class="p">,</span><span class="w"> 
   </span><span class="nt">"url"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w"> 
   </span><span class="nt">"collection_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"scrooge"</span><span class="p">,</span><span class="w"> 
-  </span><span class="nt">"text"</span><span class="p">:</span><span class="w"> </span><span class="s2">"With less than nine months to go for the 2016 Olympics in Rio de Janeiro, Russia is trying to break a world record in the 90-day sprint. A little more than a week after a commission of the world Anti-Doping Agency (WADA) issued a report that accused Russia of essentially hosting a state-sponsored doping program, Russia launched a task force to rid itself of its doping infection so it may compete in the Olympics [...]."</span><span class="p">,</span><span class="w"> 
+  </span><span class="nt">"text"</span><span class="p">:</span><span class="w"> </span><span class="s2">"The hunt for Malaysia Airlines flight MH370 is to be suspended if evidence of the missing jet is not found in the current search area. The transport ministers of Australia, Malaysia and China, representing the country leading the search, the airline and the home of the majority of its passengers, met to discuss the future of the search in the Malaysian federal administrative centre of Putrajaya on Friday. They announced that [...]"</span><span class="p">,</span><span class="w"> 
   </span><span class="nt">"task_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PENDING"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
@@ -1883,7 +1951,7 @@ Remember — insert your credentials for authentication!
   </span><span class="nt">"task_error"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w"> 
   </span><span class="nt">"task_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DocumentDiscoveryAPI"</span><span class="p">,</span><span class="w"> 
   </span><span class="nt">"task_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"8292fd19-6c94-4570-90bf-c7d2f0afb9ed"</span><span class="p">,</span><span class="w"> 
-  </span><span class="nt">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://www.theatlantic.com/international/archive/2015/11/russia-doping-2016-olympics/416604/"</span><span class="p">,</span><span class="w"> 
+  </span><span class="nt">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://www.theguardian.com/world/2016/jul/22/missing-flight-mh370-hunt-for-debris-will-not-be-extended"</span><span class="p">,</span><span class="w"> 
   </span><span class="nt">"collection_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"scrooge"</span><span class="p">,</span><span class="w"> 
   </span><span class="nt">"task_result"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="nt">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-12-29 16:28:06.517297"</span><span class="p">,</span><span class="w"> 
@@ -1902,7 +1970,7 @@ Remember — insert your credentials for authentication!
       </span><span class="p">}</span><span class="w">
     </span><span class="p">]</span><span class="w">
   </span><span class="p">},</span><span class="w"> 
-  </span><span class="nt">"text"</span><span class="p">:</span><span class="w"> </span><span class="s2">"With less than nine months to go for the 2016 Olympics in Rio de Janeiro, Russia is trying to break a world record in the 90-day sprint. A little more than a week after a commission of the world Anti-Doping Agency (WADA) issued a report that accused Russia of essentially hosting a state-sponsored doping program, Russia launched a task force to rid itself of its doping infection so it may compete in the Olympics [...]."</span><span class="p">,</span><span class="w"> 
+  </span><span class="nt">"text"</span><span class="p">:</span><span class="w"> </span><span class="s2">"The hunt for Malaysia Airlines flight MH370 is to be suspended if evidence of the missing jet is not found in the current search area. The transport ministers of Australia, Malaysia and China, representing the country leading the search, the airline and the home of the majority of its passengers, met to discuss the future of the search in the Malaysian federal administrative centre of Putrajaya on Friday. They announced that [...]"</span><span class="p">,</span><span class="w"> 
   </span><span class="nt">"task_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SUCCESS"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
@@ -2073,8 +2141,8 @@ Remember — insert your credentials for authentication!
     </span><span class="nt">"nodes"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
       </span><span class="p">{</span><span class="w">
         </span><span class="nt">"count"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"info"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Russia also officially known as the Russian Federation is a sovereign state in northern Eurasia [...]"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Russia"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"info"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Malaysia (/məˈleɪʒə/ mə-LAY-zhə or /məˈleɪsiə/ mə-LAY-see-ə) (Malaysian pronunciation: [məlejsiə]) is a federal constitutional monarchy located in [...]"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Malaysia"</span><span class="p">,</span><span class="w">
         </span><span class="nt">"neighbors"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
           </span><span class="p">{</span><span class="w">
             </span><span class="nt">"edge_weight"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.02197802197802198</span><span class="p">,</span><span class="w">
@@ -2108,8 +2176,8 @@ Remember — insert your credentials for authentication!
       </span><span class="p">},</span><span class="w">
       </span><span class="p">{</span><span class="w">
         </span><span class="nt">"count"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"info"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Ukraine is a sovereign country in Eastern Europe, bordered by Russia to the east and [...]"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Ukraine"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"info"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Kuala Lumpur is the federal capital and most populous city in Malaysia [...]"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Kuala Lumpur"</span><span class="p">,</span><span class="w">
         </span><span class="nt">"neighbors"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
           </span><span class="p">{</span><span class="w">
             </span><span class="nt">"edge_weight"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.02197802197802198</span><span class="p">,</span><span class="w">
@@ -2251,7 +2319,7 @@ Remember — insert your credentials for authentication!
 <blockquote>
 <p>Request example to &ldquo;Discover related entities&rdquo; - <code class="prettyprint">POST fromURL</code>&hellip;</p>
 </blockquote>
-<pre class="highlight shell"><code>curl --ssl-reqd --request POST --data <span class="nv">url</span><span class="o">=</span>http%3A%2F%2Fwww.theatlantic.com%2Finternational%2Farchive%2F2015%2F11%2Frussia-doping-2016-olympics%2F416604%2F <span class="s2">"https://vm3.yonderlabs.com/1.0/textcollection/entitydiscovery/fromURL?collection_name=scrooge&amp;limit=5&amp;access_token=YOUR_ACCESS_TOKEN"</span>
+<pre class="highlight shell"><code>curl --ssl-reqd --request POST --data <span class="nv">url</span><span class="o">=</span>https%3A%2F%2Fwww.theguardian.com%2Fworld%2F2016%2Fjul%2F22%2Fmissing-flight-mh370-hunt-for-debris-will-not-be-extended <span class="s2">"https://vm3.yonderlabs.com/1.0/textcollection/entitydiscovery/fromURL?collection_name=scrooge&amp;limit=5&amp;access_token=YOUR_ACCESS_TOKEN"</span>
 </code></pre>
 
 <blockquote>
@@ -2260,9 +2328,9 @@ Remember — insert your credentials for authentication!
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"task_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"EntityDiscoveryAPI"</span><span class="p">,</span><span class="w"> 
   </span><span class="nt">"task_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"8292fd19-6c94-4570-90bf-c7d2f0afb9ed"</span><span class="p">,</span><span class="w"> 
-  </span><span class="nt">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://www.theatlantic.com/international/archive/2015/11/russia-doping-2016-olympics/416604/"</span><span class="p">,</span><span class="w"> 
+  </span><span class="nt">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://www.theguardian.com/world/2016/jul/22/missing-flight-mh370-hunt-for-debris-will-not-be-extended"</span><span class="p">,</span><span class="w"> 
   </span><span class="nt">"collection_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"scrooge"</span><span class="p">,</span><span class="w"> 
-  </span><span class="nt">"text"</span><span class="p">:</span><span class="w"> </span><span class="s2">"With less than nine months to go for the 2016 Olympics in Rio de Janeiro, Russia is trying to break a world record in the 90-day sprint. A little more than a week after a commission of the world Anti-Doping Agency (WADA) issued a report that accused Russia of essentially hosting a state-sponsored doping program, Russia launched a task force to rid itself of its doping infection so it may compete in the Olympics [...]."</span><span class="p">,</span><span class="w"> 
+  </span><span class="nt">"text"</span><span class="p">:</span><span class="w"> </span><span class="s2">"The hunt for Malaysia Airlines flight MH370 is to be suspended if evidence of the missing jet is not found in the current search area. The transport ministers of Australia, Malaysia and China, representing the country leading the search, the airline and the home of the majority of its passengers, met to discuss the future of the search in the Malaysian federal administrative centre of Putrajaya on Friday. They announced that [...]"</span><span class="p">,</span><span class="w"> 
   </span><span class="nt">"task_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PENDING"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
@@ -2270,7 +2338,7 @@ Remember — insert your credentials for authentication!
 <blockquote>
 <p>Request example to &ldquo;Discover related entities&rdquo; - <code class="prettyprint">POST fromText</code>&hellip;</p>
 </blockquote>
-<pre class="highlight shell"><code>curl --ssl-reqd --request POST --data <span class="nv">text</span><span class="o">=</span><span class="s2">"With less than nine months to go for the 2016 Olympics in Rio de Janeiro, Russia is trying to break a world record in the 90-day sprint. A little more than a week after a commission of the world Anti-Doping Agency (WADA) issued a report that accused Russia of essentially hosting a state-sponsored doping program, Russia launched a task force to rid itself of its doping infection so it may compete in the Olympics [...]."</span> <span class="s2">"https://vm3.yonderlabs.com/1.0/textcollection/entitydiscovery/fromText?collection_name=scrooge&amp;limit=5&amp;access_token=YOUR_ACCESS_TOKEN"</span>
+<pre class="highlight shell"><code>curl --ssl-reqd --request POST --data <span class="nv">text</span><span class="o">=</span><span class="s2">"The hunt for Malaysia Airlines flight MH370 is to be suspended if evidence of the missing jet is not found in the current search area. The transport ministers of Australia, Malaysia and China, representing the country leading the search, the airline and the home of the majority of its passengers, met to discuss the future of the search in the Malaysian federal administrative centre of Putrajaya on Friday. They announced that [...]"</span> <span class="s2">"https://vm3.yonderlabs.com/1.0/textcollection/entitydiscovery/fromText?collection_name=scrooge&amp;limit=5&amp;access_token=YOUR_ACCESS_TOKEN"</span>
 </code></pre>
 
 <blockquote>
@@ -2281,7 +2349,7 @@ Remember — insert your credentials for authentication!
   </span><span class="nt">"task_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"8292fd19-6c94-4570-90bf-c7d2f0afb9ed"</span><span class="p">,</span><span class="w"> 
   </span><span class="nt">"url"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w"> 
   </span><span class="nt">"collection_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"scrooge"</span><span class="p">,</span><span class="w"> 
-  </span><span class="nt">"text"</span><span class="p">:</span><span class="w"> </span><span class="s2">"With less than nine months to go for the 2016 Olympics in Rio de Janeiro, Russia is trying to break a world record in the 90-day sprint. A little more than a week after a commission of the world Anti-Doping Agency (WADA) issued a report that accused Russia of essentially hosting a state-sponsored doping program, Russia launched a task force to rid itself of its doping infection so it may compete in the Olympics [...]."</span><span class="p">,</span><span class="w"> 
+  </span><span class="nt">"text"</span><span class="p">:</span><span class="w"> </span><span class="s2">"The hunt for Malaysia Airlines flight MH370 is to be suspended if evidence of the missing jet is not found in the current search area. The transport ministers of Australia, Malaysia and China, representing the country leading the search, the airline and the home of the majority of its passengers, met to discuss the future of the search in the Malaysian federal administrative centre of Putrajaya on Friday. They announced that [...]"</span><span class="p">,</span><span class="w"> 
   </span><span class="nt">"task_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PENDING"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
@@ -2299,7 +2367,7 @@ Remember — insert your credentials for authentication!
   </span><span class="nt">"task_error"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
   </span><span class="nt">"task_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"EntityDiscoveryAPI"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"task_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"8292fd19-6c94-4570-90bf-c7d2f0afb9ed"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://www.theatlantic.com/international/archive/2015/11/russia-doping-2016-olympics/416604/"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://www.theguardian.com/world/2016/jul/22/missing-flight-mh370-hunt-for-debris-will-not-be-extended"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"collection_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"scrooge"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"task_result"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="nt">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-05-06 09:58:00.787070"</span><span class="p">,</span><span class="w">
@@ -2307,9 +2375,9 @@ Remember — insert your credentials for authentication!
     </span><span class="nt">"entities"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
       </span><span class="p">{</span><span class="w">
         </span><span class="nt">"count"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"info"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Russia also officially known as the Russian Federation is a sovereign state in northern Eurasia [...]"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"info"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Malaysia is a federal constitutional monarchy located in Southeast Asia. It consists of [...]"</span><span class="p">,</span><span class="w">
         </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Place"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Russia"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Malaysia"</span><span class="p">,</span><span class="w">
         </span><span class="nt">"graph"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
           </span><span class="nt">"is_in_graph"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
           </span><span class="nt">"neighbors"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
@@ -2348,40 +2416,40 @@ Remember — insert your credentials for authentication!
       </span><span class="nt">"discovered_neighbors"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
         </span><span class="p">{</span><span class="w">
           </span><span class="nt">"count"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-          </span><span class="nt">"info"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Moscow is the capital and the largest city of Russia, with 12.2 million [...]"</span><span class="p">,</span><span class="w">
-          </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Moscow"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"info"</span><span class="p">:</span><span class="w"> </span><span class="s2">"The South China Sea is a marginal sea that is part of the Pacific Ocean [...]"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"South China Sea"</span><span class="p">,</span><span class="w">
           </span><span class="nt">"weight"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.012578616352201259</span><span class="p">,</span><span class="w">
           </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Place"</span><span class="p">,</span><span class="w">
           </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
         </span><span class="p">},</span><span class="w">
         </span><span class="p">{</span><span class="w">
           </span><span class="nt">"count"</span><span class="p">:</span><span class="w"> </span><span class="mi">15</span><span class="p">,</span><span class="w">
-          </span><span class="nt">"info"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Vladimir Vladimirovich Putin has been the President of Russia since [...]"</span><span class="p">,</span><span class="w">
-          </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Vladimir Putin"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"info"</span><span class="p">:</span><span class="w"> </span><span class="s2">"The Yang di-Pertuan Agong is the monarch and head of state of Malaysia [...]"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Yang di-Pertuan Agong"</span><span class="p">,</span><span class="w">
           </span><span class="nt">"weight"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.09433962264150944</span><span class="p">,</span><span class="w">
           </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Person"</span><span class="p">,</span><span class="w">
           </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="w">
         </span><span class="p">},</span><span class="w">
         </span><span class="p">{</span><span class="w">
           </span><span class="nt">"count"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-          </span><span class="nt">"info"</span><span class="p">:</span><span class="w"> </span><span class="s2">"The Moscow Kremlin, usually referred to as the Kremlin, is a fortified complex at the heart of [...]"</span><span class="p">,</span><span class="w">
-          </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Kremlin"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"info"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Indonesia, officially the Republic of Indonesia, is a country in Southeast Asia [...]"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Indonesia"</span><span class="p">,</span><span class="w">
           </span><span class="nt">"weight"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.006289308176100629</span><span class="p">,</span><span class="w">
           </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Place"</span><span class="p">,</span><span class="w">
           </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="w">
         </span><span class="p">},</span><span class="w">
         </span><span class="p">{</span><span class="w">
           </span><span class="nt">"count"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-          </span><span class="nt">"info"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Turkey is a parliamentary republic in Eurasia, largely located in [...]"</span><span class="p">,</span><span class="w">
-          </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Turkey"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"info"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Singapore officially the Republic of Singapore, and often referred to as the Lion City, the Garden City, and the Red Dot, is a global city [...]"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Singapore"</span><span class="p">,</span><span class="w">
           </span><span class="nt">"weight"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.006289308176100629</span><span class="p">,</span><span class="w">
           </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Place"</span><span class="p">,</span><span class="w">
           </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="w">
         </span><span class="p">},</span><span class="w">
         </span><span class="p">{</span><span class="w">
           </span><span class="nt">"count"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-          </span><span class="nt">"info"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Ukraine is a sovereign country in Eastern Europe, bordered by Russia to the east and [...]"</span><span class="p">,</span><span class="w">
-          </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Ukraine"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"info"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Vietnam, officially the Socialist Republic of Vietnam, is the easternmost country on the Indochina Peninsula in Southeast Asia [...]"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Vietnam"</span><span class="p">,</span><span class="w">
           </span><span class="nt">"weight"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.006289308176100629</span><span class="p">,</span><span class="w">
           </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Place"</span><span class="p">,</span><span class="w">
           </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="w">
@@ -2395,7 +2463,7 @@ Remember — insert your credentials for authentication!
       </span><span class="p">}</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">},</span><span class="w">
-  </span><span class="nt">"text"</span><span class="p">:</span><span class="w"> </span><span class="s2">"With less than nine months to go for the 2016 Olympics in Rio de Janeiro, Russia is trying to break a world record in the 90-day sprint. A little more than a week after a commission of the world Anti-Doping Agency (WADA) issued a report that accused Russia of essentially hosting a state-sponsored doping program, Russia launched a task force to rid itself of its doping infection so it may compete in the Olympics [...]."</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"text"</span><span class="p">:</span><span class="w"> </span><span class="s2">"The hunt for Malaysia Airlines flight MH370 is to be suspended if evidence of the missing jet is not found in the current search area. The transport ministers of Australia, Malaysia and China, representing the country leading the search, the airline and the home of the majority of its passengers, met to discuss the future of the search in the Malaysian federal administrative centre of Putrajaya on Friday. They announced that [...]"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"task_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SUCCESS"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
