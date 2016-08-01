@@ -415,6 +415,130 @@ Allowed input sources are: text content contained in an URL (&ldquo;from URL&rdq
 Remember — insert your credentials for authentication!
 </aside>
 
+          <h2 id="reaction-classification">Reaction Classification</h2>
+
+<blockquote>
+<p>Request example - <code class="prettyprint">POST fromURL</code>&hellip;</p>
+</blockquote>
+<pre class="highlight shell"><code>curl --ssl-reqd --request POST --data <span class="nv">url</span><span class="o">=</span>https%3A%2F%2Fwww.theguardian.com%2Fworld%2F2016%2Fjul%2F22%2Fmissing-flight-mh370-hunt-for-debris-will-not-be-extended <span class="s2">"https://vm3.yonderlabs.com/1.0/text/reactionclassification/fromURL?access_token=YOUR_ACCESS_TOKEN"</span>
+</code></pre>
+
+<blockquote>
+<p>&hellip; and response body (200/JSON):</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://www.theguardian.com/world/2016/jul/22/missing-flight-mh370-hunt-for-debris-will-not-be-extended"</span><span class="p">,</span><span class="w"> 
+  </span><span class="nt">"text"</span><span class="p">:</span><span class="w"> </span><span class="s2">"The hunt for Malaysia Airlines flight MH370 is to be suspended if evidence of the missing jet is not found in the current search area. The transport ministers of Australia, Malaysia and China, representing the country leading the search, the airline and the home of the majority of its passengers, met to discuss the future of the search in the Malaysian federal administrative centre of Putrajaya on Friday. They announced that [...]"</span><span class="p">,</span><span class="w"> 
+  </span><span class="nt">"reactions"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"love"</span><span class="p">:</span><span class="w"> </span><span class="mi">36</span><span class="p">,</span><span class="w"> 
+    </span><span class="nt">"angry"</span><span class="p">:</span><span class="w"> </span><span class="mi">33</span><span class="p">,</span><span class="w"> 
+    </span><span class="nt">"ahah"</span><span class="p">:</span><span class="w"> </span><span class="mi">35</span><span class="p">,</span><span class="w"> 
+    </span><span class="nt">"wow"</span><span class="p">:</span><span class="w"> </span><span class="mi">59</span><span class="p">,</span><span class="w"> 
+    </span><span class="nt">"sad"</span><span class="p">:</span><span class="w"> </span><span class="mi">58</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
+</span></code></pre>
+
+<blockquote>
+<p>Request example - <code class="prettyprint">POST fromText</code>&hellip;</p>
+</blockquote>
+<pre class="highlight shell"><code>curl --ssl-reqd --request POST --data <span class="nv">text</span><span class="o">=</span><span class="s2">"The hunt for Malaysia Airlines flight MH370 is to be suspended if evidence of the missing jet is not found in the current search area. The transport ministers of Australia, Malaysia and China, representing the country leading the search, the airline and the home of the majority of its passengers, met to discuss the future of the search in the Malaysian federal administrative centre of Putrajaya on Friday. They announced that [...]"</span> <span class="s2">"https://vm3.yonderlabs.com/1.0/text/reactionclassification/fromText?access_token=YOUR_ACCESS_TOKEN"</span>
+</code></pre>
+
+<blockquote>
+<p>&hellip; and response body (200/JSON):</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"url"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w"> 
+  </span><span class="nt">"text"</span><span class="p">:</span><span class="w"> </span><span class="s2">"The hunt for Malaysia Airlines flight MH370 is to be suspended if evidence of the missing jet is not found in the current search area. The transport ministers of Australia, Malaysia and China, representing the country leading the search, the airline and the home of the majority of its passengers, met to discuss the future of the search in the Malaysian federal administrative centre of Putrajaya on Friday. They announced that [...]"</span><span class="p">,</span><span class="w"> 
+  </span><span class="nt">"reactions"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"love"</span><span class="p">:</span><span class="w"> </span><span class="mi">36</span><span class="p">,</span><span class="w"> 
+    </span><span class="nt">"angry"</span><span class="p">:</span><span class="w"> </span><span class="mi">33</span><span class="p">,</span><span class="w"> 
+    </span><span class="nt">"ahah"</span><span class="p">:</span><span class="w"> </span><span class="mi">35</span><span class="p">,</span><span class="w"> 
+    </span><span class="nt">"wow"</span><span class="p">:</span><span class="w"> </span><span class="mi">59</span><span class="p">,</span><span class="w"> 
+    </span><span class="nt">"sad"</span><span class="p">:</span><span class="w"> </span><span class="mi">58</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p><strong>Predict emotions aroused from text such as wow, sad, etc.</strong></p>
+
+<p>This API goes &ldquo;beyond polarity&rdquo; sentiment analysys and focus on &ldquo;emotional states&rdquo; likely to be aroused in the readers. In particular the API predicts a valence value in the range [0,&hellip;,100] for each of the popular Facebook reactions <code class="prettyprint">love</code>, <code class="prettyprint">angry</code>, <code class="prettyprint">ahah</code>, <code class="prettyprint">wow</code>,<code class="prettyprint">sad</code>.
+Allowed input sources are: text content contained in an URL (&ldquo;from URL&rdquo;) or just simple text (&ldquo;from text&rdquo;).</p>
+
+<h3 id="reaction-classification-post-fromurl">Reaction Classification - <code class="prettyprint">POST fromURL</code></h3>
+
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Type</th>
+<th>Description</th>
+<th>Values</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>url</td>
+<td>string, required</td>
+<td>the URL of the text document</td>
+<td>use <a href="http://www.url-encode-decode.com/">url-encoding</a></td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>access_token</td>
+<td>string, required</td>
+<td>your access token (40 digits)</td>
+</tr>
+</tbody></table>
+
+<p>Examples of how-to-call the API and the related output are provided in the right panel.</p>
+
+<h3 id="reaction-classification-post-fromtext">Reaction Classification - <code class="prettyprint">POST fromText</code></h3>
+
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Type</th>
+<th>Description</th>
+<th>Values</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>text</td>
+<td>string, required</td>
+<td>the text to be classified</td>
+<td>pass the text between &ldquo;&rdquo; (e.g. &ldquo;This is an example&rdquo;) or use <a href="http://www.url-encode-decode.com/">url-encoded</a> text</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>access_token</td>
+<td>string, required</td>
+<td>your access token (40 digits)</td>
+</tr>
+</tbody></table>
+
+<p>Examples of how-to-call the API and the related output are provided in the right panel.</p>
+
+<aside class="success">
+Remember — insert your credentials for authentication!
+</aside>
+
           <h2 id="entity-extraction">Entity Extraction</h2>
 
 <blockquote>
