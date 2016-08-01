@@ -14,6 +14,7 @@ includes:
   - yonderapi-single-text
   - taxonomy-classification
   - sentiment-analysis
+  - reaction-classification
   - entity-extraction
   - keyword-extraction
   - concept-tagging
