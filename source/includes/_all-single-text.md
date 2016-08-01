@@ -470,6 +470,7 @@ This service analyzes your text content at once by applying all available API on
 + Taxonomy Classification
 + Sentiment Analysis
 + Entity Extraction
++ Keyword Extraction
 + Concept Tagging
 
 Allowed input sources are: text content contained in an URL ("from URL") or just simple text ("from text").
@@ -477,6 +478,8 @@ Employed taxonomies, depending on the text language, are:
 
 + "news-en" is the [Reuters taxonomy](http://www.ai.mit.edu/projects/jmlr/papers/volume5/lewis04a/a16-rbb-topic/topics.rbb) for news in English language;
 + "news-it" is one news taxonomy specific for Italian language.
+
+The parameter values are the default ones of the single API (i.e. all results for Entity Extraction API and Keyword Extraction API, 10 results for Concept Tagging API).
 
 
 ### All Single Text - `POST fromURL`
