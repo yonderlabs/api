@@ -472,7 +472,7 @@ Remember — insert your credentials for authentication!
 <p><strong>Predict emotions aroused from text such as angry, sad, etc.</strong></p>
 
 <p>This API goes beyond polarity sentiment analysys and focus on emotional states likely to be aroused in the reader. In particular the API identifies a maximum of two dominant emotions choosing among the popular Facebook reactions <code class="prettyprint">love</code>, <code class="prettyprint">angry</code>, <code class="prettyprint">ahah</code>, <code class="prettyprint">wow</code>,<code class="prettyprint">sad</code>.
-If none of the foreamentioned emotions are found, the message <code class="prettyprint">no dominant reaction detected</code> is returned.
+If no emotion is found, an empty list is returned.
 Allowed input sources are: text content contained in an URL (&ldquo;from URL&rdquo;) or just simple text (&ldquo;from text&rdquo;).</p>
 
 <h3 id="emotional-reaction-post-fromurl">Emotional Reaction - <code class="prettyprint">POST fromURL</code></h3>
