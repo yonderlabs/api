@@ -54,7 +54,7 @@ curl --ssl-reqd --request POST --data text="The hunt for Malaysia Airlines fligh
 **Predict emotions aroused from text such as angry, sad, etc.**
 
 This API goes beyond polarity sentiment analysys and focus on emotional states likely to be aroused in the reader. In particular the API identifies a maximum of two dominant emotions choosing among the popular Facebook reactions `love`, `angry`, `ahah`, `wow`,`sad`.
-If none of the foreamentioned emotions are found, the message `no dominant reaction detected` is returned.
+If no emotion is found, an empty list is returned.
 Allowed input sources are: text content contained in an URL ("from URL") or just simple text ("from text").
 
 
