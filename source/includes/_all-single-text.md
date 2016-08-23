@@ -25,6 +25,16 @@ curl --ssl-reqd --request POST --data url=https%3A%2F%2Fwww.theguardian.com%2Fwo
     "search",
     "area"
   ], 
+  "reactions": [
+    {
+      "reaction": "wow", 
+      "score": 0.51
+    }, 
+    {
+      "reaction": "sad", 
+      "score": 0.49
+    }
+  ], 
   "url": "https://www.theguardian.com/world/2016/jul/22/missing-flight-mh370-hunt-for-debris-will-not-be-extended", 
   "text": "The hunt for Malaysia Airlines flight MH370 is to be suspended if evidence of the missing jet is not found in the current search area. The transport ministers of Australia, Malaysia and China, representing the country leading the search, the airline and the home of the majority of its passengers, met to discuss the future of the search in the Malaysian federal administrative centre of Putrajaya on Friday. They announced that [...]", 
   "topics": [
@@ -255,6 +265,16 @@ curl --ssl-reqd --request POST --data text="The hunt for Malaysia Airlines fligh
     "search",
     "area"
   ], 
+  "reactions": [
+    {
+      "reaction": "wow", 
+      "score": 0.51
+    }, 
+    {
+      "reaction": "sad", 
+      "score": 0.49
+    }
+  ], 
   "url": null, 
   "text": "The hunt for Malaysia Airlines flight MH370 is to be suspended if evidence of the missing jet is not found in the current search area. The transport ministers of Australia, Malaysia and China, representing the country leading the search, the airline and the home of the majority of its passengers, met to discuss the future of the search in the Malaysian federal administrative centre of Putrajaya on Friday. They announced that [...]", 
   "topics": [
@@ -469,6 +489,7 @@ This service analyzes your text content at once by applying all available API on
 + Language Detection
 + Taxonomy Classification
 + Sentiment Analysis
++ Emotional Reaction
 + Entity Extraction
 + Keyword Extraction
 + Concept Tagging
