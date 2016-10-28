@@ -5,7 +5,7 @@
 > Request example to "Create Text Item fromURL" - `POST fromURL`...
 
 ```shell
-curl --ssl-reqd --request POST --data url=https%3A%2F%2Fwww.theguardian.com%2Fworld%2F2016%2Fjul%2F22%2Fmissing-flight-mh370-hunt-for-debris-will-not-be-extended "https://vm3.yonderlabs.com/1.0/textcollection/textitem/fromURL?collection_name=donald_duck&access_token=YOUR_ACCESS_TOKEN"
+curl --ssl-reqd --request POST --data url=https%3A%2F%2Fwww.theguardian.com%2Fworld%2F2016%2Fjul%2F22%2Fmissing-flight-mh370-hunt-for-debris-will-not-be-extended "https://api.yonderlabs.com/1.0/textcollection/textitem/fromURL?collection_name=donald_duck&access_token=YOUR_ACCESS_TOKEN"
 ```
 >... and response body (200/JSON):
 
@@ -23,7 +23,7 @@ curl --ssl-reqd --request POST --data url=https%3A%2F%2Fwww.theguardian.com%2Fwo
 > Request example to "Create Text Item fromText"  - `POST fromText`...
 
 ```shell
-curl --ssl-reqd --request POST --data text="The hunt for Malaysia Airlines flight MH370 is to be suspended if evidence of the missing jet is not found in the current search area. The transport ministers of Australia, Malaysia and China, representing the country leading the search, the airline and the home of the majority of its passengers, met to discuss the future of the search in the Malaysian federal administrative centre of Putrajaya on Friday. They announced that [...]" "https://vm3.yonderlabs.com/1.0/textcollection/textitem/fromText?collection_name=donald_duck&access_token=YOUR_ACCESS_TOKEN"
+curl --ssl-reqd --request POST --data text="The hunt for Malaysia Airlines flight MH370 is to be suspended if evidence of the missing jet is not found in the current search area. The transport ministers of Australia, Malaysia and China, representing the country leading the search, the airline and the home of the majority of its passengers, met to discuss the future of the search in the Malaysian federal administrative centre of Putrajaya on Friday. They announced that [...]" "https://api.yonderlabs.com/1.0/textcollection/textitem/fromText?collection_name=donald_duck&access_token=YOUR_ACCESS_TOKEN"
 ```
 >... and response body (200/JSON):
 
@@ -41,7 +41,7 @@ curl --ssl-reqd --request POST --data text="The hunt for Malaysia Airlines fligh
 > Request example to "Get info from Text Item"  - `GET`...
 
 ```shell
-curl --ssl-reqd --request GET "https://vm3.yonderlabs.com/1.0/textcollection/textitem?collection_name=donald_duck&id=5665a1e8b1f5391201471f86&access_token=YOUR_ACCESS_TOKEN"
+curl --ssl-reqd --request GET "https://api.yonderlabs.com/1.0/textcollection/textitem?collection_name=donald_duck&id=5665a1e8b1f5391201471f86&access_token=YOUR_ACCESS_TOKEN"
 ```
 >... and response body (200/JSON):
 
@@ -99,7 +99,7 @@ curl --ssl-reqd --request GET "https://vm3.yonderlabs.com/1.0/textcollection/tex
 > Request example to "Modify Text Item fromURL"  - `PUT fromURL`...
 
 ```shell
-curl --ssl-reqd --request PUT --data url=http%3A%2F%2Fwww.theguardian.com%2Fworld%2F2015%2Fnov%2F11%2Fgermany-spied-fbi-un-bodies-french-foreign-minister "https://vm3.yonderlabs.com/1.0/textcollection/textitem/fromText?collection_name=donald_duck&id=5665a1e8b1f5391201471f86&access_token=YOUR_ACCESS_TOKEN"
+curl --ssl-reqd --request PUT --data url=http%3A%2F%2Fwww.theguardian.com%2Fworld%2F2015%2Fnov%2F11%2Fgermany-spied-fbi-un-bodies-french-foreign-minister "https://api.yonderlabs.com/1.0/textcollection/textitem/fromText?collection_name=donald_duck&id=5665a1e8b1f5391201471f86&access_token=YOUR_ACCESS_TOKEN"
 ```
 >... and response body (200/JSON):
 
@@ -117,7 +117,7 @@ curl --ssl-reqd --request PUT --data url=http%3A%2F%2Fwww.theguardian.com%2Fworl
 > Request example to "Modify Text Item fromText"  - `PUT fromText`...
 
 ```shell
-curl --ssl-reqd --request PUT --data text="Germany's foreign intelligence service spied on targets including the French foreign minister, Laurent Fabius, the FBI and the UN Children's Fund, a media report said on Wednesday. The latest news report on the BND spy service fuels a debate in Germany about state surveillance kicked off by the revelations of the US whistleblower Edward Snowden [...]" "https://vm3.yonderlabs.com/1.0/textcollection/textitem/fromText?collection_name=donald_duck&id=5665a1e8b1f5391201471f86&access_token=YOUR_ACCESS_TOKEN"
+curl --ssl-reqd --request PUT --data text="Germany's foreign intelligence service spied on targets including the French foreign minister, Laurent Fabius, the FBI and the UN Children's Fund, a media report said on Wednesday. The latest news report on the BND spy service fuels a debate in Germany about state surveillance kicked off by the revelations of the US whistleblower Edward Snowden [...]" "https://api.yonderlabs.com/1.0/textcollection/textitem/fromText?collection_name=donald_duck&id=5665a1e8b1f5391201471f86&access_token=YOUR_ACCESS_TOKEN"
 ```
 >... and response body (200/JSON):
 
@@ -134,7 +134,7 @@ curl --ssl-reqd --request PUT --data text="Germany's foreign intelligence servic
 > Request example to "Delete Text Item" - `DELETE`...
 
 ```shell
-curl --ssl-reqd --request DELETE "https://vm3.yonderlabs.com/1.0/textcollection/textitem?collection_name=donald_duck&id=5665a1e8b1f5391201471f86&access_token=YOUR_ACCESS_TOKEN"
+curl --ssl-reqd --request DELETE "https://api.yonderlabs.com/1.0/textcollection/textitem?collection_name=donald_duck&id=5665a1e8b1f5391201471f86&access_token=YOUR_ACCESS_TOKEN"
 ```
 >... and response body (200/JSON):
 

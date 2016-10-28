@@ -4,7 +4,7 @@
 
 
 ```shell
-curl --ssl-reqd --request POST --data url=https%3A%2F%2Fwww.theguardian.com%2Fworld%2F2016%2Fjul%2F22%2Fmissing-flight-mh370-hunt-for-debris-will-not-be-extended "https://vm3.yonderlabs.com/1.0/textcollection/entitydiscovery/fromURL?collection_name=scrooge&limit=5&access_token=YOUR_ACCESS_TOKEN"
+curl --ssl-reqd --request POST --data url=https%3A%2F%2Fwww.theguardian.com%2Fworld%2F2016%2Fjul%2F22%2Fmissing-flight-mh370-hunt-for-debris-will-not-be-extended "https://api.yonderlabs.com/1.0/textcollection/entitydiscovery/fromURL?collection_name=scrooge&limit=5&access_token=YOUR_ACCESS_TOKEN"
 ```
 
 >... and response body (202 "ACCEPTED"):
@@ -24,7 +24,7 @@ curl --ssl-reqd --request POST --data url=https%3A%2F%2Fwww.theguardian.com%2Fwo
 > Request example to "Discover related entities" - `POST fromText`...
 
 ```shell
-curl --ssl-reqd --request POST --data text="The hunt for Malaysia Airlines flight MH370 is to be suspended if evidence of the missing jet is not found in the current search area. The transport ministers of Australia, Malaysia and China, representing the country leading the search, the airline and the home of the majority of its passengers, met to discuss the future of the search in the Malaysian federal administrative centre of Putrajaya on Friday. They announced that [...]" "https://vm3.yonderlabs.com/1.0/textcollection/entitydiscovery/fromText?collection_name=scrooge&limit=5&access_token=YOUR_ACCESS_TOKEN"
+curl --ssl-reqd --request POST --data text="The hunt for Malaysia Airlines flight MH370 is to be suspended if evidence of the missing jet is not found in the current search area. The transport ministers of Australia, Malaysia and China, representing the country leading the search, the airline and the home of the majority of its passengers, met to discuss the future of the search in the Malaysian federal administrative centre of Putrajaya on Friday. They announced that [...]" "https://api.yonderlabs.com/1.0/textcollection/entitydiscovery/fromText?collection_name=scrooge&limit=5&access_token=YOUR_ACCESS_TOKEN"
 ```
 
 
@@ -45,7 +45,7 @@ curl --ssl-reqd --request POST --data text="The hunt for Malaysia Airlines fligh
 > Request example to "Get related entities" - `GET`...
 
 ```shell
-curl --ssl-reqd --request GET "https://vm3.yonderlabs.com/1.0/textcollection/entitydiscovery?task_id=8292fd19-6c94-4570-90bf-c7d2f0afb9ed&access_token=YOUR_ACCESS_TOKEN"
+curl --ssl-reqd --request GET "https://api.yonderlabs.com/1.0/textcollection/entitydiscovery?task_id=8292fd19-6c94-4570-90bf-c7d2f0afb9ed&access_token=YOUR_ACCESS_TOKEN"
 ```
 
 >... and response body, case 1) SUCCESS, i.e. the task is over:

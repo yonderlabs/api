@@ -5,7 +5,7 @@
 
 
 ```shell
-curl --ssl-reqd --request POST --data url=https%3A%2F%2Fwww.theguardian.com%2Fworld%2F2016%2Fjul%2F22%2Fmissing-flight-mh370-hunt-for-debris-will-not-be-extended "https://vm3.yonderlabs.com/1.0/text/textextraction?access_token=YOUR_ACCESS_TOKEN"
+curl --ssl-reqd --request POST --data url=https%3A%2F%2Fwww.theguardian.com%2Fworld%2F2016%2Fjul%2F22%2Fmissing-flight-mh370-hunt-for-debris-will-not-be-extended "https://api.yonderlabs.com/1.0/text/textextraction?access_token=YOUR_ACCESS_TOKEN"
 ```
 
 > ... and response body (200/JSON):

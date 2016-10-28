@@ -4,7 +4,7 @@
 > Request example to "Create a Document Graph" - `POST`...
 
 ```shell
-curl --ssl-reqd --request POST "https://vm3.yonderlabs.com/1.0/textcollection/documentgraph?collection_name=goofy&access_token=YOUR_ACCESS_TOKEN"
+curl --ssl-reqd --request POST "https://api.yonderlabs.com/1.0/textcollection/documentgraph?collection_name=goofy&access_token=YOUR_ACCESS_TOKEN"
 ```
 >... and response body (202 "ACCEPTED"):
 
@@ -20,7 +20,7 @@ curl --ssl-reqd --request POST "https://vm3.yonderlabs.com/1.0/textcollection/do
 > Request example to "Get results from Document Graph" - `GET`...
 
 ```shell
-curl --ssl-reqd --request GET "https://vm3.yonderlabs.com/1.0/textcollection/documentgraph?task_id=e92dff8f-29ca-4286-9876-68d965f4a066&access_token=YOUR_ACCESS_TOKEN"
+curl --ssl-reqd --request GET "https://api.yonderlabs.com/1.0/textcollection/documentgraph?task_id=e92dff8f-29ca-4286-9876-68d965f4a066&access_token=YOUR_ACCESS_TOKEN"
 ```
 
 

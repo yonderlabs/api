@@ -2,7 +2,7 @@
 > Request example to "Create a Text Collection" - `POST`...
 
 ```shell
-curl --ssl-reqd --request POST "https://vm3.yonderlabs.com/1.0/textcollection/textcollection?collection_name=donald-duck&description=this-is-my-first-collection&access_token=YOUR_ACCESS_TOKEN"
+curl --ssl-reqd --request POST "https://api.yonderlabs.com/1.0/textcollection/textcollection?collection_name=donald-duck&description=this-is-my-first-collection&access_token=YOUR_ACCESS_TOKEN"
 ```
 
 >... and response body (200/JSON):
@@ -22,7 +22,7 @@ curl --ssl-reqd --request POST "https://vm3.yonderlabs.com/1.0/textcollection/te
 
 
 ```shell
-curl --ssl-reqd --request GET "https://vm3.yonderlabs.com/1.0/textcollection/textcollection?collection_name=donald-duck&access_token=YOUR_ACCESS_TOKEN"
+curl --ssl-reqd --request GET "https://api.yonderlabs.com/1.0/textcollection/textcollection?collection_name=donald-duck&access_token=YOUR_ACCESS_TOKEN"
 ```
 
 >... and response body (200/JSON):
@@ -42,7 +42,7 @@ curl --ssl-reqd --request GET "https://vm3.yonderlabs.com/1.0/textcollection/tex
 
 
 ```shell
-curl --ssl-reqd --request DELETE "https://vm3.yonderlabs.com/1.0/textcollection/textcollection?collection_name=donald-duck&access_token=YOUR_ACCESS_TOKEN"
+curl --ssl-reqd --request DELETE "https://api.yonderlabs.com/1.0/textcollection/textcollection?collection_name=donald-duck&access_token=YOUR_ACCESS_TOKEN"
 ```
 
 >... and response body (200/JSON):

@@ -4,7 +4,7 @@
 
 
 ```shell
-curl --ssl-reqd --request POST "https://vm3.yonderlabs.com/1.0/textcollection/entitygraph?collection_name=scrooge&limit=5&access_token=YOUR_ACCESS_TOKEN"
+curl --ssl-reqd --request POST "https://api.yonderlabs.com/1.0/textcollection/entitygraph?collection_name=scrooge&limit=5&access_token=YOUR_ACCESS_TOKEN"
 ```
 
 
@@ -23,7 +23,7 @@ curl --ssl-reqd --request POST "https://vm3.yonderlabs.com/1.0/textcollection/en
 
 
 ```shell
-curl --ssl-reqd --request GET "https://vm3.yonderlabs.com/1.0/textcollection/entitygraph?task_id=a4e31278-4432-43da-8fbf-1b21562d02f9&access_token=YOUR_ACCESS_TOKEN"
+curl --ssl-reqd --request GET "https://api.yonderlabs.com/1.0/textcollection/entitygraph?task_id=a4e31278-4432-43da-8fbf-1b21562d02f9&access_token=YOUR_ACCESS_TOKEN"
 ```
 
 

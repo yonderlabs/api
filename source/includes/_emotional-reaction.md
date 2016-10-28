@@ -3,7 +3,7 @@
 > Request example - `POST fromURL`...
 
 ```shell
-curl --ssl-reqd --request POST --data url=https%3A%2F%2Fwww.theguardian.com%2Fworld%2F2016%2Fjul%2F22%2Fmissing-flight-mh370-hunt-for-debris-will-not-be-extended "https://vm3.yonderlabs.com/1.0/text/reactionclassification/fromURL?access_token=YOUR_ACCESS_TOKEN"
+curl --ssl-reqd --request POST --data url=https%3A%2F%2Fwww.theguardian.com%2Fworld%2F2016%2Fjul%2F22%2Fmissing-flight-mh370-hunt-for-debris-will-not-be-extended "https://api.yonderlabs.com/1.0/text/reactionclassification/fromURL?access_token=YOUR_ACCESS_TOKEN"
 ```
 
 > ... and response body (200/JSON):
@@ -29,7 +29,7 @@ curl --ssl-reqd --request POST --data url=https%3A%2F%2Fwww.theguardian.com%2Fwo
 > Request example - `POST fromText`...
 
 ```shell
-curl --ssl-reqd --request POST --data text="The hunt for Malaysia Airlines flight MH370 is to be suspended if evidence of the missing jet is not found in the current search area. The transport ministers of Australia, Malaysia and China, representing the country leading the search, the airline and the home of the majority of its passengers, met to discuss the future of the search in the Malaysian federal administrative centre of Putrajaya on Friday. They announced that [...]" "https://vm3.yonderlabs.com/1.0/text/reactionclassification/fromText?access_token=YOUR_ACCESS_TOKEN"
+curl --ssl-reqd --request POST --data text="The hunt for Malaysia Airlines flight MH370 is to be suspended if evidence of the missing jet is not found in the current search area. The transport ministers of Australia, Malaysia and China, representing the country leading the search, the airline and the home of the majority of its passengers, met to discuss the future of the search in the Malaysian federal administrative centre of Putrajaya on Friday. They announced that [...]" "https://api.yonderlabs.com/1.0/text/reactionclassification/fromText?access_token=YOUR_ACCESS_TOKEN"
 ```
 
 > ... and response body (200/JSON):
