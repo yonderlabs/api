@@ -6,8 +6,8 @@ language_tabs:
 
 toc_footers:
   - <a href='http://yonderlabs.com'>Register for YonderAPI here</a>
-  - <a href='http://github.com/tripit/slate'>Documentation Powered by Slate</a>
-  - <a href='https://bizspark.microsoft.com'>Powered by Microsoft Azure under Bizpark plus</a>
+  - <a href='https://bizspark.microsoft.com'>Powered by MS Azure and Bizpark plus</a>
+  -  <a href='http://github.com/tripit/slate'>Documentation powered by Slate</a>
 
 
 includes:
