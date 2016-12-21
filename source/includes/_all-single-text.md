@@ -513,8 +513,13 @@ url | string, required | the URL of the text document | use [url-encoding](http:
 
 Parameter | Type | Description | Values |
 --------- | ------- | ----------- | ------ |
+taxonomy | string, required |which taxonomy to use | "news-en", "news-it", "iab-it" |
+levels_taxonomy | number, optional | # of hierarchical levels considered for classification | 1, 2, ..., all levels (default)|
+limit_taxonomy | number, optional | max # of relevant categories returned per each level of the taxonomy | 1, 2, 3 (default) |
+limit_entity | number, optional | max # of relevant entities to be returned, in decreasing order of confidence (if not specified, all results are returned)
+limit_keyword | number, optional | max # of relevant keywords to be returned, in decreasing order of relevance (if not specified, all results are returned)
+limit_concept | number, optional | max # of relevant tags to be returned, in decreasing order of relevance | 1, 2, ..., 10 (default), etc. |
 access_token | string, required | your access token (40 digits) | - |
-
 Examples of how-to-call the API and the related output are provided in the right panel.
 
 ### All Single Text - `POST fromText`
@@ -527,8 +532,13 @@ text | string, required | the text to be classified | pass the text between "" (
 
 Parameter | Type | Description | Values |
 --------- | ------- | ----------- | ------ |
+taxonomy | string, required |which taxonomy to use | "news-en", "news-it", "iab-it" |
+levels_taxonomy | number, optional | # of hierarchical levels considered for classification | 1, 2, ..., all levels (default)|
+limit_taxonomy | number, optional | max # of relevant categories returned per each level of the taxonomy | 1, 2, 3 (default) |
+limit_entity | number, optional | max # of relevant entities to be returned, in decreasing order of confidence (if not specified, all results are returned)
+limit_keyword | number, optional | max # of relevant keywords to be returned, in decreasing order of relevance (if not specified, all results are returned)
+limit_concept | number, optional | max # of relevant tags to be returned, in decreasing order of relevance | 1, 2, ..., 10 (default), etc. |
 access_token | string, required | your access token (40 digits) | - |
-
 Examples of how-to-call the API and the related output are provided in the right panel.
 
 <aside class="success">

@@ -93,7 +93,32 @@ curl --ssl-reqd --request GET "https://api.yonderlabs.com/1.0/textcollection/tex
 }
 ```
 
+> Request example to "List all Text Items"  - `GET`...
 
+```shell
+curl --ssl-reqd --request GET "https://api.yonderlabs.com/1.0/textcollection/textitem?collection_name=donald_duck&access_token=YOUR_ACCESS_TOKEN"
+```
+>... and response body (200/JSON):
+
+```json
+{
+  "count": 12, 
+  "ids": [
+    "584aca4fb1f53952bc3a8781", 
+    "584aca4fb1f53952bc3a8782", 
+    "584aca50b1f53952c76440ee", 
+    "584aca50b1f53952bc3a8783", 
+    "584aca52b1f53952ba8cf07d", 
+    "584aca51b1f53952c2845a4c", 
+    "584aca51b1f53952c2845a4d", 
+    "584aca51b1f53952c3672c0b", 
+    "584aca51b1f53952c3672c0c", 
+    "584aca52b1f53952c3672c0d", 
+    "584aca52b1f53952c55577ea", 
+    "584aca53b1f53952c3672c0e"
+  ]
+}
+```
 
 
 > Request example to "Modify Text Item fromURL"  - `PUT fromURL`...
@@ -152,7 +177,7 @@ curl --ssl-reqd --request DELETE "https://api.yonderlabs.com/1.0/textcollection/
 
 **Create, modify, delete, and retrieve info from Text Items in your Text Collections**
 
-This API allows you to manage Text Items in your Text Collections. 
+This API allows you to manage Text Items in your Text Collections (i.e. create, delete, modify, list). 
 
 
 ### Create Text Item - `POST fromURL` 
@@ -164,6 +189,8 @@ Parameter | Type | Description | Values |
 collection_name | string, required | the name of the Text Collection where to insert the new Item | - |
 url | string, required |the url of the text to be inserted as a new Item of the Text Collection | use [url-encoding](http://www.url-encode-decode.com/)|
 access_token | string, required | your access token (40 digits) | - |
+
+Examples of how-to-call the API and the related output are provided in the right panel.
 
 
 ### Create Text Item - `POST fromText` 
@@ -177,6 +204,8 @@ collection_name | string, required | the name of the Text Collection where to in
 text | string, required |the text to be inserted as a new Text Item | pass the text between "" (e.g. "This is an example") or use [url-encoded](http://www.url-encode-decode.com/) text|
 access_token | string, required | your access token (40 digits) | - |
 
+Examples of how-to-call the API and the related output are provided in the right panel.
+
 
 ### Get info from Text Item - `GET`
 
@@ -189,6 +218,19 @@ collection_name | string, required | the name of the Text Collection which conta
 id | string, required |the ID of the text item|
 access_token | string, required | your access token (40 digits) | 
 
+Examples of how-to-call the API and the related output are provided in the right panel.
+
+### List all Text Items - `GET`
+
+This API allows you to list all Text Items in a Text Collection:
+
+
+Parameter | Type | Description | 
+--------- | ------- | ----------- | 
+collection_name | string, required | the name of the Text Collection which contains the Text Item| 
+access_token | string, required | your access token (40 digits) | 
+
+Examples of how-to-call the API and the related output are provided in the right panel.
 
 ### Change Text Item fromURL - `PUT fromURL`
 
@@ -201,6 +243,7 @@ id | string, required |the ID of the text item| - |
 url | string, required |the url of the text to be inserted | use [url-encoding](http://www.url-encode-decode.com/)|
 access_token | string, required | your access token (40 digits) | - |
 
+Examples of how-to-call the API and the related output are provided in the right panel.
 
 
 ### Change Text Item fromText - `PUT fromText`
@@ -215,6 +258,8 @@ id | string, required |the ID of the text item| - |
 text | string, required |the new text | pass the text between "" (e.g. "This is an example") or use [url-encoded](http://www.url-encode-decode.com/) text|
 access_token | string, required | your access token (40 digits) | - |
 
+Examples of how-to-call the API and the related output are provided in the right panel.
+
 ### Delete a Text Item - `DELETE`
 
 This API allows you to delete a Text Item from a Text Collection:
@@ -226,7 +271,7 @@ collection_name | string, required | the name of the Text Collection where to de
 id | string, required |the ID of the Text Item to be deleted|
 access_token | string, required | your access token (40 digits) | 
 
-
+Examples of how-to-call the API and the related output are provided in the right panel.
 
 <aside class="success">
 Remember — insert your credentials for authentication!
