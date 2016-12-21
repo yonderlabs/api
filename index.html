@@ -213,7 +213,7 @@ Allowed input sources are: text content contained in an URL (&ldquo;from URL&rdq
 <td>levels</td>
 <td>number, optional</td>
 <td># of hierarchical levels considered for classification</td>
-<td>1, 2 (default)</td>
+<td>1, 2, &hellip;, all levels (default)</td>
 </tr>
 <tr>
 <td>limit</td>
@@ -275,7 +275,7 @@ Allowed input sources are: text content contained in an URL (&ldquo;from URL&rdq
 <td>levels</td>
 <td>number, optional</td>
 <td># of hierarchical levels considered for classification</td>
-<td>1, 2 (default)</td>
+<td>1, 2, &hellip;, all levels (default)</td>
 </tr>
 <tr>
 <td>limit</td>
@@ -1911,6 +1911,42 @@ Employed taxonomies, depending on the text language, are:</p>
 </tr>
 </thead><tbody>
 <tr>
+<td>taxonomy</td>
+<td>string, required</td>
+<td>which taxonomy to use</td>
+<td>&ldquo;news-en&rdquo;, &ldquo;news-it&rdquo;, &ldquo;iab-it&rdquo;</td>
+</tr>
+<tr>
+<td>levels_taxonomy</td>
+<td>number, optional</td>
+<td># of hierarchical levels considered for classification</td>
+<td>1, 2, &hellip;, all levels (default)</td>
+</tr>
+<tr>
+<td>limit_taxonomy</td>
+<td>number, optional</td>
+<td>max # of relevant categories returned per each level of the taxonomy</td>
+<td>1, 2, 3 (default)</td>
+</tr>
+<tr>
+<td>limit_entity</td>
+<td>number, optional</td>
+<td>max # of relevant entities to be returned, in decreasing order of confidence (if not specified, all results are returned)</td>
+<td></td>
+</tr>
+<tr>
+<td>limit_keyword</td>
+<td>number, optional</td>
+<td>max # of relevant keywords to be returned, in decreasing order of relevance (if not specified, all results are returned)</td>
+<td></td>
+</tr>
+<tr>
+<td>limit_concept</td>
+<td>number, optional</td>
+<td>max # of relevant tags to be returned, in decreasing order of relevance</td>
+<td>1, 2, &hellip;, 10 (default), etc.</td>
+</tr>
+<tr>
 <td>access_token</td>
 <td>string, required</td>
 <td>your access token (40 digits)</td>
@@ -1946,6 +1982,42 @@ Employed taxonomies, depending on the text language, are:</p>
 <th>Values</th>
 </tr>
 </thead><tbody>
+<tr>
+<td>taxonomy</td>
+<td>string, required</td>
+<td>which taxonomy to use</td>
+<td>&ldquo;news-en&rdquo;, &ldquo;news-it&rdquo;, &ldquo;iab-it&rdquo;</td>
+</tr>
+<tr>
+<td>levels_taxonomy</td>
+<td>number, optional</td>
+<td># of hierarchical levels considered for classification</td>
+<td>1, 2, &hellip;, all levels (default)</td>
+</tr>
+<tr>
+<td>limit_taxonomy</td>
+<td>number, optional</td>
+<td>max # of relevant categories returned per each level of the taxonomy</td>
+<td>1, 2, 3 (default)</td>
+</tr>
+<tr>
+<td>limit_entity</td>
+<td>number, optional</td>
+<td>max # of relevant entities to be returned, in decreasing order of confidence (if not specified, all results are returned)</td>
+<td></td>
+</tr>
+<tr>
+<td>limit_keyword</td>
+<td>number, optional</td>
+<td>max # of relevant keywords to be returned, in decreasing order of relevance (if not specified, all results are returned)</td>
+<td></td>
+</tr>
+<tr>
+<td>limit_concept</td>
+<td>number, optional</td>
+<td>max # of relevant tags to be returned, in decreasing order of relevance</td>
+<td>1, 2, &hellip;, 10 (default), etc.</td>
+</tr>
 <tr>
 <td>access_token</td>
 <td>string, required</td>
@@ -2005,6 +2077,39 @@ PRIVACY - All created collections are private, i.e. they are accessible only by 
 </span></code></pre>
 
 <blockquote>
+<p>Request example to &ldquo;List all Text Collections&rdquo; - <code class="prettyprint">GET</code>&hellip;</p>
+</blockquote>
+<pre class="highlight shell"><code>curl --ssl-reqd --request GET <span class="s2">"https://api.yonderlabs.com/1.0/textcollection/textcollection?access_token=YOUR_ACCESS_TOKEN"</span>
+</code></pre>
+
+<blockquote>
+<p>&hellip; and response body (200/JSON):</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"collections"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"count"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> 
+      </span><span class="nt">"collection_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"scrooge"</span><span class="p">,</span><span class="w"> 
+      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"private"</span><span class="p">,</span><span class="w"> 
+      </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"This-is-my-first-collection."</span><span class="w">
+    </span><span class="p">},</span><span class="w"> 
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"count"</span><span class="p">:</span><span class="w"> </span><span class="mi">12</span><span class="p">,</span><span class="w"> 
+      </span><span class="nt">"collection_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"donald-duck"</span><span class="p">,</span><span class="w"> 
+      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"private"</span><span class="p">,</span><span class="w"> 
+      </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"This-is-another-collection."</span><span class="w">
+    </span><span class="p">},</span><span class="w"> 
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"count"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> 
+      </span><span class="nt">"collection_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"daisy"</span><span class="p">,</span><span class="w"> 
+      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"private"</span><span class="p">,</span><span class="w"> 
+      </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Yet-another-text-collection."</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<blockquote>
 <p>Request example to &ldquo;Delete a Text Collection&rdquo; - <code class="prettyprint">DELETE</code>&hellip;</p>
 </blockquote>
 <pre class="highlight shell"><code>curl --ssl-reqd --request DELETE <span class="s2">"https://api.yonderlabs.com/1.0/textcollection/textcollection?collection_name=donald-duck&amp;access_token=YOUR_ACCESS_TOKEN"</span>
@@ -2023,7 +2128,7 @@ PRIVACY - All created collections are private, i.e. they are accessible only by 
 
 <p><strong>Create, delete, and retrieve information from Text Collections</strong></p>
 
-<p>This API allows you to create, delete, and get information from a Text Collection.</p>
+<p>This API allows you to create, delete, and get information from a single Text Collection, and list all existing Text Collections.</p>
 
 <h3 id="create-a-text-collection-post">Create a Text Collection - <code class="prettyprint">POST</code></h3>
 
@@ -2053,6 +2158,8 @@ PRIVACY - All created collections are private, i.e. they are accessible only by 
 </tr>
 </tbody></table>
 
+<p>Examples of how-to-call the API and the related output are provided in the right panel.</p>
+
 <h3 id="get-info-from-a-text-collection-get">Get info from a Text Collection - <code class="prettyprint">GET</code></h3>
 
 <p>This API allows you to retrieve all information from a Text Collection:</p>
@@ -2076,6 +2183,28 @@ PRIVACY - All created collections are private, i.e. they are accessible only by 
 </tr>
 </tbody></table>
 
+<p>Examples of how-to-call the API and the related output are provided in the right panel.</p>
+
+<h3 id="list-all-text-collections-get">List all Text Collections - <code class="prettyprint">GET</code></h3>
+
+<p>This API allows you to retrieve information about all your existing Text Collections:</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>access_token</td>
+<td>string, required</td>
+<td>your access token (40 digits)</td>
+</tr>
+</tbody></table>
+
+<p>Examples of how-to-call the API and the related output are provided in the right panel.</p>
+
 <h3 id="delete-a-text-collection-delete">Delete a Text Collection - <code class="prettyprint">DELETE</code></h3>
 
 <p>This API allows you to delete a Text Collection:</p>
@@ -2098,6 +2227,8 @@ PRIVACY - All created collections are private, i.e. they are accessible only by 
 <td>your access token (40 digits)</td>
 </tr>
 </tbody></table>
+
+<p>Examples of how-to-call the API and the related output are provided in the right panel.</p>
 
 <aside class="success">
 Remember — insert your credentials for authentication!
@@ -2198,6 +2329,34 @@ Remember — insert your credentials for authentication!
 </span></code></pre>
 
 <blockquote>
+<p>Request example to &ldquo;List all Text Items&rdquo;  - <code class="prettyprint">GET</code>&hellip;</p>
+</blockquote>
+<pre class="highlight shell"><code>curl --ssl-reqd --request GET <span class="s2">"https://api.yonderlabs.com/1.0/textcollection/textitem?collection_name=donald_duck&amp;access_token=YOUR_ACCESS_TOKEN"</span>
+</code></pre>
+
+<blockquote>
+<p>&hellip; and response body (200/JSON):</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"count"</span><span class="p">:</span><span class="w"> </span><span class="mi">12</span><span class="p">,</span><span class="w"> 
+  </span><span class="nt">"ids"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="s2">"584aca4fb1f53952bc3a8781"</span><span class="p">,</span><span class="w"> 
+    </span><span class="s2">"584aca4fb1f53952bc3a8782"</span><span class="p">,</span><span class="w"> 
+    </span><span class="s2">"584aca50b1f53952c76440ee"</span><span class="p">,</span><span class="w"> 
+    </span><span class="s2">"584aca50b1f53952bc3a8783"</span><span class="p">,</span><span class="w"> 
+    </span><span class="s2">"584aca52b1f53952ba8cf07d"</span><span class="p">,</span><span class="w"> 
+    </span><span class="s2">"584aca51b1f53952c2845a4c"</span><span class="p">,</span><span class="w"> 
+    </span><span class="s2">"584aca51b1f53952c2845a4d"</span><span class="p">,</span><span class="w"> 
+    </span><span class="s2">"584aca51b1f53952c3672c0b"</span><span class="p">,</span><span class="w"> 
+    </span><span class="s2">"584aca51b1f53952c3672c0c"</span><span class="p">,</span><span class="w"> 
+    </span><span class="s2">"584aca52b1f53952c3672c0d"</span><span class="p">,</span><span class="w"> 
+    </span><span class="s2">"584aca52b1f53952c55577ea"</span><span class="p">,</span><span class="w"> 
+    </span><span class="s2">"584aca53b1f53952c3672c0e"</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<blockquote>
 <p>Request example to &ldquo;Modify Text Item fromURL&rdquo;  - <code class="prettyprint">PUT fromURL</code>&hellip;</p>
 </blockquote>
 <pre class="highlight shell"><code>curl --ssl-reqd --request PUT --data <span class="nv">url</span><span class="o">=</span>http%3A%2F%2Fwww.theguardian.com%2Fworld%2F2015%2Fnov%2F11%2Fgermany-spied-fbi-un-bodies-french-foreign-minister <span class="s2">"https://api.yonderlabs.com/1.0/textcollection/textitem/fromText?collection_name=donald_duck&amp;id=5665a1e8b1f5391201471f86&amp;access_token=YOUR_ACCESS_TOKEN"</span>
@@ -2250,7 +2409,7 @@ Remember — insert your credentials for authentication!
 
 <p><strong>Create, modify, delete, and retrieve info from Text Items in your Text Collections</strong></p>
 
-<p>This API allows you to manage Text Items in your Text Collections. </p>
+<p>This API allows you to manage Text Items in your Text Collections (i.e. create, delete, modify, list). </p>
 
 <h3 id="create-text-item-post-fromurl">Create Text Item - <code class="prettyprint">POST fromURL</code></h3>
 
@@ -2284,6 +2443,8 @@ Remember — insert your credentials for authentication!
 </tr>
 </tbody></table>
 
+<p>Examples of how-to-call the API and the related output are provided in the right panel.</p>
+
 <h3 id="create-text-item-post-fromtext">Create Text Item - <code class="prettyprint">POST fromText</code></h3>
 
 <p>This API allows you to create a new Text Item inserting simple text:</p>
@@ -2316,6 +2477,8 @@ Remember — insert your credentials for authentication!
 </tr>
 </tbody></table>
 
+<p>Examples of how-to-call the API and the related output are provided in the right panel.</p>
+
 <h3 id="get-info-from-text-item-get">Get info from Text Item - <code class="prettyprint">GET</code></h3>
 
 <p>This API allows you to retrieve all information from a Text Item:</p>
@@ -2343,6 +2506,33 @@ Remember — insert your credentials for authentication!
 <td>your access token (40 digits)</td>
 </tr>
 </tbody></table>
+
+<p>Examples of how-to-call the API and the related output are provided in the right panel.</p>
+
+<h3 id="list-all-text-items-get">List all Text Items - <code class="prettyprint">GET</code></h3>
+
+<p>This API allows you to list all Text Items in a Text Collection:</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>collection_name</td>
+<td>string, required</td>
+<td>the name of the Text Collection which contains the Text Item</td>
+</tr>
+<tr>
+<td>access_token</td>
+<td>string, required</td>
+<td>your access token (40 digits)</td>
+</tr>
+</tbody></table>
+
+<p>Examples of how-to-call the API and the related output are provided in the right panel.</p>
 
 <h3 id="change-text-item-fromurl-put-fromurl">Change Text Item fromURL - <code class="prettyprint">PUT fromURL</code></h3>
 
@@ -2382,6 +2572,8 @@ Remember — insert your credentials for authentication!
 </tr>
 </tbody></table>
 
+<p>Examples of how-to-call the API and the related output are provided in the right panel.</p>
+
 <h3 id="change-text-item-fromtext-put-fromtext">Change Text Item fromText - <code class="prettyprint">PUT fromText</code></h3>
 
 <p>This API allows you to change the text contained in a Text Item of a Text Collection:</p>
@@ -2420,6 +2612,8 @@ Remember — insert your credentials for authentication!
 </tr>
 </tbody></table>
 
+<p>Examples of how-to-call the API and the related output are provided in the right panel.</p>
+
 <h3 id="delete-a-text-item-delete">Delete a Text Item - <code class="prettyprint">DELETE</code></h3>
 
 <p>This API allows you to delete a Text Item from a Text Collection:</p>
@@ -2447,6 +2641,8 @@ Remember — insert your credentials for authentication!
 <td>your access token (40 digits)</td>
 </tr>
 </tbody></table>
+
+<p>Examples of how-to-call the API and the related output are provided in the right panel.</p>
 
 <aside class="success">
 Remember — insert your credentials for authentication!
@@ -3318,6 +3514,185 @@ In case of SUCCESS, results are promptly deleted afterwards, i.e. performing ano
 
 <aside class="success">
 Remember — insert your credentials for authentication!
+</aside>
+
+          <h1 id="api-on-images">API on Images</h1>
+
+<p>The following set of API allows for extracting semantic information from <strong>images</strong>. </p>
+
+<aside class="notice">
+PRIVACY - For preserving your privacy we delete the uploaded image from our systems immediately after processing, and we keep only metadata.
+</aside>
+
+          <h2 id="face-analysis">Face Analysis</h2>
+
+<blockquote>
+<p>Request example - <code class="prettyprint">POST fromURL</code>&hellip;</p>
+</blockquote>
+<pre class="highlight shell"><code>curl --ssl-reqd --request POST --data <span class="nv">url</span><span class="o">=</span><span class="s2">"http://media.salon.com/2016/01/donald_trump69.jpg"</span> <span class="s2">"https://api.yonderlabs.com/1.0/image/faceanalysis/fromURL?access_token=YOUR_ACCESS_TOKEN"</span>
+</code></pre>
+
+<blockquote>
+<p>&hellip; and response body (200/JSON):</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://media.salon.com/2016/01/donald_trump69.jpg"</span><span class="p">,</span><span class="w"> 
+  </span><span class="nt">"image"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w"> 
+  </span><span class="nt">"image_width"</span><span class="p">:</span><span class="w"> </span><span class="mi">620</span><span class="p">,</span><span class="w"> 
+  </span><span class="nt">"image_height"</span><span class="p">:</span><span class="w"> </span><span class="mi">412</span><span class="p">,</span><span class="w"> 
+  </span><span class="nt">"faces"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"position"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"bottom_right_y"</span><span class="p">:</span><span class="w"> </span><span class="mi">198</span><span class="p">,</span><span class="w"> 
+        </span><span class="nt">"top_left_x"</span><span class="p">:</span><span class="w"> </span><span class="mi">288</span><span class="p">,</span><span class="w"> 
+        </span><span class="nt">"top_left_y"</span><span class="p">:</span><span class="w"> </span><span class="mi">30</span><span class="p">,</span><span class="w"> 
+        </span><span class="nt">"bottom_right_x"</span><span class="p">:</span><span class="w"> </span><span class="mi">455</span><span class="w">
+      </span><span class="p">},</span><span class="w"> 
+      </span><span class="nt">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"gender"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Male"</span><span class="p">,</span><span class="w"> 
+        </span><span class="nt">"age"</span><span class="p">:</span><span class="w"> </span><span class="s2">"60-100"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">],</span><span class="w"> 
+  </span><span class="nt">"total_faces"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<blockquote>
+<p>Request example - <code class="prettyprint">POST fromFile</code>&hellip;</p>
+</blockquote>
+<pre class="highlight shell"><code>curl --ssl-reqd --request POST --form <span class="nv">image</span><span class="o">=</span><span class="s2">"@donald-trump.jpg"</span> <span class="s2">"https://api.yonderlabs.com/1.0/image/faceanalysis/fromImage?access_token=YOUR_ACCESS_TOKEN"</span>
+</code></pre>
+
+<blockquote>
+<p>&hellip; and response body (200/JSON):</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"url"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w"> 
+  </span><span class="nt">"image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"@donald-trump.jpg"</span><span class="p">,</span><span class="w"> 
+  </span><span class="nt">"image_width"</span><span class="p">:</span><span class="w"> </span><span class="mi">620</span><span class="p">,</span><span class="w"> 
+  </span><span class="nt">"image_height"</span><span class="p">:</span><span class="w"> </span><span class="mi">412</span><span class="p">,</span><span class="w"> 
+  </span><span class="nt">"faces"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"position"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"bottom_right_y"</span><span class="p">:</span><span class="w"> </span><span class="mi">198</span><span class="p">,</span><span class="w"> 
+        </span><span class="nt">"top_left_x"</span><span class="p">:</span><span class="w"> </span><span class="mi">288</span><span class="p">,</span><span class="w"> 
+        </span><span class="nt">"top_left_y"</span><span class="p">:</span><span class="w"> </span><span class="mi">30</span><span class="p">,</span><span class="w"> 
+        </span><span class="nt">"bottom_right_x"</span><span class="p">:</span><span class="w"> </span><span class="mi">455</span><span class="w">
+      </span><span class="p">},</span><span class="w"> 
+      </span><span class="nt">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"gender"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Male"</span><span class="p">,</span><span class="w"> 
+        </span><span class="nt">"age"</span><span class="p">:</span><span class="w"> </span><span class="s2">"60-100"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">],</span><span class="w"> 
+  </span><span class="nt">"total_faces"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p><strong>Analyze faces in an image</strong></p>
+
+<p>This service provides facial analysis on images, including detection, gender and age prediction. 
+Allowed input sources are: images retrieved from an URL (&ldquo;from URL&rdquo;) or images uploaded from files (&ldquo;from file&rdquo;).</p>
+
+<h3 id="face-analysis-post-fromurl">Face Analysis - <code class="prettyprint">POST fromURL</code></h3>
+
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Type</th>
+<th>Description</th>
+<th>Values</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>url</td>
+<td>string, required</td>
+<td>the URL of the image</td>
+<td>use <a href="http://www.url-encode-decode.com/">url-encoding</a></td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+<th>Values</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>gender</td>
+<td>string, optional</td>
+<td>gender prediction</td>
+<td>&ldquo;false&rdquo;, &ldquo;true&rdquo; (default)</td>
+</tr>
+<tr>
+<td>age</td>
+<td>string, optional</td>
+<td>age prediction (beta)</td>
+<td>&ldquo;false&rdquo;, &ldquo;true&rdquo; (default)</td>
+</tr>
+<tr>
+<td>access_token</td>
+<td>string, required</td>
+<td>your access token (40 digits)</td>
+<td>-</td>
+</tr>
+</tbody></table>
+
+<p>Examples of how-to-call the API and the related output are provided in the right panel.</p>
+
+<h3 id="face-analysis-post-fromfile">Face Analysis - <code class="prettyprint">POST fromFile</code></h3>
+
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Type</th>
+<th>Description</th>
+<th>Values</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>file</td>
+<td>string, required</td>
+<td>the path of the local image file</td>
+<td>pass the path between &ldquo;&rdquo; (e.g. &ldquo;@/usr/myself/Desktop/donald-trump.jpg&rdquo;)</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+<th>Values</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>gender</td>
+<td>string, optional</td>
+<td>gender prediction</td>
+<td>&ldquo;false&rdquo;, &ldquo;true&rdquo; (default)</td>
+</tr>
+<tr>
+<td>age</td>
+<td>string, optional</td>
+<td>age prediction (beta)</td>
+<td>&ldquo;false&rdquo;, &ldquo;true&rdquo; (default)</td>
+</tr>
+<tr>
+<td>access_token</td>
+<td>string, required</td>
+<td>your access token (40 digits)</td>
+<td>-</td>
+</tr>
+</tbody></table>
+
+<p>Examples of how-to-call the API and the related output are provided in the right panel.</p>
+
+<aside class="success">
+Remember — insert your credentials for authentication! 
 </aside>
 
           <h1 id="return-codes-amp-errors">Return Codes &amp; Errors</h1>
