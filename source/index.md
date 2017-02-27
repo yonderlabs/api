@@ -30,6 +30,7 @@ includes:
   - document-discovery
   - entity-graph
   - entity-discovery
+  - document-clustering
   - yonderapi-images
   - face-analysis
   - errors
