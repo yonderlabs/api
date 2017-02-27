@@ -3516,6 +3516,220 @@ In case of SUCCESS, results are promptly deleted afterwards, i.e. performing ano
 Remember — insert your credentials for authentication!
 </aside>
 
+          <h2 id="document-clustering">Document Clustering</h2>
+
+<blockquote>
+<p>Request example to &ldquo;Cluster your text documents&rdquo; - <code class="prettyprint">POST</code>&hellip;</p>
+</blockquote>
+<pre class="highlight shell"><code>curl --ssl-reqd --request POST <span class="s2">"https://api.yonderlabs.com/1.0/textcollection/documentclustering?collection_name=goofy&amp;access_token=YOUR_ACCESS_TOKEN"</span>
+</code></pre>
+
+<blockquote>
+<p>&hellip; and response body (202 &ldquo;ACCEPTED&rdquo;):</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"task_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DocumentClusteringAPI"</span><span class="p">,</span><span class="w"> 
+  </span><span class="nt">"collection-name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"goofy"</span><span class="p">,</span><span class="w"> 
+  </span><span class="nt">"task_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"7284e228-a934-4a88-ac52-82764ed0b838"</span><span class="p">,</span><span class="w"> 
+  </span><span class="nt">"task_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PENDING"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<blockquote>
+<p>Request example to &ldquo;Get results from Document Clustering&rdquo; - <code class="prettyprint">GET</code>&hellip;</p>
+</blockquote>
+<pre class="highlight shell"><code>curl --ssl-reqd --request GET <span class="s2">"https://api.yonderlabs.com/1.0/textcollection/documentclustering?task_id=7284e228-a934-4a88-ac52-82764ed0b838&amp;access_token=YOUR_ACCESS_TOKEN"</span>
+</code></pre>
+
+<blockquote>
+<p>&hellip; and response body, case 1) SUCCESS, i.e. the task is over:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"task_error"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w"> 
+  </span><span class="nt">"task_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DocumentClusteringAPI"</span><span class="p">,</span><span class="w"> 
+  </span><span class="nt">"task_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"7284e228-a934-4a88-ac52-82764ed0b838"</span><span class="p">,</span><span class="w"> 
+  </span><span class="nt">"collection_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"goofy"</span><span class="p">,</span><span class="w"> 
+  </span><span class="nt">"task_result"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-02-20 10:12:20.047671"</span><span class="p">,</span><span class="w"> 
+    </span><span class="nt">"graph_clusters"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"common_entities"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+          </span><span class="s2">"Melania Trump"</span><span class="p">,</span><span class="w"> 
+          </span><span class="s2">"Melbourne"</span><span class="p">,</span><span class="w"> 
+          </span><span class="s2">"Fla"</span><span class="p">,</span><span class="w"> 
+          </span><span class="s2">"Donald Trump"</span><span class="p">,</span><span class="w"> 
+          </span><span class="s2">"Mussler"</span><span class="p">,</span><span class="w"> 
+          </span><span class="s2">"Florida"</span><span class="p">,</span><span class="w"> 
+          </span><span class="s2">"Melani"</span><span class="p">,</span><span class="w"> 
+          </span><span class="s2">"White House"</span><span class="p">,</span><span class="w"> 
+          </span><span class="s2">"Russian"</span><span class="p">,</span><span class="w"> 
+          </span><span class="s2">"U.S."</span><span class="w">
+        </span><span class="p">],</span><span class="w"> 
+        </span><span class="nt">"common_tags"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+          </span><span class="s2">"Melania Trump"</span><span class="p">,</span><span class="w"> 
+          </span><span class="s2">"president"</span><span class="p">,</span><span class="w"> 
+          </span><span class="s2">"rally"</span><span class="p">,</span><span class="w"> 
+          </span><span class="s2">"media"</span><span class="p">,</span><span class="w"> 
+          </span><span class="s2">"side"</span><span class="p">,</span><span class="w"> 
+          </span><span class="s2">"event"</span><span class="p">,</span><span class="w"> 
+          </span><span class="s2">"supporters"</span><span class="p">,</span><span class="w"> 
+          </span><span class="s2">"Melbourne"</span><span class="p">,</span><span class="w"> 
+          </span><span class="s2">"reporters"</span><span class="p">,</span><span class="w"> 
+          </span><span class="s2">"Donald Trump"</span><span class="w">
+        </span><span class="p">],</span><span class="w"> 
+        </span><span class="nt">"ids"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+          </span><span class="s2">"58aabf66b1f539056ab02d30"</span><span class="p">,</span><span class="w"> 
+          </span><span class="s2">"58aabfd1b1f539055b0aa27a"</span><span class="w">
+        </span><span class="p">],</span><span class="w"> 
+        </span><span class="nt">"common_keywords"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+          </span><span class="s2">"president"</span><span class="p">,</span><span class="w"> 
+          </span><span class="s2">"rally"</span><span class="p">,</span><span class="w"> 
+          </span><span class="s2">"media"</span><span class="p">,</span><span class="w"> 
+          </span><span class="s2">"side"</span><span class="p">,</span><span class="w"> 
+          </span><span class="s2">"event"</span><span class="p">,</span><span class="w"> 
+          </span><span class="s2">"supporters"</span><span class="p">,</span><span class="w"> 
+          </span><span class="s2">"reporters"</span><span class="p">,</span><span class="w"> 
+          </span><span class="s2">"guests"</span><span class="p">,</span><span class="w"> 
+          </span><span class="s2">"attendance"</span><span class="p">,</span><span class="w"> 
+          </span><span class="s2">"way"</span><span class="w">
+        </span><span class="p">],</span><span class="w"> 
+        </span><span class="nt">"size"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="w">
+      </span><span class="p">},</span><span class="w"> 
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"common_entities"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+          </span><span class="s2">"USA TODAY Sports"</span><span class="p">,</span><span class="w"> 
+          </span><span class="s2">"NBA"</span><span class="p">,</span><span class="w"> 
+          </span><span class="s2">"Bob Donnan"</span><span class="p">,</span><span class="w"> 
+          </span><span class="s2">"James"</span><span class="p">,</span><span class="w"> 
+          </span><span class="s2">"Davis"</span><span class="p">,</span><span class="w"> 
+          </span><span class="s2">"Derick E. Hingle"</span><span class="p">,</span><span class="w"> 
+          </span><span class="s2">"Westbrook"</span><span class="p">,</span><span class="w"> 
+          </span><span class="s2">"Gerald Herbert"</span><span class="p">,</span><span class="w"> 
+          </span><span class="s2">"Western Conference"</span><span class="p">,</span><span class="w"> 
+          </span><span class="s2">"AP"</span><span class="w">
+        </span><span class="p">],</span><span class="w"> 
+        </span><span class="nt">"common_tags"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+          </span><span class="s2">"USA TODAY Sports"</span><span class="p">,</span><span class="w"> 
+          </span><span class="s2">"NBA"</span><span class="p">,</span><span class="w"> 
+          </span><span class="s2">"Bob Donnan"</span><span class="p">,</span><span class="w"> 
+          </span><span class="s2">"dunk"</span><span class="p">,</span><span class="w"> 
+          </span><span class="s2">"James"</span><span class="p">,</span><span class="w"> 
+          </span><span class="s2">"slam"</span><span class="p">,</span><span class="w"> 
+          </span><span class="s2">"Davis"</span><span class="p">,</span><span class="w"> 
+          </span><span class="s2">"contest"</span><span class="p">,</span><span class="w"> 
+          </span><span class="s2">"Derick E. Hingle"</span><span class="p">,</span><span class="w"> 
+          </span><span class="s2">"ball"</span><span class="w">
+        </span><span class="p">],</span><span class="w"> 
+        </span><span class="nt">"ids"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+          </span><span class="s2">"58aac083b1f53905654849f7"</span><span class="p">,</span><span class="w"> 
+          </span><span class="s2">"58aac0abb1f539056c74ef2f"</span><span class="w">
+        </span><span class="p">],</span><span class="w"> 
+        </span><span class="nt">"common_keywords"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+          </span><span class="s2">"dunk"</span><span class="p">,</span><span class="w"> 
+          </span><span class="s2">"slam"</span><span class="p">,</span><span class="w"> 
+          </span><span class="s2">"contest"</span><span class="p">,</span><span class="w"> 
+          </span><span class="s2">"ball"</span><span class="p">,</span><span class="w"> 
+          </span><span class="s2">"laugh"</span><span class="p">,</span><span class="w"> 
+          </span><span class="s2">"celebrities"</span><span class="p">,</span><span class="w"> 
+          </span><span class="s2">"guard"</span><span class="p">,</span><span class="w"> 
+          </span><span class="s2">"game"</span><span class="p">,</span><span class="w"> 
+          </span><span class="s2">"western conference"</span><span class="p">,</span><span class="w"> 
+          </span><span class="s2">"scores"</span><span class="w">
+        </span><span class="p">],</span><span class="w"> 
+        </span><span class="nt">"size"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+  </span><span class="p">},</span><span class="w"> 
+  </span><span class="nt">"task_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SUCCESS"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<blockquote>
+<p>&hellip; and response body, case 2) STARTED (the task has started, but it is not over):</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"task_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DocumentClusteringAPI"</span><span class="p">,</span><span class="w"> 
+  </span><span class="nt">"task_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"7284e228-a934-4a88-ac52-82764ed0b838"</span><span class="p">,</span><span class="w"> 
+  </span><span class="nt">"task_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"STARTED"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<blockquote>
+<p>&hellip; and response body, case 3) PENDING (the task is still pending):</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"task_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DocumentClusteringAPI"</span><span class="p">,</span><span class="w"> 
+  </span><span class="nt">"task_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"7284e228-a934-4a88-ac52-82764ed0b838"</span><span class="p">,</span><span class="w"> 
+  </span><span class="nt">"task_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PENDING"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p><strong>Cluster text documents in your Text Collection</strong></p>
+
+<p>This API analyzes a collection of texts and clusters documents according to their similarities.</p>
+
+<aside class="notice">
+Depending on the size of the Text Collection, this service might take up to few minutes to provide a full answer. 
+</aside>
+
+<h3 id="launch-a-document-clustering-post">Launch a Document Clustering - <code class="prettyprint">POST</code></h3>
+
+<p>This API allows you to launch the task which computes document clusters on all  the items contained in a Text Collection.
+As detailed in the right panel, as an immediate response to this API, you will get a <code class="prettyprint">202</code> answer (&ldquo;ACCEPTED&rdquo;) containing a task identifier <code class="prettyprint">task_id</code> to be used later in the <code class="prettyprint">GET</code> call. </p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>collection_name</td>
+<td>string, required</td>
+<td>the name of the Text Collection on which to lauch Document Clustering</td>
+</tr>
+<tr>
+<td>access_token</td>
+<td>string, required</td>
+<td>your access token (40 digits)</td>
+</tr>
+</tbody></table>
+
+<h3 id="get-results-from-document-clustering-get">Get results from Document Clustering - <code class="prettyprint">GET</code></h3>
+
+<p>This API allows you to retrieve computed document clusters contained in a Text Collection.</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>task_id</td>
+<td>string, required</td>
+<td>the identifier of the created Document Clustering task</td>
+</tr>
+<tr>
+<td>access_token</td>
+<td>string, required</td>
+<td>your access token (40 digits)</td>
+</tr>
+</tbody></table>
+
+<p>If results are ready (i.e. document clusters have been computed) you will get a <code class="prettyprint">200</code> answer (&ldquo;SUCCESS&rdquo;) and the resulting ouput, as detailed in the right panel.
+If the process is still ongoing you will get an adequate status code answer (&ldquo;STARTED&rdquo; or &ldquo;PENDING&rdquo;) meaning that you have to try again a bit later with another <code class="prettyprint">GET</code> call. </p>
+
+<aside class="notice">
+In case of SUCCESS, results are promptly deleted afterwards, i.e. performing another GET on the same task_id will return no results.
+</aside>
+
+<aside class="success">
+Remember — insert your credentials for authentication!
+</aside>
+
           <h1 id="api-on-images">API on Images</h1>
 
 <p>The following set of API allows for extracting semantic information from <strong>images</strong>. </p>
