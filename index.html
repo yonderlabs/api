@@ -1209,6 +1209,51 @@ Allowed input sources are: text content contained in an URL (&ldquo;from URL&rdq
 Remember — insert your credentials for authentication!
 </aside>
 
+          <h2 id="text-summarization">Text Summarization</h2>
+
+<blockquote>
+<p>Request example - <code class="prettyprint">POST fromURL</code>&hellip;</p>
+</blockquote>
+<pre class="highlight shell"><code>curl --ssl-reqd --request POST --data <span class="nv">url</span><span class="o">=</span>https%3A%2F%2Fwww.theguardian.com%2Fworld%2F2016%2Fjul%2F22%2Fmissing-flight-mh370-hunt-for-debris-will-not-be-extended <span class="s2">"https://api.yonderlabs.com/1.0/text/textsummarization/fromURL?access_token=YOUR_ACCESS_TOKEN"</span>
+
+</code></pre>
+
+<blockquote>
+<p>&hellip; and response body (200/JSON):</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"The Summarization API will be ready by 29-03-2017."</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<blockquote>
+<p>Request example - <code class="prettyprint">POST fromText</code>&hellip;</p>
+</blockquote>
+<pre class="highlight shell"><code>curl --ssl-reqd --request POST --data <span class="nv">text</span><span class="o">=</span><span class="s2">"The hunt for Malaysia Airlines flight MH370 is to be suspended if evidence of the missing jet is not found in the current search area. The transport ministers of Australia, Malaysia and China, representing the country leading the search, the airline and the home of the majority of its passengers, met to discuss the future of the search in the Malaysian federal administrative centre of Putrajaya on Friday. They announced that [...]"</span> <span class="s2">"https://api.yonderlabs.com/1.0/text/textsummarization/fromText?access_token=YOUR_ACCESS_TOKEN"</span>
+</code></pre>
+
+<blockquote>
+<p>&hellip; and response body (200/JSON):</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"The Summarization API will be ready by 29-03-2017."</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p><strong>Produce a meaningful summary from your documents</strong></p>
+
+<p>This API analyzes your text content and produces a short summary containing meaningful facts, events and relations.
+If provided with more text inputs, the service distills content from multiple documents into a single summary.
+Allowed input sources are: text content contained in an URL (&ldquo;from URL&rdquo;) or just simple text (&ldquo;from text&rdquo;).</p>
+
+<h3 id="text-summarization-post-fromurl">Text Summarization  - <code class="prettyprint">POST fromURL</code></h3>
+
+<p>The Text Summarization API will be ready by 29-03-2017. </p>
+
+<h3 id="text-summarization-post-fromtext">Text Summarization - <code class="prettyprint">POST fromText</code></h3>
+
+<p>The Text Summarization API will be ready by 29-03-2017. </p>
+
+<aside class="success">
+Remember — insert your credentials for authentication!
+</aside>
+
           <h2 id="text-extraction">Text Extraction</h2>
 
 <blockquote>
