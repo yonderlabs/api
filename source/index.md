@@ -20,6 +20,7 @@ includes:
   - entity-extraction
   - keyword-extraction
   - concept-tagging
+  - text-summarization
   - text-extraction
   - language-detection
   - all-single-text
