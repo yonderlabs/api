@@ -71,6 +71,7 @@ curl --ssl-reqd --request POST --data url=https%3A%2F%2Fwww.theguardian.com%2Fwo
       "level": 0
     }
   ], 
+    "summary": "The hunt for Malaysia Airlines flight MH370 is to be suspended if evidence of the missing jet is not found in the current search area. The transport ministers of Australia, Malaysia and China, representing the country leading the search, the airline and the home of the majority of its passengers, met to discuss the future of the search in the Malaysian federal administrative centre of Putrajaya on Friday. “In the absence of credible new evidence leading to an identification of a specific location of the aircraft, the search would not end, but be suspended upon completion of the 120,000 sq km area.” Liow Tiong Lai, the Malaysian transport minister, told reporters that cost was not a factor in the decision. “The underwater search has produced no results so far and the assumptions made in determining the ATSB priority search area should be re-examined.” To date, four pieces have been identified as almost certainly being from MH370, in addition to a wing flaperon found on La Réunion in July last year. It is thought to be a wing flap, but technical specialists from the ATSB are working with Malaysian investigators to determine whether it is from MH370.",
   "entities": [
     {
       "info": null, 
@@ -311,6 +312,7 @@ curl --ssl-reqd --request POST --data text="The hunt for Malaysia Airlines fligh
       "level": 0
     }
   ], 
+    "summary": "The hunt for Malaysia Airlines flight MH370 is to be suspended if evidence of the missing jet is not found in the current search area. The transport ministers of Australia, Malaysia and China, representing the country leading the search, the airline and the home of the majority of its passengers, met to discuss the future of the search in the Malaysian federal administrative centre of Putrajaya on Friday. “In the absence of credible new evidence leading to an identification of a specific location of the aircraft, the search would not end, but be suspended upon completion of the 120,000 sq km area.” Liow Tiong Lai, the Malaysian transport minister, told reporters that cost was not a factor in the decision. “The underwater search has produced no results so far and the assumptions made in determining the ATSB priority search area should be re-examined.” To date, four pieces have been identified as almost certainly being from MH370, in addition to a wing flaperon found on La Réunion in July last year. It is thought to be a wing flap, but technical specialists from the ATSB are working with Malaysian investigators to determine whether it is from MH370.",
   "entities": [
     {
       "info": null, 
@@ -493,6 +495,7 @@ This service analyzes your text content at once by applying all available API on
 + Entity Extraction
 + Keyword Extraction
 + Concept Tagging
++ Text Summarization
 
 Allowed input sources are: text content contained in an URL ("from URL") or just simple text ("from text").
 Employed taxonomies, depending on the text language, are:
@@ -519,6 +522,9 @@ limit_taxonomy | number, optional | max # of relevant categories returned per ea
 limit_entity | number, optional | max # of relevant entities to be returned, in decreasing order of confidence (if not specified, all results are returned)
 limit_keyword | number, optional | max # of relevant keywords to be returned, in decreasing order of relevance (if not specified, all results are returned)
 limit_concept | number, optional | max # of relevant tags to be returned, in decreasing order of relevance | 1, 2, ..., 10 (default), etc. |
+nwords | number, optional | approximate number of words in the summary |   1,2, ..., 150 (default), ...
+ratio | number, optional | compression ratio of the summary | [0.1, 0.2, ..., 0.9]. If 'ratio' is specified, 'nwords' is ignored
+
 access_token | string, required | your access token (40 digits) | - |
 Examples of how-to-call the API and the related output are provided in the right panel.
 
@@ -538,6 +544,9 @@ limit_taxonomy | number, optional | max # of relevant categories returned per ea
 limit_entity | number, optional | max # of relevant entities to be returned, in decreasing order of confidence (if not specified, all results are returned)
 limit_keyword | number, optional | max # of relevant keywords to be returned, in decreasing order of relevance (if not specified, all results are returned)
 limit_concept | number, optional | max # of relevant tags to be returned, in decreasing order of relevance | 1, 2, ..., 10 (default), etc. |
+nwords | number, optional | approximate number of words in the summary |   1,2, ..., 150 (default), ...
+ratio | number, optional | compression ratio of the summary | [0.1, 0.2, ..., 0.9]. If 'ratio' is specified, 'nwords' is ignored
+
 access_token | string, required | your access token (40 digits) | - |
 Examples of how-to-call the API and the related output are provided in the right panel.
 
