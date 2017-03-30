@@ -14,13 +14,13 @@ includes:
   - introduction
   - authentication
   - yonderapi-single-text
+  - text-summarization
   - taxonomy-classification
-  - sentiment-analysis
-  - emotional-reaction
   - entity-extraction
   - keyword-extraction
   - concept-tagging
-  - text-summarization
+  - sentiment-analysis
+  - emotional-reaction
   - text-extraction
   - language-detection
   - all-single-text
