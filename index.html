@@ -58,9 +58,9 @@ YonderAPI expects for the credentials assigned in the registration process to be
 <aside class="notice">
 The communication happens through a secure `https` connection, forced by the `&ndash;ssl-reqd` option.</aside>
 
-          <h1 id="api-on-single-text">API on Single Text</h1>
+          <h1 id="api-on-text-documents">API on Text Documents</h1>
 
-<p>The following set of API allows for extracting semantic information from <strong>a single text document</strong>. If you need to analyze more documents (e.g. to compare them, or to search concepts across them) please refer below to YonderAPI Text Collection.</p>
+<p>The following set of API allows for extracting semantic information from text documents. If you need to store document metadata and analyze inter-documents relations (e.g. to compare them, or to search concepts across them) please refer below to YonderAPI Text Collections.</p>
 
 <aside class="notice">
 PRIVACY - For preserving your privacy we delete the text of your document from our systems immediately after processing, and we keep only metadata.
@@ -2061,9 +2061,11 @@ Remember — insert your credentials for authentication!
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<p><strong>Analyze your text with all API on single text</strong></p>
+<p>This service analyzes your text content at once by applying all available API on text documents,</p>
 
-<p>This service analyzes your text content at once by applying all available API on single text, that are:</p>
+<p><strong>Analyze your document with all single API on text</strong></p>
+
+<p>This service analyzes your text content by applying at once all single API on text documents, that are:</p>
 
 <ul>
 <li>Text Extraction (fromURL only)</li>
@@ -2085,7 +2087,7 @@ Employed taxonomies, depending on the text language, are:</p>
 <li>&ldquo;news-it&rdquo; is one news taxonomy specific for Italian language.</li>
 </ul>
 
-<p>The parameter values are the default ones of the single API (i.e. all results for Entity Extraction API and Keyword Extraction API, 10 results for Concept Tagging API).</p>
+<p>The parameter values are the default ones of the single API (i.e. &lsquo;all&rsquo; results for Entity Extraction API and Keyword Extraction API, &#39;10&rsquo; results for Concept Tagging API).</p>
 
 <h3 id="all-single-text-post-fromurl">All Single Text - <code class="prettyprint">POST fromURL</code></h3>
 
@@ -2159,7 +2161,7 @@ Employed taxonomies, depending on the text language, are:</p>
 <td>ratio</td>
 <td>number, optional</td>
 <td>compression ratio of the summary</td>
-<td>[0.1, 0.2, &hellip;, 0.9]. If &lsquo;ratio&rsquo; is specified, &#39;nwords&rsquo; is ignored</td>
+<td>[0.1, 0.2, &hellip;, 0.9]. If &#39;ratio&rsquo; is specified, &#39;nwords&rsquo; is ignored</td>
 </tr>
 </tbody></table>
 
@@ -2251,7 +2253,7 @@ Remember — insert your credentials for authentication!
 
           <h1 id="api-on-text-collections">API on Text Collections</h1>
 
-<p>The following set of API allows for storing <strong>a set of text documents</strong> and extracting semantic information from them (e.g. comparing them, or searching for concepts across them). If you need to analyze just one document please refer to YonderAPI on Single Text provided above.</p>
+<p>The following set of API allows for storing metadata of a set of documents from which it is possible to explore inter-document relations (e.g. compare them, build graphs, or search for concepts across them). If you need to analyze documents without storing indexes please refer to YonderAPI on Text Documents provided above.</p>
 
 <aside class="notice">
 PRIVACY - All created collections are private, i.e. they are accessible only by the user who created them. Furthermore for preserving your privacy we delete the texts of your documents from our systems keeping only associated metadata.
