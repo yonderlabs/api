@@ -1,7 +1,6 @@
 # API on Text Collections
 
-The following set of API allows for storing **a set of text documents** and extracting semantic information from them (e.g. comparing them, or searching for concepts across them). If you need to analyze just one document please refer to YonderAPI on Single Text provided above.
-
+The following set of API allows for storing metadata of a set of documents from which it is possible to explore inter-document relations (e.g. compare them, build graphs, or search for concepts across them). If you need to analyze documents without storing indexes please refer to YonderAPI on Text Documents provided above.
 
 
 <aside class="notice">

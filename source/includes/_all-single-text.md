@@ -482,10 +482,12 @@ curl --ssl-reqd --request POST --data text="The hunt for Malaysia Airlines fligh
 }
 ```
 
+This service analyzes your text content at once by applying all available API on text documents,
 
-**Analyze your text with all API on single text**
 
-This service analyzes your text content at once by applying all available API on single text, that are:
+**Analyze your document with all single API on text**
+
+This service analyzes your text content by applying at once all single API on text documents, that are:
 
 + Text Extraction (fromURL only)
 + Language Detection
@@ -503,7 +505,7 @@ Employed taxonomies, depending on the text language, are:
 + "news-en" is the [Reuters taxonomy](http://www.ai.mit.edu/projects/jmlr/papers/volume5/lewis04a/a16-rbb-topic/topics.rbb) for news in English language;
 + "news-it" is one news taxonomy specific for Italian language.
 
-The parameter values are the default ones of the single API (i.e. all results for Entity Extraction API and Keyword Extraction API, 10 results for Concept Tagging API).
+The parameter values are the default ones of the single API (i.e. 'all' results for Entity Extraction API and Keyword Extraction API, '10' results for Concept Tagging API).
 
 
 ### All Single Text - `POST fromURL`
