@@ -482,8 +482,6 @@ curl --ssl-reqd --request POST --data text="The hunt for Malaysia Airlines fligh
 }
 ```
 
-This service analyzes your text content at once by applying all available API on text documents,
-
 
 **Analyze your document with all single API on text**
 

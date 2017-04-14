@@ -1,6 +1,7 @@
 # API on Text Collections
 
-The following set of API allows for storing metadata of a set of documents from which it is possible to explore inter-document relations (e.g. compare them, build graphs, or search for concepts across them). If you need to analyze documents without storing indexes please refer to YonderAPI on Text Documents provided above.
+
+A Text Collection is a repository of metadata coming from multiple text documents. The following set of API allows for analyzing inter-documents relations in Text Collections (e.g. measuring document similarities, building entity graphs, etc.). If you need to analyze documents without creating a collection, please refer to YonderAPI on Text Documents provided above.
 
 
 <aside class="notice">
