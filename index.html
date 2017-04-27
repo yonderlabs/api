@@ -3798,6 +3798,7 @@ Remember — insert your credentials for authentication!
           </span><span class="s2">"58aabf66b1f539056ab02d30"</span><span class="p">,</span><span class="w"> 
           </span><span class="s2">"58aabfd1b1f539055b0aa27a"</span><span class="w">
         </span><span class="p">],</span><span class="w"> 
+        </span><span class="nt">"near_duplicates"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="p">],</span><span class="w"> 
         </span><span class="nt">"common_keywords"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
           </span><span class="s2">"president"</span><span class="p">,</span><span class="w"> 
           </span><span class="s2">"rally"</span><span class="p">,</span><span class="w"> 
@@ -3840,6 +3841,12 @@ Remember — insert your credentials for authentication!
         </span><span class="nt">"ids"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
           </span><span class="s2">"58aac083b1f53905654849f7"</span><span class="p">,</span><span class="w"> 
           </span><span class="s2">"58aac0abb1f539056c74ef2f"</span><span class="w">
+        </span><span class="p">],</span><span class="w">
+        </span><span class="nt">"near_duplicates"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+          </span><span class="p">[</span><span class="w"> 
+            </span><span class="s2">"58aac083b1f53905654849f7"</span><span class="p">,</span><span class="w"> 
+            </span><span class="s2">"58aac0abb1f539056c74ef2f"</span><span class="w">
+          </span><span class="p">]</span><span class="w">
         </span><span class="p">],</span><span class="w"> 
         </span><span class="nt">"common_keywords"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
           </span><span class="s2">"dunk"</span><span class="p">,</span><span class="w"> 
@@ -3937,7 +3944,9 @@ As detailed in the right panel, as an immediate response to this API, you will g
 </tbody></table>
 
 <p>If results are ready (i.e. document clusters have been computed) you will get a <code class="prettyprint">200</code> answer (&ldquo;SUCCESS&rdquo;) and the resulting ouput, as detailed in the right panel.
-If the process is still ongoing you will get an adequate status code answer (&ldquo;STARTED&rdquo; or &ldquo;PENDING&rdquo;) meaning that you have to try again a bit later with another <code class="prettyprint">GET</code> call. </p>
+Please notice that, in case duplicates or near-duplicates are found, these are listed in the dedicated field <code class="prettyprint">near_duplicates</code>.</p>
+
+<p>If the process is still ongoing you will get an adequate status code answer (&ldquo;STARTED&rdquo; or &ldquo;PENDING&rdquo;) meaning that you have to try again a bit later with another <code class="prettyprint">GET</code> call. </p>
 
 <aside class="notice">
 In case of SUCCESS, results are promptly deleted afterwards, i.e. performing another GET on the same task_id will return no results.
