@@ -64,6 +64,7 @@ curl --ssl-reqd --request GET "https://api.yonderlabs.com/1.0/textcollection/doc
           "58aabf66b1f539056ab02d30", 
           "58aabfd1b1f539055b0aa27a"
         ], 
+        "near_duplicates": [ ], 
         "common_keywords": [
           "president", 
           "rally", 
@@ -106,6 +107,12 @@ curl --ssl-reqd --request GET "https://api.yonderlabs.com/1.0/textcollection/doc
         "ids": [
           "58aac083b1f53905654849f7", 
           "58aac0abb1f539056c74ef2f"
+        ],
+        "near_duplicates": [
+          [ 
+            "58aac083b1f53905654849f7", 
+            "58aac0abb1f539056c74ef2f"
+          ]
         ], 
         "common_keywords": [
           "dunk", 
@@ -182,6 +189,8 @@ task_id | string, required | the identifier of the created Document Clustering t
 access_token | string, required | your access token (40 digits) |
 
 If results are ready (i.e. document clusters have been computed) you will get a `200` answer ("SUCCESS") and the resulting ouput, as detailed in the right panel.
+Please notice that, in case duplicates or near-duplicates are found, these are listed in the dedicated field `near_duplicates`.
+
 If the process is still ongoing you will get an adequate status code answer ("STARTED" or "PENDING") meaning that you have to try again a bit later with another `GET` call. 
 
 <aside class="notice">
