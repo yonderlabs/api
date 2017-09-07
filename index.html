@@ -714,6 +714,7 @@ Remember — insert your credentials for authentication!
 <p><strong>Identify people, places, and organizations in your text</strong></p>
 
 <p>This API detects named entities and classify them as <code class="prettyprint">Person</code>, <code class="prettyprint">Place</code>, <code class="prettyprint">Organization</code> or <code class="prettyprint">Misc</code>. The service also links them to knowledge base repositories (Wikipedia, DBpedia, etc.).
+It is also possible to include custom whitelists and blacklists of entities upon request.
 Allowed input sources are: text content contained in an URL (&ldquo;from URL&rdquo;) or just simple text (&ldquo;from text&rdquo;).</p>
 
 <h3 id="entity-extraction-post-fromurl">Entity Extraction - <code class="prettyprint">POST fromURL</code></h3>
@@ -1076,6 +1077,7 @@ Remember — insert your credentials for authentication!
 <p><strong>Generate high-level semantic tags for your text document</strong></p>
 
 <p>Concept tags are a limited and meaningful set of highly relevant named entities and important keywords related to facts, events, and relations found in your text.
+It is also possible to include custom whitelists and blacklists of concept tags upon request.
 Allowed input sources are: text content contained in an URL (&ldquo;from URL&rdquo;) or just simple text (&ldquo;from text&rdquo;).</p>
 
 <h3 id="concept-tagging-post-fromurl">Concept Tagging - <code class="prettyprint">POST fromURL</code></h3>
@@ -2077,15 +2079,16 @@ Remember — insert your credentials for authentication!
 <li>Text Summarization</li>
 </ul>
 
-<p>Allowed input sources are: text content contained in an URL (&ldquo;from URL&rdquo;) or just simple text (&ldquo;from text&rdquo;).
-Employed taxonomies, depending on the text language, are:</p>
+<p>Employed taxonomies, depending on the text language, are:</p>
 
 <ul>
 <li>&ldquo;news-en&rdquo; is the <a href="http://www.ai.mit.edu/projects/jmlr/papers/volume5/lewis04a/a16-rbb-topic/topics.rbb">Reuters taxonomy</a> for news in English language;</li>
 <li>&ldquo;news-it&rdquo; is one news taxonomy specific for Italian language.</li>
 </ul>
 
-<p>The parameter values are the default ones of the single API (i.e. &lsquo;all&rsquo; results for Entity Extraction API and Keyword Extraction API, &#39;10&rsquo; results for Concept Tagging API).</p>
+<p>The parameter values are the default ones of the single API (i.e. &lsquo;all&rsquo; results for Entity Extraction API and Keyword Extraction API, &#39;10&rsquo; results for Concept Tagging API).
+As for Entity Extraction and Concept Tagging APIs, it is possible to include custom whitelists and blacklists of entities and concepts upon request. 
+Allowed input sources are: text content contained in an URL (&ldquo;from URL&rdquo;) or just simple text (&ldquo;from text&rdquo;).</p>
 
 <h3 id="all-single-text-post-fromurl">All Single Text - <code class="prettyprint">POST fromURL</code></h3>
 
