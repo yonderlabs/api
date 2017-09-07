@@ -497,13 +497,15 @@ This service analyzes your text content by applying at once all single API on te
 + Concept Tagging
 + Text Summarization
 
-Allowed input sources are: text content contained in an URL ("from URL") or just simple text ("from text").
+
 Employed taxonomies, depending on the text language, are:
 
 + "news-en" is the [Reuters taxonomy](http://www.ai.mit.edu/projects/jmlr/papers/volume5/lewis04a/a16-rbb-topic/topics.rbb) for news in English language;
 + "news-it" is one news taxonomy specific for Italian language.
 
 The parameter values are the default ones of the single API (i.e. 'all' results for Entity Extraction API and Keyword Extraction API, '10' results for Concept Tagging API).
+As for Entity Extraction and Concept Tagging APIs, it is possible to include custom whitelists and blacklists of entities and concepts upon request. 
+Allowed input sources are: text content contained in an URL ("from URL") or just simple text ("from text").
 
 
 ### All Single Text - `POST fromURL`

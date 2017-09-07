@@ -66,6 +66,7 @@ curl --ssl-reqd --request POST --data text="The hunt for Malaysia Airlines fligh
 **Generate high-level semantic tags for your text document**
 
 Concept tags are a limited and meaningful set of highly relevant named entities and important keywords related to facts, events, and relations found in your text.
+It is also possible to include custom whitelists and blacklists of concept tags upon request.
 Allowed input sources are: text content contained in an URL ("from URL") or just simple text ("from text").
 
 

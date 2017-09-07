@@ -216,6 +216,7 @@ curl --ssl-reqd --request POST --data text="The hunt for Malaysia Airlines fligh
 **Identify people, places, and organizations in your text**
 
 This API detects named entities and classify them as `Person`, `Place`, `Organization` or `Misc`. The service also links them to knowledge base repositories (Wikipedia, DBpedia, etc.).
+It is also possible to include custom whitelists and blacklists of entities upon request.
 Allowed input sources are: text content contained in an URL ("from URL") or just simple text ("from text").
 
 
