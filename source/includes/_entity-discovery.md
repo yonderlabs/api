@@ -7,7 +7,7 @@
 curl --ssl-reqd --include --request POST --data url=https%3A%2F%2Fwww.theguardian.com%2Fworld%2F2016%2Fjul%2F22%2Fmissing-flight-mh370-hunt-for-debris-will-not-be-extended "https://api.yonderlabs.com/1.0/textcollection/entitydiscovery/fromURL?collection_name=scrooge&limit=5&access_token=YOUR_ACCESS_TOKEN"
 ```
 
->... and header and response body (202 "ACCEPTED"):
+>... and response header and body (202 "ACCEPTED"):
 
 ```
 HTTP/1.1 202 ACCEPTED
@@ -37,7 +37,7 @@ curl --ssl-reqd --include --request POST --data text="The hunt for Malaysia Airl
 ```
 
 
->... and header and response body (202 "ACCEPTED"):
+>... and response header and body (202 "ACCEPTED"):
 
 ```
 HTTP/1.1 202 ACCEPTED

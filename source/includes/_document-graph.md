@@ -6,7 +6,7 @@
 ```shell
 curl --ssl-reqd --include --request POST "https://api.yonderlabs.com/1.0/textcollection/documentgraph?collection_name=goofy&access_token=YOUR_ACCESS_TOKEN"
 ```
->... and header and response body (202 "ACCEPTED"):
+>... and response header and body (202 "ACCEPTED"):
 
 ```
 HTTP/1.1 202 ACCEPTED

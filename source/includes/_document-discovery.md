@@ -7,7 +7,7 @@
 curl --ssl-reqd --include --request POST --data url=https%3A%2F%2Fwww.theguardian.com%2Fworld%2F2016%2Fjul%2F22%2Fmissing-flight-mh370-hunt-for-debris-will-not-be-extended "https://api.yonderlabs.com/1.0/textcollection/documentdiscovery/fromURL?collection_name=scrooge&access_token=YOUR_ACCESS_TOKEN"
 ```
 
->... and header and response body (202 "ACCEPTED"):
+>... and response header and body (202 "ACCEPTED"):
 
 ```
 HTTP/1.1 202 ACCEPTED
@@ -36,7 +36,7 @@ API-instance: instance01
 curl --ssl-reqd --include --request POST --data text="The hunt for Malaysia Airlines flight MH370 is to be suspended if evidence of the missing jet is not found in the current search area. The transport ministers of Australia, Malaysia and China, representing the country leading the search, the airline and the home of the majority of its passengers, met to discuss the future of the search in the Malaysian federal administrative centre of Putrajaya on Friday. They announced that [...]" "https://api.yonderlabs.com/1.0/textcollection/documentdiscovery/fromText?collection_name=scrooge&access_token=YOUR_ACCESS_TOKEN"
 ```
 
->... and header and response body (202 "ACCEPTED"):
+>... and response header and body (202 "ACCEPTED"):
 
 ```
 HTTP/1.1 202 ACCEPTED
