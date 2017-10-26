@@ -2873,13 +2873,21 @@ Remember — insert your credentials for authentication!
 <blockquote>
 <p>Request example to &ldquo;Create a Document Graph&rdquo; - <code class="prettyprint">POST</code>&hellip;</p>
 </blockquote>
-<pre class="highlight shell"><code>curl --ssl-reqd --request POST <span class="s2">"https://api.yonderlabs.com/1.0/textcollection/documentgraph?collection_name=goofy&amp;access_token=YOUR_ACCESS_TOKEN"</span>
+<pre class="highlight shell"><code>curl --ssl-reqd --include --request POST <span class="s2">"https://api.yonderlabs.com/1.0/textcollection/documentgraph?collection_name=goofy&amp;access_token=YOUR_ACCESS_TOKEN"</span>
 </code></pre>
 
 <blockquote>
-<p>&hellip; and response body (202 &ldquo;ACCEPTED&rdquo;):</p>
+<p>&hellip; and response body (202 &ldquo;ACCEPTED&rdquo;) and header:</p>
 </blockquote>
-<pre class="highlight json"><code><span class="p">{</span><span class="w">
+<pre class="highlight json"><code><span class="err">HTTP/</span><span class="mf">1.1</span><span class="w"> </span><span class="mi">202</span><span class="w"> </span><span class="err">ACCEPTED</span><span class="w">
+</span><span class="err">Server:</span><span class="w"> </span><span class="err">nginx/</span><span class="mf">1.4</span><span class="err">.</span><span class="mi">6</span><span class="w"> </span><span class="err">(Ubuntu)</span><span class="w">
+</span><span class="err">Date:</span><span class="w"> </span><span class="err">Thu,</span><span class="w"> </span><span class="mi">26</span><span class="w"> </span><span class="err">Oct</span><span class="w"> </span><span class="mi">2017</span><span class="w"> </span><span class="mi">10</span><span class="err">:</span><span class="mi">50</span><span class="err">:</span><span class="mi">27</span><span class="w"> </span><span class="err">GMT</span><span class="w">
+</span><span class="err">Content-Type:</span><span class="w"> </span><span class="err">application/json</span><span class="w">
+</span><span class="err">Content-Length:</span><span class="w"> </span><span class="mi">157</span><span class="w">
+</span><span class="err">Connection:</span><span class="w"> </span><span class="err">keep-alive</span><span class="w">
+</span><span class="err">API-instance:</span><span class="w"> </span><span class="err">instance</span><span class="mi">01</span><span class="w">
+
+</span><span class="p">{</span><span class="w">
   </span><span class="nt">"task_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DocumentGraphAPI"</span><span class="p">,</span><span class="w"> 
   </span><span class="nt">"collection-name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"goofy"</span><span class="p">,</span><span class="w"> 
   </span><span class="nt">"task_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"a4e31278-4432-43da-8fbf-1b21562d02f9"</span><span class="p">,</span><span class="w"> 
@@ -2890,7 +2898,7 @@ Remember — insert your credentials for authentication!
 <blockquote>
 <p>Request example to &ldquo;Get results from Document Graph&rdquo; - <code class="prettyprint">GET</code>&hellip;</p>
 </blockquote>
-<pre class="highlight shell"><code>curl --ssl-reqd --request GET <span class="s2">"https://api.yonderlabs.com/1.0/textcollection/documentgraph?task_id=e92dff8f-29ca-4286-9876-68d965f4a066&amp;access_token=YOUR_ACCESS_TOKEN"</span>
+<pre class="highlight shell"><code>curl --ssl-reqd --header <span class="s2">"API-instance: instance01"</span> --request GET <span class="s2">"https://api.yonderlabs.com/1.0/textcollection/documentgraph?task_id=e92dff8f-29ca-4286-9876-68d965f4a066&amp;access_token=YOUR_ACCESS_TOKEN"</span>
 </code></pre>
 
 <blockquote>
@@ -2973,6 +2981,8 @@ Depending on the size of the Text Collection, this service might take up to few 
 <p>This API allows you to launch the task which computes document cross-similarities on all items contained in a Text Collection.
 As detailed in the right panel, as an immediate response to this API, you will get a <code class="prettyprint">202</code> answer (&ldquo;ACCEPTED&rdquo;) containing a task identifier <code class="prettyprint">task_id</code> to be used later in the <code class="prettyprint">GET</code> call. </p>
 
+<p>Please notice that the <code class="prettyprint">--include</code> in the <code class="prettyprint">POST</code> call displays the response header, which includes the <code class="prettyprint">API-instance</code> field. The value of <code class="prettyprint">API-instance</code> field (e.g. <code class="prettyprint">instance01</code>) must be included later in the following <code class="prettyprint">GET</code> call.</p>
+
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -2994,7 +3004,8 @@ As detailed in the right panel, as an immediate response to this API, you will g
 
 <h3 id="get-results-from-document-graph-get">Get results from Document Graph - <code class="prettyprint">GET</code></h3>
 
-<p>This API allows you to retrieve computed document cross-similarities on all items contained in a Text Collection.</p>
+<p>This API allows you to retrieve computed document cross-similarities on all items contained in a Text Collection.
+Please notice that the value of the <code class="prettyprint">API-instance</code> field shown in the response header of the previous <code class="prettyprint">POST</code> call (e.g. <code class="prettyprint">instance01</code>) must be included in the <code class="prettyprint">GET</code> call after the option <code class="prettyprint">--header</code>, as detailed in the right panel.</p>
 
 <table><thead>
 <tr>
@@ -3031,13 +3042,21 @@ Remember — insert your credentials for authentication!
 <blockquote>
 <p>Request example to &ldquo;Discover related documents&rdquo; - <code class="prettyprint">POST fromURL</code>&hellip;</p>
 </blockquote>
-<pre class="highlight shell"><code>curl --ssl-reqd --request POST --data <span class="nv">url</span><span class="o">=</span>https%3A%2F%2Fwww.theguardian.com%2Fworld%2F2016%2Fjul%2F22%2Fmissing-flight-mh370-hunt-for-debris-will-not-be-extended <span class="s2">"https://api.yonderlabs.com/1.0/textcollection/documentdiscovery/fromURL?collection_name=scrooge&amp;access_token=YOUR_ACCESS_TOKEN"</span>
+<pre class="highlight shell"><code>curl --ssl-reqd --include --request POST --data <span class="nv">url</span><span class="o">=</span>https%3A%2F%2Fwww.theguardian.com%2Fworld%2F2016%2Fjul%2F22%2Fmissing-flight-mh370-hunt-for-debris-will-not-be-extended <span class="s2">"https://api.yonderlabs.com/1.0/textcollection/documentdiscovery/fromURL?collection_name=scrooge&amp;access_token=YOUR_ACCESS_TOKEN"</span>
 </code></pre>
 
 <blockquote>
-<p>&hellip; and response body (202 &ldquo;ACCEPTED&rdquo;):</p>
+<p>&hellip; and response body (202 &ldquo;ACCEPTED&rdquo;) and header:</p>
 </blockquote>
-<pre class="highlight json"><code><span class="p">{</span><span class="w">
+<pre class="highlight json"><code><span class="err">HTTP/</span><span class="mf">1.1</span><span class="w"> </span><span class="mi">202</span><span class="w"> </span><span class="err">ACCEPTED</span><span class="w">
+</span><span class="err">Server:</span><span class="w"> </span><span class="err">nginx/</span><span class="mf">1.4</span><span class="err">.</span><span class="mi">6</span><span class="w"> </span><span class="err">(Ubuntu)</span><span class="w">
+</span><span class="err">Date:</span><span class="w"> </span><span class="err">Thu,</span><span class="w"> </span><span class="mi">26</span><span class="w"> </span><span class="err">Oct</span><span class="w"> </span><span class="mi">2017</span><span class="w"> </span><span class="mi">10</span><span class="err">:</span><span class="mi">50</span><span class="err">:</span><span class="mi">27</span><span class="w"> </span><span class="err">GMT</span><span class="w">
+</span><span class="err">Content-Type:</span><span class="w"> </span><span class="err">application/json</span><span class="w">
+</span><span class="err">Content-Length:</span><span class="w"> </span><span class="mi">157</span><span class="w">
+</span><span class="err">Connection:</span><span class="w"> </span><span class="err">keep-alive</span><span class="w">
+</span><span class="err">API-instance:</span><span class="w"> </span><span class="err">instance</span><span class="mi">01</span><span class="w">
+
+</span><span class="p">{</span><span class="w">
   </span><span class="nt">"task_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DocumentDiscoveryAPI"</span><span class="p">,</span><span class="w"> 
   </span><span class="nt">"task_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"8292fd19-6c94-4570-90bf-c7d2f0afb9ed"</span><span class="p">,</span><span class="w"> 
   </span><span class="nt">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://www.theguardian.com/world/2016/jul/22/missing-flight-mh370-hunt-for-debris-will-not-be-extended"</span><span class="p">,</span><span class="w"> 
@@ -3050,13 +3069,21 @@ Remember — insert your credentials for authentication!
 <blockquote>
 <p>Request example to &ldquo;Discover related documents&rdquo; - <code class="prettyprint">POST fromText</code>&hellip;</p>
 </blockquote>
-<pre class="highlight shell"><code>curl --ssl-reqd --request POST --data <span class="nv">text</span><span class="o">=</span><span class="s2">"The hunt for Malaysia Airlines flight MH370 is to be suspended if evidence of the missing jet is not found in the current search area. The transport ministers of Australia, Malaysia and China, representing the country leading the search, the airline and the home of the majority of its passengers, met to discuss the future of the search in the Malaysian federal administrative centre of Putrajaya on Friday. They announced that [...]"</span> <span class="s2">"https://api.yonderlabs.com/1.0/textcollection/documentdiscovery/fromText?collection_name=scrooge&amp;access_token=YOUR_ACCESS_TOKEN"</span>
+<pre class="highlight shell"><code>curl --ssl-reqd --include --request POST --data <span class="nv">text</span><span class="o">=</span><span class="s2">"The hunt for Malaysia Airlines flight MH370 is to be suspended if evidence of the missing jet is not found in the current search area. The transport ministers of Australia, Malaysia and China, representing the country leading the search, the airline and the home of the majority of its passengers, met to discuss the future of the search in the Malaysian federal administrative centre of Putrajaya on Friday. They announced that [...]"</span> <span class="s2">"https://api.yonderlabs.com/1.0/textcollection/documentdiscovery/fromText?collection_name=scrooge&amp;access_token=YOUR_ACCESS_TOKEN"</span>
 </code></pre>
 
 <blockquote>
-<p>&hellip; and response body (202 &ldquo;ACCEPTED&rdquo;):</p>
+<p>&hellip; and response body (202 &ldquo;ACCEPTED&rdquo;) and header:</p>
 </blockquote>
-<pre class="highlight json"><code><span class="p">{</span><span class="w">
+<pre class="highlight json"><code><span class="err">HTTP/</span><span class="mf">1.1</span><span class="w"> </span><span class="mi">202</span><span class="w"> </span><span class="err">ACCEPTED</span><span class="w">
+</span><span class="err">Server:</span><span class="w"> </span><span class="err">nginx/</span><span class="mf">1.4</span><span class="err">.</span><span class="mi">6</span><span class="w"> </span><span class="err">(Ubuntu)</span><span class="w">
+</span><span class="err">Date:</span><span class="w"> </span><span class="err">Thu,</span><span class="w"> </span><span class="mi">26</span><span class="w"> </span><span class="err">Oct</span><span class="w"> </span><span class="mi">2017</span><span class="w"> </span><span class="mi">10</span><span class="err">:</span><span class="mi">50</span><span class="err">:</span><span class="mi">27</span><span class="w"> </span><span class="err">GMT</span><span class="w">
+</span><span class="err">Content-Type:</span><span class="w"> </span><span class="err">application/json</span><span class="w">
+</span><span class="err">Content-Length:</span><span class="w"> </span><span class="mi">157</span><span class="w">
+</span><span class="err">Connection:</span><span class="w"> </span><span class="err">keep-alive</span><span class="w">
+</span><span class="err">API-instance:</span><span class="w"> </span><span class="err">instance</span><span class="mi">01</span><span class="w">
+
+</span><span class="p">{</span><span class="w">
   </span><span class="nt">"task_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DocumentDiscoveryAPI"</span><span class="p">,</span><span class="w"> 
   </span><span class="nt">"task_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"8292fd19-6c94-4570-90bf-c7d2f0afb9ed"</span><span class="p">,</span><span class="w"> 
   </span><span class="nt">"url"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w"> 
@@ -3069,7 +3096,7 @@ Remember — insert your credentials for authentication!
 <blockquote>
 <p>Request example to &ldquo;Get related documents&rdquo; - <code class="prettyprint">GET</code>&hellip;</p>
 </blockquote>
-<pre class="highlight shell"><code>curl --ssl-reqd --request GET <span class="s2">"https://api.yonderlabs.com/1.0/textcollection/documentdiscovery?task_id=8292fd19-6c94-4570-90bf-c7d2f0afb9ed&amp;access_token=YOUR_ACCESS_TOKEN"</span>
+<pre class="highlight shell"><code>curl --ssl-reqd --header <span class="s2">"API-instance: instance01"</span> --request GET <span class="s2">"https://api.yonderlabs.com/1.0/textcollection/documentdiscovery?task_id=8292fd19-6c94-4570-90bf-c7d2f0afb9ed&amp;access_token=YOUR_ACCESS_TOKEN"</span>
 </code></pre>
 
 <blockquote>
@@ -3136,6 +3163,8 @@ Depending on the size of the Text Collection, this service might take up to few 
 <p>Given an URL, this API allows you to discover other contextually relevant documents by retrieving them from a Text Collection.
 As detailed in the right panel, as an immediate response to this API, you will get a <code class="prettyprint">202</code> answer (&ldquo;ACCEPTED&rdquo;) containing a task identifier <code class="prettyprint">task_id</code> to be used later in the <code class="prettyprint">GET</code> call. </p>
 
+<p>Please notice that the <code class="prettyprint">--include</code> in the <code class="prettyprint">POST</code> call displays the response header, which includes the <code class="prettyprint">API-instance</code> field. The value of <code class="prettyprint">API-instance</code> field (e.g. <code class="prettyprint">instance01</code>) must be included later in the following <code class="prettyprint">GET</code> call.</p>
+
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -3169,6 +3198,8 @@ As detailed in the right panel, as an immediate response to this API, you will g
 <p>Given a text, this API allows you to discover other contextually relevant documents by retrieving them from a Text Collection.
 As detailed in the right panel, as an immediate response to this API, you will get a <code class="prettyprint">202</code> answer (&ldquo;ACCEPTED&rdquo;) containing a task identifier <code class="prettyprint">task_id</code> to be used later in the <code class="prettyprint">GET</code> call.</p>
 
+<p>Please notice that the <code class="prettyprint">--include</code> in the <code class="prettyprint">POST</code> call displays the response header, which includes the <code class="prettyprint">API-instance</code> field. The value of <code class="prettyprint">API-instance</code> field (e.g. <code class="prettyprint">instance01</code>) must be included later in the following <code class="prettyprint">GET</code> call.</p>
+
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -3199,7 +3230,8 @@ As detailed in the right panel, as an immediate response to this API, you will g
 
 <h3 id="get-results-from-document-discovery-get">Get results from Document Discovery - <code class="prettyprint">GET</code></h3>
 
-<p>This API allows you to retrieve most related documents contained in a Text Collection.</p>
+<p>This API allows you to retrieve most related documents contained in a Text Collection.
+Please notice that the value of the <code class="prettyprint">API-instance</code> field shown in the response header of the previous <code class="prettyprint">POST</code> call (e.g. <code class="prettyprint">instance01</code>) must be included in the <code class="prettyprint">GET</code> call after the option <code class="prettyprint">--header</code>, as detailed in the right panel.</p>
 
 <table><thead>
 <tr>
@@ -3236,13 +3268,21 @@ Remember — insert your credentials for authentication!
 <blockquote>
 <p>Request example to &ldquo;Create an Entity Graph&rdquo; - <code class="prettyprint">POST</code>&hellip;</p>
 </blockquote>
-<pre class="highlight shell"><code>curl --ssl-reqd --request POST <span class="s2">"https://api.yonderlabs.com/1.0/textcollection/entitygraph?collection_name=scrooge&amp;limit=5&amp;access_token=YOUR_ACCESS_TOKEN"</span>
+<pre class="highlight shell"><code>curl --ssl-reqd --include --request POST <span class="s2">"https://api.yonderlabs.com/1.0/textcollection/entitygraph?collection_name=scrooge&amp;limit=5&amp;access_token=YOUR_ACCESS_TOKEN"</span>
 </code></pre>
 
 <blockquote>
-<p>&hellip; and response body (202 &ldquo;ACCEPTED&rdquo;):</p>
+<p>&hellip; and response body (202 &ldquo;ACCEPTED&rdquo;) and header:</p>
 </blockquote>
-<pre class="highlight json"><code><span class="p">{</span><span class="w">
+<pre class="highlight json"><code><span class="err">HTTP/</span><span class="mf">1.1</span><span class="w"> </span><span class="mi">202</span><span class="w"> </span><span class="err">ACCEPTED</span><span class="w">
+</span><span class="err">Server:</span><span class="w"> </span><span class="err">nginx/</span><span class="mf">1.4</span><span class="err">.</span><span class="mi">6</span><span class="w"> </span><span class="err">(Ubuntu)</span><span class="w">
+</span><span class="err">Date:</span><span class="w"> </span><span class="err">Thu,</span><span class="w"> </span><span class="mi">26</span><span class="w"> </span><span class="err">Oct</span><span class="w"> </span><span class="mi">2017</span><span class="w"> </span><span class="mi">10</span><span class="err">:</span><span class="mi">50</span><span class="err">:</span><span class="mi">27</span><span class="w"> </span><span class="err">GMT</span><span class="w">
+</span><span class="err">Content-Type:</span><span class="w"> </span><span class="err">application/json</span><span class="w">
+</span><span class="err">Content-Length:</span><span class="w"> </span><span class="mi">157</span><span class="w">
+</span><span class="err">Connection:</span><span class="w"> </span><span class="err">keep-alive</span><span class="w">
+</span><span class="err">API-instance:</span><span class="w"> </span><span class="err">instance</span><span class="mi">01</span><span class="w">
+
+</span><span class="p">{</span><span class="w">
   </span><span class="nt">"task_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"EntityGraphAPI"</span><span class="p">,</span><span class="w"> 
   </span><span class="nt">"collection-name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"scrooge"</span><span class="p">,</span><span class="w"> 
   </span><span class="nt">"task_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"a4e31278-4432-43da-8fbf-1b21562d02f9"</span><span class="p">,</span><span class="w"> 
@@ -3253,7 +3293,7 @@ Remember — insert your credentials for authentication!
 <blockquote>
 <p>Request example to &ldquo;Get results from Entity Graph&rdquo; - <code class="prettyprint">GET</code>&hellip;</p>
 </blockquote>
-<pre class="highlight shell"><code>curl --ssl-reqd --request GET <span class="s2">"https://api.yonderlabs.com/1.0/textcollection/entitygraph?task_id=a4e31278-4432-43da-8fbf-1b21562d02f9&amp;access_token=YOUR_ACCESS_TOKEN"</span>
+<pre class="highlight shell"><code>curl --ssl-reqd --header <span class="s2">"API-instance: instance01"</span> --request GET <span class="s2">"https://api.yonderlabs.com/1.0/textcollection/entitygraph?task_id=a4e31278-4432-43da-8fbf-1b21562d02f9&amp;access_token=YOUR_ACCESS_TOKEN"</span>
 </code></pre>
 
 <blockquote>
@@ -3384,6 +3424,8 @@ Depending on the size of the Text Collection, this service might take up to few 
 Co-occurrency is here evaluated at &lsquo;sentence&rsquo; level.
 As detailed in the right panel, as an immediate response to this API, you will get a <code class="prettyprint">202</code> answer (&ldquo;ACCEPTED&rdquo;) containing a task identifier <code class="prettyprint">task_id</code> to be used later in the <code class="prettyprint">GET</code> call. </p>
 
+<p>Please notice that the <code class="prettyprint">--include</code> in the <code class="prettyprint">POST</code> call displays the response header, which includes the <code class="prettyprint">API-instance</code> field. The value of <code class="prettyprint">API-instance</code> field (e.g. <code class="prettyprint">instance01</code>) must be included later in the following <code class="prettyprint">GET</code> call.</p>
+
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -3410,7 +3452,8 @@ As detailed in the right panel, as an immediate response to this API, you will g
 
 <h3 id="get-results-from-entity-graph-get">Get results from Entity Graph - <code class="prettyprint">GET</code></h3>
 
-<p>This API allows you to retrieve the computed co-occurrence graph on all named entities contained in a Text Collection, where co-occurrency is evaluated at &#39;sentence&rsquo; level.</p>
+<p>This API allows you to retrieve the computed co-occurrence graph on all named entities contained in a Text Collection, where co-occurrency is evaluated at &#39;sentence&rsquo; level.
+Please notice that the value of the <code class="prettyprint">API-instance</code> field shown in the response header of the previous <code class="prettyprint">POST</code> call (e.g. <code class="prettyprint">instance01</code>) must be included in the <code class="prettyprint">GET</code> call after the option <code class="prettyprint">--header</code>, as detailed in the right panel.</p>
 
 <table><thead>
 <tr>
@@ -3447,13 +3490,21 @@ Remember — insert your credentials for authentication!
 <blockquote>
 <p>Request example to &ldquo;Discover related entities&rdquo; - <code class="prettyprint">POST fromURL</code>&hellip;</p>
 </blockquote>
-<pre class="highlight shell"><code>curl --ssl-reqd --request POST --data <span class="nv">url</span><span class="o">=</span>https%3A%2F%2Fwww.theguardian.com%2Fworld%2F2016%2Fjul%2F22%2Fmissing-flight-mh370-hunt-for-debris-will-not-be-extended <span class="s2">"https://api.yonderlabs.com/1.0/textcollection/entitydiscovery/fromURL?collection_name=scrooge&amp;limit=5&amp;access_token=YOUR_ACCESS_TOKEN"</span>
+<pre class="highlight shell"><code>curl --ssl-reqd --include --request POST --data <span class="nv">url</span><span class="o">=</span>https%3A%2F%2Fwww.theguardian.com%2Fworld%2F2016%2Fjul%2F22%2Fmissing-flight-mh370-hunt-for-debris-will-not-be-extended <span class="s2">"https://api.yonderlabs.com/1.0/textcollection/entitydiscovery/fromURL?collection_name=scrooge&amp;limit=5&amp;access_token=YOUR_ACCESS_TOKEN"</span>
 </code></pre>
 
 <blockquote>
-<p>&hellip; and response body (202 &ldquo;ACCEPTED&rdquo;):</p>
+<p>&hellip; and response body (202 &ldquo;ACCEPTED&rdquo;) and header:</p>
 </blockquote>
-<pre class="highlight json"><code><span class="p">{</span><span class="w">
+<pre class="highlight json"><code><span class="err">HTTP/</span><span class="mf">1.1</span><span class="w"> </span><span class="mi">202</span><span class="w"> </span><span class="err">ACCEPTED</span><span class="w">
+</span><span class="err">Server:</span><span class="w"> </span><span class="err">nginx/</span><span class="mf">1.4</span><span class="err">.</span><span class="mi">6</span><span class="w"> </span><span class="err">(Ubuntu)</span><span class="w">
+</span><span class="err">Date:</span><span class="w"> </span><span class="err">Thu,</span><span class="w"> </span><span class="mi">26</span><span class="w"> </span><span class="err">Oct</span><span class="w"> </span><span class="mi">2017</span><span class="w"> </span><span class="mi">10</span><span class="err">:</span><span class="mi">50</span><span class="err">:</span><span class="mi">27</span><span class="w"> </span><span class="err">GMT</span><span class="w">
+</span><span class="err">Content-Type:</span><span class="w"> </span><span class="err">application/json</span><span class="w">
+</span><span class="err">Content-Length:</span><span class="w"> </span><span class="mi">157</span><span class="w">
+</span><span class="err">Connection:</span><span class="w"> </span><span class="err">keep-alive</span><span class="w">
+</span><span class="err">API-instance:</span><span class="w"> </span><span class="err">instance</span><span class="mi">01</span><span class="w">
+
+</span><span class="p">{</span><span class="w">
   </span><span class="nt">"task_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"EntityDiscoveryAPI"</span><span class="p">,</span><span class="w"> 
   </span><span class="nt">"task_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"8292fd19-6c94-4570-90bf-c7d2f0afb9ed"</span><span class="p">,</span><span class="w"> 
   </span><span class="nt">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://www.theguardian.com/world/2016/jul/22/missing-flight-mh370-hunt-for-debris-will-not-be-extended"</span><span class="p">,</span><span class="w"> 
@@ -3466,13 +3517,21 @@ Remember — insert your credentials for authentication!
 <blockquote>
 <p>Request example to &ldquo;Discover related entities&rdquo; - <code class="prettyprint">POST fromText</code>&hellip;</p>
 </blockquote>
-<pre class="highlight shell"><code>curl --ssl-reqd --request POST --data <span class="nv">text</span><span class="o">=</span><span class="s2">"The hunt for Malaysia Airlines flight MH370 is to be suspended if evidence of the missing jet is not found in the current search area. The transport ministers of Australia, Malaysia and China, representing the country leading the search, the airline and the home of the majority of its passengers, met to discuss the future of the search in the Malaysian federal administrative centre of Putrajaya on Friday. They announced that [...]"</span> <span class="s2">"https://api.yonderlabs.com/1.0/textcollection/entitydiscovery/fromText?collection_name=scrooge&amp;limit=5&amp;access_token=YOUR_ACCESS_TOKEN"</span>
+<pre class="highlight shell"><code>curl --ssl-reqd --include --request POST --data <span class="nv">text</span><span class="o">=</span><span class="s2">"The hunt for Malaysia Airlines flight MH370 is to be suspended if evidence of the missing jet is not found in the current search area. The transport ministers of Australia, Malaysia and China, representing the country leading the search, the airline and the home of the majority of its passengers, met to discuss the future of the search in the Malaysian federal administrative centre of Putrajaya on Friday. They announced that [...]"</span> <span class="s2">"https://api.yonderlabs.com/1.0/textcollection/entitydiscovery/fromText?collection_name=scrooge&amp;limit=5&amp;access_token=YOUR_ACCESS_TOKEN"</span>
 </code></pre>
 
 <blockquote>
-<p>&hellip; and response body (202 &ldquo;ACCEPTED&rdquo;):</p>
+<p>&hellip; and response body (202 &ldquo;ACCEPTED&rdquo;) and header:</p>
 </blockquote>
-<pre class="highlight json"><code><span class="p">{</span><span class="w">
+<pre class="highlight json"><code><span class="err">HTTP/</span><span class="mf">1.1</span><span class="w"> </span><span class="mi">202</span><span class="w"> </span><span class="err">ACCEPTED</span><span class="w">
+</span><span class="err">Server:</span><span class="w"> </span><span class="err">nginx/</span><span class="mf">1.4</span><span class="err">.</span><span class="mi">6</span><span class="w"> </span><span class="err">(Ubuntu)</span><span class="w">
+</span><span class="err">Date:</span><span class="w"> </span><span class="err">Thu,</span><span class="w"> </span><span class="mi">26</span><span class="w"> </span><span class="err">Oct</span><span class="w"> </span><span class="mi">2017</span><span class="w"> </span><span class="mi">10</span><span class="err">:</span><span class="mi">50</span><span class="err">:</span><span class="mi">27</span><span class="w"> </span><span class="err">GMT</span><span class="w">
+</span><span class="err">Content-Type:</span><span class="w"> </span><span class="err">application/json</span><span class="w">
+</span><span class="err">Content-Length:</span><span class="w"> </span><span class="mi">157</span><span class="w">
+</span><span class="err">Connection:</span><span class="w"> </span><span class="err">keep-alive</span><span class="w">
+</span><span class="err">API-instance:</span><span class="w"> </span><span class="err">instance</span><span class="mi">01</span><span class="w">
+
+</span><span class="p">{</span><span class="w">
   </span><span class="nt">"task_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"EntityDiscoveryAPI"</span><span class="p">,</span><span class="w"> 
   </span><span class="nt">"task_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"8292fd19-6c94-4570-90bf-c7d2f0afb9ed"</span><span class="p">,</span><span class="w"> 
   </span><span class="nt">"url"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w"> 
@@ -3485,7 +3544,7 @@ Remember — insert your credentials for authentication!
 <blockquote>
 <p>Request example to &ldquo;Get related entities&rdquo; - <code class="prettyprint">GET</code>&hellip;</p>
 </blockquote>
-<pre class="highlight shell"><code>curl --ssl-reqd --request GET <span class="s2">"https://api.yonderlabs.com/1.0/textcollection/entitydiscovery?task_id=8292fd19-6c94-4570-90bf-c7d2f0afb9ed&amp;access_token=YOUR_ACCESS_TOKEN"</span>
+<pre class="highlight shell"><code>curl --ssl-reqd --header <span class="s2">"API-instance: instance01"</span> --request GET <span class="s2">"https://api.yonderlabs.com/1.0/textcollection/entitydiscovery?task_id=8292fd19-6c94-4570-90bf-c7d2f0afb9ed&amp;access_token=YOUR_ACCESS_TOKEN"</span>
 </code></pre>
 
 <blockquote>
@@ -3629,6 +3688,8 @@ Depending on the size of the Text Collection, this service might take up to few 
 <p>Given an URL, this API allows you to discover other contextually relevant named entities by retrieving them from a Text Collection.
 As detailed in the right panel, as an immediate response to this API, you will get a <code class="prettyprint">202</code> answer (&ldquo;ACCEPTED&rdquo;) containing a task identifier <code class="prettyprint">task_id</code> to be used later in the <code class="prettyprint">GET</code> call. </p>
 
+<p>Please notice that the <code class="prettyprint">--include</code> in the <code class="prettyprint">POST</code> call displays the response header, which includes the <code class="prettyprint">API-instance</code> field. The value of <code class="prettyprint">API-instance</code> field (e.g. <code class="prettyprint">instance01</code>) must be included later in the following <code class="prettyprint">GET</code> call.</p>
+
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -3668,6 +3729,8 @@ As detailed in the right panel, as an immediate response to this API, you will g
 <p>Given a text, this API allows you to discover other contextually relevant named entities by retrieving them from a Text Collection.
 As detailed in the right panel, as an immediate response to this API, you will get a <code class="prettyprint">202</code> answer (&ldquo;ACCEPTED&rdquo;) containing a task identifier <code class="prettyprint">task_id</code> to be used later in the <code class="prettyprint">GET</code> call.</p>
 
+<p>Please notice that the <code class="prettyprint">--include</code> in the <code class="prettyprint">POST</code> call displays the response header, which includes the <code class="prettyprint">API-instance</code> field. The value of <code class="prettyprint">API-instance</code> field (e.g. <code class="prettyprint">instance01</code>) must be included later in the following <code class="prettyprint">GET</code> call.</p>
+
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -3704,7 +3767,8 @@ As detailed in the right panel, as an immediate response to this API, you will g
 
 <h3 id="get-results-from-entity-discovery-get">Get results from Entity Discovery - <code class="prettyprint">GET</code></h3>
 
-<p>This API allows you to get results containing relevant named entities discovered in a Text Collection.</p>
+<p>This API allows you to get results containing relevant named entities discovered in a Text Collection.
+Please notice that the value of the <code class="prettyprint">API-instance</code> field shown in the response header of the previous <code class="prettyprint">POST</code> call (e.g. <code class="prettyprint">instance01</code>) must be included in the <code class="prettyprint">GET</code> call after the option <code class="prettyprint">--header</code>, as detailed in the right panel.</p>
 
 <table><thead>
 <tr>
@@ -3741,13 +3805,21 @@ Remember — insert your credentials for authentication!
 <blockquote>
 <p>Request example to &ldquo;Cluster your text documents&rdquo; - <code class="prettyprint">POST</code>&hellip;</p>
 </blockquote>
-<pre class="highlight shell"><code>curl --ssl-reqd --request POST <span class="s2">"https://api.yonderlabs.com/1.0/textcollection/documentclustering?collection_name=goofy&amp;access_token=YOUR_ACCESS_TOKEN"</span>
+<pre class="highlight shell"><code>curl --ssl-reqd --include --request POST <span class="s2">"https://api.yonderlabs.com/1.0/textcollection/documentclustering?collection_name=goofy&amp;access_token=YOUR_ACCESS_TOKEN"</span>
 </code></pre>
 
 <blockquote>
-<p>&hellip; and response body (202 &ldquo;ACCEPTED&rdquo;):</p>
+<p>&hellip; and response body (202 &ldquo;ACCEPTED&rdquo;) and header:</p>
 </blockquote>
-<pre class="highlight json"><code><span class="p">{</span><span class="w">
+<pre class="highlight json"><code><span class="err">HTTP/</span><span class="mf">1.1</span><span class="w"> </span><span class="mi">202</span><span class="w"> </span><span class="err">ACCEPTED</span><span class="w">
+</span><span class="err">Server:</span><span class="w"> </span><span class="err">nginx/</span><span class="mf">1.4</span><span class="err">.</span><span class="mi">6</span><span class="w"> </span><span class="err">(Ubuntu)</span><span class="w">
+</span><span class="err">Date:</span><span class="w"> </span><span class="err">Thu,</span><span class="w"> </span><span class="mi">26</span><span class="w"> </span><span class="err">Oct</span><span class="w"> </span><span class="mi">2017</span><span class="w"> </span><span class="mi">10</span><span class="err">:</span><span class="mi">50</span><span class="err">:</span><span class="mi">27</span><span class="w"> </span><span class="err">GMT</span><span class="w">
+</span><span class="err">Content-Type:</span><span class="w"> </span><span class="err">application/json</span><span class="w">
+</span><span class="err">Content-Length:</span><span class="w"> </span><span class="mi">157</span><span class="w">
+</span><span class="err">Connection:</span><span class="w"> </span><span class="err">keep-alive</span><span class="w">
+</span><span class="err">API-instance:</span><span class="w"> </span><span class="err">instance</span><span class="mi">01</span><span class="w">
+
+</span><span class="p">{</span><span class="w">
   </span><span class="nt">"task_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DocumentClusteringAPI"</span><span class="p">,</span><span class="w"> 
   </span><span class="nt">"collection-name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"goofy"</span><span class="p">,</span><span class="w"> 
   </span><span class="nt">"task_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"7284e228-a934-4a88-ac52-82764ed0b838"</span><span class="p">,</span><span class="w"> 
@@ -3758,7 +3830,7 @@ Remember — insert your credentials for authentication!
 <blockquote>
 <p>Request example to &ldquo;Get results from Document Clustering&rdquo; - <code class="prettyprint">GET</code>&hellip;</p>
 </blockquote>
-<pre class="highlight shell"><code>curl --ssl-reqd --request GET <span class="s2">"https://api.yonderlabs.com/1.0/textcollection/documentclustering?task_id=7284e228-a934-4a88-ac52-82764ed0b838&amp;access_token=YOUR_ACCESS_TOKEN"</span>
+<pre class="highlight shell"><code>curl --ssl-reqd --header <span class="s2">"API-instance: instance01"</span> --request GET <span class="s2">"https://api.yonderlabs.com/1.0/textcollection/documentclustering?task_id=7284e228-a934-4a88-ac52-82764ed0b838&amp;access_token=YOUR_ACCESS_TOKEN"</span>
 </code></pre>
 
 <blockquote>
@@ -3904,6 +3976,8 @@ Depending on the size of the Text Collection, this service might take up to few 
 <p>This API allows you to launch the task which computes document clusters on all  the items contained in a Text Collection.
 As detailed in the right panel, as an immediate response to this API, you will get a <code class="prettyprint">202</code> answer (&ldquo;ACCEPTED&rdquo;) containing a task identifier <code class="prettyprint">task_id</code> to be used later in the <code class="prettyprint">GET</code> call. </p>
 
+<p>Please notice that the <code class="prettyprint">--include</code> in the <code class="prettyprint">POST</code> call displays the response header, which includes the <code class="prettyprint">API-instance</code> field. The value of <code class="prettyprint">API-instance</code> field (e.g. <code class="prettyprint">instance01</code>) must be included later in the following <code class="prettyprint">GET</code> call.</p>
+
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -3925,7 +3999,8 @@ As detailed in the right panel, as an immediate response to this API, you will g
 
 <h3 id="get-results-from-document-clustering-get">Get results from Document Clustering - <code class="prettyprint">GET</code></h3>
 
-<p>This API allows you to retrieve computed document clusters contained in a Text Collection.</p>
+<p>This API allows you to retrieve computed document clusters contained in a Text Collection.
+Please notice that the value of the <code class="prettyprint">API-instance</code> field shown in the response header of the previous <code class="prettyprint">POST</code> call (e.g. <code class="prettyprint">instance01</code>) must be included in the <code class="prettyprint">GET</code> call after the option <code class="prettyprint">--header</code>, as detailed in the right panel.</p>
 
 <table><thead>
 <tr>
