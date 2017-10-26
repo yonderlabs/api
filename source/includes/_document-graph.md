@@ -4,11 +4,19 @@
 > Request example to "Create a Document Graph" - `POST`...
 
 ```shell
-curl --ssl-reqd --request POST "https://api.yonderlabs.com/1.0/textcollection/documentgraph?collection_name=goofy&access_token=YOUR_ACCESS_TOKEN"
+curl --ssl-reqd --include --request POST "https://api.yonderlabs.com/1.0/textcollection/documentgraph?collection_name=goofy&access_token=YOUR_ACCESS_TOKEN"
 ```
->... and response body (202 "ACCEPTED"):
+>... and response body (202 "ACCEPTED") and header:
 
 ```json
+HTTP/1.1 202 ACCEPTED
+Server: nginx/1.4.6 (Ubuntu)
+Date: Thu, 26 Oct 2017 10:50:27 GMT
+Content-Type: application/json
+Content-Length: 157
+Connection: keep-alive
+API-instance: instance01
+
 {
   "task_type": "DocumentGraphAPI", 
   "collection-name": "goofy", 
@@ -20,7 +28,7 @@ curl --ssl-reqd --request POST "https://api.yonderlabs.com/1.0/textcollection/do
 > Request example to "Get results from Document Graph" - `GET`...
 
 ```shell
-curl --ssl-reqd --request GET "https://api.yonderlabs.com/1.0/textcollection/documentgraph?task_id=e92dff8f-29ca-4286-9876-68d965f4a066&access_token=YOUR_ACCESS_TOKEN"
+curl --ssl-reqd --header "API-instance: instance01" --request GET "https://api.yonderlabs.com/1.0/textcollection/documentgraph?task_id=e92dff8f-29ca-4286-9876-68d965f4a066&access_token=YOUR_ACCESS_TOKEN"
 ```
 
 
@@ -108,6 +116,8 @@ Depending on the size of the Text Collection, this service might take up to few 
 This API allows you to launch the task which computes document cross-similarities on all items contained in a Text Collection.
 As detailed in the right panel, as an immediate response to this API, you will get a `202` answer ("ACCEPTED") containing a task identifier `task_id` to be used later in the `GET` call. 
 
+Please notice that the `--include` in the `POST` call displays the response header, which includes the `API-instance` field. The value of `API-instance` field (e.g. `instance01`) must be included later in the following `GET` call.
+
 
 Parameter | Type | Description | 
 --------- | ------- | ----------- | 
@@ -118,7 +128,7 @@ access_token | string, required | your access token (40 digits) |
 ### Get results from Document Graph - `GET`
 
 This API allows you to retrieve computed document cross-similarities on all items contained in a Text Collection.
-
+Please notice that the value of the `API-instance` field shown in the response header of the previous `POST` call (e.g. `instance01`) must be included in the `GET` call after the option `--header`, as detailed in the right panel.
 
 Parameter | Type | Description | 
 --------- | ------- | ----------- | 

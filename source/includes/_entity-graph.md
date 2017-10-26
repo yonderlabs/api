@@ -4,13 +4,21 @@
 
 
 ```shell
-curl --ssl-reqd --request POST "https://api.yonderlabs.com/1.0/textcollection/entitygraph?collection_name=scrooge&limit=5&access_token=YOUR_ACCESS_TOKEN"
+curl --ssl-reqd --include --request POST "https://api.yonderlabs.com/1.0/textcollection/entitygraph?collection_name=scrooge&limit=5&access_token=YOUR_ACCESS_TOKEN"
 ```
 
 
->... and response body (202 "ACCEPTED"):
+>... and response body (202 "ACCEPTED") and header:
 
 ```json
+HTTP/1.1 202 ACCEPTED
+Server: nginx/1.4.6 (Ubuntu)
+Date: Thu, 26 Oct 2017 10:50:27 GMT
+Content-Type: application/json
+Content-Length: 157
+Connection: keep-alive
+API-instance: instance01
+
 {
   "task_type": "EntityGraphAPI", 
   "collection-name": "scrooge", 
@@ -23,7 +31,7 @@ curl --ssl-reqd --request POST "https://api.yonderlabs.com/1.0/textcollection/en
 
 
 ```shell
-curl --ssl-reqd --request GET "https://api.yonderlabs.com/1.0/textcollection/entitygraph?task_id=a4e31278-4432-43da-8fbf-1b21562d02f9&access_token=YOUR_ACCESS_TOKEN"
+curl --ssl-reqd --header "API-instance: instance01" --request GET "https://api.yonderlabs.com/1.0/textcollection/entitygraph?task_id=a4e31278-4432-43da-8fbf-1b21562d02f9&access_token=YOUR_ACCESS_TOKEN"
 ```
 
 
@@ -161,6 +169,7 @@ This API allows you to launch the task which computes a co-occurrence graph on a
 Co-occurrency is here evaluated at 'sentence' level.
 As detailed in the right panel, as an immediate response to this API, you will get a `202` answer ("ACCEPTED") containing a task identifier `task_id` to be used later in the `GET` call. 
 
+Please notice that the `--include` in the `POST` call displays the response header, which includes the `API-instance` field. The value of `API-instance` field (e.g. `instance01`) must be included later in the following `GET` call.
 
 Parameter | Type | Description | 
 --------- | ------- | ----------- | 
@@ -173,6 +182,8 @@ access_token | string, required | your access token (40 digits) |
 ### Get results from Entity Graph - `GET`
 
 This API allows you to retrieve the computed co-occurrence graph on all named entities contained in a Text Collection, where co-occurrency is evaluated at 'sentence' level.
+Please notice that the value of the `API-instance` field shown in the response header of the previous `POST` call (e.g. `instance01`) must be included in the `GET` call after the option `--header`, as detailed in the right panel.
+
 
 Parameter | Type | Description | 
 --------- | ------- | ----------- | 

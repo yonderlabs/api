@@ -4,12 +4,20 @@
 
 
 ```shell
-curl --ssl-reqd --request POST --data url=https%3A%2F%2Fwww.theguardian.com%2Fworld%2F2016%2Fjul%2F22%2Fmissing-flight-mh370-hunt-for-debris-will-not-be-extended "https://api.yonderlabs.com/1.0/textcollection/entitydiscovery/fromURL?collection_name=scrooge&limit=5&access_token=YOUR_ACCESS_TOKEN"
+curl --ssl-reqd --include --request POST --data url=https%3A%2F%2Fwww.theguardian.com%2Fworld%2F2016%2Fjul%2F22%2Fmissing-flight-mh370-hunt-for-debris-will-not-be-extended "https://api.yonderlabs.com/1.0/textcollection/entitydiscovery/fromURL?collection_name=scrooge&limit=5&access_token=YOUR_ACCESS_TOKEN"
 ```
 
->... and response body (202 "ACCEPTED"):
+>... and response body (202 "ACCEPTED") and header:
 
 ```json
+HTTP/1.1 202 ACCEPTED
+Server: nginx/1.4.6 (Ubuntu)
+Date: Thu, 26 Oct 2017 10:50:27 GMT
+Content-Type: application/json
+Content-Length: 157
+Connection: keep-alive
+API-instance: instance01
+
 {
   "task_type": "EntityDiscoveryAPI", 
   "task_id": "8292fd19-6c94-4570-90bf-c7d2f0afb9ed", 
@@ -24,13 +32,21 @@ curl --ssl-reqd --request POST --data url=https%3A%2F%2Fwww.theguardian.com%2Fwo
 > Request example to "Discover related entities" - `POST fromText`...
 
 ```shell
-curl --ssl-reqd --request POST --data text="The hunt for Malaysia Airlines flight MH370 is to be suspended if evidence of the missing jet is not found in the current search area. The transport ministers of Australia, Malaysia and China, representing the country leading the search, the airline and the home of the majority of its passengers, met to discuss the future of the search in the Malaysian federal administrative centre of Putrajaya on Friday. They announced that [...]" "https://api.yonderlabs.com/1.0/textcollection/entitydiscovery/fromText?collection_name=scrooge&limit=5&access_token=YOUR_ACCESS_TOKEN"
+curl --ssl-reqd --include --request POST --data text="The hunt for Malaysia Airlines flight MH370 is to be suspended if evidence of the missing jet is not found in the current search area. The transport ministers of Australia, Malaysia and China, representing the country leading the search, the airline and the home of the majority of its passengers, met to discuss the future of the search in the Malaysian federal administrative centre of Putrajaya on Friday. They announced that [...]" "https://api.yonderlabs.com/1.0/textcollection/entitydiscovery/fromText?collection_name=scrooge&limit=5&access_token=YOUR_ACCESS_TOKEN"
 ```
 
 
->... and response body (202 "ACCEPTED"):
+>... and response body (202 "ACCEPTED") and header:
 
 ```json
+HTTP/1.1 202 ACCEPTED
+Server: nginx/1.4.6 (Ubuntu)
+Date: Thu, 26 Oct 2017 10:50:27 GMT
+Content-Type: application/json
+Content-Length: 157
+Connection: keep-alive
+API-instance: instance01
+
 {
   "task_type": "EntityDiscoveryAPI", 
   "task_id": "8292fd19-6c94-4570-90bf-c7d2f0afb9ed", 
@@ -45,7 +61,7 @@ curl --ssl-reqd --request POST --data text="The hunt for Malaysia Airlines fligh
 > Request example to "Get related entities" - `GET`...
 
 ```shell
-curl --ssl-reqd --request GET "https://api.yonderlabs.com/1.0/textcollection/entitydiscovery?task_id=8292fd19-6c94-4570-90bf-c7d2f0afb9ed&access_token=YOUR_ACCESS_TOKEN"
+curl --ssl-reqd --header "API-instance: instance01" --request GET "https://api.yonderlabs.com/1.0/textcollection/entitydiscovery?task_id=8292fd19-6c94-4570-90bf-c7d2f0afb9ed&access_token=YOUR_ACCESS_TOKEN"
 ```
 
 >... and response body, case 1) SUCCESS, i.e. the task is over:
@@ -195,6 +211,8 @@ Depending on the size of the Text Collection, this service might take up to few 
 Given an URL, this API allows you to discover other contextually relevant named entities by retrieving them from a Text Collection.
 As detailed in the right panel, as an immediate response to this API, you will get a `202` answer ("ACCEPTED") containing a task identifier `task_id` to be used later in the `GET` call. 
 
+Please notice that the `--include` in the `POST` call displays the response header, which includes the `API-instance` field. The value of `API-instance` field (e.g. `instance01`) must be included later in the following `GET` call.
+
 Parameter | Type | Description | Values |
 --------- | ------- | ----------- | ------ |
 collection_name | string, required | the name of the Text Collection  | - |
@@ -209,6 +227,8 @@ access_token | string, required | your access token (40 digits) | - |
 Given a text, this API allows you to discover other contextually relevant named entities by retrieving them from a Text Collection.
 As detailed in the right panel, as an immediate response to this API, you will get a `202` answer ("ACCEPTED") containing a task identifier `task_id` to be used later in the `GET` call.
 
+Please notice that the `--include` in the `POST` call displays the response header, which includes the `API-instance` field. The value of `API-instance` field (e.g. `instance01`) must be included later in the following `GET` call.
+
 Parameter | Type | Description | Values |
 --------- | ------- | ----------- | ------ |
 collection_name | string, required | the name of the Text Collection | - |
@@ -222,6 +242,7 @@ access_token | string, required | your access token (40 digits) | - |
 ### Get results from Entity Discovery - `GET` 
 
 This API allows you to get results containing relevant named entities discovered in a Text Collection.
+Please notice that the value of the `API-instance` field shown in the response header of the previous `POST` call (e.g. `instance01`) must be included in the `GET` call after the option `--header`, as detailed in the right panel.
 
 
 Parameter | Type | Description | 
