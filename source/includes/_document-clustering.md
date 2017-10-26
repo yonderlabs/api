@@ -6,9 +6,9 @@
 ```shell
 curl --ssl-reqd --include --request POST "https://api.yonderlabs.com/1.0/textcollection/documentclustering?collection_name=goofy&access_token=YOUR_ACCESS_TOKEN"
 ```
->... and response body (202 "ACCEPTED") and header:
+>... and response header and body (202 "ACCEPTED"):
 
-```json
+```
 HTTP/1.1 202 ACCEPTED
 Server: nginx/1.4.6 (Ubuntu)
 Date: Thu, 26 Oct 2017 10:50:27 GMT
@@ -16,7 +16,8 @@ Content-Type: application/json
 Content-Length: 157
 Connection: keep-alive
 API-instance: instance01
-
+```
+```json
 {
   "task_type": "DocumentClusteringAPI", 
   "collection-name": "goofy", 
