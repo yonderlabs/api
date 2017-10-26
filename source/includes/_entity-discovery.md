@@ -7,9 +7,9 @@
 curl --ssl-reqd --include --request POST --data url=https%3A%2F%2Fwww.theguardian.com%2Fworld%2F2016%2Fjul%2F22%2Fmissing-flight-mh370-hunt-for-debris-will-not-be-extended "https://api.yonderlabs.com/1.0/textcollection/entitydiscovery/fromURL?collection_name=scrooge&limit=5&access_token=YOUR_ACCESS_TOKEN"
 ```
 
->... and response body (202 "ACCEPTED") and header:
+>... and header and response body (202 "ACCEPTED"):
 
-```json
+```
 HTTP/1.1 202 ACCEPTED
 Server: nginx/1.4.6 (Ubuntu)
 Date: Thu, 26 Oct 2017 10:50:27 GMT
@@ -17,7 +17,8 @@ Content-Type: application/json
 Content-Length: 157
 Connection: keep-alive
 API-instance: instance01
-
+```
+```json
 {
   "task_type": "EntityDiscoveryAPI", 
   "task_id": "8292fd19-6c94-4570-90bf-c7d2f0afb9ed", 
@@ -36,9 +37,9 @@ curl --ssl-reqd --include --request POST --data text="The hunt for Malaysia Airl
 ```
 
 
->... and response body (202 "ACCEPTED") and header:
+>... and header and response body (202 "ACCEPTED"):
 
-```json
+```
 HTTP/1.1 202 ACCEPTED
 Server: nginx/1.4.6 (Ubuntu)
 Date: Thu, 26 Oct 2017 10:50:27 GMT
@@ -46,7 +47,8 @@ Content-Type: application/json
 Content-Length: 157
 Connection: keep-alive
 API-instance: instance01
-
+```
+```json
 {
   "task_type": "EntityDiscoveryAPI", 
   "task_id": "8292fd19-6c94-4570-90bf-c7d2f0afb9ed", 
